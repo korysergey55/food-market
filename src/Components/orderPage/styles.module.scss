@@ -1,0 +1,31 @@
+@import '../../sourses/styles/variables.scss';
+
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 70px 15px;
+
+  .title {
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+    color: $brandColor;
+  }
+
+  .wripper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #f6fafb;
+  }
+
+  .orderForm {
+    width: 100%;
+    max-width: 600px;
+    min-height: 500px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}

@@ -1,0 +1,59 @@
+@import '../../../sourses/styles/variables.scss';
+
+.loginForm {
+  padding: 10px;
+  
+  .subtitle {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    text-align: center;
+    color: $brandColor;
+  }
+  .list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-width: 250px;
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      border: 3px solid $brandColor;
+      border-radius: 7px;
+      transition: border 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:hover {
+        cursor: pointer;
+        border: 3px solid rgb(2, 218, 2);
+      }
+      &:hover .loginBtn {
+        background-color: rgb(2, 218, 2);
+      }
+
+      .text {
+        display: block;
+        margin-bottom: 0;
+        margin-right: 20px;
+        font-size: 18px;
+        font-weight: 500;
+      }
+      .loginBtn {
+        min-width: 40px;
+        height: 40px;
+        border-radius: 7px;
+        border: none;
+        color: white;
+        border: 3px solid transparent;
+        background-color: $brandColor;
+        z-index: 5;
+        transition: background-color 350ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+    }
+  }
+}

@@ -1,0 +1,196 @@
+@import '../../sourses/styles/variables.scss';
+
+.container {
+  width: 100%;
+  padding: 20px;
+
+  .goBack {
+    width: 100px;
+    height: 40px;
+    margin-left: 100px;
+    color: white;
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 15px;
+
+    .imageWrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      padding: 20px;
+
+      .sliderContainer {
+        width: 95px;
+
+        .scrollBtn {
+          width: 95px;
+          height: 30px;
+          margin-bottom: 17px;
+
+          .icon {
+            color: #ffffff;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .img {
+        max-width: 500px;
+        margin-left: 20px;
+        padding: 10px 0;
+        max-height: 450px;
+      }
+    }
+    .wripper {
+      max-width: 500px;
+      height: 100%;
+      margin-top: 20px;
+      padding: 20px;
+
+      .title {
+        font-size: 25px;
+        font-weight: 600;
+      }
+      .raitWripper {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+
+        .rating {
+          margin-right: 10px;
+        }
+      }
+      .colorsWripper {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+
+        .colors {
+          margin-right: 10px;
+        }
+
+        .colorList {
+          display: flex;
+          align-items: center;
+          justify-content: left;
+          margin-bottom: 10px;
+
+          .colorItem {
+            display: block;
+            min-width: 15px;
+            min-height: 15px;
+            margin-right: 10px;
+            background-color: $brandColor;
+          }
+        }
+      }
+      .description {
+        margin-bottom: 40px;
+        font-size: 16px;
+      }
+      .price {
+        margin-bottom: 40px;
+        font-size: 20px;
+        font-weight: 500;
+        color: $brandBgColor;
+
+        .sale {
+          margin-left: 10px;
+          font-size: 22px;
+          text-decoration: line-through 2px solid #dc143c;
+          color: $brandBgColor;
+        }
+      }
+    }
+    .addToCart {
+      width: 150px;
+      margin-right: 10px;
+      border-radius: 7px;
+      color: white;
+      background-color: #32c220;
+      border: none;
+    }
+
+    .btnContainer {
+      display: block;
+      margin-left: 0;
+      .btn {
+        width: 43px;
+        height: 43px;
+        margin-bottom: 10px;
+        border: 1px solid #deecf0;
+        background-color: #f6fafb;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .value {
+        display: inline-block;
+        width: 70px;
+        height: 43px;
+        margin-bottom: 0;
+        border: 1px solid #deecf0;
+        background-color: #f6fafb;
+      }
+    }
+  }
+  .aboutProduct {
+    .list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #deecf0;
+
+      .item {
+        margin-right: 50px;
+        margin-left: 50px;
+        padding-bottom: 22px;
+        font-size: 22px;
+        font-weight: 500;
+        color: #252932;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .active {
+        margin-right: 50px;
+        padding-bottom: 22px;
+        font-size: 22px;
+        font-weight: 500;
+        color: #252932;
+        border-bottom: 3px solid $brandColor;
+      }
+    }
+
+    .text {
+      display: block;
+      margin-top: 38px;
+      font-size: 25px;
+      font-weight: 300;
+      color: #6c6c6c;
+    }
+  }
+  
+  .viewedContainer {
+    .title {
+      font-size: 25px;
+      font-weight: 700;
+      text-align: center;
+      color: $brandColor;
+    }
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+  }
+}

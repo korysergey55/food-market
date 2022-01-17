@@ -1,0 +1,21 @@
+@import '../../../sourses/styles/variables.scss';
+  
+  .formContainer {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px 15px;
+    border-radius: 7px;
+
+    .title {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      text-align: center;
+      color: $brandColor;
+    }
+    .label{
+      font-weight: 600;
+    }
+  }
+

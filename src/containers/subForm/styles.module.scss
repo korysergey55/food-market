@@ -1,0 +1,66 @@
+
+.containerSubForm {
+    display: block;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 15px;
+
+    .form {
+      width: 100%;
+      padding: 20px;
+      border-radius: 7px;
+      background-image: linear-gradient(-84deg, #9fcb22 0%, #b0e223 100%);
+
+      .title {
+        display: block;
+        font-size: 35px;
+        font-weight: 500;
+        text-align: center;
+        color: #ffffff;
+      }
+      .wripper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .input {
+          display: block;
+          width: 210px;
+          height: 50px;
+          padding-left: 14px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+
+          font-size: 18px;
+          font-weight: 300;
+          border: none;
+          border-radius: 7px;
+          color: #6c6c6c;
+          background-color: #ffffff;
+        }
+        .button {
+          display: block;
+          width: 210px;
+          height: 50px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+
+          font-size: 16px;
+          font-weight: 500;
+          text-transform: uppercase;
+          border: none;
+          background-color: #14462e;
+          color: #ffffff;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        .img {
+          display: none;
+        }
+      }
+    }
+  }

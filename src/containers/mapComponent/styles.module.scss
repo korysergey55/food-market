@@ -1,0 +1,21 @@
+@import '../../sourses/styles/variables.scss';
+
+.container {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  padding: 0 15px;
+
+  
+  .title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: $brandColor;
+  }
+
+  .mapContainer {
+    width: 100%;
+    min-height: 400px;
+  }
+}

@@ -1,0 +1,32 @@
+@import '../../../../sourses/styles/variables.scss';
+
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 30px;
+  font-weight: 900;
+  text-shadow: 2px 2px 2px rgba(150, 150, 150, 0.48);
+
+  .item {
+    .navLink {
+      margin-right: 20px;
+      text-decoration: none;
+      font-weight: 700;
+      color: $brandColor;
+      color: black;
+
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+    .navLinkActive {
+      color: $brandColor;
+      fill: $brandColor;
+    }
+  }
+}

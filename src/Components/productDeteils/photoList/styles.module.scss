@@ -1,0 +1,20 @@
+.li {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  background-color: #f6fafb;
+
+  .img {
+    align-self: center;
+    display: block;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+    background-size: contain;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

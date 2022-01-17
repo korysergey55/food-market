@@ -1,0 +1,20 @@
+@import '../../sourses/styles/variables.scss';
+
+.productPage {
+  margin-top: 117px;
+  
+  .container {
+    width: 100%;
+    max-width: 1600px;
+    min-height: 600px;
+    margin: 0 auto;
+
+    .wripper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding-left: 35px;
+    }
+  }
+}

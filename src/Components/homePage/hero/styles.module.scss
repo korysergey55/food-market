@@ -1,0 +1,43 @@
+@import '../../../sourses/styles/variables.scss';
+
+.container {
+  display: block;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  .logoWripper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 10px;
+   
+    .title {
+      font-size: 40px;
+      font-weight: 700;
+      color: $brandColor;
+      margin-bottom: 0;
+      margin-left: 20px;
+    }
+  }
+  .heroTitle {
+    margin-bottom: 0px;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 75px;
+    text-align: center;
+  }
+  .text {
+    font-family: Barlow;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 37px;
+    text-align: center;
+    color: #a1a1a1;
+  }
+}

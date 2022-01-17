@@ -1,0 +1,27 @@
+@import '../../../../sourses/styles/variables.scss';
+
+.container {
+   .title {
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+    color: $brandColor;
+  }
+  .wripper {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 20px;
+
+    .total {
+      font-size: 25px;
+      font-weight: 700;
+      text-align: center;
+      color: $brandColor;
+    }
+    .orderButton {
+      color: rgb(255, 255, 255);
+    }
+  }
+}

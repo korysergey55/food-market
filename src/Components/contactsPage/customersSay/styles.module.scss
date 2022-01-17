@@ -1,0 +1,79 @@
+@import '../../../sourses/styles/variables.scss';
+
+.customersSaying {
+  padding: 40px 0px;
+
+  .container {
+    display: block;
+    width: 100%;
+    max-width: 1112px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    .title {
+      margin-bottom: 48px;
+      font-size: 45px;
+      font-weight: 500;
+      text-align: center;
+      color: #252932;
+    }
+
+    .wripper {
+      margin-bottom: 20px;
+
+      .list {
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 0;
+
+        .item {
+          max-width: 500px;
+          margin-bottom: 20px;
+          margin-right: 10px;
+          padding: 40px;
+          border-top: 3px solid $brandBgColor;
+          background-color: #f6fafb;
+
+          .text {
+            margin-bottom: 20px;
+            font-family: Barlow;
+            font-size: 23px;
+            font-style: italic;
+            text-align: left;
+            color: #6c6c6c;
+          }
+          .userName {
+            display: inline-block;
+            margin-right: 12px;
+            font-size: 22px;
+            font-weight: 500;
+          }
+          .userCompany {
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 500;
+            color: $brandBgColor;
+          }
+        }
+      }
+    }
+    .logoList {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+
+      .item {
+        margin-right: 30px;
+        margin-bottom: 30px;
+
+        .img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

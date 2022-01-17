@@ -1,0 +1,65 @@
+@import '../../../../../sourses/styles/variables.scss';
+
+.orderItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 10px;
+  padding: 10px;
+  // border: 1px solid $brandColor;
+  border-radius: 7px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+
+  .imgWripper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+
+    margin-bottom: 10px;
+    padding: 10px;
+
+    .img {
+      max-width: 280px;
+      max-height: 150px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .wripper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+
+    .title {
+      max-width: 480px;
+      min-width: 280px;
+      margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .qantity {
+      margin-bottom: 0;
+    }
+    .description {
+      max-width: 200px;
+    }
+    .price {
+      margin-right: 10px;
+      margin-left: 20px;
+      font-size: 20px;
+      font-weight: 700;
+      color: $brandColor;
+    }
+  }
+}

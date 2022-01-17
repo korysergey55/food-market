@@ -1,0 +1,67 @@
+@import '../../../../sourses/styles/variables.scss';
+
+.item {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+  width: 100%;
+  min-height: 250px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid $brandColor;
+  border-radius: 7px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+
+  .img {
+    max-width: 280px;
+    max-height: 200px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .title {
+    max-width: 500px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .description {
+    max-width: 500px;
+  }
+  .price {
+    margin-right: 10px;
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    color: $brandColor;
+  }
+  .iconContainer {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    fill: $brandColor;
+
+    &:hover {
+      cursor: pointer;
+      fill: #dd1818;
+    }
+    .iconBin {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
