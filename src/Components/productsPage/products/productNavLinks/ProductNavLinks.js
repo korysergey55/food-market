@@ -13,7 +13,9 @@ const ProductNavLinks = () => {
           route.isLink && (
             <li className={styles.item} key={route.path}>
               <NavLink
-                to={match.url + route.path}
+                // to={match.url + route.path}
+                to={'/products' + route.path}
+                
                 exact={route.exact}
                 icon={route.icon}
                 className={styles.navLink}

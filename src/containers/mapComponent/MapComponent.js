@@ -1,6 +1,11 @@
 import React, { useCallback, useState, useEffect, useMemo } from 'react'
 import useGeoPosition from '../../utils/currentGeoposition/CurrentGeoposition'
-import { GoogleMap, useJsApiLoader, DirectionsService, DirectionsRenderer } from '@react-google-maps/api'
+import {
+  GoogleMap,
+  useJsApiLoader,
+  DirectionsService,
+  DirectionsRenderer,
+} from '@react-google-maps/api'
 import { Marker } from '@react-google-maps/api'
 import { shopGeoposition, shopAdress } from '../../utils/location'
 import DirectionServiseForm from './directionForm/DirectionForm'
@@ -8,7 +13,8 @@ import styles from './styles.module.scss'
 
 const containerStyle = {
   width: '100%',
-  height: '450px',
+  height: '530px',
+  borderRadius: '17px',
 }
 
 const MapComponent = () => {
@@ -69,11 +75,7 @@ const MapComponent = () => {
     [formState]
   )
 
-  const onSubmitBuildRoute = (
-    travelMode,
-    origin,
-    destination,
-  ) => {
+  const onSubmitBuildRoute = (travelMode, origin, destination) => {
     // setFormState({
     //   destination: destination,
     //   origin: origin,
@@ -99,8 +101,8 @@ const MapComponent = () => {
             onUnmount={onUnmount}
             onClick={onMapClick}
           >
-            <Marker position={currentPosition} label='Your position'></Marker>
-            <Marker position={shopGeoposition} label='Shop'></Marker>
+            {/* <Marker position={currentPosition} label="Your position"></Marker> */}
+            <Marker position={shopGeoposition} label="Shop"></Marker>
             {formState.destination && formState.origin && (
               <DirectionsService
                 options={directionsServiceOptions}
@@ -117,7 +119,7 @@ const MapComponent = () => {
           </GoogleMap>
         ) : null}
       </div>
-      <DirectionServiseForm onSubmitBuildRoute={onSubmitBuildRoute} />
+      {/* <DirectionServiseForm onSubmitBuildRoute={onSubmitBuildRoute} /> */}
     </div>
   )
 }
