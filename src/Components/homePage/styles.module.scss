@@ -24,14 +24,23 @@
     display: block;
     width: 100%;
     max-width: 1600px;
+    padding: 40px 15px;
     margin: 0 auto;
 
     .title {
       display: block;
-      margin: 20px 0;
-      font-size: 35px;
+      margin: 0;
+      font-size: 45px;
       font-weight: 700;
+      line-height: 75px;
       text-align: center;
+      color: #252932;
+    }
+    .subtitle {
+      font-size: 25px;
+      font-weight: 600;
+      text-align: center;
+      color: #9fcb22;
     }
     .wripper {
       display: flex;

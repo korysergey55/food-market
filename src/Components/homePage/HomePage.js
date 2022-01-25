@@ -4,34 +4,33 @@ import { observer } from 'mobx-react'
 
 import Header from '../../containers/header/Header'
 import Hero from './hero/Hero'
-import Feachers from './hero/feachers/Feachers'
-import SideBar from '../sideBar/SideBar'
+import Feachers from './feachers/Feachers'
+import Filters from '../filters/Filters'
 import ProductList from '../productsPage/products/productList/ProductList'
+import Baner from './baner/Baner'
 import SubForm from '../../containers/subForm/SubForm'
 import Footer from '../../containers/footer/Footer'
 
 import styles from './styles.module.scss'
-import Filters from '../filters/Filters'
-
-
+Baner
 const HomePage = observer(() => {
   const { ProductsStore } = useStore()
   const { filteredProducts } = ProductsStore
 
-   return (
+  return (
     <div className={styles.homePage}>
       <Header />
       <div className={styles.baner}></div>
       <Hero />
       <Feachers />
       <div className={styles.container}>
-        {filteredProducts && <h2 className={styles.title}>Ветрина товаров</h2>}
-         <Filters/>
+      <h3 className={styles.subtitle}>Популярные</h3>
+        <h2 className={styles.title}>Рекомендуемые товары</h2>
         <div className={styles.wripper}>
-          <SideBar />
           <ProductList homePage={true} />
         </div>
-        <SubForm />
+        <Baner/>
+        {/* <SubForm /> */}
       </div>
       <Footer />
     </div>

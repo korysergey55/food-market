@@ -1,9 +1,13 @@
 @import '../../sourses/styles/variables.scss';
 
-.wripper {
+.containerFilter {
   width: 100%;
+  min-height: 60px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+
 
   .sortBtn {
     margin-right: 25px;
@@ -14,7 +18,7 @@
   .sortBtnActiv {
     margin-right: 25px;
     border: none;
-    border-radius: 0;
+    border-radius:0;
     background-color: #1890ff;
   }
   .text {
@@ -22,6 +26,7 @@
     font-size: 18px;
     font-weight: 400;
     color: #6c6c6c;
+    margin-bottom: 0;
   }
 
   .search {

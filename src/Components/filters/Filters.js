@@ -25,7 +25,7 @@ const Filters = observer(() => {
   }
 
   return (
-    <div className={styles.wripper}>
+    <div className={styles.containerFilter}>
       <button
         className={classNames({
           [styles.sortBtnActiv]: !activeClass,
@@ -65,15 +65,13 @@ const Filters = observer(() => {
         size="large"
         enterButton="Поиск"
       />
-
       <Select
         className={styles.select}
-        defaultValue="default"
+        defaultValue="name"
         size="large"
         style={{ height: 44 }}
         onChange={handleChangeSorter}
       >
-        <Option value="default">Без сортировки</Option>
         <Option value="name">Сортировка по имени</Option>
         <Option value="price">Сортировка по цене</Option>
         <Option value="new">Самые новые товары</Option>

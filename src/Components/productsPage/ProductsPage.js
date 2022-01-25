@@ -8,6 +8,7 @@ import ProductRout from './products/productsRouts/ProductRouts'
 import SideBar from '../sideBar/SideBar'
 import SubForm from '../../containers/subForm/SubForm'
 import Footer from '../../containers/footer/Footer'
+import Filters from '../filters/Filters'
 
 import styles from './styles.module.scss'
 
@@ -28,6 +29,8 @@ const ProductsPage = observer(() => {
       <Header />
       <div className={styles.baner}></div>
       <div className={styles.container}>
+      <h2 className={styles.title}>Ветрина товаров</h2>
+        <Filters/>
         <div className={styles.wripper}>
           <SideBar />
           <ProductRout />
