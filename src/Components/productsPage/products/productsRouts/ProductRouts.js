@@ -13,7 +13,7 @@ const ProductRouts = () => {
           key={path}
           path={match.path + path}
           exact={exact}
-          render={() => <MyComponent category={category} />}
+          render={() => <MyComponent category={category} />}          
         />
       ))}
     </Switch>

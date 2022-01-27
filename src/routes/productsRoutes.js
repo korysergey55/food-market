@@ -1,5 +1,4 @@
 import { lazy } from 'react'
-import IconComponent from '../containers/IconComponent/IconComponent'
 
 export const productsRoutes = [
   {
@@ -11,7 +10,16 @@ export const productsRoutes = [
     exact: false,
     isLink: false,
   },
-
+  {
+    name: 'Все',
+    path: '/all',
+    category: 'all',
+    component: lazy(() =>
+      import('../Components/productsPage/products/productList/ProductList.js')
+    ),
+    exact: true,
+    isLink: true,
+  },
   {
     name: 'Кофе, чай, капучино',
     path: '/coffee',
@@ -21,7 +29,6 @@ export const productsRoutes = [
     ),
     exact: true,
     isLink: true,
-    // icon: <IconComponent />,
   },
   {
     name: 'Оливки и оливковое масло',
@@ -32,7 +39,6 @@ export const productsRoutes = [
     ),
     exact: true,
     isLink: true,
-    // icon: <IconComponent icon="#icon-computer-desktop" />,
   },
   {
     name: 'Сыры и колбасы',
@@ -43,7 +49,6 @@ export const productsRoutes = [
     ),
     exact: true,
     isLink: true,
-    // icon: <IconComponent icon="#icon-tablet" />,
   },
   {
     name: 'Шоколадки и шоколадные пасты',
@@ -54,7 +59,6 @@ export const productsRoutes = [
     ),
     exact: true,
     isLink: true,
-    // icon: <IconComponent icon="#icon-watch" />,
   },
   {
     name: 'Леденцы, драже и конфеты',
@@ -65,7 +69,6 @@ export const productsRoutes = [
     ),
     exact: true,
     isLink: true,
-    // icon: <IconComponent icon="#icon-headphones" />,
   },
   {
     name: 'Макароны',
@@ -76,7 +79,6 @@ export const productsRoutes = [
     ),
     exact: true,
     isLink: true,
-    // icon: <IconComponent icon="#icon-headphones" />,
   },
   {
     name: 'Консерви и паштеты',
@@ -87,7 +89,6 @@ export const productsRoutes = [
     ),
     exact: true,
     isLink: true,
-    // icon: <IconComponent icon="#icon-headphones" />,
   },
   {
     name: 'Специи и соусы',
@@ -98,7 +99,6 @@ export const productsRoutes = [
     ),
     exact: true,
     isLink: true,
-    // icon: <IconComponent icon="#icon-headphones" />,
   },
   {
     name: 'Витамины и лечебные средства',
@@ -109,7 +109,6 @@ export const productsRoutes = [
     ),
     exact: true,
     isLink: true,
-    // icon: <IconComponent icon="#icon-headphones" />,
   },
   {
     name: 'Разное',
@@ -120,7 +119,6 @@ export const productsRoutes = [
     ),
     exact: true,
     isLink: true,
-    // icon: <IconComponent icon="#icon-headphones" />,
   },
   {
     name: 'Новинки',
@@ -131,6 +129,5 @@ export const productsRoutes = [
     ),
     exact: true,
     isLink: true,
-    // icon: <IconComponent icon="#icon-headphones" />,
   },
 ]

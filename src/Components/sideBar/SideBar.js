@@ -9,7 +9,11 @@ import styles from './styles.module.scss'
 const SideBar = observer(() => {
   const { ProductsStore } = useStore()
   const history = useHistory()
-  return <ProductNavLinks />
+  return (
+    <div className={styles.sideBar}>
+      <ProductNavLinks />
+    </div>
+  )
 })
 
 export default SideBar

@@ -5,14 +5,16 @@ import { observer } from 'mobx-react'
 import Header from '../../containers/header/Header'
 import Hero from './hero/Hero'
 import Feachers from './feachers/Feachers'
-import Filters from '../filters/Filters'
 import ProductList from '../productsPage/products/productList/ProductList'
 import Baner from './baner/Baner'
+import AboutUs from './aboutUs/AboutUs'
+import Differences from './differences/Differences'
 import SubForm from '../../containers/subForm/SubForm'
+import Partners from './partners/Partners'
 import Footer from '../../containers/footer/Footer'
 
 import styles from './styles.module.scss'
-Baner
+
 const HomePage = observer(() => {
   const { ProductsStore } = useStore()
   const { filteredProducts } = ProductsStore
@@ -24,13 +26,21 @@ const HomePage = observer(() => {
       <Hero />
       <Feachers />
       <div className={styles.container}>
-      <h3 className={styles.subtitle}>Популярные</h3>
+        <h3 className={styles.subtitle}>Самые Популярные</h3>
+        <h2 className={styles.title}>Популярные продукты</h2>
+        <div className={styles.wripper}>
+          <ProductList homePage={true} />
+        </div>
+        <Baner />
+        <AboutUs/>
+        <h3 className={styles.subtitle}>Наиболее продаваемые</h3>
         <h2 className={styles.title}>Рекомендуемые товары</h2>
         <div className={styles.wripper}>
           <ProductList homePage={true} />
         </div>
-        <Baner/>
-        {/* <SubForm /> */}
+        <Differences/>
+        <Partners/>
+        <SubForm />
       </div>
       <Footer />
     </div>

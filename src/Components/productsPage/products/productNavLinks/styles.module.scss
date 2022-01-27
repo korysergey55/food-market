@@ -2,23 +2,31 @@
 
 .list {
   max-width: 300px;
-  max-height: 620px;
-  padding: 10px;
+  max-height: 646px;
+  padding:  10px;
   
   font-size: 20px;
   font-weight: 700;
-  border: 2px solid $brandColor;
+  border: 1px solid gainsboro;
   border-radius: 7px;
   text-shadow: 2px 2px 2px rgba(150, 150, 150, 0.48);
 
   .item {
     padding: 5px;
+    border-bottom: 1px solid gainsboro;
+
+    
+
     .navLink {
       margin-right: 20px;
       text-decoration: none;
       font-weight: 700;
       color: $brandColor;
       color: black;
+
+      &:hover{
+        color: $brandColor;
+      }
 
       &:not(:last-child) {
         margin-right: 20px;

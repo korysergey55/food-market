@@ -5,8 +5,6 @@ import { useHistory, useLocation, NavLink } from 'react-router-dom'
 import { pathes } from '../../utils/pathes'
 import { shopTel } from '../../utils/location'
 
-import { navLinks } from '../../sourses/data/navLinks'
-import HeaderItem from './headerItem/HeaderItem'
 import Logo from '../Logo/Logo'
 
 import styles from './styles.module.scss'
@@ -16,10 +14,9 @@ import {
   faUser,
   faHeart,
   faSignOutAlt,
-  faPhoneAlt
+  faPhoneAlt,
 } from '@fortawesome/free-solid-svg-icons'
-import { Input, Space } from 'antd'
-const { Search } = Input
+import { Input } from 'antd'
 
 const Header = observer(() => {
   const { AuthStore, ProductsStore } = useStore()
@@ -94,12 +91,6 @@ const Header = observer(() => {
             </li>
           )}
         </ul>
-        <Search
-          className={styles.search}
-          placeholder="Поиск товара"
-          onSearch={onSearch}
-          // enterButton
-        />
         <ul className={styles.navList}>
           {AuthStore.token ? (
             <li className={styles.item}>
@@ -161,8 +152,8 @@ const Header = observer(() => {
               className={styles.iconTel}
               icon={faPhoneAlt}
               size="1x"
-              />
-              {shopTel}
+            />
+            {shopTel}
           </a>
         </div>
       </div>

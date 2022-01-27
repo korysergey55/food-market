@@ -6,18 +6,27 @@ import styles from './styles.module.scss'
 import classNames from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTh, faListUl } from '@fortawesome/free-solid-svg-icons'
-import { Input, Select } from 'antd'
+import { Input, Select, Button, Slider } from 'antd'
 const { Search } = Input
 const { Option } = Select
 
 const Filters = observer(() => {
   const { ProductsStore } = useStore()
+  const [filterValue, setFilterValue] = useState('')
   const [activeClass, setActiveClass] = useState(false)
+
+  const onChange = evt => {
+    const { value } = evt.target
+    setFilterValue(value)
+    if (value === '') {
+      ProductsStore.filterProductsAction('')
+    }
+  }
 
   const onSearch = value => ProductsStore.filterProductsAction(value)
 
   const handleChangeSorter = value => {
-    console.log(`selected ${value}`)
+    ProductsStore.sortProducts(value)
   }
 
   const changeStyle = () => {
@@ -56,11 +65,12 @@ const Filters = observer(() => {
           className={styles.icon}
         />
       </button>
-      <p className={styles.text}>Показано 1–18 из 24 результатов</p>
 
       <Search
         className={styles.search}
         placeholder="Поиск товара"
+        value={filterValue}
+        onChange={evt => onChange(evt)}
         onSearch={onSearch}
         size="large"
         enterButton="Поиск"
@@ -74,7 +84,7 @@ const Filters = observer(() => {
       >
         <Option value="name">Сортировка по имени</Option>
         <Option value="price">Сортировка по цене</Option>
-        <Option value="new">Самые новые товары</Option>
+        <Option value="default">Самые новые товары</Option>
       </Select>
     </div>
   )

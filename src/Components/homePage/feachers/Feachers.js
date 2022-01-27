@@ -1,12 +1,14 @@
 import * as React from 'react'
-import styles from './styles.module.scss'
-import LayerImg from '../../../sourses/images/feachers/f1.png'
-import LayerImg2 from '../../../sourses/images/feachers/f2.png'
-import LayerImg3 from '../../../sourses/images/feachers/f3.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { useHistory } from 'react-router'
 import {pathes} from '../../../utils/pathes'
+import LayerImg from '../../../sourses/images/homePage/feachers/f1.png'
+import LayerImg2 from '../../../sourses/images/homePage/feachers/f2.png'
+import LayerImg3 from '../../../sourses/images/homePage/feachers/f3.png'
+
+import styles from './styles.module.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { Button } from 'antd'
 
 const Feachers = () => {
   const history = useHistory()

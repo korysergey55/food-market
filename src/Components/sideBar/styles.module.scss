@@ -1,22 +1,10 @@
-// @import '../../sourses/styles/variables.scss';
+@import '../../sourses/styles/variables.scss';
 
-// .list{
-//     max-width: 300px;
-//     max-height: 600px;
-//     margin-left: 20px;
-//     padding: 10px;
+.sideBar{
+    min-width: 300px;
+    margin-left: 20px;
+    padding: 10px;
 
-//     font-size: 20px;
-//     font-weight: 700;
-//     border: 2px solid $brandColor;
-//     border-radius: 7px;
-
-//     .item{
-//         padding: 5px;
-
-//         &:hover{
-//             cursor: pointer;
-//             color:$brandColor;
-//         }
-//     }
-// }
+    font-size: 20px;
+    font-weight: 700;
+}

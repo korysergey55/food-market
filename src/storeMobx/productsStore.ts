@@ -19,19 +19,6 @@ class ProductsStore {
 
   @observable filteredProducts: any = [...this.products]
 
-  @observable category: any = [
-    'Кофе, чай, капучино',
-    'Оливки и оливковое масло',
-    'Сыры и колбасы',
-    'Шоколадки и шоколадные пасты',
-    'Леденцы, драже и конфеты',
-    'Макароны',
-    'Консерви и паштеты',
-    'Специи и соусы',
-    'Витамины и лечебные средства',
-    'Разное',
-  ]
-
   @observable cart: any = []
 
   @observable totalPrice: number = 0
@@ -76,7 +63,6 @@ class ProductsStore {
   }
 
   @action setTotalPrice(data: any = null) {
-    console.log(data)
     if (!data) {
       const price = this.cart?.reduce((acc: any, product: any) => {
         acc += Number(product.price)
@@ -92,6 +78,28 @@ class ProductsStore {
 
   @action setViewedProducts(data: any) {
     this.viewedProducts = [...this.viewedProducts, data]
+  }
+
+  @action sortProducts(data: any) {
+   
+    if (data === 'price') {
+      const sortedProducts = this.products.sort(
+        (min:any, max:any) => max.price - min.price
+      )
+      this.filteredProducts = sortedProducts
+    }
+    if (data === 'name') {
+      const sortedProducts = this.products.sort((a: any, b: any) =>
+        a.name.localeCompare(b.name)
+      )
+      this.filteredProducts = sortedProducts
+    }
+    if (data === 'default') {
+      const sortedProducts = this.products.sort((a: any, b: any) =>
+        b.name.localeCompare(a.name)
+      )
+      this.filteredProducts = sortedProducts
+    }
   }
 }
 export default new ProductsStore()
