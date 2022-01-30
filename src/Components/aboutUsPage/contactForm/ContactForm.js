@@ -68,7 +68,7 @@ const ContactForm = observer(() => {
           <Col span={12}>
             <Form.Item
               name={['tel']}
-              rules={[{ message: 'Введите Ваш номер телефона!' }]}
+              rules={[{required: true, message: 'Введите Ваш номер телефона!' }]}
             >
               <Input
                 className={styles.input}

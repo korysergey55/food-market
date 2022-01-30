@@ -14,7 +14,7 @@ import styles from './styles.module.scss'
 const containerStyle = {
   width: '100%',
   height: '530px',
-  borderRadius: '17px',
+  // borderRadius: '17px',
 }
 
 const MapComponent = () => {
@@ -101,7 +101,7 @@ const MapComponent = () => {
             onUnmount={onUnmount}
             onClick={onMapClick}
           >
-            {/* <Marker position={currentPosition} label="Your position"></Marker> */}
+            <Marker position={currentPosition} label="Your position"></Marker>
             <Marker position={shopGeoposition} label="Shop"></Marker>
             {formState.destination && formState.origin && (
               <DirectionsService

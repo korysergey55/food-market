@@ -60,20 +60,5 @@
         }
       }
     }
-    .logoList {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-
-      .item {
-        margin-right: 30px;
-        margin-bottom: 30px;
-
-        .img {
-          width: 100%;
-        }
-      }
-    }
   }
 }

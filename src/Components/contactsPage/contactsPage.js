@@ -1,29 +1,30 @@
 import React from 'react'
 import Header from '../../containers/header/Header'
+import ContactInfo from '../../Components/contactsPage/contactInfo/ContactInfo'
 import MapComponent from '../../containers/mapComponent/MapComponent'
-import ContactForm from './contactForm/ContactForm'
 import ReachUs from './reachUs/ReachUs'
-import CustomersSaying from './customersSay/CustomersSay'
+import Partners from '../../Components/homePage/partners/Partners'
 import Footer from '../../containers/footer/Footer'
-import styles from "./styles.module.scss"
+
+import styles from './styles.module.scss'
 
 const ContactsPage = () => {
   return (
     <div className={styles.contactPage}>
       <Header />
-      <h2 className={styles.title}>Контакты</h2>
       <div className={styles.container}>
+        <h2 className={styles.title}>Контакты</h2>
+        <ContactInfo />
         <div className={styles.wripper}>
           {/* <div className={styles.map}></div> */}
-          <MapComponent/>
+          <MapComponent />
           <ReachUs />
         </div>
-        <ContactForm />
-        <CustomersSaying />
+        <Partners />
       </div>
-      <Footer/>
+      <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default ContactsPage;
+export default ContactsPage

@@ -4,13 +4,13 @@
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 40px;
+  padding: 20px;
   border-radius: 7px;
-  background-color: #f6fafb;
-  border: 1px solid $brandBgColor;
+  border: 1px solid #f0f0f0;
+  // background-color: #f6fafb;
 
   .title {
-    font-size: 45px;
+    font-size: 35px;
     font-weight: 550;
     line-height: 75px;
     text-align: center;
@@ -26,7 +26,7 @@
   font-weight: 400;
 }
 .textarea {
-  width: 100%;
+  width: 800px;
   height: 181px;
   margin-bottom: 40px;
   font-size: 18px;
