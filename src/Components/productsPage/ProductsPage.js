@@ -8,7 +8,7 @@ import ProductRout from './products/productsRouts/ProductRouts'
 import SideBar from '../sideBar/SideBar'
 import Filters from './filters/Filters'
 import Partners from '../homePage/partners/Partners'
-import SubForm from '../../containers/subForm/SubForm'
+import SubForm from '../../containers/Reuseble/subForm/SubForm'
 import Footer from '../../containers/footer/Footer'
 
 import styles from './styles.module.scss'

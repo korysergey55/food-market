@@ -7,7 +7,7 @@ import { ToastContainer } from 'react-toastify'
 import { mainRoutes } from '../../routes/mainRoutes'
 import PrivateRoute from '../../routes/PrivateRoute'
 import PublicRoute from '../../routes/PublicRoute'
-import Loader from '../../containers/Loader/Loader'
+import Loader from '../../containers/Utils/Loader/Loader'
 
 const App = observer(() => {
   const { AuthStore } = useStore()

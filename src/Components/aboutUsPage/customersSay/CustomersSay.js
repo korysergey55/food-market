@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styles from './styles.module.scss'
-import StarList from '../../../containers/starList/StarList'
+import StarList from '../../../containers/Reuseble/starList/StarList'
 
 const CustomersSaying = () => {
   return (

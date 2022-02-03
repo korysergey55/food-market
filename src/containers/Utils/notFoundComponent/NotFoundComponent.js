@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useHistory } from 'react-router'
 import styles from './styles.module.scss'
-import notFoundImg from '../../sourses/images/404.jpg'
+import notFoundImg from '../../../sourses/images/404.jpg'
 
 
 const NotFoundComponent = ({

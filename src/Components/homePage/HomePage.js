@@ -9,7 +9,7 @@ import ProductList from '../productsPage/products/productList/ProductList'
 import Baner from './baner/Baner'
 import AboutUs from './aboutUs/AboutUs'
 import Differences from './differences/Differences'
-import SubForm from '../../containers/subForm/SubForm'
+import SubForm from '../../containers/Reuseble/subForm/SubForm'
 import Partners from './partners/Partners'
 import Footer from '../../containers/footer/Footer'
 

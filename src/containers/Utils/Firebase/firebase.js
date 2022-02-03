@@ -1,6 +1,6 @@
 import firebase from 'firebase'
 import { toast } from 'react-toastify'
-import { pathes } from '../pathes'
+import { pathes } from '../../../utils/pathes'
 
 let configKorySergey = {
   apiKey: process.env.REACT_APP_WEB_API_KEY,

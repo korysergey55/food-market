@@ -4,7 +4,7 @@ import { useStore } from '../../../../../storeMobx'
 import { observer } from 'mobx-react'
 import { pathes } from '../../../../../utils/pathes'
 
-import StarList from '../../../../../containers/starList/StarList'
+import StarList from '../../../../../containers/Reuseble/starList/StarList'
 
 import styles from './styles.module.scss'
 import classnames from 'classnames'

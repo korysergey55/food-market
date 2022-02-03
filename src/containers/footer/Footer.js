@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useHistory } from 'react-router'
 import { shopLocation, shopTel, shopEmail, shopAdress } from '../../utils/location'
-import SotialList from '../sotialList/SotialList'
+import SotialList from '../Reuseble/sotialList/SotialList'
 import { pathes } from '../../utils/pathes'
 
 import styles from './styles.module.scss'

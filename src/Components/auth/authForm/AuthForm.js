@@ -6,7 +6,7 @@ import { pathes } from '../../../utils/pathes'
 import {
   signInWithEmailAndPassword,
   registerWithEmailAndPassword,
-} from '../../../utils/Firebase/firebase'
+} from '../../../containers/Utils/Firebase/firebase'
 
 import styles from './styles.module.scss'
 import classNames from 'classnames'

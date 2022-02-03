@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useStore } from '../../storeMobx'
+import { useStore } from '../../../storeMobx'
 import { observer } from 'mobx-react'
 
 import styles from './styles.module.scss'

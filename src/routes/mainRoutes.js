@@ -1,7 +1,16 @@
 import { lazy } from 'react'
-import IconComponent from '../containers/IconComponent/IconComponent'
+import IconComponent from '../containers/Utils/IconComponent/IconComponent'
 
 export const mainRoutes = [
+  {
+    name: 'ProductDetails',
+    path: '/products/:category/:productID',
+    component: lazy(() =>
+      import('../Components/productDetailsPage/ProductDatailPage')
+    ),
+    exact: false,
+    isLink: false,
+  },
   {
     name: 'Home',
     path: '/',
@@ -18,11 +27,11 @@ export const mainRoutes = [
     isRestricted: false,
     isPrivate: false,
   },
-    {
+  {
     name: 'Contacts',
     path: '/contacts',
     component: lazy(() => import('../Components/contactsPage/contactsPage')),
-    exact: false,
+    exact: true,
     isRestricted: false,
     isPrivate: false,
   },
@@ -67,7 +76,7 @@ export const mainRoutes = [
     path: '/:notfound',
     exact: true,
     component: lazy(() =>
-      import('../containers/notFoundComponent/NotFoundComponent.js')
+      import('../containers/Utils/notFoundComponent/NotFoundComponent.js')
     ),
     isPrivate: false,
     iisRestricted: false,

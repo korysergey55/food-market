@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
-import sprite from "../../sourses/icons/productsSprite.svg";
+import sprite from "../../../sourses/icons/productsSprite.svg";
 
 const IconComponent = ({ icon = "#icon-mobile-devices", color = false }) => {
   return (

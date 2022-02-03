@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
-import { sendPasswordResetEmail } from '../../../utils/Firebase/firebase'
+import { sendPasswordResetEmail } from '../../../containers/Utils/Firebase/firebase'
 
 import styles from './styles.module.scss'
 import { Form, Input, Button } from 'antd'

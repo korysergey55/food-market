@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useStore } from '../../storeMobx'
+import { useStore } from '../../../storeMobx'
 import { observer } from 'mobx-react'
 import {
   useHistory,
@@ -8,14 +8,15 @@ import {
   withRouter,
 } from 'react-router-dom'
 import Slider from 'react-slick'
-import { sliderSettings } from '../../utils/sliderSettings'
+import { sliderSettings } from '../../../utils/sliderSettings'
 
-import PhotoList from '../productDeteils/photoList/PhotoList'
-import StarList from '../../containers/starList/StarList'
-import ProductItem from '../productsPage/products/productList/productItem/productItem'
+import PhotoList from './photoList/PhotoList'
+import StarList from '../../../containers/Reuseble/starList/StarList'
+import ProductItem from '../../productsPage/products/productList/productItem/productItem'
 
 import styles from './styles.module.scss'
 import classnames from 'classnames'
+import { Button } from 'antd';
 
 const ProductItemDetails = observer(() => {
   const { ProductsStore } = useStore()
@@ -62,9 +63,9 @@ const ProductItemDetails = observer(() => {
 
   return productById ? (
     <div className={styles.container}>
-      <button className={styles.goBack} type="button" onClick={goBack}>
+      <Button className={styles.goBack} type="primary" onClick={goBack}>
         Назад
-      </button>
+      </Button>
       <div className={styles.content}>
         <div className={styles.imageWrapper}>
           {productById.images && (
@@ -100,6 +101,8 @@ const ProductItemDetails = observer(() => {
             </ul>
           </div> */}
           <p className={styles.description}>{productById.description}</p>
+          <p className={styles.description}>Производитель: {productById.aboutProduct.manufactur}</p>
+          <p className={styles.description}>Вес: {productById.aboutProduct.weight}</p>
           <p className={styles.price}>
             {productById.price}грн
             <span className={styles.sale}> {productById.price * 1.2}грн</span>
@@ -188,4 +191,4 @@ const ProductItemDetails = observer(() => {
   ) : null
 })
 
-export default withRouter(ProductItemDetails)
+export default ProductItemDetails

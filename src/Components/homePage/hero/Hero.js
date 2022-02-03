@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from '../../../containers/Logo/Logo'
+import Logo from '../../../containers/Reuseble/Logo/Logo'
 import styles from './styles.module.scss'
 
 const Hero = () => {

@@ -1,4 +1,4 @@
-@import '../../sourses/styles/variables.scss';
+@import '../../../sourses/styles/variables.scss';
 
 .container {
   width: 100%;
@@ -7,21 +7,21 @@
   .goBack {
     width: 100px;
     height: 40px;
-    margin-left: 100px;
+    margin-bottom: 20px;
     color: white;
   }
 
   .content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    padding: 15px;
+    padding: 0 0 40px 0;
 
     .imageWrapper {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;
-      padding: 20px;
+      padding: 10px;
 
       .sliderContainer {
         width: 95px;
@@ -51,11 +51,11 @@
       max-width: 500px;
       height: 100%;
       margin-top: 20px;
-      padding: 20px;
+      padding: 10px;
 
       .title {
         font-size: 25px;
-        font-weight: 600;
+        font-weight: 650;
       }
       .raitWripper {
         display: flex;
@@ -91,8 +91,9 @@
         }
       }
       .description {
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         font-size: 16px;
+        font-weight: 500;
       }
       .price {
         margin-bottom: 40px;
@@ -120,6 +121,7 @@
     .btnContainer {
       display: block;
       margin-left: 0;
+      margin-bottom: 10px;
       .btn {
         width: 43px;
         height: 43px;
@@ -144,14 +146,13 @@
   .aboutProduct {
     .list {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      margin: 40px 0;
       border-bottom: 1px solid #deecf0;
 
       .item {
-        margin-right: 50px;
-        margin-left: 50px;
         padding-bottom: 22px;
         font-size: 22px;
         font-weight: 500;
@@ -162,30 +163,31 @@
         }
       }
       .active {
-        margin-right: 50px;
-        padding-bottom: 22px;
+        padding-bottom: 20px;
         font-size: 22px;
         font-weight: 500;
         color: #252932;
-        border-bottom: 3px solid $brandColor;
+        border-bottom: 3px solid #1890ff;
       }
     }
 
     .text {
       display: block;
-      margin-top: 38px;
+      margin-top: 20px;
+      margin-bottom: 0;
       font-size: 25px;
       font-weight: 300;
       color: #6c6c6c;
     }
   }
-  
+
   .viewedContainer {
     .title {
+      margin-bottom: 40px;
       font-size: 25px;
       font-weight: 700;
       text-align: center;
-      color: $brandColor;
+      text-decoration: underline;
     }
     .list {
       display: flex;

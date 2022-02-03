@@ -5,7 +5,7 @@ import { useHistory, useLocation, NavLink } from 'react-router-dom'
 import { pathes } from '../../utils/pathes'
 import { shopTel } from '../../utils/location'
 
-import Logo from '../Logo/Logo'
+import Logo from '../Reuseble/Logo/Logo'
 
 import styles from './styles.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

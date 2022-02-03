@@ -26,7 +26,7 @@ const ContactInfo = () => {
               {shopTel}
             </a>
           </Tooltip>
-          <a className={`${styles.link} ${styles.email}`} href={`tel:${shopEmail}`}>
+          <a className={`${styles.link} ${styles.email}`} href={`mailto:${shopEmail}`}>
               {shopEmail}
             </a>
         </div>

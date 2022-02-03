@@ -1,15 +1,15 @@
 import { lazy } from 'react'
 
 export const productsRoutes = [
-  {
-    name: 'ProductDetails',
-    path: '/:category/:productID',
-    component: lazy(() =>
-      import('../Components/productDeteils/ProductDetails')
-    ),
-    exact: false,
-    isLink: false,
-  },
+  // {
+  //   name: 'ProductDetails',
+  //   path: '/:category/:productID',
+  //   component: lazy(() =>
+  //     import('../Components/productDeteils/ProductDetails')
+  //   ),
+  //   exact: false,
+  //   isLink: false,
+  // },
   {
     name: 'Все',
     path: '/all',
