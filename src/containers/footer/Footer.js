@@ -1,14 +1,19 @@
 import * as React from 'react'
 import { useHistory } from 'react-router'
-import { shopLocation, shopTel, shopEmail, shopAdress } from '../../utils/location'
+import {
+  shopLocation,
+  shopTel,
+  shopEmail,
+  shopAdress,
+} from '../../utils/location'
 import SotialList from '../Reuseble/sotialList/SotialList'
 import { pathes } from '../../utils/pathes'
+import visa from '../../sourses/images/footer/visamaster.png'
 
 import styles from './styles.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMapMarkerAlt, faMobileAlt } from '@fortawesome/free-solid-svg-icons'
+import { faMapMarkerAlt, faPhoneAlt } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
-
 
 const Footer = () => {
   const history = useHistory()
@@ -20,7 +25,8 @@ const Footer = () => {
           <li className={styles.item}>
             <h4 className={styles.title}>Наши контакты</h4>
             <div className={styles.wripper}>
-              <a className={styles.link}
+              <a
+                className={styles.link}
                 href={shopLocation}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -29,7 +35,7 @@ const Footer = () => {
                   className={styles.icon}
                   icon={faMapMarkerAlt}
                   color="#ffffff"
-                  size="3x"
+                  size="2x"
                 />
                 {shopAdress}
               </a>
@@ -38,9 +44,9 @@ const Footer = () => {
               <a className={styles.link} href={`tel:${shopTel}`}>
                 <FontAwesomeIcon
                   className={styles.icon}
-                  icon={faMobileAlt}
+                  icon={faPhoneAlt}
                   color="#ffffff"
-                  size="3x"
+                  size="2x"
                 />
                 {shopTel}
               </a>
@@ -51,23 +57,38 @@ const Footer = () => {
                   className={styles.icon}
                   icon={faEnvelope}
                   color="#ffffff"
-                  size="3x"
+                  size="2x"
                 />
                 {shopEmail}
               </a>
             </div>
           </li>
-          
+
           <li className={styles.item}>
             <h4 className={styles.title}>Полезные ссылки</h4>
-            <p className={styles.text} onClick={() => history.push(pathes.home)}>О Нас</p>
-            <p className={styles.text} onClick={() => history.push(pathes.contacts)}>Контакты</p>
-            <p className={styles.text} onClick={() => history.push(pathes.products)}>Товары</p>
-            <p className={styles.text} onClick={() => history.push(pathes.cart)}>Корзина</p>
+            <p
+              className={styles.text}
+              onClick={() => history.push(pathes.products)}
+            >
+              Популярные Товары
+            </p>
+            <p
+              className={styles.text}
+              onClick={() => history.push(pathes.products)}
+            >
+              Товары
+            </p>
+            <p
+              className={styles.text}
+              onClick={() => history.push(pathes.contacts)}
+            >
+              Контакты
+            </p>
           </li>
           <li className={styles.item}>
             <h4 className={styles.title}>Социальные сети</h4>
             <SotialList />
+            <img className={styles.visa} src={visa} alt="visa" />
             {/* <p className={styles.subtitle}>Monday – Saturday</p>
             <p className={styles.text}>12.00 – 14.45</p>
             <p className={styles.subtitle}>Sunday – Thursday</p>

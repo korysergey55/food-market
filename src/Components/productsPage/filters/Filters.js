@@ -35,7 +35,7 @@ const Filters = observer(() => {
 
   return (
     <div className={styles.containerFilter}>
-      <button
+      {/* <button
         className={classNames({
           [styles.sortBtnActiv]: !activeClass,
           [styles.sortBtn]: true,
@@ -64,7 +64,7 @@ const Filters = observer(() => {
           color="#ffffff"
           className={styles.icon}
         />
-      </button>
+      </button> */}
 
       <Search
         className={styles.search}
@@ -86,6 +86,7 @@ const Filters = observer(() => {
         <Option value="price">Сортировка по цене</Option>
         <Option value="default">Самые новые товары</Option>
       </Select>
+      
     </div>
   )
 })

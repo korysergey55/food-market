@@ -14,10 +14,11 @@ import { productsJSON } from '../sourses/data/newProducts'
 
 class ProductsStore {
   @observable products: any = [...productsJSON]
+  @observable filteredProducts: any = [...this.products]
+  @observable manufactured: any = ['Ambassador','Bellarom'," Bellarom",' Eduscho','Lavazza','Pellini']
+  @observable packing: any = ['100','200'," 300",' 400','500','600']
 
   @observable productById: any = null
-
-  @observable filteredProducts: any = [...this.products]
 
   @observable cart: any = []
 

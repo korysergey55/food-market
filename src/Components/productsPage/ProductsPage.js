@@ -18,12 +18,18 @@ const ProductsPage = observer(() => {
   const { productById } = ProductsStore
   const history = useHistory()
   const match = useRouteMatch()
+  
+  console.log(match)
 
   useEffect(() => {
     if (!productById) {
       history.push(match.path + '/all')
     }
   }, [history, match.path])
+
+  useEffect(() => {
+    window.scroll(0, 350)
+  }, [])
 
   return (
     <div className={styles.productPage}>

@@ -2,15 +2,15 @@ import { lazy } from 'react'
 import IconComponent from '../containers/Utils/IconComponent/IconComponent'
 
 export const mainRoutes = [
-  {
-    name: 'ProductDetails',
-    path: '/products/:category/:productID',
-    component: lazy(() =>
-      import('../Components/productDetailsPage/ProductDatailPage')
-    ),
-    exact: false,
-    isLink: false,
-  },
+  // {
+  //   name: 'ProductDetails',
+  //   path: '/products/:category/:productID',
+  //   component: lazy(() =>
+  //     import('../Components/productDetailsPage/ProductDatailPage')
+  //   ),
+  //   exact: false,
+  //   isLink: false,
+  // },
   {
     name: 'Home',
     path: '/',
