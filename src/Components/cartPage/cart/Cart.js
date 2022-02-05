@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useStore } from '../../../storeMobx'
 import { observer } from 'mobx-react'
 import { useHistory } from 'react-router'
@@ -12,6 +12,10 @@ const Cart = observer(() => {
   const { ProductsStore } = useStore()
   const { cart, totalPrice } = ProductsStore
   const history = useHistory()
+
+  useEffect(() => {
+    ProductsStore.setTotalPrice()
+  }, [])
 
   return (
     <div className={styles.container}>
@@ -37,7 +41,7 @@ const Cart = observer(() => {
       ) : (
         <>
           <h2 className={styles.titleEmpty}>Корзина пуста!</h2>
-          <Empty description={false}/>
+          <Empty description={false} />
         </>
       )}
     </div>

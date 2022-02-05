@@ -28,6 +28,10 @@ const MapComponent = () => {
     travelMode: 'DRIVING',
   })
 
+  // useEffect(()=>{
+  //   onSubmitBuildRoute()
+  // },[])
+
   useEffect(() => {
     positions &&
       setCorrentPosition({
@@ -76,11 +80,11 @@ const MapComponent = () => {
   )
 
   const onSubmitBuildRoute = (travelMode, origin, destination) => {
-    // setFormState({
-    //   destination: destination,
-    //   origin: origin,
-    //   travelMode: travelMode,
-    // })
+    setFormState({
+      destination: destination,
+      origin: origin,
+      travelMode: travelMode,
+    })
 
     setFormState({
       origin: origin ? origin : currentPosition,

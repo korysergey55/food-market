@@ -16,7 +16,7 @@ import ProductItem from '../../productsPage/products/productList/productItem/pro
 
 import styles from './styles.module.scss'
 import classnames from 'classnames'
-import { Button } from 'antd';
+import { Button } from 'antd'
 
 const ProductItemDetails = observer(() => {
   const { ProductsStore } = useStore()
@@ -101,8 +101,12 @@ const ProductItemDetails = observer(() => {
             </ul>
           </div> */}
           <p className={styles.description}>{productById.description}</p>
-          <p className={styles.description}>Производитель: {productById.aboutProduct.manufactur}</p>
-          <p className={styles.description}>Вес: {productById.aboutProduct.weight}</p>
+          <p className={styles.description}>
+            Производитель: {productById.aboutProduct.manufactur}
+          </p>
+          <p className={styles.description}>
+            Вес: {productById.aboutProduct.weight}
+          </p>
           <p className={styles.price}>
             {productById.price}грн
             <span className={styles.sale}> {productById.price * 1.2}грн</span>
@@ -112,17 +116,17 @@ const ProductItemDetails = observer(() => {
             <button
               className={styles.btn}
               type="button"
-              onClick={incrementProduct}
+              onClick={decrimentProduct}
             >
-              +
+              -
             </button>
             <button className={styles.value}>{counter}</button>
             <button
               className={styles.btn}
               type="button"
-              onClick={decrimentProduct}
+              onClick={incrementProduct}
             >
-              -
+              +
             </button>
           </div>
 

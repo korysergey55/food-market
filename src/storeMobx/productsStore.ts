@@ -15,25 +15,22 @@ import { productsJSON } from '../sourses/data/newProducts'
 class ProductsStore {
   @observable products: any = [...productsJSON]
   @observable filteredProducts: any = [...this.products]
+  @observable productById: any = null
+  @observable cart: any = localStorage.getItem('cart')
+    ? JSON.parse(localStorage.getItem('cart'))
+    : []
+  @observable totalPrice: number = 0
+  @observable viewedProducts: any = []
+
   @observable manufactured: any = [
     'Ambassador',
     'Bellarom',
-    ' Bellarom',
-    ' Eduscho',
+    'Bellarom',
+    'Eduscho',
     'Lavazza',
     'Pellini',
   ]
   @observable packing: any = ['100', '200', ' 300', ' 400', '500', '600']
-
-  @observable productById: any = null
-
-  @observable cart: any = localStorage.getItem('cart')
-    ? JSON.parse(localStorage.getItem('cart'))
-    : []
-
-  @observable totalPrice: number = 0
-
-  @observable viewedProducts: any = []
 
   constructor() {
     makeAutoObservable(this)
@@ -67,8 +64,8 @@ class ProductsStore {
   }
 
   @action remuveFromCart(data: any) {
-    this.setTotalPrice(data.price)
     this.cart = this.cart.filter((cartItem: any) => cartItem.id !== data.id)
+    this.setTotalPrice(data.price)
     localStorage.setItem('cart', JSON.stringify(this.cart))
 
     toast.info('Продукт удален из Корзину!', {

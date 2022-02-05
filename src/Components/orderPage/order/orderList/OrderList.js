@@ -3,7 +3,9 @@ import { useStore } from '../../../../storeMobx'
 import { observer } from 'mobx-react'
 
 import OrderItem from './orderItem/OrderItem'
+
 import styles from './styles.module.scss'
+import CartListItem from '../../../cartPage/cart/cartItem/CartItem'
 
 const OrderList = observer(() => {
   const { ProductsStore } = useStore()
@@ -14,7 +16,8 @@ const OrderList = observer(() => {
       <h2 className={styles.title}>Товары в Вашем заказе</h2>
       <ul className={styles.orderList}>
         {cart?.map(product => (
-          <OrderItem key={product.id} product={product} />
+          // <OrderItem key={product.id} product={product} />
+          <CartListItem key={product.id} product={product}/>
         ))}
       </ul>
       {cart.length > 0 && (

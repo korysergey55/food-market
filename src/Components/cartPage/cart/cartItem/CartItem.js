@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import { useStore } from '../../../../storeMobx'
 import { observer } from 'mobx-react'
+import { useHistory } from 'react-router'
 
 import styles from './styles.module.scss'
 import sprite from '../../../../sourses/icons/productsSprite.svg'
 
 const CartListItem = observer(({ product }) => {
   const { ProductsStore } = useStore()
-  const { name, price, image, description, aboutProduct } = product
+  const { id, category, name, price, image, hot, description, aboutProduct } =
+    product
+  const history = useHistory()
   const [counter, setCounter] = useState(1)
 
   const qantityProduct = evt => {
@@ -22,7 +25,6 @@ const CartListItem = observer(({ product }) => {
       setCounter(prev => prev + 1)
     }
   }
-  console.log(counter)
 
   const removeFromCart = product => {
     ProductsStore.remuveFromCart(product)
@@ -30,6 +32,7 @@ const CartListItem = observer(({ product }) => {
 
   return (
     <li className={styles.item}>
+      {hot ? <p className={styles.hot}> - {hot} %</p> : null}
       <img
         className={styles.img}
         src={image}
@@ -37,10 +40,18 @@ const CartListItem = observer(({ product }) => {
         onClick={() => {}}
       />
       <div className={styles.wripper}>
-        <h2 className={styles.title}>{name}</h2>
-        <h2 className={styles.text}>Вес: {aboutProduct.weight}</h2>
-        <span className={styles.price}> {price} грн</span>
-
+        <h2
+          className={styles.title}
+          onClick={() => history.push(`/products/${category}/${id}`)}
+        >
+          {name}
+        </h2>
+        {/* <h2 className={styles.text}>Вес: {aboutProduct.weight}</h2> */}
+        {/* <span className={styles.price}> {price} грн</span> */}
+        <p className={styles.price}>
+          {price}грн
+          <span className={styles.sale}> {price * 1.2}грн</span>
+        </p>
         <div className={styles.btnContainer}>
           <button
             className={styles.btn}

@@ -13,15 +13,14 @@
 
   .content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     padding: 0 0 40px 0;
 
     .imageWrapper {
       display: flex;
       justify-content: center;
-      margin-bottom: 20px;
-      padding: 10px;
+      padding: 20px;
 
       .sliderContainer {
         width: 95px;
@@ -51,7 +50,7 @@
       max-width: 500px;
       height: 100%;
       margin-top: 20px;
-      padding: 10px;
+      padding: 20px;
 
       .title {
         font-size: 25px;
@@ -96,7 +95,7 @@
         font-weight: 500;
       }
       .price {
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         font-size: 20px;
         font-weight: 500;
         color: $brandBgColor;
@@ -105,7 +104,7 @@
           margin-left: 10px;
           font-size: 22px;
           text-decoration: line-through 2px solid #dc143c;
-          color: $brandBgColor;
+          color: grey;
         }
       }
     }
@@ -121,11 +120,12 @@
     .btnContainer {
       display: block;
       margin-left: 0;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+
       .btn {
         width: 43px;
         height: 43px;
-        margin-bottom: 10px;
+        margin: 0 5px;
         border: 1px solid #deecf0;
         background-color: #f6fafb;
 
@@ -144,13 +144,15 @@
     }
   }
   .aboutProduct {
+    margin-top: 40px;
     .list {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      margin: 40px 0;
-      border-bottom: 1px solid #deecf0;
+
+      max-width: 850px;
+      margin: 0 auto;
 
       .item {
         padding-bottom: 22px;
@@ -173,8 +175,11 @@
 
     .text {
       display: block;
+      width: 70%;
+      margin: 0 auto;
       margin-top: 20px;
       margin-bottom: 0;
+
       font-size: 25px;
       font-weight: 300;
       color: #6c6c6c;

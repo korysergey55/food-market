@@ -25,11 +25,9 @@ const Footer = () => {
           <li className={styles.item}>
             <h4 className={styles.title}>Наши контакты</h4>
             <div className={styles.wripper}>
-              <a
+              <h3
                 className={styles.link}
-                href={shopLocation}
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() => history.push(pathes.contacts)}
               >
                 <FontAwesomeIcon
                   className={styles.icon}
@@ -38,7 +36,7 @@ const Footer = () => {
                   size="2x"
                 />
                 {shopAdress}
-              </a>
+              </h3>
             </div>
             <div className={styles.wripper}>
               <a className={styles.link} href={`tel:${shopTel}`}>

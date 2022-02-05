@@ -12,7 +12,7 @@ import { Tooltip } from 'antd'
 const ContactInfo = () => {
   return (
     <div className={styles.info}>
-      <h3 className={styles.title}>Консультацыи и заказы по телефонам:</h3>
+      {/* <h3 className={styles.title}>Консультацыи и заказы по телефонам:</h3> */}
       <div className={styles.wripper}>
         <div className={styles.box}>
           <p className={styles.subtitle}>Tелефоны</p>
