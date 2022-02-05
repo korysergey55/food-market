@@ -2,14 +2,15 @@ import React from 'react'
 import { useStore } from '../../../storeMobx'
 import { observer } from 'mobx-react'
 import { useHistory } from 'react-router'
+import { pathes } from '../../../utils/pathes'
 
 import CartItem from './cartItem/CartItem'
 import styles from './styles.module.scss'
-import { pathes } from '../../../utils/pathes'
+import { Empty, Button } from 'antd'
 
 const Cart = observer(() => {
   const { ProductsStore } = useStore()
-  const { cart,totalPrice } = ProductsStore
+  const { cart, totalPrice } = ProductsStore
   const history = useHistory()
 
   return (
@@ -23,9 +24,7 @@ const Cart = observer(() => {
             ))}
           </ul>
           <div className={styles.totalContainer}>
-            <h2 className={styles.totalPrice}>
-              {totalPrice} грн
-            </h2>
+            <h2 className={styles.totalPrice}>{totalPrice} грн</h2>
             <button
               type="button"
               onClick={() => history.push(pathes.order)}
@@ -36,11 +35,12 @@ const Cart = observer(() => {
           </div>
         </div>
       ) : (
-        <h2 className={styles.titleEmpty}>Корзина пуста!</h2>
+        <>
+          <h2 className={styles.titleEmpty}>Корзина пуста!</h2>
+          <Empty description={false}/>
+        </>
       )}
     </div>
   )
 })
 export default Cart
-
-

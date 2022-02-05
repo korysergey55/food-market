@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useStore } from '../../../../storeMobx'
 import { observer } from 'mobx-react'
 
@@ -7,9 +7,24 @@ import sprite from '../../../../sourses/icons/productsSprite.svg'
 
 const CartListItem = observer(({ product }) => {
   const { ProductsStore } = useStore()
-  const { name, price, image, description } = product
+  const { name, price, image, description, aboutProduct } = product
+  const [counter, setCounter] = useState(1)
 
-  const removeFromCart = (product) => {
+  const qantityProduct = evt => {
+    const { dataset } = evt.target
+
+    if (dataset.name === 'decrement') {
+      if (counter > 1) {
+        setCounter(prev => prev - 1)
+      }
+    }
+    if (dataset.name === 'increment') {
+      setCounter(prev => prev + 1)
+    }
+  }
+  console.log(counter)
+
+  const removeFromCart = product => {
     ProductsStore.remuveFromCart(product)
   }
 
@@ -23,8 +38,29 @@ const CartListItem = observer(({ product }) => {
       />
       <div className={styles.wripper}>
         <h2 className={styles.title}>{name}</h2>
-        <p className={styles.description}>{description}</p>
+        <h2 className={styles.text}>Вес: {aboutProduct.weight}</h2>
         <span className={styles.price}> {price} грн</span>
+
+        <div className={styles.btnContainer}>
+          <button
+            className={styles.btn}
+            type="button"
+            data-name="decrement"
+            onClick={evt => qantityProduct(evt)}
+          >
+            -
+          </button>
+          <button className={styles.value}>{counter}</button>
+          <button
+            className={styles.btn}
+            type="button"
+            data-name="increment"
+            onClick={evt => qantityProduct(evt)}
+          >
+            +
+          </button>
+        </div>
+
         <div
           className={styles.iconContainer}
           onClick={() => removeFromCart(product)}

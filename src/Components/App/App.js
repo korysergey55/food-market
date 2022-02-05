@@ -8,7 +8,13 @@ import { mainRoutes } from '../../routes/mainRoutes'
 import PrivateRoute from '../../routes/PrivateRoute'
 import PublicRoute from '../../routes/PublicRoute'
 import Loader from '../../containers/Utils/Loader/Loader'
+import { Spin, Space } from 'antd'
 
+{
+  /* <Space size="middle">
+  <Spin size="large" />
+</Space> */
+}
 const App = observer(() => {
   const { AuthStore } = useStore()
   const { token } = AuthStore

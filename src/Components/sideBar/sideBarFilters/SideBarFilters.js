@@ -35,8 +35,6 @@ const SideBarFilters = observer(() => {
       />
       <p className={styles.text}>от - {from} грн</p>
       <p className={styles.text}>до - {to} грн</p>
-
-      {/* <h3 className={styles.subtitle}> Производитель</h3> */}
       <Collapse defaultActiveKey={['1']} ghost={true} onChange={callback}>
         <Panel header="Производитель" key="1">
           <ul className={styles.checkboxList}>
@@ -47,8 +45,6 @@ const SideBarFilters = observer(() => {
             ))}
           </ul>
         </Panel>
-
-        {/* <h3 className={styles.subtitle}> Фасовка</h3> */}
         <Panel header="Фасовка" key="2">
           <ul className={styles.checkboxList}>
             {ProductsStore.packing.map(item => (
