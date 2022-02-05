@@ -15,12 +15,21 @@ import { productsJSON } from '../sourses/data/newProducts'
 class ProductsStore {
   @observable products: any = [...productsJSON]
   @observable filteredProducts: any = [...this.products]
-  @observable manufactured: any = ['Ambassador','Bellarom'," Bellarom",' Eduscho','Lavazza','Pellini']
-  @observable packing: any = ['100','200'," 300",' 400','500','600']
+  @observable manufactured: any = [
+    'Ambassador',
+    'Bellarom',
+    ' Bellarom',
+    ' Eduscho',
+    'Lavazza',
+    'Pellini',
+  ]
+  @observable packing: any = ['100', '200', ' 300', ' 400', '500', '600']
 
   @observable productById: any = null
 
-  @observable cart: any = []
+  @observable cart: any = localStorage.getItem('cart')
+    ? JSON.parse(localStorage.getItem('cart'))
+    : []
 
   @observable totalPrice: number = 0
 
@@ -29,8 +38,8 @@ class ProductsStore {
   constructor() {
     makeAutoObservable(this)
     reaction(
-      () => this.totalPrice,
-      _ => console.log('mobx', toJS(this.totalPrice))
+      () => this.cart,
+      _ => console.log('mobx', toJS(this.cart))
     )
   }
 
@@ -50,6 +59,8 @@ class ProductsStore {
   @action addToCart(data: any) {
     this.cart = [...this.cart, data]
     this.setTotalPrice()
+    localStorage.setItem('cart', JSON.stringify(this.cart))
+
     toast.success('Продукт добавлен в Корзину!', {
       theme: 'colored',
     })
@@ -58,6 +69,8 @@ class ProductsStore {
   @action remuveFromCart(data: any) {
     this.setTotalPrice(data.price)
     this.cart = this.cart.filter((cartItem: any) => cartItem.id !== data.id)
+    localStorage.setItem('cart', JSON.stringify(this.cart))
+
     toast.info('Продукт удален из Корзину!', {
       theme: 'colored',
     })
@@ -82,10 +95,9 @@ class ProductsStore {
   }
 
   @action sortProducts(data: any) {
-   
     if (data === 'price') {
       const sortedProducts = this.products.sort(
-        (min:any, max:any) => max.price - min.price
+        (min: any, max: any) => max.price - min.price
       )
       this.filteredProducts = sortedProducts
     }
