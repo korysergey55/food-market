@@ -7,6 +7,7 @@ import {
   useRouteMatch,
   withRouter,
 } from 'react-router-dom'
+import { useParams } from 'react-router'
 import Slider from 'react-slick'
 import { sliderSettings } from '../../../utils/sliderSettings'
 
@@ -24,12 +25,21 @@ const ProductItemDetails = observer(() => {
   const history = useHistory()
   const location = useLocation()
   const match = useRouteMatch()
+  const params = useParams()
+  const { productID } = params
   const category = match.params.category
 
   const [photo, setPhoto] = useState(null)
   const [activeItem, setActiveItem] = useState(1)
   const [discriptionText, setDiscriptionText] = useState('')
   const [counter, setCounter] = useState(1)
+
+  useEffect(() => {
+    if (productID) {
+      ProductsStore.setProductById(productID)
+      ProductsStore.setViewedProducts(productID)
+    }
+  }, [])
 
   useEffect(() => {
     if (productById) {
@@ -46,13 +56,17 @@ const ProductItemDetails = observer(() => {
     setPhoto(data)
   }
 
-  const decrimentProduct = () => {
-    if (counter > 1) {
-      setCounter(prev => prev - 1)
+
+  const qantityProduct = evt => {
+    const { dataset } = evt.target
+    if (dataset.name === 'decrement') {
+      if (counter > 1) {
+        setCounter(prev => prev - 1)
+      }
     }
-  }
-  const incrementProduct = () => {
-    setCounter(prev => prev + 1)
+    if (dataset.name === 'increment') {
+      setCounter(prev => prev + 1)
+    }
   }
 
   const goBack = () => {
@@ -116,7 +130,8 @@ const ProductItemDetails = observer(() => {
             <button
               className={styles.btn}
               type="button"
-              onClick={decrimentProduct}
+              data-name="decrement"
+              onClick={qantityProduct}
             >
               -
             </button>
@@ -124,7 +139,8 @@ const ProductItemDetails = observer(() => {
             <button
               className={styles.btn}
               type="button"
-              onClick={incrementProduct}
+              data-name="increment"
+              onClick={qantityProduct}
             >
               +
             </button>

@@ -34,7 +34,7 @@ const Header = observer(() => {
     window.scrollTo(0, 0)
   }, [location.pathname])
 
-  const onSearch = value => ProductsStore.filterProductsAction(value)
+  const onSearch = value => ProductsStore.filterProducts(value)
 
   return (
     <header className={styles.header}>

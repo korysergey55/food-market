@@ -19,11 +19,11 @@ const Filters = observer(() => {
     const { value } = evt.target
     setFilterValue(value)
     if (value === '') {
-      ProductsStore.filterProductsAction('')
+      ProductsStore.filterProducts('')
     }
   }
 
-  const onSearch = value => ProductsStore.filterProductsAction(value)
+  const onSearch = value => ProductsStore.filterProducts(value)
 
   const handleChangeSorter = value => {
     ProductsStore.sortProducts(value)

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
+import { useParams } from 'react-router'
 import { useStore } from '../../../../../storeMobx'
 import { observer } from 'mobx-react'
 import { pathes } from '../../../../../utils/pathes'
@@ -19,14 +20,12 @@ const ProductItem = observer(({ product }) => {
   const location = useLocation()
   const [activeClass, setActive] = useState(false)
 
-  const bay = () => {
+  const bayNow = () => {
     ProductsStore.addToCart(product)
     history.push(pathes.order)
   }
 
   const openDetails = () => {
-    ProductsStore.setProductByIdAction(product)
-    ProductsStore.setViewedProducts(product)
     history.push({
       pathname: `/products/${product.category}/${product.id}`,
       state: { from: location.pathname },
@@ -79,14 +78,14 @@ const ProductItem = observer(({ product }) => {
               className={styles.cartIcon}
               icon={faCartPlus}
               size="lg"
-              onClick={() =>  ProductsStore.addToCart(product)}
+              onClick={() => ProductsStore.addToCart(product)}
             />
           </div>
           <Button
             className={styles.btn}
             type={'primary'}
             size="middle"
-            onClick={() => bay(product)}
+            onClick={() => bayNow(product)}
           >
             Купить
           </Button>

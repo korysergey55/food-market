@@ -15,15 +15,12 @@ import styles from './styles.module.scss'
 
 const ProductsPage = observer(() => {
   const { ProductsStore } = useStore()
-  const { productById } = ProductsStore
   const history = useHistory()
   const match = useRouteMatch()
 
-  // useEffect(() => {
-  //   if (!productById) {
-  //     history.push(match.path + '/all')
-  //   }
-  // }, [history, match.path])
+  useEffect(() => {
+    history.push(match.path + '/all')
+  }, [history, match.path])
 
   useEffect(() => {
     window.scroll(0, 350)
