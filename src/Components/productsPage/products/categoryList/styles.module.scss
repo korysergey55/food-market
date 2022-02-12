@@ -1,0 +1,36 @@
+.containerCategory {
+  width: 100%;
+  padding: 10px;
+
+  .title {
+    display: block;
+    margin: 0 auto;
+    font-size: 25px;
+    font-weight: 500;
+    align-items: center;
+  }
+  .list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .item {
+      width: 250px;
+      height: 320px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+
+      .img {
+        width: 250px;
+        height: 250px;
+      }
+
+      .titleCard {
+        text-align: center;
+        font-weight: 600;
+        font-size: 25px;
+      }
+    }
+  }
+}

@@ -16,7 +16,17 @@ const SideBarFilters = observer(() => {
     setTo(value[1])
     console.log(value)
   }
-  console.log(from, to)
+  const changeManufactured = value => {
+       console.log(value)
+  }
+
+  const changeCountry = value => {
+    console.log(value)
+}
+const changePacking = value => {
+  console.log(value)
+}
+
 
   function callback(key) {
     console.log(key)
@@ -39,16 +49,25 @@ const SideBarFilters = observer(() => {
         <Panel header="Производитель" key="1">
           <ul className={styles.checkboxList}>
             {ProductsStore.manufactured.map(item => (
-              <Checkbox className={styles.item} onChange={onChange} key={item}>
+              <Checkbox className={styles.item} onChange={changeManufactured} key={item}>
                 {item}
               </Checkbox>
             ))}
           </ul>
         </Panel>
-        <Panel header="Фасовка" key="2">
+        <Panel header="Страна производства" key="2">
+          <ul className={styles.checkboxList}>
+            {ProductsStore.country.map(item => (
+              <Checkbox className={styles.item} onChange={changeCountry} key={item}>
+                {item}
+              </Checkbox>
+            ))}
+          </ul>
+        </Panel>
+        <Panel header="Фасовка" key="3">
           <ul className={styles.checkboxList}>
             {ProductsStore.packing.map(item => (
-              <Checkbox className={styles.item} onChange={onChange} key={item}>
+              <Checkbox className={styles.item} onChange={changePacking} key={item}>
                 {item}
               </Checkbox>
             ))}

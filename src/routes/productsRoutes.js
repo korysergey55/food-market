@@ -11,11 +11,12 @@ export const productsRoutes = [
   //   isLink: false,
   // },
   {
-    name: 'Все',
+    name: 'Все категории',
     path: '/all',
     category: 'all',
     component: lazy(() =>
-      import('../Components/productsPage/products/productList/ProductList.js')
+      // import('../Components/productsPage/products/productList/ProductList.js')
+      import('../Components/productsPage/products/categoryList/CategoryList.js')
     ),
     exact: true,
     isLink: true,
