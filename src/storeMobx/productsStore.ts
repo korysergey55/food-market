@@ -101,7 +101,7 @@ class ProductsStore {
       qantity: 1,
     },
     {
-      id: '1',
+      id: '145',
       category: 'coffee',
       subcategory: 'molotiy-kofe',
       name: 'Lavazza Qualita Oro / Кофе Лавацца',
@@ -130,7 +130,7 @@ class ProductsStore {
     },
 
     {
-      id: '101',
+      id: '1051',
       category: 'syry_kolbasy',
       subcategory: '',
       name: 'Сыр Бри / Brie La Polle',
@@ -157,7 +157,7 @@ class ProductsStore {
       qantity: 1,
     },
     {
-      id: '201',
+      id: '2051',
       category: 'olivkovoe_maslo',
       subcategory: '',
       name: 'Оливковое масло Де Чечо/ L’OLIO De Cecco Classico',
@@ -215,8 +215,8 @@ class ProductsStore {
   constructor() {
     makeAutoObservable(this)
     reaction(
-      () => this.cart,
-      _ => console.log('mobx', toJS(this.cart))
+      () => this.totalPrice,
+      _ => console.log('mobx-totalPrice', toJS(this.totalPrice))
     )
   }
 
@@ -262,9 +262,12 @@ class ProductsStore {
     }
   }
 
-  @action addToCart(data: any) {
-    this.cart = [...this.cart, data]
-    this.setTotalPrice()
+  @action addToCart(id: any) {
+    // const isInCart: any = this.cart.find((item: any) => item.id === id)
+    // if (!isInCart) {
+    //   this.cart = [...this.cart, id]
+    // }
+    this.cart = [...this.cart, id]
     localStorage.setItem('cart', JSON.stringify(this.cart))
 
     toast.success('Продукт добавлен в Корзину!', {
@@ -272,10 +275,9 @@ class ProductsStore {
     })
   }
 
-  @action remuveFromCart(data: any) {
-    this.cart = this.cart.filter((cartItem: any) => cartItem.id !== data.id)
-    this.setTotalPrice(data.price)
-    localStorage.setItem('cart', JSON.stringify(this.cart))
+  @action remuveFromCart(id: any) {
+     this.cart = this.cart.filter((cartItem: any) => cartItem !== id)
+      localStorage.setItem('cart', JSON.stringify(this.cart))
 
     toast.info('Продукт удален из Корзину!', {
       theme: 'colored',
@@ -283,17 +285,18 @@ class ProductsStore {
   }
 
   @action setTotalPrice(data: any = null) {
-    if (!data) {
-      const price = this.cart?.reduce((acc: any, product: any) => {
-        acc += Number(product.price)
-        return acc
-      }, 0)
-      this.totalPrice = price
-    }
-    if (data) {
-      const price = (this.totalPrice -= data)
-      this.totalPrice = price
-    }
+    // if (!data) {
+    //   const price = this.cart?.reduce((acc: any, product: any) => {
+    //     acc += Number(product?.price)
+    //     return acc
+    //   }, 0)
+    //   this.totalPrice = price
+    // }
+    // if (data) {
+    //   const price = (this.totalPrice -= data)
+    //   this.totalPrice = price
+    // }
+    this.totalPrice = data
   }
 }
 export default new ProductsStore()

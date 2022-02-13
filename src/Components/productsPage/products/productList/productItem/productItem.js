@@ -21,7 +21,7 @@ const ProductItem = observer(({ product }) => {
   const [activeClass, setActive] = useState(false)
 
   const bayNow = () => {
-    ProductsStore.addToCart(product)
+    ProductsStore.addToCart(product.id)
     history.push(pathes.order)
   }
 
@@ -78,7 +78,7 @@ const ProductItem = observer(({ product }) => {
               className={styles.cartIcon}
               icon={faCartPlus}
               size="lg"
-              onClick={() => ProductsStore.addToCart(product)}
+              onClick={() => ProductsStore.addToCart(product.id)}
             />
           </div>
           <Button

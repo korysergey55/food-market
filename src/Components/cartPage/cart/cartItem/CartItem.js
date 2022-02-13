@@ -8,10 +8,19 @@ import sprite from '../../../../sourses/icons/productsSprite.svg'
 
 const CartListItem = observer(({ product }) => {
   const { ProductsStore } = useStore()
-  const { id, category, name, price, image, hot, description, aboutProduct } =
-    product
+  const {
+    id,
+    category,
+    name,
+    price,
+    image,
+    hot,
+    description,
+    aboutProduct,
+    qantity,
+  } = product
   const history = useHistory()
-  const [counter, setCounter] = useState(1)
+  const [counter, setCounter] = useState(qantity)
 
   const qantityProduct = evt => {
     const { dataset } = evt.target
@@ -27,7 +36,7 @@ const CartListItem = observer(({ product }) => {
   }
 
   const removeFromCart = product => {
-    ProductsStore.remuveFromCart(product)
+    ProductsStore.remuveFromCart(product.id)
   }
 
   return (

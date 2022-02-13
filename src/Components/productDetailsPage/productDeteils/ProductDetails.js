@@ -147,7 +147,7 @@ const ProductItemDetails = observer(() => {
           </div>
 
           <button
-            onClick={() => ProductsStore.addToCart(productById)}
+            onClick={() => ProductsStore.addToCart(productById.id)}
             className={styles.addToCart}
           >
             Add to cart

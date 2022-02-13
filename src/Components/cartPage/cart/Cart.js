@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useStore } from '../../../storeMobx'
 import { observer } from 'mobx-react'
 import { useHistory } from 'react-router'
@@ -10,20 +10,56 @@ import { Empty, Button } from 'antd'
 
 const Cart = observer(() => {
   const { ProductsStore } = useStore()
-  const { cart, totalPrice } = ProductsStore
+  const { cart, products } = ProductsStore
   const history = useHistory()
 
+  // const findProductCart = () => {
+  //   const cartArr = products.filter(item => cart.find(el => item.id === el))
+  //   return cartArr
+  // }
+
+  const findProductCart = () => {
+    const cartArr = []
+    const unq = Array.from(new Set(ProductsStore.cart))
+    unq.forEach(key => {
+      const item = products.find(v => v.id === key)
+      if (item) {
+        cartArr.push({
+          ...item,
+          qantity: cart.filter(product => product === item.id).length,
+        })
+      }
+    })
+    return cartArr
+  }
+
+  const [cartProducts, setCartProducts] = useState(findProductCart())
+  const [totalPrice, setTotalPrice] = useState(0)
+
   useEffect(() => {
-    ProductsStore.setTotalPrice()
-  }, [])
+    setCartProducts(findProductCart())
+  }, [cart, products])
+
+  useEffect(() => {
+    getTotalPrice()
+  }, [cartProducts])
+
+  const getTotalPrice = () => {
+    const price = cartProducts?.reduce((acc, product) => {
+      acc += Number(product?.price * product.qantity)
+      return acc
+    }, 0)
+    setTotalPrice(price)
+    ProductsStore.setTotalPrice(price)
+  }
 
   return (
     <div className={styles.container}>
-      {cart.length ? (
+      {cartProducts.length ? (
         <div className={styles.cart}>
           <h2 className={styles.title}>Корзина</h2>
           <ul className={styles.list}>
-            {cart.map(product => (
+            {cartProducts.map(product => (
               <CartItem key={product.id} product={product} />
             ))}
           </ul>
