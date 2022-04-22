@@ -1,8 +1,9 @@
 .baner {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  // flex-wrap: wrap;
 
   width: 100%;
   max-width: 1200px;
@@ -61,7 +62,7 @@
     }
   }
   .title {
-    font-size: 46px;
+    font-size: 40px;
     font-weight: 500;
     line-height: 57px;
     text-align: center;

@@ -12,15 +12,11 @@ const Cart = observer(() => {
   const { ProductsStore } = useStore()
   const { cart, products } = ProductsStore
   const history = useHistory()
-
-  // const findProductCart = () => {
-  //   const cartArr = products.filter(item => cart.find(el => item.id === el))
-  //   return cartArr
-  // }
-
+  const [totalPrice, setTotalPrice] = useState(0)
+  
   const findProductCart = () => {
     const cartArr = []
-    const unq = Array.from(new Set(ProductsStore.cart))
+    const unq = Array.from(new Set(cart))
     unq.forEach(key => {
       const item = products.find(v => v.id === key)
       if (item) {
@@ -32,9 +28,12 @@ const Cart = observer(() => {
     })
     return cartArr
   }
-
+   // const findProductCart = () => {
+  //   const cartArr = products.filter(item => cart.find(el => item.id === el))
+  //   return cartArr
+  // }
   const [cartProducts, setCartProducts] = useState(findProductCart())
-  const [totalPrice, setTotalPrice] = useState(0)
+ 
 
   useEffect(() => {
     setCartProducts(findProductCart())

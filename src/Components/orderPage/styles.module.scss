@@ -7,7 +7,7 @@
   padding: 70px 15px;
 
   .title {
-    margin-bottom: 20px;
+    margin: 20px auto;
     font-size: 25px;
     font-weight: 700;
     text-align: center;
@@ -18,6 +18,10 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 20px 10px;
+
+    border-radius: 7px;
+    border: 1px solid rgb(189, 189, 189);
     background-color: #f6fafb;
   }
 

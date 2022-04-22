@@ -3,15 +3,15 @@
 .orderForm {
   width: 100%;
   margin: 0 auto;
-   padding: 40px;
+  padding: 0 20px;
   border-radius: 7px;
   background-color: #f6fafb;
-  // border: 1px solid $brandBgColor;
 
   .title {
+    margin-bottom: 20px;
     font-size: 20px;
     font-weight: 550;
-    text-align: center;
+    // text-align: center;
     color: #252932;
   }
 }
@@ -21,13 +21,19 @@
   max-width: 316px;
   height: 40px;
   font-family: Barlow;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 400;
+}
+.radio {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
 }
 .textarea {
   width: 100%;
   max-height: 120px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   font-family: Barlow;
   font-size: 18px;
   font-weight: 300;
@@ -44,7 +50,6 @@
   font-weight: 500;
   text-transform: uppercase;
   border: none;
-  
 }
 .inputWripper {
   display: flex;

@@ -31,7 +31,7 @@ const HomePage = observer(() => {
         <div className={styles.wripper}>
           <ProductList homePage={true} />
         </div>
-        <Baner />
+        {/* <Baner /> */}
         <AboutUs/>
         <h3 className={styles.subtitle}>Наиболее продаваемые</h3>
         <h2 className={styles.title}>Рекомендуемые товары</h2>

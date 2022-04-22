@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { useStore } from '../../../../storeMobx'
 import { observer } from 'mobx-react'
 
-import { Form, Input, Button, Row, Col, Radio, Space } from 'antd'
 import styles from './styles.module.scss'
+import { Form, Input, Button, Row, Col, Radio, Space } from 'antd'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTruck, faCreditCard, faUser } from '@fortawesome/free-solid-svg-icons'
 
 const validateMessages = {
   required: '${label} is required!',
@@ -14,45 +16,70 @@ const validateMessages = {
 }
 const OrderForm = observer(() => {
   const [form] = Form.useForm()
-  const { ProductsStore,AuthStore } = useStore()
+  const { ProductsStore, AuthStore } = useStore()
   const { cart, totalPrice } = ProductsStore
 
   const [formData, setFormData] = useState({
-    name: '', email: '', tel: '', message: '',
-    city: '', dilivery: '', payment: '', products: cart, totalPrice,
+    name: '',
+    email: '',
+    tel: '',
+    message: '',
+    city: '',
+    dilivery: '',
+    payment: '',
+    products: cart,
+    totalPrice,
   })
 
-  const inputChange = (evt) => {
+  const inputChange = evt => {
     const { value, name } = evt.target
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  const onChangeDelivery = (evt) => {
-    console.log('radio checked', evt.target.value);
+  const onChangeDelivery = evt => {
+    console.log('radio checked', evt.target.value)
     setFormData(prev => ({
-      ...prev, dilivery: evt.target.value,
-    }));
-  };
+      ...prev,
+      dilivery: evt.target.value,
+    }))
+  }
 
-  const onChangePayment = (evt) => {
+  const onChangePayment = evt => {
     setFormData(prev => ({
-      ...prev, payment: evt.target.value,
-    }));
-  };
+      ...prev,
+      payment: evt.target.value,
+    }))
+  }
 
-  console.log(formData)
 
   const submitForm = () => {
     AuthStore.setOrder(formData)
     form.setFieldsValue({
-      name: '', email: '', tel: '', address: '', message: '',
-      city: '', dilivery: '', payment: '', products: '', totalPrice: '',
+      name: '',
+      email: '',
+      tel: '',
+      address: '',
+      message: '',
+      city: '',
+      dilivery: '',
+      payment: '',
+      products: '',
+      totalPrice: '',
     })
   }
 
   return (
     <div className={styles.orderForm}>
-      <h2 className={styles.title}> 1 - Контактная информация </h2>
+      <h2 className={styles.title}>
+        {' '}
+        <FontAwesomeIcon
+          className={styles.icon}
+          icon={faUser}
+          color="black"
+          size="1x"
+        />{' '}
+        - Контактная информация{' '}
+      </h2>
       <Form
         form={form}
         name="OrderForm"
@@ -102,7 +129,7 @@ const OrderForm = observer(() => {
               />
             </Form.Item>
           </Col>
-                  </Row>
+        </Row>
         <Form.Item name={['message']}>
           <Input.TextArea
             className={styles.textarea}
@@ -114,7 +141,16 @@ const OrderForm = observer(() => {
           />
         </Form.Item>
 
-        <h2 className={styles.title}> 2 - Доставка </h2>
+        <h2 className={styles.title}>
+          {' '}
+          <FontAwesomeIcon
+            className={styles.icon}
+            icon={faTruck}
+            color="black"
+            size="1x"
+          />{' '}
+          - Доставка{' '}
+        </h2>
         <Col span={12}>
           <Form.Item name={['city']} rules={[{ required: true }]}>
             <Input
@@ -127,7 +163,11 @@ const OrderForm = observer(() => {
             />
           </Form.Item>
         </Col>
-        <Radio.Group onChange={onChangeDelivery} value={formData.dilivery}>
+        <Radio.Group
+          className={styles.radio}
+          onChange={onChangeDelivery}
+          value={formData.dilivery}
+        >
           <Space direction="vertical">
             <Radio value={'Курьерская доставка'}>Курьерская доставка</Radio>
             <Radio value={'Новая почта'}>Новая почта</Radio>
@@ -135,8 +175,21 @@ const OrderForm = observer(() => {
           </Space>
         </Radio.Group>
 
-        <h2 className={styles.title}> 3 - Оплата</h2>
-        <Radio.Group onChange={onChangePayment} value={formData.payment}>
+        <h2 className={styles.title}>
+          {' '}
+          <FontAwesomeIcon
+            className={styles.icon}
+            icon={faCreditCard}
+            color="black"
+            size="1x"
+          />{' '}
+          - Оплата
+        </h2>
+        <Radio.Group
+          className={styles.radio}
+          onChange={onChangePayment}
+          value={formData.payment}
+        >
           <Space direction="vertical">
             <Radio value={'Оплата при получении'}>Оплата при получении</Radio>
             <Radio value={'Оплата на карту'}>Оплата на карту</Radio>
@@ -144,11 +197,7 @@ const OrderForm = observer(() => {
           </Space>
         </Radio.Group>
         <Form.Item>
-          <Button
-            type="primary"
-            htmlType="submit"
-            className={styles.button}
-          >
+          <Button type="primary" htmlType="submit" className={styles.button}>
             Оформить заказ
           </Button>
         </Form.Item>
