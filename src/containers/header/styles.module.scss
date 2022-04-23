@@ -1,4 +1,4 @@
-@import '../../sourses/styles/variables.scss';
+@import "../../sourses/styles/variables.scss";
 
 .header {
   position: fixed;
@@ -8,9 +8,10 @@
   z-index: 30;
   border-bottom: 2px solid white;
   background-color: $brandColor;
-   
+
   .container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -19,23 +20,82 @@
     margin: 0 auto;
     padding: 10px 15px;
 
-    .wripperLogo {
+    .mobileMenuWripper {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+      width: 100%;
+      .wripperLogo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
 
-      .title {
-        margin: 0 20px 5px 10px;
-        font-size: 25px;
-        font-weight: 700;
-        color: white;
+        .title {
+          margin: auto 20px;
+          font-size: 25px;
+          font-weight: 700;
+          color: white;
+        }
+        &:hover {
+          cursor: pointer;
+        }
       }
-      &:hover {
-        cursor: pointer;
+      .iconMenu {
+        display: block;
       }
     }
 
     .navList {
+      display: block;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      margin-bottom: 0;
+      padding: 0 20px;
+
+      .item {
+        position: relative;
+        margin: 5px 10px 5px 10px;
+        padding: 5px;
+        transition: opacity 250ms
+          cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover {
+          color: $activeColor;
+          opacity: 0.75;
+        }
+        .link {
+          letter-spacing: 1.9;
+          font-size: 17px;
+          font-weight: 700;
+          line-height: 21px;
+          text-transform: uppercase;
+          color: white;
+        }
+
+        .linkActive {
+          padding: 5px;
+          color: $activeColor;
+
+          &::after {
+            position: absolute;
+            top: 100%;
+            left: 0%;
+            content: "";
+            background-color: white;
+            width: 100%;
+            height: 2px;
+          }
+        }
+      }
+    }
+    .navListMobile {
+      display: none;
+    }
+
+    .navListSotial {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -48,7 +108,8 @@
         position: relative;
         margin: 5px 10px 5px 10px;
         padding: 5px;
-        transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition: opacity 250ms
+          cubic-bezier(0.4, 0, 0.2, 1);
 
         &:hover {
           color: $activeColor;
@@ -71,7 +132,8 @@
           }
 
           .icon {
-            transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            transition: color 250ms
+              cubic-bezier(0.4, 0, 0.2, 1);
             &:hover {
               color: $activeColor;
             }
@@ -86,7 +148,7 @@
             position: absolute;
             top: 100%;
             left: 0%;
-            content: '';
+            content: "";
             background-color: white;
             width: 100%;
             height: 2px;
@@ -94,45 +156,83 @@
         }
       }
     }
+    .navListSotialMobile {
+      display: none;
+    }
 
     .wripperTel {
-      display: flex;
-      align-items: center;
-      justify-content: left;
-
-      .link {
-        font-family: Barlow;
-        font-size: 19px;
-        font-weight: 600;
-        color: white;
-        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-        &:hover {
-          color: $activeColor;
-          opacity: 0.75;
-
-          .iconTel {
-            color: $activeColor;
-            opacity: 0.75;
-          }
-        }
-      }
-      .iconTel {
-        margin-right: 10px;
-        color: #ffffff;
-        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-      }
+      display: none;
     }
   }
-  .search {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
+  // .search {
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   width: 300px;
 
-    &:focus {
-      border: none;
-      outline: none;
+  //   &:focus {
+  //     border: none;
+  //     outline: none;
+  //   }
+  // }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    .container {
+      flex-direction: row;
+      justify-content: center;
+
+      .mobileMenuWripper {
+        width: auto;
+        .iconMenu {
+          display: none;
+        }
+      }
+
+      .wripperLogo {
+        margin-bottom: 0;
+        .title {
+          margin: 0 20px 5px 10px;
+        }
+      }
+
+      .navList {
+        display: flex;
+      }
+      .navListSotialMobile {
+        display: flex;
+      }
+      .wripperTel {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+
+        .link {
+          font-family: Barlow;
+          font-size: 19px;
+          font-weight: 600;
+          color: white;
+          transition: color 250ms
+            cubic-bezier(0.4, 0, 0.2, 1);
+
+          &:hover {
+            color: $activeColor;
+            opacity: 0.75;
+
+            .iconTel {
+              color: $activeColor;
+              opacity: 0.75;
+            }
+          }
+        }
+        .iconTel {
+          margin-right: 10px;
+          color: #ffffff;
+          transition: color 250ms
+            cubic-bezier(0.4, 0, 0.2, 1);
+        }
+      }
     }
   }
 }

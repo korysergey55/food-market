@@ -20,7 +20,6 @@ const LoginPage = observer(() => {
 
   return (
     <div className={styles.LoginPage}>
-      <Header />
       <div className={styles.hero}></div>
       <div className={styles.hero}></div>
       <div className={styles.container}>

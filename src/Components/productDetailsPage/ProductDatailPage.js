@@ -3,7 +3,6 @@ import { useStore } from '../../storeMobx'
 import { observer } from 'mobx-react'
 import { pathes } from '../../utils/pathes'
 
-import Header from '../../containers/header/Header'
 import ProductItemDetails from './productDeteils/ProductDetails'
 import Footer from '../../containers/footer/Footer'
 
@@ -22,7 +21,6 @@ const ProductDatailPage = observer(() => {
 
   return (
     <div className={styles.productDetails}>
-      <Header />
       <div className={styles.baner}></div>
       <div className={styles.container}>
         <ProductItemDetails />

@@ -9,6 +9,7 @@ import PrivateRoute from '../../routes/PrivateRoute'
 import PublicRoute from '../../routes/PublicRoute'
 import Loader from '../../containers/Utils/Loader/Loader'
 import { Spin, Space } from 'antd'
+import Header from '../../containers/header/Header'
 
 {
   /* <Space size="middle">
@@ -21,6 +22,7 @@ const App = observer(() => {
 
   return (
     <div className="appContainer">
+      <Header></Header>
       <Suspense fallback={<Loader />}>
         <Switch>
           {mainRoutes.map(route =>

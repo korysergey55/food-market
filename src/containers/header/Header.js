@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useStore } from '../../storeMobx'
 import { observer } from 'mobx-react'
 import { useHistory, useLocation, NavLink } from 'react-router-dom'
@@ -8,6 +8,7 @@ import { shopTel } from '../../utils/location'
 import Logo from '../Reuseble/Logo/Logo'
 
 import styles from './styles.module.scss'
+import classnames from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faCartPlus,
@@ -15,6 +16,7 @@ import {
   faHeart,
   faSignOutAlt,
   faPhoneAlt,
+  faBars,
 } from '@fortawesome/free-solid-svg-icons'
 import { Input } from 'antd'
 
@@ -22,6 +24,7 @@ const Header = observer(() => {
   const { AuthStore, ProductsStore } = useStore()
   const history = useHistory()
   const location = useLocation()
+  const [state, setState] = useState(false)
 
   useEffect(() => {
     window.addEventListener('scroll', () => window.scrollY)
@@ -34,20 +37,38 @@ const Header = observer(() => {
     window.scrollTo(0, 0)
   }, [location.pathname])
 
-  const onSearch = value => ProductsStore.filterProducts(value)
+  // const onSearch = value => ProductsStore.filterProducts(value)
+
+  const handleMenu = () => {
+    setState(!state)
+  }
 
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <div
-          className={styles.wripperLogo}
-          onClick={() => history.push(pathes.home)}
-        >
-          <Logo />
-          <h2 className={styles.title}> Good-Food</h2>
+        <div className={styles.mobileMenuWripper}>
+          <div
+            className={styles.wripperLogo}
+            onClick={() => history.push(pathes.home)}
+          >
+            <Logo />
+            <h2 className={styles.title}> Good-Food</h2>
+          </div>
+          <FontAwesomeIcon
+            className={styles.iconMenu}
+            icon={faBars}
+            color="white"
+            size="2x"
+            onClick={() => handleMenu()}
+          />
         </div>
 
-        <ul className={styles.navList}>
+        <ul
+          className={classnames({
+            [styles.navList]: true,
+            [styles.navListMobile]: !state,
+          })}
+        >
           <li className={styles.item}>
             <NavLink
               to={pathes.home}
@@ -91,7 +112,12 @@ const Header = observer(() => {
             </li>
           )}
         </ul>
-        <ul className={styles.navList}>
+        <ul
+          className={classnames({
+            [styles.navListSotial]: true,
+            [styles.navListSotialMobile]: !state,
+          })}
+        >
           {AuthStore.token ? (
             <li className={styles.item}>
               <NavLink

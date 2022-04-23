@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../../containers/header/Header'
 import ContactInfo from '../../Components/contactsPage/contactInfo/ContactInfo'
 import MapComponent from '../../containers/Utils/mapComponent/MapComponent'
 import ReachUs from './reachUs/ReachUs'
@@ -11,7 +10,6 @@ import styles from './styles.module.scss'
 const ContactsPage = () => {
   return (
     <div className={styles.contactPage}>
-      <Header />
       <div className={styles.container}>
         <h2 className={styles.title}>Контакты</h2>
         <ContactInfo />
