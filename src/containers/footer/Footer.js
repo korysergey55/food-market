@@ -62,7 +62,7 @@ const Footer = () => {
             </div>
           </li>
 
-          <li className={styles.item}>
+          <li className={`${styles.item} ${styles.itemNone}`}>
             <h4 className={styles.title}>Полезные ссылки</h4>
             <p
               className={styles.text}
@@ -87,10 +87,6 @@ const Footer = () => {
             <h4 className={styles.title}>Социальные сети</h4>
             <SotialList />
             <img className={styles.visa} src={visa} alt="visa" />
-            {/* <p className={styles.subtitle}>Monday – Saturday</p>
-            <p className={styles.text}>12.00 – 14.45</p>
-            <p className={styles.subtitle}>Sunday – Thursday</p>
-            <p className={styles.text}>17.30 – 00.00</p> */}
           </li>
         </ul>
       </div>
