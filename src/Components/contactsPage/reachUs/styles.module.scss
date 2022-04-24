@@ -1,56 +1,85 @@
-@import '../../../sourses/styles/variables.scss';
+@import "../../../sourses/styles/variables.scss";
 
-.reachUs {
-  max-width: 400px;
-  min-height: 530px;
-  padding: 25px 25px;
+.wripper {
+  width: 100%;
+  .reachUs {
+    margin-bottom: 10px;
+    padding: 15px 10px;
+    font-family: Barlow;
+    background-color: $brandBgColor;
 
-  font-family: Barlow;
-  background-color: $brandBgColor;
+    .title {
+      margin-bottom: 0;
+      font-size: 45px;
+      font-weight: 500;
+      text-align: center;
+      color: #f6fafb;
+    }
 
-  .title {
-    font-size: 45px;
-    font-weight: 500;
-    text-align: center;
-    color: #f6fafb;
-  }
+    .list {
+      margin: 20px 0;
+      .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
 
-  .list {
-    margin: 40px 0;
-    .item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
-
-      .link {
-        display: block;
-        min-width: 50px;
-
-        .icon {
+        .link {
           display: block;
-          margin: 0 auto;
+          min-width: 50px;
+
+          .icon {
+            display: block;
+            margin: 0 auto;
+          }
+        }
+        .liContainer {
+          width: 190px;
+          margin-left: 20px;
+          .subtitle {
+            margin-bottom: 10px;
+
+            font-size: 25px;
+            font-weight: 400;
+            line-height: 32px;
+            text-align: left;
+            color: #f6fafb;
+          }
+          .text {
+            display: block;
+            font-size: 18px;
+            font-weight: 300;
+            text-align: left;
+            color: #f6fafb;
+          }
         }
       }
-      .liContainer {
-        width: 190px;
-        margin-left: 20px;
-        .subtitle {
-          margin-bottom: 10px;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .wripper {
+    .reachUs {
+      .list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
 
-          font-size: 25px;
-          font-weight: 400;
-          line-height: 32px;
-          text-align: left;
-          color: #f6fafb;
-        }
-        .text {
-          display: block;
-          font-size: 18px;
-          font-weight: 300;
-          text-align: left;
-          color: #f6fafb;
-        }
+@media screen and (min-width: 1280px) {
+  .wripper {
+    max-width: 400px;
+    .reachUs {
+      min-height: 530px;
+      margin-bottom: 0;
+      padding: 25px 25px;
+
+      .list {
+        margin: 40px 0;
       }
     }
   }

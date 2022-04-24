@@ -11,13 +11,13 @@ const ContactsPage = () => {
   return (
     <div className={styles.contactPage}>
       <div className={styles.container}>
-        <h2 className={styles.title}>Контакты</h2>
-        <ContactInfo />
+        {/* <h2 className={styles.title}>Контакты</h2> */}
         <div className={styles.wripper}>
           {/* <div className={styles.map}></div> */}
           <MapComponent />
           <ReachUs />
         </div>
+        <ContactInfo />
         <Partners />
       </div>
       <Footer />

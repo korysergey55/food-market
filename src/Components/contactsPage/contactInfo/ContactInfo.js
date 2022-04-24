@@ -12,7 +12,6 @@ import { Tooltip } from 'antd'
 const ContactInfo = () => {
   return (
     <div className={styles.info}>
-      {/* <h3 className={styles.title}>Консультацыи и заказы по телефонам:</h3> */}
       <div className={styles.wripper}>
         <div className={styles.box}>
           <p className={styles.subtitle}>Tелефоны</p>
@@ -27,9 +26,12 @@ const ContactInfo = () => {
             </a>
             <p className={styles.subtitle}>Email</p>
           </Tooltip>
-          <a className={`${styles.link} ${styles.email}`} href={`mailto:${shopEmail}`}>
-              {shopEmail}
-            </a>
+          <a
+            className={`${styles.link} ${styles.email}`}
+            href={`mailto:${shopEmail}`}
+          >
+            {shopEmail}
+          </a>
         </div>
         <div className={styles.box}>
           <p className={styles.subtitle}>График роботи</p>

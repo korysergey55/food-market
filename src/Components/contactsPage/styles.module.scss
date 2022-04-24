@@ -1,36 +1,35 @@
-@import '../../sourses/styles/variables.scss';
+@import "../../sourses/styles/variables.scss";
 
 .contactPage {
-  margin-top: 60px;
-  background-color: ghostwhite;
+  margin-top: 90px;
+  background-color: #e7e7e7;
 
   .container {
     width: 100%;
-    max-width: 1600px;
     margin: 0 auto;
-    padding: 20px 15px;
+    padding: 0 15px;
     padding-bottom: 0;
     border-radius: 7px;
 
     .title {
-      margin-top: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 0;
       font-size: 35px;
       text-align: center;
       font-weight: 650;
       text-shadow: $textShadow;
       color: $brandColor;
+      color: #9fcb22;
     }
 
     .wripper {
       display: flex;
       justify-content: center;
+      flex-direction: column-reverse;
       flex-wrap: wrap;
-      margin: 40px 0;
+      margin: 15px 0;
 
       .map {
         width: 100%;
-        max-width: 700px;
         margin-right: 10px;
         margin-bottom: 20px;
         border-radius: 7px;
@@ -38,6 +37,38 @@
         background-image: url(../../sourses/images/contactPage/Map.png);
         background-repeat: no-repeat;
         background-position: center;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .contactPage {
+    margin-top: 130px;
+
+    .container {
+      .title {
+        font-size: 35px;
+        text-align: center;
+        font-weight: 650;
+        text-shadow: $textShadow;
+        color: $brandColor;
+        color: #9fcb22;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .contactPage {
+    margin-top: 89px;
+    .container {
+      max-width: 1600px;
+      .wripper {
+        flex-direction: row;
+        .map {
+          max-width: 700px;
+        }
       }
     }
   }

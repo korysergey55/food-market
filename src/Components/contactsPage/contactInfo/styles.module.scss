@@ -1,12 +1,14 @@
-@import '../../../sourses/styles/variables.scss';
+@import "../../../sourses/styles/variables.scss";
 
 .info {
   width: 100%;
-  margin: 0 auto;
+  margin: 20px auto;
 
   .wripper {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
   }
 
@@ -23,6 +25,7 @@
     font-size: 30px;
     font-weight: 500;
     text-shadow: $textShadow;
+    text-align: center;
   }
   .link {
     display: block;
@@ -42,5 +45,19 @@
     font-size: 18px;
     font-weight: 400;
     color: #6c6c6c;
+  }
+}
+@media screen and (min-width: 768px) {
+  .info {
+    .wripper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .subtitle {
+      text-align: left;
+    }
   }
 }
