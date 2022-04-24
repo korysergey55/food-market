@@ -10,9 +10,6 @@ const Hero = () => {
         <h2 className={styles.logo}> Good-Food</h2>
       </div>
       <h1 className={styles.title}>Интернет-магазин Товаров из Европы</h1>
-      {/* <p className={styles.text}>
-        Покупайте у проверенного поставщика товаров.
-      </p> */}
     </div>
   )
 }

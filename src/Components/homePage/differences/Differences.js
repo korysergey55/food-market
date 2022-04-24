@@ -21,8 +21,7 @@ const Differences = () => {
             <img className={styles.img} src={FeatureImg} alt="FeatureImg" />
             <h3 className={styles.title}>Качественные продукты</h3>
             <p className={styles.text}>
-              Aui dolorem iesum ruia dolor sit amet, consectetur, adipisci eius
-              modi incidunt
+              Мы предоставляем только сертифицируемые продукты.
             </p>
           </li>
 
@@ -30,15 +29,14 @@ const Differences = () => {
             <img className={styles.img} src={Feature2Img} alt="Feature2Img" />
             <h3 className={styles.title}>Онлайн-заказ</h3>
             <p className={styles.text}>
-              Aui dolorem iesum ruia dolor sit amet, consectetur, adipisci eius
-              modi incidunt
+              Быстрое оформление заказа и отправка в тот же день.
             </p>
           </li>
         </ul>
         <div className={styles.imgContainer}>
           <img className={styles.mainImg} src={CartImg} alt="CartImg" />
           <Button
-            className={styles.btnAnt}
+            className={styles.btn}
             type="primary"
             size="large"
             onClick={() => history.push(pathes.products)}
@@ -51,18 +49,14 @@ const Differences = () => {
             <img className={styles.img} src={Feature3Img} alt="Feature3Img" />
             <h3 className={styles.title}>Быстрая доставка</h3>
             <p className={styles.text}>
-              Aui dolorem iesum ruia dolor sit amet, consectetur, adipisci eius
-              modi incidunt
+              Отправка товара в течение часа после заказа.
             </p>
           </li>
 
           <li className={styles.item}>
             <img className={styles.img} src={Feature4Img} alt="Feature4Img" />
             <h3 className={styles.title}>24/7 Сервис</h3>
-            <p className={styles.text}>
-              Aui dolorem iesum ruia dolor sit amet, consectetur, adipisci eius
-              modi incidunt
-            </p>
+            <p className={styles.text}>Наш сервис работает круглосуточно.</p>
           </li>
         </ul>
       </div>

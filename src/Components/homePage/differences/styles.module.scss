@@ -2,9 +2,8 @@
   position: relative;
 
   .title {
-    font-size: 45px;
-    font-weight: 700;
-    line-height: 75px;
+    font-size: 30px;
+    font-weight: 650;
     text-align: center;
   }
 
@@ -24,9 +23,7 @@
       padding-left: 0;
 
       .item {
-        width: 258px;
-        height: 234px;
-        margin-bottom: 58px;
+        margin-bottom: 40px;
 
         .img {
           width: 77px;
@@ -58,11 +55,9 @@
       justify-content: center;
       align-items: center;
     }
-    .btnAnt {
-      width: 175px;
-      height: 53px;
+    .btn {
       margin: 0 auto;
-      margin-top: 40px;
+      margin-top: 20px;
       margin-bottom: 20px;
       text-transform: uppercase;
     }
@@ -78,14 +73,30 @@
   .differences {
     padding-top: 40px;
 
+    .title {
+      font-size: 45px;
+      line-height: 75px;
+    }
+
     .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
       max-width: 768px;
 
+      .list {
+        .item {
+          width: 258px;
+          height: 234px;
+          margin-bottom: 58px;
+        }
+      }
+
       .btn {
-        margin-top: 59px;
+        width: 175px;
+        height: 53px;
+        margin-top: 40px;
+        margin-bottom: 20px;
       }
       .mainImg {
         max-width: 531px;
