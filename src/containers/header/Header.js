@@ -18,7 +18,8 @@ import {
   faPhoneAlt,
   faBars,
 } from '@fortawesome/free-solid-svg-icons'
-import { Input } from 'antd'
+import { Select } from 'antd'
+const { Option } = Select
 
 const Header = observer(() => {
   const { AuthStore, ProductsStore } = useStore()
@@ -37,10 +38,12 @@ const Header = observer(() => {
     window.scrollTo(0, 0)
   }, [location.pathname])
 
-  // const onSearch = value => ProductsStore.filterProducts(value)
-
   const handleMenu = () => {
     setState(!state)
+  }
+
+  const onChangeLanguage = value => {
+    console.log(value)
   }
 
   return (
@@ -170,9 +173,21 @@ const Header = observer(() => {
               </span>
             </NavLink>
           </li>
+          <li className={styles.item}>
+            <Select
+              className={styles.select}
+              defaultValue="en"
+              size="small"
+              onChange={onChangeLanguage}
+            >
+              <Option value="name">en</Option>
+              <Option value="price">ua</Option>
+              <Option value="price">ru</Option>
+            </Select>
+          </li>
         </ul>
 
-        <div className={styles.wripperTel}>
+        {/* <div className={styles.wripperTel}>
           <a className={styles.link} href={`tel:${shopTel}`}>
             <FontAwesomeIcon
               className={styles.iconTel}
@@ -181,7 +196,7 @@ const Header = observer(() => {
             />
             {shopTel}
           </a>
-        </div>
+        </div> */}
       </div>
     </header>
   )

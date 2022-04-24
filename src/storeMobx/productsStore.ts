@@ -210,7 +210,7 @@ class ProductsStore {
     'Щвейцария',
   ]
   @observable packing: any = ['100', '200', ' 300', ' 400', '500', '600']
-  @observable categoty: any = [...categories]
+  @observable сategory: any = [...categories]
 
   constructor() {
     makeAutoObservable(this)
@@ -239,6 +239,7 @@ class ProductsStore {
     const filtered = this.products.filter((item: any) =>
       item.name.toLowerCase().trim().includes(dataProducts)
     )
+
     this.filteredProducts = filtered
   }
   @action sortProducts(data: any) {
@@ -276,8 +277,8 @@ class ProductsStore {
   }
 
   @action remuveFromCart(id: any) {
-     this.cart = this.cart.filter((cartItem: any) => cartItem !== id)
-      localStorage.setItem('cart', JSON.stringify(this.cart))
+    this.cart = this.cart.filter((cartItem: any) => cartItem !== id)
+    localStorage.setItem('cart', JSON.stringify(this.cart))
 
     toast.info('Продукт удален из Корзину!', {
       theme: 'colored',
