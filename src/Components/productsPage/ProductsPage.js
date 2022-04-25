@@ -26,7 +26,7 @@ const ProductsPage = observer(() => {
 
   useEffect(() => {
     history.push(match.path + '/all')
-  }, [history, match.path])
+  }, [])
 
   useEffect(() => {
     window.scroll(0, 350)
@@ -74,7 +74,7 @@ const ProductsPage = observer(() => {
           />
         </div>
         <div className={styles.wripper}>
-          {showFilters && <Filters />}
+          {showFilters && <Filters setShowFilters={setShowFilters} />}
           <ProductRout />
         </div>
         <SubForm />
