@@ -3,7 +3,7 @@ import { useStore } from '../../../storeMobx'
 import { observer } from 'mobx-react'
 
 import styles from './styles.module.scss'
-import { Slider, Switch, Checkbox, Collapse, Select } from 'antd'
+import { Slider, Button, Checkbox, Collapse, Select } from 'antd'
 const { Panel } = Collapse
 const { Option } = Select
 
@@ -13,6 +13,7 @@ const Filters = observer(() => {
   const [to, setTo] = useState(300)
 
   const handleChangeSorter = value => {
+    console.log(value)
     ProductsStore.sortProducts(value)
   }
 
@@ -34,6 +35,10 @@ const Filters = observer(() => {
 
   function callback(key) {
     console.log(key)
+  }
+
+  const onSubmit = () => {
+    console.log('onSubmit')
   }
 
   return (
@@ -109,6 +114,13 @@ const Filters = observer(() => {
           </ul>
         </Panel>
       </Collapse>
+      <Button
+        className={styles.btnSubmit}
+        type="primary"
+        onClick={() => onSubmit()}
+      >
+        Применить
+      </Button>
     </div>
   )
 })

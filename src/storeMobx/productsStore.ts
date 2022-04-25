@@ -118,7 +118,7 @@ class ProductsStore {
       },
       isSale: false,
       hot: '20',
-      price: '180',
+      price: '120',
       image:
         'https://getfood.com.ua/wp-content/uploads/2021/02/orororo-600x600.png',
       images: [
@@ -147,7 +147,7 @@ class ProductsStore {
       },
       isSale: false,
       hot: '20',
-      price: '85',
+      price: '120',
       image: 'https://getfood.com.ua/wp-content/uploads/2021/02/bri.jpg',
       images: [
         'https://getfood.com.ua/wp-content/uploads/2021/02/bri.jpg',
@@ -160,7 +160,7 @@ class ProductsStore {
       id: '2051',
       category: 'olivkovoe_maslo',
       subcategory: '',
-      name: 'Оливковое масло Де Чечо/ L’OLIO De Cecco Classico',
+      name: 'Оливковое масло Де Чечо/ ZL’OLIO De Cecco',
       description: 'Оливковое масло Де Чечо/ L’OLIO De Cecco Classico',
       aboutProduct: {
         weight: '1 л',
@@ -174,7 +174,7 @@ class ProductsStore {
       },
       isSale: false,
       hot: '20',
-      price: '240',
+      price: '200',
       image:
         'https://getfood.com.ua/wp-content/uploads/2021/02/De-Cecco-classico8jyi.jpg',
       images: [
@@ -239,13 +239,13 @@ class ProductsStore {
     const filtered = this.products.filter((item: any) =>
       item.name.toLowerCase().trim().includes(dataProducts)
     )
-
     this.filteredProducts = filtered
   }
+
   @action sortProducts(data: any) {
     if (data === 'price') {
       const sortedProducts = this.products.sort(
-        (min: any, max: any) => max.price - min.price
+        (min: any, max: any) => min.price - max.price
       )
       this.filteredProducts = sortedProducts
     }
