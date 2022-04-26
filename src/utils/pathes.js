@@ -1,5 +1,5 @@
 export const pathes = {
-  home: "/",
+  home: '/home',
   shop: 'shop',
   products: '/products',
   cart: '/cart',
@@ -8,4 +8,4 @@ export const pathes = {
   contacts: '/contacts',
   admin: '/admin',
   login: '/login',
- }
+}
