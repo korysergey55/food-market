@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/Components/adminPage/styles.module.scss"],"names":[],"mappings":"AAAA,yBACG,aAAc,CACd,UAAW,CACX,gBAAiB,CACjB,aAAc","file":"20.348cacfc.chunk.css","sourcesContent":[".container{\r\n   display: block;\r\n   width: 100%;\r\n   max-width: 1112px;\r\n   margin: 0 auto;\r\n}"]}

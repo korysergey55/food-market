@@ -7,7 +7,7 @@ import { Slider, Button, Checkbox, Collapse, Select } from 'antd'
 const { Panel } = Collapse
 const { Option } = Select
 
-const Filters = observer(() => {
+const Filters = observer(({ setShowFilters }) => {
   const { ProductsStore } = useStore()
   const [from, setFrom] = useState(50)
   const [to, setTo] = useState(300)
@@ -39,6 +39,7 @@ const Filters = observer(() => {
 
   const onSubmit = () => {
     console.log('onSubmit')
+    setShowFilters(false)
   }
 
   return (
