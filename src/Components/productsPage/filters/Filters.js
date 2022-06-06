@@ -17,13 +17,16 @@ const Filters = observer(({ setShowFilters }) => {
     ProductsStore.sortProducts(value)
   }
 
-  const onChange = value => {
+  const onChangePrice = value => {
     setFrom(value[0])
     setTo(value[1])
     console.log(value)
+    ProductsStore.sortByPpice(value)
   }
-  const changeManufactured = value => {
-    console.log(value)
+  const changeBrand = value => {
+    const { name } = value.target
+    // console.log('changeBrand', value.target.name)
+    ProductsStore.sortByBrand(name)
   }
 
   const changeCountry = value => {
@@ -65,7 +68,7 @@ const Filters = observer(({ setShowFilters }) => {
         defaultValue={[50, 300]}
         min={10}
         max={500}
-        onChange={onChange}
+        onChange={onChangePrice}
       />
       <p className={styles.text}>от - {from} грн</p>
       <p className={styles.text}>до - {to} грн</p>
@@ -75,12 +78,13 @@ const Filters = observer(({ setShowFilters }) => {
         ghost={true}
         onChange={callback}
       >
-        <Panel header="Производитель" key="1">
+        <Panel header="Бренд" key="1">
           <ul className={styles.checkboxList}>
-            {ProductsStore.manufactured.map(item => (
+            {ProductsStore.brand.map(item => (
               <Checkbox
                 className={styles.item}
-                onChange={changeManufactured}
+                onChange={changeBrand}
+                name={item}
                 key={item}
               >
                 {item}

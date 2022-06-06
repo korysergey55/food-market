@@ -5,7 +5,11 @@ import { observer } from 'mobx-react'
 import styles from './styles.module.scss'
 import { Form, Input, Button, Row, Col, Radio, Space } from 'antd'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTruck, faCreditCard, faUser } from '@fortawesome/free-solid-svg-icons'
+import {
+  faTruck,
+  faCreditCard,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons'
 
 const validateMessages = {
   required: '${label} is required!',
@@ -50,7 +54,6 @@ const OrderForm = observer(() => {
       payment: evt.target.value,
     }))
   }
-
 
   const submitForm = () => {
     AuthStore.setOrder(formData)

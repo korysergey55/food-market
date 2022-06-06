@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useStore } from '../../../storeMobx'
 import { observer } from 'mobx-react'
-import {
-  useHistory,
-  useLocation,
-  useRouteMatch,
-  withRouter,
-} from 'react-router-dom'
+
+import { useHistory, useLocation, useRouteMatch } from 'react-router-dom'
 import { useParams } from 'react-router'
+
 import Slider from 'react-slick'
 import { sliderSettings } from '../../../utils/sliderSettings'
 
@@ -30,7 +27,7 @@ const ProductItemDetails = observer(() => {
   const category = match.params.category
 
   const [photo, setPhoto] = useState(null)
-  const [activeItem, setActiveItem] = useState(1)
+  const [activeItem, setActiveItem] = useState('')
   const [discriptionText, setDiscriptionText] = useState('')
   const [counter, setCounter] = useState(1)
 
@@ -42,13 +39,13 @@ const ProductItemDetails = observer(() => {
   }, [])
 
   useEffect(() => {
-    if (productById) {
-      setDiscriptionText(productById.aboutProduct.fullDescription)
-    }
+    setDiscriptionText(null)
+    productById && setDiscriptionText(productById.aboutProduct.fullDescription)
+
+    setActiveItem('fullDescription')
   }, [])
 
-  const onChangeDiscription = (id, text) => {
-    setActiveItem(id)
+  const onChangeDiscription = text => {
     setDiscriptionText(text)
   }
 
@@ -56,8 +53,7 @@ const ProductItemDetails = observer(() => {
     setPhoto(data)
   }
 
-
-  const qantityProduct = evt => {
+  const changeQantity = evt => {
     const { dataset } = evt.target
     if (dataset.name === 'decrement') {
       if (counter > 1) {
@@ -105,15 +101,6 @@ const ProductItemDetails = observer(() => {
             <p className={styles.rating}>Рейтинг:</p>
             <StarList />
           </div>
-          {/* <div className={styles.colorsWripper}>
-            <p className={styles.colors}>Цвета:</p>
-            <ul className={styles.colorList}>
-              <li className={styles.colorItem}></li>
-              <li className={styles.colorItem}></li>
-              <li className={styles.colorItem}></li>
-              <li className={styles.colorItem}></li>
-            </ul>
-          </div> */}
           <p className={styles.description}>{productById.description}</p>
           <p className={styles.description}>
             Производитель: {productById.aboutProduct.manufactur}
@@ -131,7 +118,7 @@ const ProductItemDetails = observer(() => {
               className={styles.btn}
               type="button"
               data-name="decrement"
-              onClick={qantityProduct}
+              onClick={changeQantity}
             >
               -
             </button>
@@ -140,7 +127,7 @@ const ProductItemDetails = observer(() => {
               className={styles.btn}
               type="button"
               data-name="increment"
-              onClick={qantityProduct}
+              onClick={changeQantity}
             >
               +
             </button>
@@ -159,41 +146,43 @@ const ProductItemDetails = observer(() => {
             <li
               className={classnames({
                 [styles.item]: true,
-                [styles.active]: activeItem === 1,
+                [styles.active]: activeItem === 'fullDescription',
               })}
-              onClick={() =>
-                onChangeDiscription(1, productById.aboutProduct.fullDescription)
-              }
+              onClick={() => {
+                onChangeDiscription(productById.aboutProduct.fullDescription)
+                setActiveItem('fullDescription')
+              }}
             >
               Описание
             </li>
             <li
               className={classnames({
                 [styles.item]: true,
-                [styles.active]: activeItem === 2,
+                [styles.active]: activeItem === 'AdditionalInformation',
               })}
-              onClick={() =>
+              onClick={() => {
                 onChangeDiscription(
-                  2,
                   productById.aboutProduct.AdditionalInformation
                 )
-              }
+                setActiveItem('AdditionalInformation')
+              }}
             >
               Дополнительная информация
             </li>
             <li
               className={classnames({
                 [styles.item]: true,
-                [styles.active]: activeItem === 3,
+                [styles.active]: activeItem === 'Reviews',
               })}
-              onClick={() =>
-                onChangeDiscription(3, productById.aboutProduct.Reviews)
-              }
+              onClick={() => {
+                onChangeDiscription(productById.aboutProduct.Reviews)
+                setActiveItem('Reviews')
+              }}
             >
               Отзывы
             </li>
           </ul>
-          <p className={styles.text}>{discriptionText}</p>
+          {discriptionText && <p className={styles.text}>{discriptionText}</p>}
         </div>
       </div>
 

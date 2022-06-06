@@ -3,7 +3,6 @@ import { useStore } from '../../../../storeMobx'
 import { observer } from 'mobx-react'
 import ProductItem from './productItem/productItem'
 
-import { Pagination } from 'antd'
 import styles from './styles.module.scss'
 
 const ProductList = observer(({ category, homePage }) => {
@@ -26,7 +25,6 @@ const ProductList = observer(({ category, homePage }) => {
           <h2 className={styles.title}>Нет товаров по данному поиску!</h2>
         )}
       </ul>
-      {/* <Pagination defaultCurrent={1} total={5} /> */}
     </div>
   )
 })

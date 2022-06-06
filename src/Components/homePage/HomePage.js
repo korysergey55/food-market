@@ -2,7 +2,7 @@ import React from 'react'
 import { useStore } from '../../storeMobx'
 import { observer } from 'mobx-react'
 
-import Hero from './hero/Hero'
+import Title from './title/Title'
 import Feachers from './feachers/Feachers'
 import ProductList from '../productsPage/products/productList/ProductList'
 import Baner from './baner/Baner'
@@ -21,7 +21,7 @@ const HomePage = observer(() => {
   return (
     <div className={styles.homePage}>
       <div className={styles.baner}></div>
-      <Hero />
+      <Title />
       <Feachers />
       <div className={styles.container}>
         <h3 className={styles.subtitle}>Самые Популярные</h3>

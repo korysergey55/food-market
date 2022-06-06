@@ -2,7 +2,7 @@ import React from 'react'
 import Logo from '../../../containers/Reuseble/Logo/Logo'
 import styles from './styles.module.scss'
 
-const Hero = () => {
+const Title = () => {
   return (
     <div className={styles.container}>
       <div className={styles.logoWripper}>
@@ -14,4 +14,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default Title
