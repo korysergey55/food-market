@@ -1,10 +1,11 @@
 const productsJSON = [
   {
-    id: '1',
+    id: 1,
     category: 'coffee',
     subcategory: 'molotiy-kofe',
     name: 'Lavazza Qualita Oro / Кофе Лавацца',
     description: 'Lavazza Qualita Oro / Кофе Лавацца',
+    brand: 'Pellini',
     aboutProduct: {
       weight: '250 гр',
       manufactur: 'Италия',
@@ -17,7 +18,7 @@ const productsJSON = [
     },
     isSale: false,
     hot: '20',
-    price: '180',
+    price: 180,
     image:
       'https://getfood.com.ua/wp-content/uploads/2021/02/orororo-600x600.png',
     images: [
@@ -29,11 +30,12 @@ const productsJSON = [
   },
 
   {
-    id: '101',
+    id: 2,
     category: 'syry_kolbasy',
     subcategory: '',
     name: 'Сыр Бри / Brie La Polle',
     description: 'Сыр Бри / Brie La Polle',
+    brand: 'Pellini',
     aboutProduct: {
       weight: '125 гр',
       manufactur: 'Польша',
@@ -46,7 +48,7 @@ const productsJSON = [
     },
     isSale: false,
     hot: '20',
-    price: '85',
+    price: 85,
     image: 'https://getfood.com.ua/wp-content/uploads/2021/02/bri.jpg',
     images: [
       'https://getfood.com.ua/wp-content/uploads/2021/02/bri.jpg',
@@ -56,11 +58,12 @@ const productsJSON = [
     qantity: 1,
   },
   {
-    id: '201',
+    id: 3,
     category: 'olivkovoe_maslo',
     subcategory: '',
     name: 'Оливковое масло Де Чечо/ L’OLIO De Cecco Classico',
     description: 'Оливковое масло Де Чечо/ L’OLIO De Cecco Classico',
+    brand: 'De Cecco',
     aboutProduct: {
       weight: '1 л',
       manufactur: 'Италия',
@@ -73,7 +76,7 @@ const productsJSON = [
     },
     isSale: false,
     hot: '20',
-    price: '240',
+    price: 240,
     image:
       'https://getfood.com.ua/wp-content/uploads/2021/02/De-Cecco-classico8jyi.jpg',
     images: [
@@ -84,11 +87,12 @@ const productsJSON = [
     qantity: 1,
   },
   {
-    id: '1',
+    id: 4,
     category: 'coffee',
     subcategory: 'molotiy-kofe',
     name: 'Lavazza Qualita Oro / Кофе Лавацца',
     description: 'Lavazza Qualita Oro / Кофе Лавацца',
+    brand: 'Pellini',
     aboutProduct: {
       weight: '250 гр',
       manufactur: 'Италия',
@@ -101,7 +105,7 @@ const productsJSON = [
     },
     isSale: false,
     hot: '20',
-    price: '180',
+    price: 120,
     image:
       'https://getfood.com.ua/wp-content/uploads/2021/02/orororo-600x600.png',
     images: [
@@ -113,11 +117,12 @@ const productsJSON = [
   },
 
   {
-    id: '101',
+    id: 5,
     category: 'syry_kolbasy',
     subcategory: '',
     name: 'Сыр Бри / Brie La Polle',
     description: 'Сыр Бри / Brie La Polle',
+    brand: 'Pellini',
     aboutProduct: {
       weight: '125 гр',
       manufactur: 'Польша',
@@ -130,7 +135,7 @@ const productsJSON = [
     },
     isSale: false,
     hot: '20',
-    price: '85',
+    price: 120,
     image: 'https://getfood.com.ua/wp-content/uploads/2021/02/bri.jpg',
     images: [
       'https://getfood.com.ua/wp-content/uploads/2021/02/bri.jpg',
@@ -140,11 +145,12 @@ const productsJSON = [
     qantity: 1,
   },
   {
-    id: '201',
+    id: 6,
     category: 'olivkovoe_maslo',
     subcategory: '',
-    name: 'Оливковое масло Де Чечо/ L’OLIO De Cecco Classico',
+    name: 'Оливковое масло Де Чечо/ ZL’OLIO De Cecco',
     description: 'Оливковое масло Де Чечо/ L’OLIO De Cecco Classico',
+    brand: 'Pellini',
     aboutProduct: {
       weight: '1 л',
       manufactur: 'Италия',
@@ -157,7 +163,7 @@ const productsJSON = [
     },
     isSale: false,
     hot: '20',
-    price: '240',
+    price: 200,
     image:
       'https://getfood.com.ua/wp-content/uploads/2021/02/De-Cecco-classico8jyi.jpg',
     images: [

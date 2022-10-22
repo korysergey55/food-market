@@ -2,6 +2,7 @@ import React from 'react'
 import { useStore } from '../../../../storeMobx'
 import { observer } from 'mobx-react'
 import ProductItem from './productItem/productItem'
+import { v4 as uuidv4 } from 'uuid';
 
 import styles from './styles.module.scss'
 
