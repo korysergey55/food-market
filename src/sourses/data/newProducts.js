@@ -171,7 +171,7 @@ const productsJSON = [
       'https://getfood.com.ua/wp-content/uploads/2021/02/20160325_112456-e1459415326531-scaled-600x1437.jpg',
       'https://getfood.com.ua/wp-content/uploads/2021/02/20160325_112507-e1459415342501-scaled-600x1318.jpg',
     ],
-    qantity: 1,
+    qantity: 5,
   },
 ]
 
