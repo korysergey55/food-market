@@ -6,7 +6,7 @@ export const mainRoutes = [
     name: 'ProductDetails',
     path: '/products/:category/:productID',
     component: lazy(() =>
-      import('../Components/productDetailsPage/ProductDatailPage')
+      import('../Components/productDetailsPage/')
     ),
     exact: false,
     isLink: false,
