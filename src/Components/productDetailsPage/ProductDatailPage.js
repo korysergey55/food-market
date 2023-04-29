@@ -14,6 +14,7 @@ const ProductDatailPage = observer(() => {
   const history = useHistory()
 
   useEffect(() => {
+
     if (!ProductsStore.productById) {
       history.push(pathes.products)
     }

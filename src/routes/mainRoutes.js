@@ -10,6 +10,8 @@ export const mainRoutes = [
     ),
     exact: false,
     isLink: false,
+    isRestricted: false,
+    isPrivate: false,
   },
   {
     name: 'Home',
@@ -74,7 +76,7 @@ export const mainRoutes = [
   {
     name: '',
     path: '/:notfound',
-    exact: true,
+    exact: false,
     component: lazy(() =>
       import('../containers/Utils/notFoundComponent/NotFoundComponent.js')
     ),

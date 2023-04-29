@@ -19,6 +19,7 @@ import { Button } from 'antd'
 const ProductItemDetails = observer(() => {
   const { ProductsStore } = useStore()
   const { productById, viewedProducts } = ProductsStore
+
   const history = useHistory()
   const location = useLocation()
   const match = useRouteMatch()

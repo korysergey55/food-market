@@ -1,15 +1,15 @@
 import { lazy } from 'react'
 
 export const productsRoutes = [
-  // {
-  //   name: 'ProductDetails',
-  //   path: '/:category/:productID',
-  //   component: lazy(() =>
-  //     import('../Components/productDetailsPage/productDeteils/ProductDetails')
-  //   ),
-  //   exact: false,
-  //   isLink: false,
-  // },
+  {
+    name: 'ProductDetails',
+    path: '/:category/:productID',
+    component: lazy(() =>
+      import('../Components/productDetailsPage/productDeteils/ProductDetails')
+    ),
+    exact: false,
+    isLink: false,
+  },
   {
     name: 'Все категории',
     path: '/all',
@@ -18,7 +18,7 @@ export const productsRoutes = [
       // import('../Components/productsPage/products/productList/ProductList.js')
       import('../Components/productsPage/products/categoryList/CategoryList.js')
     ),
-    exact: true,
+    exact: false,
     isLink: true,
   },
   {
@@ -28,7 +28,7 @@ export const productsRoutes = [
     component: lazy(() =>
       import('../Components/productsPage/products/productList/ProductList.js')
     ),
-    exact: true,
+    exact: false,
     isLink: true,
   },
   {
