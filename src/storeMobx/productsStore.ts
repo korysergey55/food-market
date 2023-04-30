@@ -10,7 +10,7 @@ import {
 } from 'mobx'
 import axios from 'axios'
 import { toast } from 'react-toastify'
-import { productsJSON } from '../sourses/data/newProducts'
+import { productsJSON } from '../sourses/data/dataProducts'
 
 import { categories } from '../sourses/data/categories'
 
@@ -47,8 +47,8 @@ class ProductsStore {
   constructor() {
     makeAutoObservable(this)
     reaction(
-      () => this.totalPrice,
-      _ => console.log('mobx-totalPrice', toJS(this.totalPrice))
+      () => this.products,
+      _ => console.log('products', toJS(this.products))
     )
   }
 
@@ -56,12 +56,11 @@ class ProductsStore {
     this.products = [...data]
   }
 
-  @action setProductById(id: any) {
-    const newProduct = this.products.find((item: any) => item.id === id)
-    this.productById = newProduct
+  @action setProductDetails(id: string) {
+    this.productById = this.products.find((item: any) => item.id === id)
   }
 
-  @action setViewedProducts(id: any) {
+  @action setViewedProducts(id: string) {
     const newProduct = this.products.find((item: any) => item.id === id)
     this.viewedProducts = [...this.viewedProducts, newProduct]
   }

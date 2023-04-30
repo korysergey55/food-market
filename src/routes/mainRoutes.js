@@ -6,7 +6,7 @@ export const mainRoutes = [
     name: 'ProductDetails',
     path: '/products/:category/:productID',
     component: lazy(() =>
-      import('../Components/productDetailsPage/')
+      import('../Components/productDetailsPage/ProductDatailPage')
     ),
     exact: false,
     isLink: false,
@@ -25,7 +25,7 @@ export const mainRoutes = [
     name: 'Products',
     path: '/products',
     component: lazy(() => import('../Components/productsPage/ProductsPage.js')),
-    exact: false,
+    exact: true,
     isRestricted: false,
     isPrivate: false,
   },
@@ -49,7 +49,7 @@ export const mainRoutes = [
   },
 
   {
-    name: '',
+    name: 'order',
     path: '/order',
     component: lazy(() => import('../Components/orderPage/OrderPage')),
     exact: true,
@@ -74,7 +74,7 @@ export const mainRoutes = [
     isPrivate: false,
   },
   {
-    name: '',
+    name: 'notfound',
     path: '/:notfound',
     exact: false,
     component: lazy(() =>

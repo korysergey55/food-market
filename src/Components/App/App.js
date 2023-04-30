@@ -1,12 +1,14 @@
 import React, { Suspense } from 'react'
 import { useStore } from '../../storeMobx'
 import { observer } from 'mobx-react'
+
 import { Switch } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 
 import { mainRoutes } from '../../routes/mainRoutes'
 import PrivateRoute from '../../routes/PrivateRoute'
 import PublicRoute from '../../routes/PublicRoute'
+
 import Loader from '../../containers/Utils/Loader/Loader'
 import { Spin, Space } from 'antd'
 import Header from '../../containers/header/Header'

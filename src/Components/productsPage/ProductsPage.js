@@ -18,6 +18,7 @@ const { Search } = Input
 
 const ProductsPage = observer(() => {
   const { ProductsStore } = useStore()
+
   const history = useHistory()
   const match = useRouteMatch()
 

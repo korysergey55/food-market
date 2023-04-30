@@ -1,6 +1,6 @@
 const productsJSON = [
   {
-    id: 1,
+    id: '1',
     category: 'coffee',
     subcategory: 'molotiy-kofe',
     name: 'Lavazza Qualita Oro / Кофе Лавацца',
@@ -30,7 +30,7 @@ const productsJSON = [
   },
 
   {
-    id: 2,
+    id: '2',
     category: 'syry_kolbasy',
     subcategory: '',
     name: 'Сыр Бри / Brie La Polle',
@@ -58,7 +58,7 @@ const productsJSON = [
     qantity: 1,
   },
   {
-    id: 3,
+    id: '3',
     category: 'olivkovoe_maslo',
     subcategory: '',
     name: 'Оливковое масло Де Чечо/ L’OLIO De Cecco Classico',
@@ -87,7 +87,7 @@ const productsJSON = [
     qantity: 1,
   },
   {
-    id: 4,
+    id: '4',
     category: 'coffee',
     subcategory: 'molotiy-kofe',
     name: 'Lavazza Qualita Oro / Кофе Лавацца',
@@ -117,7 +117,7 @@ const productsJSON = [
   },
 
   {
-    id: 5,
+    id: '5',
     category: 'syry_kolbasy',
     subcategory: '',
     name: 'Сыр Бри / Brie La Polle',
@@ -145,7 +145,7 @@ const productsJSON = [
     qantity: 1,
   },
   {
-    id: 6,
+    id: '6',
     category: 'olivkovoe_maslo',
     subcategory: '',
     name: 'Оливковое масло Де Чечо/ ZL’OLIO De Cecco',
