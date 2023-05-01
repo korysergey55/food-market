@@ -1,4 +1,4 @@
-@import "../../../sourses/styles/variables.scss";
+@import '../../../sourses/styles/variables.scss';
 
 .container {
   display: block;
@@ -16,12 +16,13 @@
     margin: 0 auto;
     padding: 10px;
 
-    .logo {
-      font-size: 25px;
+    .logoText {
+      font-size: 40px;
       font-weight: 700;
       color: $brandColor;
       margin-bottom: 0;
       margin-left: 20px;
+      text-shadow: 1px -1px 5px rgba(22, 44, 255, 0.67);
     }
   }
   .title {
@@ -30,8 +31,7 @@
     font-weight: 700;
     text-align: center;
     border-radius: 7px;
-    color: $brandColor;
-    // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color: #191a1b;
   }
   .text {
     font-family: Barlow;

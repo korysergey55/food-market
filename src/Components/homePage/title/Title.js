@@ -7,7 +7,7 @@ const Title = () => {
     <div className={styles.container}>
       <div className={styles.logoWripper}>
         <Logo />
-        <h2 className={styles.logo}> Good-Food</h2>
+        <h2 className={styles.logoText}> Good-Food</h2>
       </div>
       <h1 className={styles.title}>Интернет-магазин Товаров из Европы</h1>
     </div>

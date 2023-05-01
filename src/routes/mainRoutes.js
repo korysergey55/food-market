@@ -25,7 +25,7 @@ export const mainRoutes = [
     name: 'Products',
     path: '/products',
     component: lazy(() => import('../Components/productsPage/ProductsPage.js')),
-    exact: true,
+    exact: false,
     isRestricted: false,
     isPrivate: false,
   },

@@ -24,7 +24,7 @@ const HomePage = observer(() => {
       <Title />
       <Feachers />
       <div className={styles.container}>
-        <h3 className={styles.subtitle}>Самые Популярные</h3>
+        <h3 className={styles.subtitle}>Самые популярные</h3>
         <h2 className={styles.title}>Популярные продукты</h2>
         <div className={styles.wripper}>
           <ProductList homePage={true} />
