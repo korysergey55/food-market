@@ -11,38 +11,30 @@ import {
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
-import { productsJSON } from '../sourses/data/dataProducts'
-import { categories } from '../sourses/data/categories'
+import { productsJSON } from '../sourses/dataProduct/products'
+import { categoriesJSON } from '../sourses/dataProduct/categories'
+import { brandsJSON } from '../sourses/dataProduct/brands'
+import { countryJSON } from '../sourses/dataProduct/country'
+import { packingJSON } from '../sourses/dataProduct/packing'
+
+import { IсategoryJSON } from '../models/index'
+import { IProduct } from '../models/index'
 
 class ProductsStore {
-  @observable products: any = [...productsJSON]
-  @observable filteredProducts: any = [...this.products]
-  @observable productById: any = null
+  @observable products: IProduct[] = [...productsJSON]
+  @observable сategory: IсategoryJSON[] = [...categoriesJSON]
+  @observable brands: string[] = [...brandsJSON]
+  @observable country: string[] = [...countryJSON]
+  @observable packing: string[] = [...packingJSON]
+
+  @observable filteredProducts: IProduct[] = [...this.products]
+  @observable productById: IProduct | null = null
+
   @observable cart: any = localStorage.getItem('cart')
     ? JSON.parse(localStorage.getItem('cart'))
     : []
   @observable totalPrice: number = 0
-  @observable viewedProducts: any = []
-
-  @observable brand: any = [
-    'Ambassador',
-    'Bellarom',
-    'Bellarom',
-    'Eduscho',
-    'Lavazza',
-    'Pellini',
-    'De Cecco',
-  ]
-  @observable country: any = [
-    'Германия',
-    'Польша',
-    'Швеция',
-    'Италия',
-    'Австрия',
-    'Щвейцария',
-  ]
-  @observable packing: any = ['100', '200', ' 300', ' 400', '500', '600']
-  @observable сategory: any = [...categories]
+  @observable viewedProducts: IProduct | IProduct[] = []
 
   constructor() {
     makeAutoObservable(this)

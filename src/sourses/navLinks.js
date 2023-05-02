@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {  faCartPlus,faUser, faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faCartPlus, faUser, faHeart } from '@fortawesome/free-solid-svg-icons'
 
 export const navLinks = [
   {
@@ -23,7 +23,6 @@ export const navLinks = [
     isRegistered: false,
     isPrivate: false,
   },
-  
   {
     name: 'Admin',
     path: '/admin',

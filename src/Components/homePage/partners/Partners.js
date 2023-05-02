@@ -1,5 +1,5 @@
 import React from 'react'
-import { partnersArr } from '../../../sourses/data/partners'
+import { partnersArr } from '../../../sourses/dataProduct/partners'
 
 import styles from './styles.module.scss'
 

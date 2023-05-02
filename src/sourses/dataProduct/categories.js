@@ -10,7 +10,7 @@ import ImgVitaminy from '../../sourses/images/productsPage/categoryList/shipuchk
 import ImgNowinky from '../../sourses/images/productsPage/categoryList/marzipan.png'
 import ImgRaznoe from '../../sourses/images/productsPage/categoryList/FERERO.png'
 
-export const categories = [
+export const categoriesJSON = [
   { name: 'Кофе, чай, капучино', img: ImgCoffee, route: '/products/coffee' },
   { name: 'Оливковое масло', img: ImgOil, route: '/products/olivkovoe_maslo' },
   { name: 'Сыры и колбасы', img: ImgSyry, route: '/products/syry_kolbasy' },

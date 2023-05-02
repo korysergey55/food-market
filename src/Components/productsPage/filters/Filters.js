@@ -80,7 +80,7 @@ const Filters = observer(({ setShowFilters }) => {
       >
         <Panel header="Бренд" key="1">
           <ul className={styles.checkboxList}>
-            {ProductsStore.brand.map(item => (
+            {ProductsStore.brands.map(item => (
               <Checkbox
                 className={styles.item}
                 onChange={changeBrand}
