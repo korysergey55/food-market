@@ -10,8 +10,8 @@ import {
 } from 'mobx'
 import axios from 'axios'
 import { toast } from 'react-toastify'
-import { productsJSON } from '../sourses/data/dataProducts'
 
+import { productsJSON } from '../sourses/data/dataProducts'
 import { categories } from '../sourses/data/categories'
 
 class ProductsStore {
@@ -62,7 +62,11 @@ class ProductsStore {
 
   @action setViewedProducts(id: string) {
     const newProduct = this.products.find((item: any) => item.id === id)
-    this.viewedProducts = [...this.viewedProducts, newProduct]
+    // this.viewedProducts = [...this.viewedProducts, newProduct]
+    const undublicate = this.viewedProducts.filter(
+      (item: any) => item.id !== newProduct.id
+    )
+    this.viewedProducts = [...undublicate, newProduct]
   }
 
   @action filterProducts(data: any) {

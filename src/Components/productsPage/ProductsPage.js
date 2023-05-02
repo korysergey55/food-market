@@ -5,7 +5,6 @@ import { useHistory, useRouteMatch } from 'react-router-dom'
 
 import ProductRout from './products/productsRouts/ProductRouts'
 import Filters from '../productsPage/filters/Filters'
-import Partners from '../homePage/partners/Partners'
 import SubForm from '../../containers/Reuseble/subForm/SubForm'
 import Footer from '../../containers/footer/Footer'
 
@@ -27,7 +26,7 @@ const ProductsPage = observer(() => {
 
   useEffect(() => {
     history.push(match.path + '/all')
-  }, [])
+  }, [match.path])
 
   useEffect(() => {
     window.scroll(0, 350)
