@@ -54,7 +54,6 @@ const MapComponent = () => {
     setMap(null)
   }, [])
   const onMapClick = useCallback((...args) => {
-    console.log('onClick args: ', args)
   }, [])
 
   //Directions service  code
