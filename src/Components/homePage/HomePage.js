@@ -27,15 +27,15 @@ const HomePage = observer(() => {
       <Title />
       <Feachers />
       <div className={styles.container}>
-        <h3 className={styles.subtitle}>{t('Самые_популярные')}</h3>
-        <h2 className={styles.title}>{t('Популярные_продукты')}</h2>
+        <h3 className={styles.subtitle}>{t('Самые популярные')}</h3>
+        <h2 className={styles.title}>{t('Популярные продукты')}</h2>
         <div className={styles.wripper}>
           <ProductList homePage={true} />
         </div>
         {/* <Baner /> */}
         <AboutUs />
-        <h3 className={styles.subtitle}>{t('Наиболее_продаваемые')}</h3>
-        <h2 className={styles.title}>{t('Рекомендуемые_товары')}</h2>
+        <h3 className={styles.subtitle}>{t('Наиболее продаваемые')}</h3>
+        <h2 className={styles.title}>{t('Рекомендуемые товары')}</h2>
         <div className={styles.wripper}>
           <ProductList homePage={true} />
         </div>

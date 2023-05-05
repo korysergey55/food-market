@@ -12,7 +12,7 @@ const Title = () => {
         <Logo />
         <h2 className={styles.logoText}> Good-Food</h2>
       </div>
-      <h1 className={styles.title}>{t('Интернет_магазин_Товаров_из_Европы')}</h1>
+      <h1 className={styles.title}>{t('Интернет магазин Товаров из Европы')}</h1>
     </div>
   )
 }
