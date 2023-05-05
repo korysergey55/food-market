@@ -6,6 +6,7 @@ import { pathes } from '../../utils/pathes'
 import { shopTel } from '../../utils/location'
 
 import Logo from '../Reuseble/Logo/Logo'
+import { useTranslation } from 'react-i18next';
 
 import styles from './styles.module.scss'
 import classnames from 'classnames'
@@ -26,6 +27,7 @@ const Header = observer(() => {
   const history = useHistory()
   const location = useLocation()
   const [state, setState] = useState(false)
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     window.addEventListener('scroll', () => window.scrollY)
@@ -44,6 +46,7 @@ const Header = observer(() => {
 
   const onChangeLanguage = value => {
     console.log(value)
+    i18n.changeLanguage(value)
   }
 
   return (
@@ -176,27 +179,16 @@ const Header = observer(() => {
           <li className={styles.item}>
             <Select
               className={styles.select}
-              defaultValue="en"
+              defaultValue="ua"
               size="small"
               onChange={onChangeLanguage}
             >
-              <Option value="name">en</Option>
-              <Option value="price">ua</Option>
-              <Option value="price">ru</Option>
+              <Option value="en">en</Option>
+              <Option value="ua">ua</Option>
+              <Option value="ru">ru</Option>
             </Select>
           </li>
         </ul>
-
-        {/* <div className={styles.wripperTel}>
-          <a className={styles.link} href={`tel:${shopTel}`}>
-            <FontAwesomeIcon
-              className={styles.iconTel}
-              icon={faPhoneAlt}
-              size="1x"
-            />
-            {shopTel}
-          </a>
-        </div> */}
       </div>
     </header>
   )

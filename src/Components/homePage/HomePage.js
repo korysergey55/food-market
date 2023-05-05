@@ -12,11 +12,14 @@ import SubForm from '../../containers/Reuseble/subForm/SubForm'
 import Partners from './partners/Partners'
 import Footer from '../../containers/footer/Footer'
 
+import { useTranslation } from 'react-i18next';
+
 import styles from './styles.module.scss'
 
 const HomePage = observer(() => {
   const { ProductsStore } = useStore()
   const { filteredProducts } = ProductsStore
+  const { t } = useTranslation();
 
   return (
     <div className={styles.homePage}>
@@ -24,7 +27,7 @@ const HomePage = observer(() => {
       <Title />
       <Feachers />
       <div className={styles.container}>
-        <h3 className={styles.subtitle}>Самые популярные</h3>
+        <h3 className={styles.subtitle}>{t('Самые_популярные')}</h3>
         <h2 className={styles.title}>Популярные продукты</h2>
         <div className={styles.wripper}>
           <ProductList homePage={true} />
