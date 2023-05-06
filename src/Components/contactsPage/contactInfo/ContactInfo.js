@@ -25,7 +25,7 @@ const ContactInfo = () => {
           </Tooltip>
           <Tooltip title={t("Позвонить")}>
             <a className={styles.link} href={`tel:${shopTel}`}>
-              +380630560488
+              +380 63 056 0488
             </a>
             <p className={styles.subtitle}>Email</p>
           </Tooltip>

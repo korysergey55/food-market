@@ -185,7 +185,7 @@ const Header = observer(() => {
             >
               <Option value="en">en</Option>
               <Option value="ua">ua</Option>
-              <Option value="es">es</Option>
+              {/* <Option value="es">es</Option> */}
             </Select>
           </li>
         </ul>
