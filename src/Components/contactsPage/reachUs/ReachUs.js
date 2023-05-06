@@ -6,16 +6,19 @@ import {
   shopAdress,
 } from '../../../utils/location'
 
+import { useTranslation } from 'react-i18next';
+
 import styles from './styles.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt, faPhoneAlt } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 
 const ReachUs = () => {
+  const { t } = useTranslation();
   return (
     <div className={styles.wripper}>
       <div className={styles.reachUs}>
-        <h3 className={styles.title}>Контакты</h3>
+        <h3 className={styles.title}>{t('Контакты')}</h3>
         <ul className={styles.list}>
           <li className={styles.item}>
             <a className={styles.link}>
@@ -27,7 +30,7 @@ const ReachUs = () => {
               />
             </a>
             <div className={styles.liContainer}>
-              <h4 className={styles.subtitle}>Адрес</h4>
+              {/* <h4 className={styles.subtitle}>Адрес</h4> */}
               <a className={styles.text}>{shopAdress}</a>
             </div>
           </li>
@@ -41,7 +44,7 @@ const ReachUs = () => {
               />
             </a>
             <div className={styles.liContainer}>
-              <h4 className={styles.subtitle}>Телефон</h4>
+              {/* <h4 className={styles.subtitle}>Телефон</h4> */}
               <a className={styles.text} href={`tel:${shopTel}`}>
                 {shopTel}
               </a>
@@ -57,7 +60,7 @@ const ReachUs = () => {
               />
             </a>
             <div className={styles.liContainer}>
-              <h4 className={styles.subtitle}>Email</h4>
+              {/* <h4 className={styles.subtitle}>Email</h4> */}
               <a className={styles.text} href={`mailto:${shopEmail}`}>
                 {shopEmail}
               </a>

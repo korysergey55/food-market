@@ -1,4 +1,4 @@
-@import "../../../sourses/styles/variables.scss";
+@import '../../../sourses/styles/variables.scss';
 
 .wripper {
   width: 100%;
@@ -77,6 +77,9 @@
       min-height: 530px;
       margin-bottom: 0;
       padding: 25px 25px;
+      .title {
+        margin-bottom: 40px;
+      }
 
       .list {
         margin: 40px 0;

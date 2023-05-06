@@ -8,6 +8,8 @@ import Filters from '../productsPage/filters/Filters'
 import SubForm from '../../containers/Reuseble/subForm/SubForm'
 import Footer from '../../containers/footer/Footer'
 
+import { useTranslation } from 'react-i18next';
+
 import styles from './styles.module.scss'
 import classnames from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -17,6 +19,7 @@ const { Search } = Input
 
 const ProductsPage = observer(() => {
   const { ProductsStore } = useStore()
+  const { t } = useTranslation();
 
   const history = useHistory()
   const match = useRouteMatch()
@@ -51,9 +54,8 @@ const ProductsPage = observer(() => {
       <div className={styles.container}>
         <h2
           className={styles.title}
-          onClick={() => history.push('products/all')}
         >
-          Ветрина товаров
+          {t('Ветрина товаров')}
         </h2>
         <div className={styles.filterWripper}>
           <FontAwesomeIcon
@@ -65,12 +67,12 @@ const ProductsPage = observer(() => {
           />
           <Search
             className={styles.search}
-            placeholder="Поиск товара"
+            placeholder={t("Поиск товара")}
             value={search}
             onChange={evt => onChangeSearch(evt)}
             onSearch={onSearch}
             size="large"
-            enterButton="Поиск"
+            enterButton={t("Поиск")}
           />
         </div>
         <div className={styles.wripper}>

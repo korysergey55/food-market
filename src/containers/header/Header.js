@@ -82,7 +82,7 @@ const Header = observer(() => {
               className={styles.link}
               activeClassName={styles.linkActive}
             >
-              Главная
+              {t('Главная')}
             </NavLink>
           </li>
           <li className={styles.item}>
@@ -92,7 +92,7 @@ const Header = observer(() => {
               className={styles.link}
               activeClassName={styles.linkActive}
             >
-              Товары
+              {t('Товары')}
             </NavLink>
           </li>
           <li className={styles.item}>
@@ -102,7 +102,7 @@ const Header = observer(() => {
               className={styles.link}
               activeClassName={styles.linkActive}
             >
-              Контакты
+              {t('Контакты')}
             </NavLink>
           </li>
           {AuthStore.token && (

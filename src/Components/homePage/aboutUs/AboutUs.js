@@ -15,7 +15,7 @@ const AboutUs = () => {
       <div className={styles.container}>
         <div className={styles.wripper}>
           <h3 className={styles.subtitle}>{t('О нас')}</h3>
-          <h2 className={styles.title}>{t('We provide you with the best experience')}</h2>
+          <h2 className={styles.title}>{t('Мы предоставляем вам лучший опыт')}</h2>
           <p className={styles.text}>
             {t('Нашa компания стремится предлагать продукты, которым люди могут доверять. Мы предлагаем продукты питания, рецепты и индивидуальные решения для широкого круга сегментов, включая рестораны и специализированные кофейни, школы, торговые точки и микрорынки, а также доставка на дом по всей Украине.')}
             <br />

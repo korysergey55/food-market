@@ -10,8 +10,8 @@ import styles from './styles.module.scss'
 const ContactsPage = () => {
   return (
     <div className={styles.contactPage}>
+      <div className={styles.baner}></div>
       <div className={styles.container}>
-        {/* <h2 className={styles.title}>Контакты</h2> */}
         <div className={styles.wripper}>
           {/* <div className={styles.map}></div> */}
           <MapComponent />

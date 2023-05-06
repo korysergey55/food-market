@@ -6,23 +6,26 @@ import {
   shopAdress,
 } from '../../../utils/location'
 
+import { useTranslation } from 'react-i18next';
+
 import styles from './styles.module.scss'
 import { Tooltip } from 'antd'
 
 const ContactInfo = () => {
+  const { t } = useTranslation();
   return (
     <div className={styles.info}>
       <div className={styles.wripper}>
         <div className={styles.box}>
-          <p className={styles.subtitle}>Tелефоны</p>
-          <Tooltip title="позвонить">
+          <p className={styles.subtitle}>{t('Tелефоны')}:</p>
+          <Tooltip title={t("Позвонить")}>
             <a className={styles.link} href={`tel:${shopTel}`}>
               {shopTel}
             </a>
           </Tooltip>
-          <Tooltip title="позвонить">
+          <Tooltip title={t("Позвонить")}>
             <a className={styles.link} href={`tel:${shopTel}`}>
-              {shopTel}
+              +380630560488
             </a>
             <p className={styles.subtitle}>Email</p>
           </Tooltip>
@@ -34,10 +37,10 @@ const ContactInfo = () => {
           </a>
         </div>
         <div className={styles.box}>
-          <p className={styles.subtitle}>График роботи</p>
-          <p className={styles.text}>В будни с 8:00 до 21:00</p>
-          <p className={styles.text}>Субота с 9:00 до 20:00</p>
-          <p className={styles.text}>Воскресенье с 10:00 до 19:00</p>
+          <p className={styles.subtitle}>{t('График роботи')}</p>
+          <p className={styles.text}>{t('Пн-пт')}: 8:00 - 20:00</p>
+          <p className={styles.text}>{t('Сб')}: 8:00 - 16:00</p>
+          <p className={styles.text}>{t('Вс')}: виходной</p>
         </div>
       </div>
     </div>

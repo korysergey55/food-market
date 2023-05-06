@@ -40,7 +40,7 @@ const Feachers = () => {
         <li className={`${styles.item} ${styles.orange}`} onClick={() => history.push(pathes.products)}>
           <div className={styles.wripper}>
             <h3 className={styles.title}>
-              {t('We work directly with suppliers from Europe')}
+              {t('Работаем напрямую с поставщиками из Европы')}
             </h3>
             <button type="button" className={styles.btn}>
               {t('Купить')}
@@ -58,7 +58,7 @@ const Feachers = () => {
         </li>
         <li className={`${styles.item} ${styles.green}`} onClick={() => history.push(pathes.products)}>
           <div className={styles.wripper}>
-            <h3 className={styles.title}>{t('The highest quality of delivered products!')}</h3>
+            <h3 className={styles.title}>{t('Наивысшее качество поставляемых продуктов!')}</h3>
             <button type="button" className={styles.btn}>
               {t('Купить')}
               <FontAwesomeIcon
