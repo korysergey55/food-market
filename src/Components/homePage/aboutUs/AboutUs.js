@@ -28,7 +28,7 @@ const AboutUs = () => {
             size="large"
             onClick={() => history.push(pathes.products)}
           >
-            {t(' В Магазин')}
+            {t('В Магазин')}
           </Button>
         </div>
       </div>

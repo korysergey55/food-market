@@ -7,29 +7,32 @@ import Feature3Img from '../../../sourses/images/homePage/differences/icon3.png'
 import Feature4Img from '../../../sourses/images/homePage/differences/icon4.png'
 import CartImg from '../../../sourses/images/homePage/differences/featuresCart.png'
 
+import { useTranslation } from 'react-i18next';
+
 import styles from './styles.module.scss'
 import { Button } from 'antd'
 
 const Differences = () => {
+  const { t } = useTranslation();
   const history = useHistory()
   return (
     <div className={styles.differences}>
-      <h2 className={styles.title}>Почему выберают нас</h2>
+      <h2 className={styles.title}>{t('Почему выберают нас')}</h2>
       <div className={styles.container}>
         <ul className={styles.list}>
           <li className={styles.item}>
             <img className={styles.img} src={FeatureImg} alt="FeatureImg" />
-            <h3 className={styles.title}>Качественные продукты</h3>
+            <h3 className={styles.title}>{t('Качественные продукты')}</h3>
             <p className={styles.text}>
-              Мы предоставляем только сертифицируемые продукты.
+              {t('Мы предоставляем только сертифицируемые продукты')}
             </p>
           </li>
 
           <li className={styles.item}>
             <img className={styles.img} src={Feature2Img} alt="Feature2Img" />
-            <h3 className={styles.title}>Онлайн-заказ</h3>
+            <h3 className={styles.title}>{t('Онлайн-заказ')}</h3>
             <p className={styles.text}>
-              Быстрое оформление заказа и отправка в тот же день.
+              {t('Быстрое оформление заказа и отправка в тот же день')}
             </p>
           </li>
         </ul>
@@ -41,22 +44,22 @@ const Differences = () => {
             size="large"
             onClick={() => history.push(pathes.products)}
           >
-            В Магазин
+            {t('В Магазин')}
           </Button>
         </div>
         <ul className={styles.list}>
           <li className={styles.item}>
             <img className={styles.img} src={Feature3Img} alt="Feature3Img" />
-            <h3 className={styles.title}>Быстрая доставка</h3>
+            <h3 className={styles.title}>{t('Быстрая доставка')}</h3>
             <p className={styles.text}>
-              Отправка товара в течение часа после заказа.
+              {t('Отправка товара в течение часа после заказа')}
             </p>
           </li>
 
           <li className={styles.item}>
             <img className={styles.img} src={Feature4Img} alt="Feature4Img" />
-            <h3 className={styles.title}>24/7 Сервис</h3>
-            <p className={styles.text}>Наш сервис работает круглосуточно.</p>
+            <h3 className={styles.title}>{t('24/7 Сервис')}</h3>
+            <p className={styles.text}>{t('Наш сервис работает круглосуточно')}</p>
           </li>
         </ul>
       </div>
