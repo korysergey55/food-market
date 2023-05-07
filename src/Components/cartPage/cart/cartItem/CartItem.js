@@ -58,11 +58,10 @@ const CartListItem = observer(({ product }) => {
         >
           {name}
         </h2>
-        {/* <h2 className={styles.text}>Вес: {aboutProduct.weight}</h2> */}
-        {/* <span className={styles.price}> {price} грн</span> */}
+        <h2 className={styles.text}> {aboutProduct.weight}</h2>
         <p className={styles.price}>
           {price}грн
-          <span className={styles.sale}> {price * 1.2}грн</span>
+          {hot ? <span className={styles.sale}> {price + price * Number(hot / 100)}грн</span> : null}
         </p>
         <div className={styles.btnContainer}>
           <button

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useStore } from '../../../storeMobx'
 import { observer } from 'mobx-react'
-import { useHistory } from 'react-router'
+import { useHistory, useLocation } from 'react-router'
 import { pathes } from '../../../utils/pathes'
 
 import CartItem from './cartItem/CartItem'
@@ -10,6 +10,7 @@ import { Empty, Button } from 'antd'
 
 const Cart = observer(() => {
   const history = useHistory()
+  const location = useLocation()
   const { ProductsStore } = useStore()
   const { cart, products, cartProducts, totalPrice } = ProductsStore
 
@@ -34,7 +35,7 @@ const Cart = observer(() => {
 
   useEffect(() => {
     ProductsStore.setTotalPrice()
-  }, [cartProducts])
+  }, [cartProducts, location.pathname])
 
   // const getTotalPrice = () => {
   //   const price = cartProducts?.reduce((acc, product) => {

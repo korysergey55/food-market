@@ -47,7 +47,7 @@ const productsJSON = [
         'Reviews Ratione volurtatem serui nesciunt neaue porro quisquam est dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem Ut enim ad minima veniam corporis  suscipit laboriosam nisi ut aliquid ex ea commodi consequatur',
     },
     isSale: false,
-    hot: '20',
+    hot: '',
     price: 85,
     image: 'https://getfood.com.ua/wp-content/uploads/2021/02/bri.jpg',
     images: [
@@ -75,7 +75,7 @@ const productsJSON = [
         'Reviews Ratione volurtatem serui nesciunt neaue porro quisquam est dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem Ut enim ad minima veniam corporis  suscipit laboriosam nisi ut aliquid ex ea commodi consequatur',
     },
     isSale: false,
-    hot: '20',
+    hot: '15',
     price: 340,
     image:
       'https://getfood.com.ua/wp-content/uploads/2021/02/De-Cecco-classico8jyi.jpg',
