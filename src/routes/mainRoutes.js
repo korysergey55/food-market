@@ -78,7 +78,7 @@ export const mainRoutes = [
     path: '/:notfound',
     exact: false,
     component: lazy(() =>
-      import('../containers/Utils/notFoundComponent/NotFoundComponent.js')
+      import('../Components/notFoundComponent/NotFoundComponent.js')
     ),
     isPrivate: false,
     iisRestricted: false,

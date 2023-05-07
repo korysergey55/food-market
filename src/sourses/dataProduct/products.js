@@ -65,7 +65,7 @@ const productsJSON = [
     description: 'Оливковое масло Де Чечо/ L’OLIO De Cecco Classico',
     brand: 'De Cecco',
     aboutProduct: {
-      weight: '1 л',
+      weight: '1.5 л',
       manufactur: 'Италия',
       fullDescription:
         'Оливковое масло L’OLIO De Cecco Classico получается при первом холодном отжиме, без использования химикатов. L’OLIO De Cecco Classico самый дорогой тип масла, так как при первом отжиме сохраняются все целебные свойства и полезные вещества. В Оливковом масле L’OLIO De Cecco Classico присутствует чистый запах оливок и легкий травяной аромат. Это масло обладает гармоничным ароматом и сбалансированным вкусом, которые подчеркнут вкусовые качества любых ваших блюд. По этому, не медлите не минуты и заказывайте оливковое масло L’OLIO De Cecco Classico прямо сейчас в интернет-магазине товаров из Европы ГЕТФУД уже сейчас и очень скоро вы сможете побаловать своих родных непревзойденным вкусом ваших блюд.',
@@ -76,7 +76,7 @@ const productsJSON = [
     },
     isSale: false,
     hot: '20',
-    price: 240,
+    price: 340,
     image:
       'https://getfood.com.ua/wp-content/uploads/2021/02/De-Cecco-classico8jyi.jpg',
     images: [

@@ -9,11 +9,10 @@ import styles from './styles.module.scss'
 import { Empty, Button } from 'antd'
 
 const Cart = observer(() => {
-  const { ProductsStore } = useStore()
-  const { cart, products } = ProductsStore
   const history = useHistory()
-  const [totalPrice, setTotalPrice] = useState(0)
-  
+  const { ProductsStore } = useStore()
+  const { cart, products, cartProducts, totalPrice } = ProductsStore
+
   const findProductCart = () => {
     const cartArr = []
     const unq = Array.from(new Set(cart))
@@ -28,29 +27,23 @@ const Cart = observer(() => {
     })
     return cartArr
   }
-   // const findProductCart = () => {
-  //   const cartArr = products.filter(item => cart.find(el => item.id === el))
-  //   return cartArr
-  // }
-  const [cartProducts, setCartProducts] = useState(findProductCart())
- 
 
   useEffect(() => {
-    setCartProducts(findProductCart())
+    ProductsStore.setCartProducts(findProductCart())
   }, [cart, products])
 
   useEffect(() => {
-    getTotalPrice()
+    ProductsStore.setTotalPrice()
   }, [cartProducts])
 
-  const getTotalPrice = () => {
-    const price = cartProducts?.reduce((acc, product) => {
-      acc += Number(product?.price * product.qantity)
-      return acc
-    }, 0)
-    setTotalPrice(price)
-    ProductsStore.setTotalPrice(price)
-  }
+  // const getTotalPrice = () => {
+  //   const price = cartProducts?.reduce((acc, product) => {
+  //     acc += Number(product?.price * product.qantity)
+  //     return acc
+  //   }, 0)
+  //   setTotalPrice(price)
+  //   ProductsStore.setTotalPrice(price)
+  // }
 
   return (
     <div className={styles.container}>

@@ -33,6 +33,7 @@ class ProductsStore {
   @observable cart: any = localStorage.getItem('cart')
     ? JSON.parse(localStorage.getItem('cart'))
     : []
+  @observable cartProducts: any = []
   @observable totalPrice: number = 0
   @observable viewedProducts: IProduct | IProduct[] = []
 
@@ -126,19 +127,27 @@ class ProductsStore {
     })
   }
 
-  @action setTotalPrice(data: any = null) {
-    // if (!data) {
-    //   const price = this.cart?.reduce((acc: any, product: any) => {
-    //     acc += Number(product?.price)
-    //     return acc
-    //   }, 0)
-    //   this.totalPrice = price
-    // }
-    // if (data) {
-    //   const price = (this.totalPrice -= data)
-    //   this.totalPrice = price
-    // }
-    this.totalPrice = data
+  @action setCartProducts(items: any) {
+    this.cartProducts = [...items]
+  }
+  @action setQantityCartProducts(id: string, type: string) {
+    this.cartProducts.map((item: any) => {
+      if (item.id === id && type === 'increment') {
+        return (item.qantity = item.qantity += 1)
+      }
+      if (item.id === id && type === 'decrement') {
+        return (item.qantity = item.qantity -= 1)
+      }
+      return item
+    })
+  }
+
+  @action setTotalPrice() {
+    const price = this.cartProducts?.reduce((acc: any, product: any) => {
+      acc += Number(product?.price * product.qantity)
+      return acc
+    }, 0)
+    this.totalPrice = price
   }
 }
 export default new ProductsStore()

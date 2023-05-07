@@ -1,4 +1,4 @@
-@import '../../../sourses/styles/variables.scss';
+@import '../../sourses/styles/variables.scss';
 
 .container {
   display: block;
@@ -6,7 +6,7 @@
   max-width: 1112px;
   margin: 0 auto;
   padding: 50px 15px;
-   border-bottom: 3px solid $brandColor;
+  border-bottom: 3px solid $brandColor;
 
   .wripper {
     display: flex;
@@ -69,5 +69,10 @@
         }
       }
     }
+  }
+}
+@media screen and (min-width: 768px) {
+  .wripper {
+    margin-top: 90px;
   }
 }

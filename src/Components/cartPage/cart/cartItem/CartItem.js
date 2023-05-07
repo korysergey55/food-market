@@ -25,14 +25,17 @@ const CartListItem = observer(({ product }) => {
   const qantityProduct = evt => {
     const { dataset } = evt.target
 
+    if (dataset.name === 'increment') {
+      setCounter(prev => prev + 1)
+      ProductsStore.setQantityCartProducts(id, 'increment')
+    }
     if (dataset.name === 'decrement') {
       if (counter > 1) {
         setCounter(prev => prev - 1)
+        ProductsStore.setQantityCartProducts(id, 'decrement')
       }
     }
-    if (dataset.name === 'increment') {
-      setCounter(prev => prev + 1)
-    }
+    ProductsStore.setTotalPrice()
   }
 
   const removeFromCart = product => {
@@ -46,7 +49,7 @@ const CartListItem = observer(({ product }) => {
         className={styles.img}
         src={image}
         alt="productImg"
-        onClick={() => {}}
+        onClick={() => { }}
       />
       <div className={styles.wripper}>
         <h2
