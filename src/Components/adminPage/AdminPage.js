@@ -1,5 +1,5 @@
 import React from 'react'
-import AdvForm from './adminForm/AdvForm'
+import AdminForm from './adminForm/AdminForm'
 import Header from '../../containers/header/Header'
 import styles from './styles.module.scss'
 
@@ -8,7 +8,7 @@ const AdminPage = () => {
     <div className={styles.adminPage}>
       <Header />
       <div className={styles.container}>
-        <AdvForm />
+        <AdminForm />
       </div>
     </div>
   )

@@ -34,7 +34,7 @@ const ProductItemDetails = observer(() => {
 
   useEffect(() => {
     if (productID) {
-      ProductsStore.setProductDetails(productID)
+      ProductsStore.setProductDetailsAction(productID)
       ProductsStore.setViewedProducts(productID)
     }
   }, [])

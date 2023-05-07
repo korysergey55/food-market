@@ -28,11 +28,13 @@ const CartListItem = observer(({ product }) => {
     if (dataset.name === 'increment') {
       setCounter(prev => prev + 1)
       ProductsStore.setQantityCartProducts(id, 'increment')
+      ProductsStore.addToCart(id)
     }
     if (dataset.name === 'decrement') {
       if (counter > 1) {
         setCounter(prev => prev - 1)
         ProductsStore.setQantityCartProducts(id, 'decrement')
+        ProductsStore.remuveFromCart(id)
       }
     }
     ProductsStore.setTotalPrice()

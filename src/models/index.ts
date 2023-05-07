@@ -1,6 +1,6 @@
 export interface IсategoryJSON {
   name: string
-  img: HTMLImageElement
+  img: string
   route: string
 }
 

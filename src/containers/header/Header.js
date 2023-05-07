@@ -105,18 +105,18 @@ const Header = observer(() => {
               {t('Контакты')}
             </NavLink>
           </li>
-          {AuthStore.token && (
-            <li className={styles.item}>
-              <NavLink
-                to={pathes.admin}
-                exact={true}
-                className={styles.link}
-                activeClassName={styles.linkActive}
-              >
-                Admin
-              </NavLink>
-            </li>
-          )}
+          {/* {AuthStore.token && ( */}
+          <li className={styles.item}>
+            <NavLink
+              to={pathes.admin}
+              exact={true}
+              className={styles.link}
+              activeClassName={styles.linkActive}
+            >
+              Admin
+            </NavLink>
+          </li>
+          {/* )} */}
         </ul>
         <ul
           className={classnames({

@@ -49,7 +49,11 @@ class ProductsStore {
     this.products = [...data]
   }
 
-  @action setProductDetails(id: string) {
+  @action setNewProductAction(data: any) {
+    this.products = [...this.products, data]
+  }
+
+  @action setProductDetailsAction(id: string) {
     this.productById = this.products.find((item: any) => item.id === id)
   }
 
@@ -106,10 +110,6 @@ class ProductsStore {
   }
 
   @action addToCart(id: any) {
-    // const isInCart: any = this.cart.find((item: any) => item.id === id)
-    // if (!isInCart) {
-    //   this.cart = [...this.cart, id]
-    // }
     this.cart = [...this.cart, id]
     localStorage.setItem('cart', JSON.stringify(this.cart))
 
