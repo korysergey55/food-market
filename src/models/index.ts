@@ -11,13 +11,11 @@ export interface IProduct {
   name: string
   description: string
   brand: string
-  aboutProduct: {
-    weight: string
-    manufactur: string
-    fullDescription: string
-    AdditionalInformation: string
-    Reviews: string
-  }
+  weight: string
+  manufactur: string
+  fullDescription: string
+  AdditionalInformation: string
+  Reviews: string
   isSale: string
   hot: string
   price: number

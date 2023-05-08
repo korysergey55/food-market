@@ -41,7 +41,7 @@ const ProductItemDetails = observer(() => {
 
   useEffect(() => {
     setDiscriptionText(null)
-    productById && setDiscriptionText(productById.aboutProduct.fullDescription)
+    productById && setDiscriptionText(productById.fullDescription)
 
     setActiveItem('fullDescription')
   }, [])
@@ -104,10 +104,10 @@ const ProductItemDetails = observer(() => {
           </div>
           <p className={styles.description}>{productById.description}</p>
           <p className={styles.description}>
-            Производитель: {productById.aboutProduct.manufactur}
+            Производитель: {productById.manufactur}
           </p>
           <p className={styles.description}>
-            Вес: {productById.aboutProduct.weight}
+            Вес: {productById.weight}
           </p>
           <p className={styles.price}>
             {productById.price}грн
@@ -150,7 +150,7 @@ const ProductItemDetails = observer(() => {
                 [styles.active]: activeItem === 'fullDescription',
               })}
               onClick={() => {
-                onChangeDiscription(productById.aboutProduct.fullDescription)
+                onChangeDiscription(productById.fullDescription)
                 setActiveItem('fullDescription')
               }}
             >
@@ -163,7 +163,7 @@ const ProductItemDetails = observer(() => {
               })}
               onClick={() => {
                 onChangeDiscription(
-                  productById.aboutProduct.AdditionalInformation
+                  productById.AdditionalInformation
                 )
                 setActiveItem('AdditionalInformation')
               }}
@@ -176,7 +176,7 @@ const ProductItemDetails = observer(() => {
                 [styles.active]: activeItem === 'Reviews',
               })}
               onClick={() => {
-                onChangeDiscription(productById.aboutProduct.Reviews)
+                onChangeDiscription(productById.Reviews)
                 setActiveItem('Reviews')
               }}
             >

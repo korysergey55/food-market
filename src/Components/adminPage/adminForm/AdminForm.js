@@ -16,13 +16,11 @@ const AdminForm = observer(() => {
     subcategory: '',
     description: '',
     brand: '',
-    aboutProduct: {
-      weight: '',
-      manufactur: '',
-      fullDescription: '',
-      AdditionalInformation: '',
-      Reviews: '',
-    },
+    weight: '',
+    manufactur: '',
+    fullDescription: '',
+    AdditionalInformation: '',
+    Reviews: '',
     isSale: false,
     hot: '',
     price: 0,
@@ -118,18 +116,11 @@ const AdminForm = observer(() => {
       </Form.Item>
 
       <Form.Item
-        label="description"
+        label="short-description"
         name="description"
-        rules={[{ required: true, message: 'Please input your Product description!' }]}
+        rules={[{ required: true, message: 'Please input your Product short-description!' }]}
       >
-        <TextArea
-          showCount
-          maxLength={100}
-          style={{ height: 120, marginBottom: 24 }}
-          onChange={onChange}
-          placeholder="Please input your Product description!"
-          name="description"
-        />
+        <Input placeholder="Please input your Product short-description" onChange={onChange} name="description" />
       </Form.Item>
 
       <Form.Item
@@ -138,6 +129,21 @@ const AdminForm = observer(() => {
         rules={[{ required: true, message: 'Please input your Product brand!' }]}
       >
         <Input placeholder="Please input your Product brand" onChange={onChange} name="brand" />
+      </Form.Item>
+
+      <Form.Item
+        label="full description"
+        name="fullDescription"
+        rules={[{ required: true, message: 'Please input your Product full description!' }]}
+      >
+        <TextArea
+          showCount
+          maxLength={100}
+          style={{ height: 120, marginBottom: 24 }}
+          onChange={onChange}
+          placeholder="Please input your Product full description!"
+          name="fullDescription"
+        />
       </Form.Item>
 
       <Form.Item name="Is sale" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
