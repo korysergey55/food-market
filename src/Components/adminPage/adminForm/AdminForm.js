@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useStore } from '../../../storeMobx'
 import { observer } from 'mobx-react'
+import { v4 as uuidv4 } from 'uuid';
 
 import { createNewAdvApi } from "../../../services/api";
 
@@ -9,8 +10,9 @@ import { Button, Checkbox, Form, Input, Select } from 'antd';
 const { TextArea } = Input;
 
 const AdminForm = observer(() => {
+  const [form] = Form.useForm();
   const initialState = {
-    id: '',
+    id: uuidv4(),
     name: '',
     category: '',
     subcategory: '',
@@ -21,9 +23,9 @@ const AdminForm = observer(() => {
     fullDescription: '',
     AdditionalInformation: '',
     Reviews: '',
-    isSale: false,
-    hot: '',
     price: 0,
+    discount: '',
+    isSale: false,
     image: '',
     images: [],
     qantity: 1,
@@ -75,6 +77,8 @@ const AdminForm = observer(() => {
 
   const onFinish = (values: any) => {
     console.log('Success:', values);
+    setState({ ...initialState });
+    form.resetFields()
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -92,6 +96,7 @@ const AdminForm = observer(() => {
       onFinishFailed={onFinishFailed}
       autoComplete="off"
       className={styles.form}
+      form={form}
     >
       <Form.Item
         label="name"
@@ -116,6 +121,14 @@ const AdminForm = observer(() => {
       </Form.Item>
 
       <Form.Item
+        label="subcategory"
+        name="subcategory"
+        rules={[{ required: false, message: 'Please input your Product subcategory!' }]}
+      >
+        <Input placeholder="Please input your Product subcategory" onChange={onChange} name="subcategory" />
+      </Form.Item>
+
+      <Form.Item
         label="short-description"
         name="description"
         rules={[{ required: true, message: 'Please input your Product short-description!' }]}
@@ -132,6 +145,22 @@ const AdminForm = observer(() => {
       </Form.Item>
 
       <Form.Item
+        label="weight"
+        name="weight"
+        rules={[{ required: true, message: 'Please input your Product weight!' }]}
+      >
+        <Input placeholder="Please input your Product weight" onChange={onChange} name="weight" />
+      </Form.Item>
+
+      <Form.Item
+        label="manufactur"
+        name="manufactur"
+        rules={[{ required: true, message: 'Please input your Product manufacture!' }]}
+      >
+        <Input placeholder="Please input your Product manufacture" onChange={onChange} name="manufactur" />
+      </Form.Item>
+
+      <Form.Item
         label="full description"
         name="fullDescription"
         rules={[{ required: true, message: 'Please input your Product full description!' }]}
@@ -144,6 +173,57 @@ const AdminForm = observer(() => {
           placeholder="Please input your Product full description!"
           name="fullDescription"
         />
+      </Form.Item>
+
+      <Form.Item
+        label="Additional Information"
+        name="Additional Information"
+        rules={[{ required: false, message: 'Please input your Product Additional Information!' }]}
+      >
+        <Input placeholder="Please input your Product Additional Information"
+          onChange={onChange}
+          name="AdditionalInformation" />
+      </Form.Item>
+
+      <Form.Item
+        label="Reviews"
+        name="Reviews"
+        rules={[{ required: true, message: 'Please input your Product Reviews!' }]}
+      >
+        <Input placeholder="Please input your Product Reviews"
+          onChange={onChange}
+          name="Reviews" />
+      </Form.Item>
+
+      <Form.Item
+        label="price"
+        name="price"
+        rules={[{ required: true, message: 'Please input your Product price!' }]}
+      >
+        <Input placeholder="Please input your Product price"
+          onChange={onChange}
+          name="price"
+          type='number' />
+      </Form.Item>
+
+      <Form.Item
+        label="discount"
+        name="discount"
+        rules={[{ required: false, message: 'Please input your Product discount %!' }]}
+      >
+        <Input placeholder="Please input your Product discount %"
+          onChange={onChange}
+          name="discount" />
+      </Form.Item>
+
+      <Form.Item
+        label="image"
+        name="image"
+        rules={[{ required: true, message: 'Please input your Product image!' }]}
+      >
+        <Input placeholder="Please input your Product image"
+          onChange={onChange}
+          name="image" />
       </Form.Item>
 
       <Form.Item name="Is sale" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>

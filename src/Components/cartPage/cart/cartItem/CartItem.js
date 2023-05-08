@@ -14,9 +14,9 @@ const CartListItem = observer(({ product }) => {
     name,
     price,
     image,
-    hot,
+    discount,
+    weight,
     description,
-    aboutProduct,
     qantity,
   } = product
   const history = useHistory()
@@ -46,7 +46,7 @@ const CartListItem = observer(({ product }) => {
 
   return (
     <li className={styles.item}>
-      {hot ? <p className={styles.hot}> - {hot} %</p> : null}
+      {discount ? <p className={styles.discount}> - {discount} %</p> : null}
       <img
         className={styles.img}
         src={image}
@@ -60,10 +60,10 @@ const CartListItem = observer(({ product }) => {
         >
           {name}
         </h2>
-        <h2 className={styles.text}> {aboutProduct.weight}</h2>
+        <h2 className={styles.text}> {weight}</h2>
         <p className={styles.price}>
           {price}грн
-          {hot ? <span className={styles.sale}> {price + price * Number(hot / 100)}грн</span> : null}
+          {discount ? <span className={styles.sale}> {price + price * Number(discount / 100)}грн</span> : null}
         </p>
         <div className={styles.btnContainer}>
           <button

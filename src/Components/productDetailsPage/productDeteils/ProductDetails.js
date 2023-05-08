@@ -111,7 +111,7 @@ const ProductItemDetails = observer(() => {
           </p>
           <p className={styles.price}>
             {productById.price}грн
-            <span className={styles.sale}> {productById.price * 1.2}грн</span>
+            {productById.discount ? <span className={styles.sale}> {productById.price + productById.price * Number(productById.discount / 100)}грн</span> : null}
           </p>
 
           <div className={styles.btnContainer}>

@@ -46,8 +46,8 @@ const ProductItem = observer(({ product }) => {
     <li className={styles.item}>
       {product && (
         <div className={styles.content}>
-          {product.hot ? (
-            <p className={styles.hot}> - {product.hot} %</p>
+          {product.discount ? (
+            <p className={styles.discount}> - {product.discount} %</p>
           ) : null}
           <a
             className={classnames({
