@@ -22,12 +22,13 @@ import { IProduct } from '../models/index'
 
 class ProductsStore {
   @observable products: IProduct[] = [...productsJSON]
+  @observable filteredProducts: IProduct[] = [...this.products]
+
   @observable сategory: IсategoryJSON[] = [...categoriesJSON]
   @observable brands: string[] = [...brandsJSON]
   @observable country: string[] = [...countryJSON]
   @observable packing: string[] = [...packingJSON]
 
-  @observable filteredProducts: IProduct[] = [...this.products]
   @observable productById: IProduct | null = null
 
   @observable cart: any = localStorage.getItem('cart')
@@ -51,6 +52,7 @@ class ProductsStore {
 
   @action setNewProductAction(data: any) {
     this.products = [...this.products, data]
+    this.filteredProducts = [...this.products]
   }
 
   @action setProductDetailsAction(id: string) {

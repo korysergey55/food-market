@@ -1,8 +1,7 @@
 import axios from "axios";
-// REACT_APP_BASE_URL = https://criptoshop-62529-default-rtdb.firebaseio.com/ //env korysergeyDev@gmail.com
+// REACT_APP_BASE_URL = https://react-shop-5c360-default-rtdb.firebaseio.com/
 
-
-const baseURL = "https://criptoshop-62529-default-rtdb.firebaseio.com/"
+const baseURL = "https://react-shop-5c360-default-rtdb.firebaseio.com/"
 
 export const getAllAdvByCategoryApi = async (category) => {
   try {

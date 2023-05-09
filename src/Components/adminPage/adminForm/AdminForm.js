@@ -10,7 +10,6 @@ import { Button, Checkbox, Form, Input, Select } from 'antd';
 const { TextArea } = Input;
 
 const AdminForm = observer(() => {
-  const [form] = Form.useForm();
   const initialState = {
     id: uuidv4(),
     name: '',
@@ -32,6 +31,7 @@ const AdminForm = observer(() => {
   }
   const { ProductsStore } = useStore()
   const [state, setState] = useState(initialState);
+  const [form] = Form.useForm();
   const сategory = [
     { value: 'Кофе', label: 'Кофе' },
     { value: 'Сыры и колбасы', label: 'Сыры и колбасы' },
@@ -44,6 +44,7 @@ const AdminForm = observer(() => {
     { value: 'Разное', label: 'Разное' },
     { value: 'Новинки', label: 'Новинки' },
   ]
+
 
   const onHandleChange = (evt) => {
     const { name, value, type, checked } = evt.target;
@@ -77,8 +78,9 @@ const AdminForm = observer(() => {
 
   const onFinish = (values: any) => {
     console.log('Success:', values);
+    ProductsStore.setNewProductAction(state)
     setState({ ...initialState });
-    form.resetFields()
+    // form.resetFields()
   };
 
   const onFinishFailed = (errorInfo: any) => {
