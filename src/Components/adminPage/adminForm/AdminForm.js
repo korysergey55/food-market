@@ -79,6 +79,7 @@ const AdminForm = observer(() => {
   const onFinish = (values: any) => {
     console.log('Success:', values);
     ProductsStore.setNewProductAction(state)
+    createNewAdvApi(state.category, state)
     setState({ ...initialState });
     // form.resetFields()
   };
