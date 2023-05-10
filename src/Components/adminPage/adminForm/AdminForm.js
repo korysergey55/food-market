@@ -45,46 +45,33 @@ const AdminForm = observer(() => {
     { value: 'Новинки', label: 'Новинки' },
   ]
 
-
-  const onHandleChange = (evt) => {
-    const { name, value, type, checked } = evt.target;
+  const onChange = (evt) => {
+    const { value, name, type, checked } = evt.target
     if (type === "checkbox") {
       setState((prev) => ({ ...prev, [name]: checked }));
-      return;
+      return
     }
-    setState((prev) => ({ ...prev, [name]: value }));
-
-    console.log(state)
-  };
-
-  const onHandleSubmit = (evt) => {
-    evt.preventDefault();
-    // createNewAdvApi(state.category, { ...state });
-    // setState({ ...initialState });
-    console.log(state)
-  };
-
-  const onChange = (evt) => {
-    const { value, name } = evt.target
+    if (name === 'price') {
+      setState((prev) => ({ ...prev, [name]: Number(value) }))
+      return
+    }
     setState((prev) => ({ ...prev, [name]: value }))
-    console.log(state)
   }
 
   const onChangeCategory = (value) => {
     setState((prev) => ({ ...prev, category: value }))
-    console.log(state)
   }
 
 
-  const onFinish = (values: any) => {
-    console.log('Success:', values);
+  const onFinish = (values) => {
+    // evt.preventDefault();
     ProductsStore.setNewProductAction(state)
     createNewAdvApi(state.category, state)
     setState({ ...initialState });
-    // form.resetFields()
+    form.resetFields()
   };
 
-  const onFinishFailed = (errorInfo: any) => {
+  const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
 
@@ -216,7 +203,8 @@ const AdminForm = observer(() => {
       >
         <Input placeholder="Please input your Product discount %"
           onChange={onChange}
-          name="discount" />
+          name="discount"
+          type="number" />
       </Form.Item>
 
       <Form.Item
@@ -230,7 +218,7 @@ const AdminForm = observer(() => {
       </Form.Item>
 
       <Form.Item name="Is sale" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
-        <Checkbox>Is sale</Checkbox>
+        <Checkbox name="isSale" onChange={onChange}>Is sale</Checkbox>
       </Form.Item>
 
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
@@ -243,230 +231,3 @@ const AdminForm = observer(() => {
 })
 
 export default AdminForm;
-
-
-
-// class AdvForm extends Component {
-//  state = {
-//   ...initialState,
-//  };
-
-//  onHandleChange = (e) => {
-//   const { name, value, type, checked } = e.target;
-//   if (type === "checkbox") {
-//    this.setState({ [name]: checked });
-//    return;
-//   }
-//   this.setState({ [name]: value });
-//  };
-//  onHandleSubmit = (e) => {
-//   e.preventDefault();
-//   createNewAdvApi(this.state.category, { ...this.state });
-//   alert("Товар добавлен");
-//   this.setState({ ...initialState });
-//  };
-//  render() {
-//   return (
-//    <AdvFormContainer>
-//     <form onSubmit={this.onHandleSubmit} className="advForm">
-//      <div className="advFormContent">
-//       <div className="leftColumn">
-//        <label className="advFormLabel">
-//         Category
-//         <select
-//          value={this.state.category}
-//          name="category"
-//          className="advFormInput"
-//          onChange={this.onHandleChange}
-//         >
-//          {productCategories.map((category) => (
-//           <option value={category} key={category}>
-//            {category}
-//           </option>
-//          ))}
-//         </select>
-//        </label>
-
-//        <label className="advFormLabel">
-//         Name
-//         <input
-//          type="text"
-//          name="name"
-//          value={this.state.name}
-//          className="advFormInput"
-//          onChange={this.onHandleChange}
-//         />
-//        </label>
-//        <label className="advFormLabel">
-//         Picture
-//         <input
-//          type="text"
-//          name="image"
-//          value={this.state.image}
-//          className="advFormInput"
-//          onChange={this.onHandleChange}
-//         />
-//        </label>
-//       </div>
-//       <div className="rightColumn">
-//        <label className="advFormLabel">
-//         Description
-//         <input
-//          type="text"
-//          name="description"
-//          value={this.state.description}
-//          className="advFormInput"
-//          onChange={this.onHandleChange}
-//         />
-//        </label>
-//        <label className="advFormLabel">
-//         Price
-//         <input
-//          type="text"
-//          name="price"
-//          value={this.state.price}
-//          className="advFormInput"
-//          onChange={this.onHandleChange}
-//         />
-//        </label>
-//        <label className="advFormLabelCheckBox">
-//         In sale
-//         <input
-//          type="checkbox"
-//          name="isSale"
-//          checked={this.state.isSale}
-//          className="advFormCheckBox"
-//          onChange={this.onHandleChange}
-//         />
-//        </label>
-//       </div>
-//      </div>
-//      <button type="submit" className="submitButton">
-//       Add product
-//      </button>
-//     </form>
-//    </AdvFormContainer>
-//   );
-//  }
-// }
-
-// export default AdvForm;
-
-// const productCategories = [
-//   "phones",
-//   "laptops",
-//   "ipad",
-//   "appleWatch",
-//   "airPods",
-// ];
-
-// const AdvForm = () => {
-//   const initialState = {
-//     category: productCategories[0],
-//     name: "",
-//     price: "",
-//     description: "",
-//     isSale: false,
-//     image: "",
-//   };
-
-//   const [state, setState] = useState(initialState);
-
-//   const onHandleChange = (evt) => {
-//     const { name, value, type, checked } = evt.target;
-//     if (type === "checkbox") {
-//       setState((prev) => ({ ...prev, [name]: checked }));
-//       return;
-//     }
-//     setState((prev) => ({ ...prev, [name]: value }));
-//   };
-
-//   const onHandleSubmit = (evt) => {
-//     evt.preventDefault();
-//     createNewAdvApi(state.category, { ...state });
-//     setState({ ...initialState });
-//   };
-
-//   return (
-//     <AdvFormContainer>
-//       <form onSubmit={onHandleSubmit} className="advForm">
-//         <div className="advFormContent">
-//           <div className="leftColumn">
-//             <label className="advFormLabel">
-//               Category
-//               <select
-//                 value={state.category}
-//                 name="category"
-//                 className="advFormInput"
-//                 onChange={onHandleChange}
-//               >
-//                 {productCategories.map((category) => (
-//                   <option value={category} key={category}>
-//                     {category}
-//                   </option>
-//                 ))}
-//               </select>
-//             </label>
-
-//             <label className="advFormLabel">
-//               Name
-//               <input
-//                 type="text"
-//                 name="name"
-//                 value={state.name}
-//                 className="advFormInput"
-//                 onChange={onHandleChange}
-//               />
-//             </label>
-//             <label className="advFormLabel">
-//               Picture
-//               <input
-//                 type="text"
-//                 name="image"
-//                 value={state.image}
-//                 className="advFormInput"
-//                 onChange={onHandleChange}
-//               />
-//             </label>
-//           </div>
-//           <div className="rightColumn">
-//             <label className="advFormLabel">
-//               Description
-//               <input
-//                 type="text"
-//                 name="description"
-//                 value={state.description}
-//                 className="advFormInput"
-//                 onChange={onHandleChange}
-//               />
-//             </label>
-//             <label className="advFormLabel">
-//               Price
-//               <input
-//                 type="text"
-//                 name="price"
-//                 value={state.price}
-//                 className="advFormInput"
-//                 onChange={onHandleChange}
-//               />
-//             </label>
-//             <label className="advFormLabelCheckBox">
-//               In sale
-//               <input
-//                 type="checkbox"
-//                 name="isSale"
-//                 checked={state.isSale}
-//                 className="advFormCheckBox"
-//                 onChange={onHandleChange}
-//               />
-//             </label>
-//           </div>
-//         </div>
-//         <button type="submit" className="submitButton">
-//           Add product
-//         </button>
-//       </form>
-//     </AdvFormContainer>
-//   );
-// };
-

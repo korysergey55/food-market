@@ -1,11 +1,9 @@
 import axios from "axios";
-// REACT_APP_BASE_URL = https://react-shop-5c360-default-rtdb.firebaseio.com/
-
 const baseURL = "https://goodfood-c0ae2-default-rtdb.firebaseio.com/"
 
 export const getAllAdvByCategoryApi = async (category) => {
   try {
-    const response = await axios.get(baseURL + `advertisements/${category}.json`);
+    const response = await axios.get(baseURL + `products/${category}.json`);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -15,7 +13,7 @@ export const getAllAdvByCategoryApi = async (category) => {
 export const createNewAdvApi = async (category, newProduct) => {
   try {
     const response = await axios.post(
-      baseURL + `advertisements/${category}.json`,
+      baseURL + `products/${category}.json`,
       newProduct,
       //   {
       //   headers: { Authorization: 'Bearer ' + process.env.REACT_APP_API_KEY }
@@ -29,7 +27,7 @@ export const createNewAdvApi = async (category, newProduct) => {
 
 export const deleteAdvApi = async (category, id) => {
   try {
-    await axios.delete(baseURL + `advertisements/${category}/${id}.json`);
+    await axios.delete(baseURL + `products/${category}/${id}.json`);
   } catch (error) {
     console.log(error);
   }
@@ -38,7 +36,7 @@ export const deleteAdvApi = async (category, id) => {
 export const getProductByIDApi = async (category, id) => {
   try {
     const response = await axios.get(
-      baseURL + `advertisements/${category}/${id}.json`
+      baseURL + `products/${category}/${id}.json`
     );
     return response.data;
   } catch (error) {

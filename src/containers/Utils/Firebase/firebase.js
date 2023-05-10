@@ -4,10 +4,13 @@ import { pathes } from '../../../utils/pathes'
 
 let configKorySergey = {
   apiKey: process.env.REACT_APP_WEB_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  databaseURL: process.env.REACT_APP_DATABASE_URL,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  OAuth: process.env.REACT_APP_OAUTH,
+  authDomain: "goodfood-c0ae2.firebaseapp.com",
+  databaseURL: "https://goodfood-c0ae2-default-rtdb.firebaseio.com",
+  projectId: "goodfood-c0ae2",
+  storageBucket: "goodfood-c0ae2.appspot.com",
+  messagingSenderId: "15131380928",
+  appId: "1:15131380928:web:6dd22b12184197c8457125",
+  measurementId: "G-T7W9QX20RV"
 }
 
 const app = firebase.initializeApp(configKorySergey)
