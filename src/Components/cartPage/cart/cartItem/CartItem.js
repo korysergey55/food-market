@@ -34,7 +34,7 @@ const CartListItem = observer(({ product }) => {
       if (counter > 1) {
         setCounter(prev => prev - 1)
         ProductsStore.setQantityCartProducts(id, 'decrement')
-        ProductsStore.remuveFromCart(id)
+        ProductsStore.remuveItemFromCart(id)
       }
     }
     ProductsStore.setTotalPrice()

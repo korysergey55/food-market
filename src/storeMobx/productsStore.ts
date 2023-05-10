@@ -41,8 +41,8 @@ class ProductsStore {
   constructor() {
     makeAutoObservable(this)
     reaction(
-      () => this.products,
-      _ => console.log('products', toJS(this.products))
+      () => this.cart,
+      _ => console.log('products', toJS(this.cart))
     )
   }
 
@@ -122,6 +122,16 @@ class ProductsStore {
 
   @action remuveFromCart(id: any) {
     this.cart = this.cart.filter((cartItem: any) => cartItem !== id)
+    localStorage.setItem('cart', JSON.stringify(this.cart))
+
+    toast.info('Продукт удален из Корзину!', {
+      theme: 'colored',
+    })
+  }
+
+  @action remuveItemFromCart(id: any) {
+    const item = this.cart.indexOf(id)
+    this.cart.splice(item, 1)
     localStorage.setItem('cart', JSON.stringify(this.cart))
 
     toast.info('Продукт удален из Корзину!', {
