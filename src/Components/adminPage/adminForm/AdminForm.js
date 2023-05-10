@@ -67,8 +67,8 @@ const AdminForm = observer(() => {
     // evt.preventDefault();
     ProductsStore.setNewProductAction(state)
     createNewAdvApi(state.category, state)
-    setState({ ...initialState });
-    form.resetFields()
+    // setState({ ...initialState });
+    // form.resetFields()
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -210,7 +210,7 @@ const AdminForm = observer(() => {
       <Form.Item
         label="image"
         name="image"
-        rules={[{ required: true, message: 'Please input your Product image!' }]}
+        rules={[{ required: false, message: 'Please input your Product image!' }]}
       >
         <Input placeholder="Please input your Product image"
           onChange={onChange}

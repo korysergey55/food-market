@@ -11,6 +11,7 @@ import { sliderSettings } from '../../../utils/sliderSettings'
 import PhotoList from './photoList/PhotoList'
 import StarList from '../../../containers/Reuseble/starList/StarList'
 import ProductItem from '../../productsPage/products/productList/productItem/productItem'
+import defaultPhoto from '../../../sourses/images/defaultPhoto.png'
 
 import styles from './styles.module.scss'
 import classnames from 'classnames'
@@ -59,10 +60,12 @@ const ProductItemDetails = observer(() => {
     if (dataset.name === 'decrement') {
       if (counter > 1) {
         setCounter(prev => prev - 1)
+        // ProductsStore.setQantityCartProducts(productById.id, 'decrement')
       }
     }
     if (dataset.name === 'increment') {
       setCounter(prev => prev + 1)
+      // ProductsStore.setQantityCartProducts(productById.id, 'increment')
     }
   }
 
@@ -89,7 +92,7 @@ const ProductItemDetails = observer(() => {
             </div>
           )}
           <img
-            src={photo ? photo : productById.image}
+            src={photo ? photo : (productById?.image ? productById.image : defaultPhoto)}
             alt="productImg"
             className={styles.img}
           />

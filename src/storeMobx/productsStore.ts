@@ -41,8 +41,8 @@ class ProductsStore {
   constructor() {
     makeAutoObservable(this)
     reaction(
-      () => this.cart,
-      _ => console.log('products', toJS(this.cart))
+      () => this.products,
+      _ => console.log('products', toJS(this.products))
     )
   }
 
@@ -133,17 +133,13 @@ class ProductsStore {
     const item = this.cart.indexOf(id)
     this.cart.splice(item, 1)
     localStorage.setItem('cart', JSON.stringify(this.cart))
-
-    toast.info('Продукт удален из Корзину!', {
-      theme: 'colored',
-    })
   }
 
   @action setCartProducts(items: any) {
     this.cartProducts = [...items]
   }
   @action setQantityCartProducts(id: string, type: string) {
-    this.cartProducts.map((item: any) => {
+    this.cartProducts?.map((item: any) => {
       if (item.id === id && type === 'increment') {
         return (item.qantity = item.qantity += 1)
       }

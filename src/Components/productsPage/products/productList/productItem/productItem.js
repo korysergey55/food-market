@@ -6,6 +6,7 @@ import { observer } from 'mobx-react'
 import { pathes } from '../../../../../utils/pathes'
 
 import StarList from '../../../../../containers/Reuseble/starList/StarList'
+import defaultPhoto from '../../../../../sourses/images/defaultPhoto.png'
 
 import styles from './styles.module.scss'
 import classnames from 'classnames'
@@ -65,7 +66,7 @@ const ProductItem = observer(({ product }) => {
           </a>
           <div className={styles.imgWrapper} onClick={openDetails}>
             <img
-              src={product.image}
+              src={product.image ? product.image : defaultPhoto}
               alt={product.name}
               className={styles.img}
             />
