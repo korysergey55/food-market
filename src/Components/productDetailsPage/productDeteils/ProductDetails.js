@@ -4,6 +4,7 @@ import { observer } from 'mobx-react'
 
 import { useHistory, useLocation, useRouteMatch } from 'react-router-dom'
 import { useParams } from 'react-router'
+import { useTranslation } from 'react-i18next';
 
 import Slider from 'react-slick'
 import { sliderSettings } from '../../../utils/sliderSettings'
@@ -20,6 +21,7 @@ import { Button } from 'antd'
 const ProductItemDetails = observer(() => {
   const { ProductsStore } = useStore()
   const { productById, viewedProducts } = ProductsStore
+  const { t } = useTranslation();
 
   const history = useHistory()
   const location = useLocation()
@@ -78,7 +80,7 @@ const ProductItemDetails = observer(() => {
   return productById ? (
     <div className={styles.container}>
       <Button className={styles.goBack} type="primary" onClick={goBack}>
-        Назад
+        {t('Назад')}
       </Button>
       <div className={styles.content}>
         <div className={styles.imageWrapper}>
@@ -100,17 +102,17 @@ const ProductItemDetails = observer(() => {
 
         <div className={styles.wripper}>
           <h3 className={styles.title}>{productById.name}</h3>
-          <p className={styles.code}>Код продукта: {productById.code}</p>
+          <p className={styles.code}>{t('Код продукта')}: {productById.code}</p>
           <div className={styles.raitWripper}>
-            <p className={styles.rating}>Рейтинг:</p>
+            <p className={styles.rating}>{t('Рейтинг')}:</p>
             <StarList />
           </div>
           <p className={styles.description}>{productById.description}</p>
           <p className={styles.description}>
-            Производитель: {productById.manufactur}
+            {t('Производитель')}: {productById.manufactur}
           </p>
           <p className={styles.description}>
-            Вес: {productById.weight}
+            {t('Вес')}: {productById.weight}
           </p>
           <p className={styles.price}>
             {productById.price}грн
@@ -141,7 +143,7 @@ const ProductItemDetails = observer(() => {
             onClick={() => ProductsStore.addToCart(productById.id)}
             className={styles.addToCart}
           >
-            Add to cart
+            {t('В корзину')}
           </button>
         </div>
 
@@ -157,7 +159,7 @@ const ProductItemDetails = observer(() => {
                 setActiveItem('fullDescription')
               }}
             >
-              Описание
+              {t('Описание')}
             </li>
             <li
               className={classnames({
@@ -171,7 +173,7 @@ const ProductItemDetails = observer(() => {
                 setActiveItem('AdditionalInformation')
               }}
             >
-              Дополнительная информация
+              {t('Дополнительная информация')}
             </li>
             <li
               className={classnames({
@@ -183,7 +185,7 @@ const ProductItemDetails = observer(() => {
                 setActiveItem('Reviews')
               }}
             >
-              Отзывы
+              {t('Отзывы')}
             </li>
           </ul>
           {discriptionText && <p className={styles.text}>{discriptionText}</p>}
@@ -192,7 +194,7 @@ const ProductItemDetails = observer(() => {
 
       {viewedProducts.length > 0 ? (
         <div className={styles.viewedContainer}>
-          <h2 className={styles.title}>Просмотренные товары</h2>
+          <h2 className={styles.title}>{t('Просмотренные товары')}</h2>
           <ul className={styles.list}>
             {viewedProducts.map((item, index) => (
               <ProductItem product={item} key={index} />
