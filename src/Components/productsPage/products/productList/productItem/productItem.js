@@ -4,6 +4,7 @@ import { useParams } from 'react-router'
 import { useStore } from '../../../../../storeMobx'
 import { observer } from 'mobx-react'
 import { pathes } from '../../../../../utils/pathes'
+import { useTranslation } from 'react-i18next';
 
 import StarList from '../../../../../containers/Reuseble/starList/StarList'
 import defaultPhoto from '../../../../../sourses/images/defaultPhoto.png'
@@ -17,13 +18,15 @@ import { faHeart, faCartPlus } from '@fortawesome/free-solid-svg-icons'
 
 const ProductItem = observer(({ product }) => {
   const { ProductsStore } = useStore()
+  const { t } = useTranslation();
   const history = useHistory()
   const location = useLocation()
+
   const [activeClass, setActive] = useState(false)
 
   const bayNow = () => {
     ProductsStore.addToCart(product.id)
-    history.push(pathes.order)
+    history.push(pathes.cart)
   }
 
   const openDetails = () => {
@@ -88,7 +91,7 @@ const ProductItem = observer(({ product }) => {
             size="middle"
             onClick={() => bayNow(product)}
           >
-            Купить
+            {t('Купить')}
           </Button>
         </div>
       )}

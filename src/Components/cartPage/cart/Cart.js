@@ -4,6 +4,8 @@ import { observer } from 'mobx-react'
 import { useHistory, useLocation } from 'react-router'
 import { pathes } from '../../../utils/pathes'
 
+import { useTranslation } from 'react-i18next';
+
 import CartItem from './cartItem/CartItem'
 import styles from './styles.module.scss'
 import { Empty, Button } from 'antd'
@@ -11,6 +13,7 @@ import { Empty, Button } from 'antd'
 const Cart = observer(() => {
   const history = useHistory()
   const location = useLocation()
+  const { t } = useTranslation();
   const { ProductsStore } = useStore()
   const { cart, products, cartProducts, totalPrice } = ProductsStore
 
@@ -50,7 +53,7 @@ const Cart = observer(() => {
     <div className={styles.container}>
       {cartProducts.length ? (
         <div className={styles.cart}>
-          <h2 className={styles.title}>Корзина</h2>
+          <h2 className={styles.title}>{t('Корзина')}</h2>
           <ul className={styles.list}>
             {cartProducts.map(product => (
               <CartItem key={product.id} product={product} />
@@ -63,13 +66,13 @@ const Cart = observer(() => {
               onClick={() => history.push(pathes.order)}
               className={styles.orderButton}
             >
-              Оформить заказ
+              {t('Оформить заказ')}
             </button>
           </div>
         </div>
       ) : (
         <>
-          <h2 className={styles.titleEmpty}>Корзина пуста!</h2>
+          <h2 className={styles.titleEmpty}>{t('Корзина пуста')}!</h2>
           <Empty description={false} />
         </>
       )}
