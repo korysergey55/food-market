@@ -40,12 +40,10 @@ const ProductItemDetails = observer(() => {
       ProductsStore.setProductDetailsAction(productID)
       ProductsStore.setViewedProducts(productID)
     }
-  }, [])
+  }, [productID])
 
   useEffect(() => {
-    setDiscriptionText(null)
     productById && setDiscriptionText(productById.fullDescription)
-
     setActiveItem('fullDescription')
   }, [])
 

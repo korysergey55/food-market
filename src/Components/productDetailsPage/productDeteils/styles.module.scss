@@ -20,10 +20,10 @@
     .imageWrapper {
       display: flex;
       justify-content: center;
-      padding: 20px;
+      padding: 0px;
 
       .sliderContainer {
-        width: 95px;
+        display: none;
 
         .scrollBtn {
           width: 95px;
@@ -198,6 +198,71 @@
       display: flex;
       flex-wrap: wrap;
       width: 100%;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    .content {
+      .imageWrapper {
+        padding: 20px;
+        .sliderContainer {
+          display: block;
+          width: 95px;
+          .scrollBtn {
+          }
+        }
+
+        .img {
+        }
+      }
+      .wripper {
+        .title {
+        }
+        .raitWripper {
+          .rating {
+          }
+        }
+        .colorsWripper {
+          .colors {
+          }
+
+          .colorList {
+            .colorItem {
+            }
+          }
+        }
+        .description {
+        }
+        .price {
+          .sale {
+          }
+        }
+      }
+      .addToCart {
+      }
+
+      .btnContainer {
+        .btn {
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        .value {
+        }
+      }
+    }
+    .aboutProduct {
+      .list {
+        .item {
+          margin-right: 20px;
+        }
+        .active {
+        }
+      }
+
+      .text {
+      }
     }
   }
 }
