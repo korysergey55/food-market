@@ -1,9 +1,24 @@
 import axios from "axios";
 const baseURL = "https://goodfood-c0ae2-default-rtdb.firebaseio.com/"
 
-export const getAllAdvByCategoryApi = async (category) => {
+export const setAllAdvByCategoryApi = async (products) => {
   try {
-    const response = await axios.get(baseURL + `products/${category}.json`);
+
+    await products.forEach((product) => {
+      const response = axios.post(baseURL + `products/${product.category}.json`,
+        product);
+      return response;
+
+    })
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getAllAdvByCategoryApi = async () => {
+  try {
+    const response = await axios.get(baseURL + `products/.json`);
+    console.log(response.data)
     return response.data;
   } catch (error) {
     console.log(error);

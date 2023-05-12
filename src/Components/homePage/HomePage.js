@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useStore } from '../../storeMobx'
 import { observer } from 'mobx-react'
 
@@ -17,8 +17,6 @@ import { useTranslation } from 'react-i18next';
 import styles from './styles.module.scss'
 
 const HomePage = observer(() => {
-  const { ProductsStore } = useStore()
-  const { filteredProducts } = ProductsStore
   const { t } = useTranslation();
 
   return (

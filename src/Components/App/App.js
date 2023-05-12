@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { useEffect, Suspense } from 'react'
 import { useStore } from '../../storeMobx'
 import { observer } from 'mobx-react'
 
@@ -10,17 +10,23 @@ import PrivateRoute from '../../routes/PrivateRoute'
 import PublicRoute from '../../routes/PublicRoute'
 
 import Loader from '../../containers/Utils/Loader/Loader'
-import { Spin, Space } from 'antd'
 import Header from '../../containers/header/Header'
 
-{
-  /* <Space size="middle">
-  <Spin size="large" />
-</Space> */
-}
+import { setAllAdvByCategoryApi } from '../../services/api'
+import { getAllAdvByCategoryApi } from '../../services/api'
+
+
 const App = observer(() => {
   const { AuthStore } = useStore()
   const { token } = AuthStore
+
+  const { ProductsStore } = useStore()
+  const { products } = ProductsStore
+
+  useEffect(() => {
+    // setAllAdvByCategoryApi(products)
+    getAllAdvByCategoryApi()
+  }, [])
 
   return (
     <div className="appContainer">
