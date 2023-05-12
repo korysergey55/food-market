@@ -12,9 +12,6 @@ import PublicRoute from '../../routes/PublicRoute'
 import Loader from '../../containers/Utils/Loader/Loader'
 import Header from '../../containers/header/Header'
 
-import { setAllAdvByCategoryApi } from '../../services/api'
-import { getAllAdvByCategoryApi } from '../../services/api'
-
 
 const App = observer(() => {
   const { AuthStore } = useStore()
@@ -24,8 +21,8 @@ const App = observer(() => {
   const { products } = ProductsStore
 
   useEffect(() => {
-    // setAllAdvByCategoryApi(products)
-    getAllAdvByCategoryApi()
+    // ProductsStore.setAllAdvByCategoryAPI(products)
+    ProductsStore.getAllAdvByCategoryAPI()
   }, [])
 
   return (

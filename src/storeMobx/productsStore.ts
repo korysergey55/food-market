@@ -20,8 +20,10 @@ import { packingJSON } from '../sourses/dataProduct/packing'
 import { IсategoryJSON } from '../models/index'
 import { IProduct } from '../models/index'
 
+const baseURL = 'https://goodfood-c0ae2-default-rtdb.firebaseio.com/'
+
 class ProductsStore {
-  @observable products: IProduct[] = [...productsJSON]
+  @observable products: IProduct[] = []
   @observable filteredProducts: IProduct[] = [...this.products]
 
   @observable сategory: IсategoryJSON[] = [...categoriesJSON]
@@ -48,6 +50,7 @@ class ProductsStore {
 
   @action setAllProductsAction(data: any) {
     this.products = [...data]
+    this.filteredProducts = [...this.products]
   }
 
   @action setNewProductAction(data: any) {
@@ -157,5 +160,33 @@ class ProductsStore {
     }, 0)
     this.totalPrice = price
   }
+
+  //API
+
+  @action setAllAdvByCategoryAPI = async (products: any) => {
+    try {
+      await products.forEach((product: any) => {
+        const response = axios.post(baseURL + `products/.json`, product)
+        return response
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  @action getAllAdvByCategoryAPI = async () => {
+    try {
+      const response = await axios.get(baseURL + `products/.json`)
+      let newProducts = []
+      for (const [key, value] of Object.entries(response.data)) {
+        newProducts.push(value)
+      }
+      this.setAllProductsAction(newProducts)
+      return response.data
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }
+
 export default new ProductsStore()
