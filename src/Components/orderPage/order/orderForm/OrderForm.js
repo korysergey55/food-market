@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useStore } from '../../../../storeMobx'
 import { observer } from 'mobx-react'
 
+import { useTranslation } from 'react-i18next';
+
 import styles from './styles.module.scss'
 import { Form, Input, Button, Row, Col, Radio, Space } from 'antd'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -19,9 +21,10 @@ const validateMessages = {
   },
 }
 const OrderForm = observer(() => {
-  const [form] = Form.useForm()
   const { ProductsStore, AuthStore } = useStore()
   const { cart, totalPrice } = ProductsStore
+  const { t } = useTranslation();
+  const [form] = Form.useForm()
 
   const [formData, setFormData] = useState({
     name: '',
@@ -81,7 +84,7 @@ const OrderForm = observer(() => {
           color="black"
           size="1x"
         />{' '}
-        - Контактная информация{' '}
+        - {t('Контактная информация')}
       </h2>
       <Form
         form={form}
@@ -94,7 +97,7 @@ const OrderForm = observer(() => {
             <Form.Item name={['name']} rules={[{ required: true }]}>
               <Input
                 className={styles.input}
-                placeholder="Имя"
+                placeholder={t("Имя")}
                 minLength={3}
                 name="name"
                 value={formData.name}
@@ -121,11 +124,11 @@ const OrderForm = observer(() => {
           <Col span={12}>
             <Form.Item
               name={['tel']}
-              rules={[{ message: 'Пожалуйста введите номер телефона!' }]}
+              rules={[{ message: 'Пожалуйста введите номер телефона!', required: true }]}
             >
               <Input
                 className={styles.input}
-                placeholder="Телефон"
+                placeholder={t("Телефон")}
                 name="tel"
                 value={formData.tel}
                 onChange={inputChange}
@@ -137,7 +140,7 @@ const OrderForm = observer(() => {
           <Input.TextArea
             className={styles.textarea}
             style={{ height: 181 }}
-            placeholder="коментарии"
+            placeholder={t("Коментарии")}
             name="message"
             value={formData.message}
             onChange={inputChange}
@@ -152,13 +155,13 @@ const OrderForm = observer(() => {
             color="black"
             size="1x"
           />{' '}
-          - Доставка{' '}
+          - {t('Доставка')}
         </h2>
         <Col span={12}>
           <Form.Item name={['city']} rules={[{ required: true }]}>
             <Input
               className={styles.input}
-              placeholder="Город"
+              placeholder={t("Город")}
               minLength={3}
               name="city"
               value={formData.city}
@@ -172,9 +175,9 @@ const OrderForm = observer(() => {
           value={formData.dilivery}
         >
           <Space direction="vertical">
-            <Radio value={'Курьерская доставка'}>Курьерская доставка</Radio>
-            <Radio value={'Новая почта'}>Новая почта</Radio>
-            <Radio value={'Самовывоз из магазина'}>Самовывоз из магазина</Radio>
+            <Radio value={'Курьерская доставка'}>{t('Курьерская доставка')}</Radio>
+            <Radio value={'Новая почта'}>{t('Новая почта')}</Radio>
+            <Radio value={'Самовывоз из магазина'}>{t('Самовывоз из магазина')}</Radio>
           </Space>
         </Radio.Group>
 
@@ -186,7 +189,7 @@ const OrderForm = observer(() => {
             color="black"
             size="1x"
           />{' '}
-          - Оплата
+          - {t('Оплата')}
         </h2>
         <Radio.Group
           className={styles.radio}
@@ -194,14 +197,14 @@ const OrderForm = observer(() => {
           value={formData.payment}
         >
           <Space direction="vertical">
-            <Radio value={'Оплата при получении'}>Оплата при получении</Radio>
-            <Radio value={'Оплата на карту'}>Оплата на карту</Radio>
-            <Radio value={'Оплатить сейчас'}>Оплатить сейчас</Radio>
+            <Radio value={'Оплата при получении'}>{t('Оплата при получении')}</Radio>
+            <Radio value={'Оплата на карту'}>{t('Оплата на карту')}</Radio>
+            <Radio value={'Оплатить сейчас'}>{t('Оплатить сейчас')}</Radio>
           </Space>
         </Radio.Group>
         <Form.Item>
           <Button type="primary" htmlType="submit" className={styles.button}>
-            Оформить заказ
+            {t('Оформить заказ')}
           </Button>
         </Form.Item>
       </Form>

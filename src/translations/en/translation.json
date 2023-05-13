@@ -55,5 +55,21 @@
   "Купить": "Buy",
   "Корзина": "Cart",
   "Оформить заказ": "Make order",
-  "Корзина пуста": "Cart is empty"
+  "Корзина пуста": "Cart is empty",
+  "Ваш заказ": "Your order",
+  "Общая стоимость": "Total price",
+  "Оформление заказа": "Making order",
+  "Контактная информация": "Contact Information",
+  "Имя": "Name",
+  "Телефон": "Phone",
+  "Коментарии": "Comments",
+  "Доставка": "Delivery",
+  "Город": "City",
+  "Курьерская доставка": "Express delivery",
+  "Новая почта": "New mail",
+  "Самовывоз из магазина": "Pickup from the store",
+  "Оплата": "Paymant",
+  "Оплата при получении": "Payment upon receipt",
+  "Оплата на карту": "Card payment",
+  "Оплатить сейчас": "Pay now"
 }

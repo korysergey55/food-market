@@ -11,11 +11,11 @@ import styles from './styles.module.scss'
 import { Empty, Button } from 'antd'
 
 const Cart = observer(() => {
+  const { ProductsStore } = useStore()
+  const { cart, products, cartProducts, totalPrice } = ProductsStore
   const history = useHistory()
   const location = useLocation()
   const { t } = useTranslation();
-  const { ProductsStore } = useStore()
-  const { cart, products, cartProducts, totalPrice } = ProductsStore
 
   const findProductCart = () => {
     const cartArr = []

@@ -13,13 +13,20 @@
     // flex-wrap: wrap;
     margin-top: 20px;
     padding: 10px;
-    
 
     .total {
+      padding: 3px;
       font-size: 20px;
       font-weight: 700;
       text-align: center;
-      color: $brandColor;
+      color: white;
+      background-color: #32c220;
+      border-radius: 5px;
+    }
+    .price {
+      padding: 3px;
+      color: white;
+      border-radius: 5px;
     }
     .orderButton {
       color: rgb(255, 255, 255);
