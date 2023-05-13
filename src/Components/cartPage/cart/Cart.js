@@ -62,9 +62,9 @@ const Cart = observer(() => {
           <div className={styles.totalContainer}>
             <h2 className={styles.totalPrice}>{totalPrice} грн</h2>
             <button
+              className={styles.orderButton}
               type="button"
               onClick={() => history.push(pathes.order)}
-              className={styles.orderButton}
             >
               {t('Оформить заказ')}
             </button>

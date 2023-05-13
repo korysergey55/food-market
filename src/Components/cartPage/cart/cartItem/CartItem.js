@@ -51,7 +51,7 @@ const CartListItem = observer(({ product }) => {
         className={styles.img}
         src={image}
         alt="productImg"
-        onClick={() => { }}
+        onClick={() => history.push(`/products/${category}/${id}`)}
       />
       <div className={styles.wripper}>
         <h2

@@ -9,20 +9,20 @@ const OrderItem = observer(({ product }) => {
   const { ProductsStore } = useStore()
   const history = useHistory()
   const { name, price, category, id, image, qantity } = product;
-  
+
 
   const openDetails = (product) => {
-    ProductsStore.setProductWithIdAction(product)
+    // ProductsStore.setProductWithIdAction(product)
     history.push(`/products/${category}/${id}`)
   };
 
   return (
-    <li className={styles.orderItem}>
+    <li className={styles.orderItem} onClick={() => openDetails(product)} >
       <div className={styles.imgWripper}>
         <img className={styles.img}
           src={image}
           alt='productImg'
-          onClick={()=>openDetails(product)} />
+        />
       </div>
       <div className={styles.wripper}>
         <h2 className={styles.title}>{name}</h2>
