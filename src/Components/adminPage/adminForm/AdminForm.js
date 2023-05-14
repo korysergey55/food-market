@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useStore } from '../../../storeMobx'
 import { observer } from 'mobx-react'
 import { v4 as uuidv4 } from 'uuid';
@@ -6,7 +6,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { createNewAdvApi } from "../../../services/api";
 
 import styles from './styles.module.scss'
-import { Button, Checkbox, Form, Input, Select } from 'antd';
+import { Button, Checkbox, Form, Input, Select, Upload } from 'antd';
+import ImgCrop from 'antd-img-crop';
+import { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
 const { TextArea } = Input;
 
 const AdminForm = observer(() => {
@@ -44,6 +46,40 @@ const AdminForm = observer(() => {
     { value: 'Разное', label: 'Разное' },
     { value: 'Новинки', label: 'Новинки' },
   ]
+  const [fileList, setFileList] = useState([
+    // {
+    //   uid: '-1',
+    //   name: 'image.png',
+    //   status: 'done',
+    //   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    // },
+  ]);
+
+  let formData = new FormData();
+  useEffect(() => {
+    fileList && fileList[0] && fileList[0].originFileObj && formData.append("file", fileList[0].originFileObj);
+    console.log(formData)
+  }, [fileList])
+
+  const onChangeUpload: UploadProps['onChange'] = ({ fileList: newFileList }) => {
+    setFileList(newFileList);
+    console.log(fileList)
+  };
+
+  const onPreview = async (file: UploadFile) => {
+    let src = file.url;
+    if (!src) {
+      src = await new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file.originFileObj);
+        reader.onload = () => resolve(reader.result);
+      });
+    }
+    const image = new Image();
+    image.src = src;
+    const imgWindow = window.open(src);
+    imgWindow?.document.write(image.outerHTML);
+  };
 
   const onChange = (evt) => {
     const { value, name, type, checked } = evt.target
@@ -69,6 +105,7 @@ const AdminForm = observer(() => {
     createNewAdvApi(state.category, state)
     // setState({ ...initialState });
     // form.resetFields()
+
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -207,7 +244,7 @@ const AdminForm = observer(() => {
           type="number" />
       </Form.Item>
 
-      <Form.Item
+      {/* <Form.Item
         label="image"
         name="image"
         rules={[{ required: false, message: 'Please input your Product image!' }]}
@@ -215,6 +252,23 @@ const AdminForm = observer(() => {
         <Input placeholder="Please input your Product image"
           onChange={onChange}
           name="image" />
+      </Form.Item> */}
+      <Form.Item
+        label="image"
+        name="image"
+        rules={[{ required: false, message: 'Please input your Product image!' }]}
+      >
+        <ImgCrop rotationSlider>
+          <Upload
+            // action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+            listType="picture-card"
+            fileList={fileList}
+            onChange={onChangeUpload}
+            onPreview={onPreview}
+          >
+            {fileList.length < 1 && '+ Upload'}
+          </Upload>
+        </ImgCrop>
       </Form.Item>
 
       <Form.Item name="Is sale" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
@@ -226,7 +280,7 @@ const AdminForm = observer(() => {
           Create product
         </Button>
       </Form.Item>
-    </Form>
+    </Form >
   );
 })
 
