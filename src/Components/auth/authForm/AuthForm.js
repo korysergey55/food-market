@@ -8,6 +8,8 @@ import {
   registerWithEmailAndPassword,
 } from '../../../containers/Utils/Firebase/firebase'
 
+import { useTranslation } from 'react-i18next';
+
 import styles from './styles.module.scss'
 import classNames from 'classnames'
 import { Form, Input, Button, Checkbox } from 'antd'
@@ -15,6 +17,7 @@ import { Form, Input, Button, Checkbox } from 'antd'
 const AuthForm = observer(() => {
   const { AuthStore } = useStore()
   const history = useHistory()
+  const { t } = useTranslation();
 
   const [login, setLogin] = useState(true)
   const [form] = Form.useForm()
@@ -82,7 +85,7 @@ const AuthForm = observer(() => {
             type="primary"
             onClick={() => setLogin(true)}
           >
-            Вход
+            {t('Вход')}
           </Button>
 
           <Button
@@ -90,7 +93,7 @@ const AuthForm = observer(() => {
             type="primary"
             onClick={() => setLogin(false)}
           >
-            Регистрация
+            {t('Регистрация')}
           </Button>
         </div>
 
@@ -133,7 +136,7 @@ const AuthForm = observer(() => {
               AuthStore.setForgotPasswordAction()
             }}
           >
-            Забыли пароль?
+            {t('Забыли пароль?')}
           </p>
         )}
         <Form.Item
@@ -142,11 +145,11 @@ const AuthForm = observer(() => {
           valuePropName="checked"
           wrapperCol={{ offset: 8, span: 16 }}
         >
-          <Checkbox>Remember me</Checkbox>
+          <Checkbox>{t('Запомнить меня')}</Checkbox>
         </Form.Item>
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
           <Button type="primary" htmlType="submit">
-            Подтвердить
+            {t('Подтвердить')}
           </Button>
         </Form.Item>
       </Form>

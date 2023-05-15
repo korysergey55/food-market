@@ -8,6 +8,8 @@ import {
   signInWithFacebook,
 } from '../../../containers/Utils/Firebase/firebase'
 
+import { useTranslation } from 'react-i18next';
+
 import styles from './styles.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle, faFacebookF } from '@fortawesome/free-brands-svg-icons'
@@ -15,6 +17,7 @@ import { faGoogle, faFacebookF } from '@fortawesome/free-brands-svg-icons'
 const LoginForm = observer(() => {
   const { AuthStore } = useStore()
   const history = useHistory()
+  const { t } = useTranslation();
 
   const loginGoogle = async () => {
     const res = await signInWithGoogle()
@@ -34,7 +37,7 @@ const LoginForm = observer(() => {
 
   return (
     <div className={styles.loginForm}>
-      <h2 className={styles.subtitle}>Login with</h2>
+      <h2 className={styles.subtitle}>{t('Вход c помощью')}</h2>
       <ul className={styles.list}>
         <li className={styles.item} name="google" onClick={() => loginGoogle()}>
           <p className={styles.text}> Google</p>

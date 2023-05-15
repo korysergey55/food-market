@@ -71,5 +71,11 @@
   "Оплата": "Paymant",
   "Оплата при получении": "Payment upon receipt",
   "Оплата на карту": "Card payment",
-  "Оплатить сейчас": "Pay now"
+  "Оплатить сейчас": "Pay now",
+  "Вход": "Sign in",
+  "Регистрация": "Registration",
+  "Забыли пароль?": "Forgot your password?",
+  "Запомнить меня": "Remember me",
+  "Подтвердить": "Confirm",
+  "Вход c помощью": "Sign in with"
 }
