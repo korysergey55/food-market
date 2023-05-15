@@ -55,18 +55,27 @@ const AdminForm = observer(() => {
     // },
   ]);
 
-  let formData = new FormData();
-  useEffect(() => {
-    fileList && fileList[0] && fileList[0].originFileObj && formData.append("file", fileList[0].originFileObj);
-    console.log(formData)
-  }, [fileList])
+  // useEffect(() => {
+  //   let formData = new FormData();
+  //   fileList && fileList[0] && fileList[0].originFileObj && formData.append("file", fileList[0].originFileObj);
+  //   console.log(formData)
+  // }, [fileList])
 
   const onChangeUpload: UploadProps['onChange'] = ({ fileList: newFileList }) => {
     setFileList(newFileList);
-    console.log(fileList)
+    console.log(newFileList)
+    console.log(newFileList[0].thumbUrl)
+    // let formData = new FormData();
+    // formData.append("file", newFileList[0].originFileObj);
+    // setState((prev) => ({ ...prev, image: formData }))
+
+    // setState((prev) => ({
+    //   ...prev, image: newFileList[0].thumbUrl
+    // }))
   };
 
   const onPreview = async (file: UploadFile) => {
+    console.log(file)
     let src = file.url;
     if (!src) {
       src = await new Promise((resolve) => {
@@ -92,6 +101,7 @@ const AdminForm = observer(() => {
       return
     }
     setState((prev) => ({ ...prev, [name]: value }))
+    console.log(state)
   }
 
   const onChangeCategory = (value) => {
