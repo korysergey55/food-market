@@ -38,11 +38,13 @@ const ProductItem = observer(({ product }) => {
 
   const setLike = () => {
     setActive(!activeClass)
+    if (!activeClass) { ProductsStore.setLikeAction(product.id) }
+    else { ProductsStore.remuveLikeAction(product.id) }
     // setActive(!activeClass)
-    // if (productStore.likes.includes(product.id)) {
-    //   productStore.removeLike(product.id)
+    // if (ProductsStore.like.includes(product.id)) {
+    //   ProductsStore.remuveLikeAction(product.id)
     // } else {
-    //   productStore.addLike(product.id)
+    //   ProductsStore.setLikeAction(product.id)
     // }
   }
 
