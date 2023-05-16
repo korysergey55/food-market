@@ -39,7 +39,7 @@ class ProductsStore {
   @observable cartProducts: any = []
   @observable totalPrice: number = 0
   @observable viewedProducts: IProduct | IProduct[] = []
-  @observable likeProducts: any = []
+  @observable likesProducts: any = []
 
   constructor() {
     makeAutoObservable(this)
@@ -48,15 +48,15 @@ class ProductsStore {
       _ => console.log('products', toJS(this.products))
     )
     reaction(
-      () => this.likeProducts,
-      _ => console.log('likeProducts', toJS(this.likeProducts))
+      () => this.likesProducts,
+      _ => console.log('likeProducts', toJS(this.likesProducts))
     )
   }
   @action setLikeAction(data: any) {
-    this.likeProducts = [...this.likeProducts, data]
+    this.likesProducts = [...this.likesProducts, data]
   }
   @action remuveLikeAction(data: any) {
-    this.likeProducts = this.likeProducts.filter((item: any) => item !== data)
+    this.likesProducts = this.likesProducts.filter((item: any) => item !== data)
   }
 
   @action setAllProductsAction(data: any) {

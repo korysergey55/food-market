@@ -38,6 +38,14 @@ export const mainRoutes = [
     isPrivate: false,
   },
   {
+    name: 'Likes',
+    path: '/likes',
+    component: lazy(() => import('../Components/likesPage/LikesPage')),
+    exact: true,
+    isRestricted: false,
+    isPrivate: false,
+  },
+  {
     name: <IconComponent icon="#icon-shopping-cart" color={true} />,
     path: '/cart',
     component: lazy(() => import('../Components/cartPage/CartPage')),
