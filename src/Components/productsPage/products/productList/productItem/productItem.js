@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import { useParams } from 'react-router'
 import { useStore } from '../../../../../storeMobx'
@@ -16,13 +16,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faCartPlus } from '@fortawesome/free-solid-svg-icons'
 // import { faHeart } from '@fortawesome/free-regular-svg-icons'
 
-const ProductItem = observer(({ product }) => {
+const ProductItem = observer(({ product }, isLike = false) => {
   const { ProductsStore } = useStore()
   const { t } = useTranslation();
   const history = useHistory()
   const location = useLocation()
 
   const [activeClass, setActive] = useState(false)
+
+  useEffect(() => {
+    console.log(isLike)
+    // if (isLike) setActive(true)
+  }, [])
 
   const bayNow = () => {
     ProductsStore.addToCart(product.id)
@@ -38,14 +43,8 @@ const ProductItem = observer(({ product }) => {
 
   const setLike = () => {
     setActive(!activeClass)
-    if (!activeClass) { ProductsStore.setLikeAction(product.id) }
-    else { ProductsStore.remuveLikeAction(product.id) }
-    // setActive(!activeClass)
-    // if (ProductsStore.likes.includes(product.id)) {
-    //   ProductsStore.remuveLikeAction(product.id)
-    // } else {
-    //   ProductsStore.setLikeAction(product.id)
-    // }
+    if (!activeClass) { ProductsStore.setLikeItemAction(product.id) }
+    else { ProductsStore.remuveLikeItemAction(product.id) }
   }
 
   return (
