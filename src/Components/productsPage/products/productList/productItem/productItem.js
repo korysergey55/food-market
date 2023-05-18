@@ -16,7 +16,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faCartPlus } from '@fortawesome/free-solid-svg-icons'
 // import { faHeart } from '@fortawesome/free-regular-svg-icons'
 
-const ProductItem = observer(({ product }, isLike = false) => {
+const ProductItem = observer(({ product }, isLike) => {
   const { ProductsStore } = useStore()
   const { t } = useTranslation();
   const history = useHistory()
@@ -24,9 +24,10 @@ const ProductItem = observer(({ product }, isLike = false) => {
 
   const [activeClass, setActive] = useState(false)
 
+
+
   useEffect(() => {
-    console.log(isLike)
-    // if (isLike) setActive(true)
+    if (location.pathname === '/likes') setActive(true)
   }, [])
 
   const bayNow = () => {

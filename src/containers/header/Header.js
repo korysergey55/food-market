@@ -161,6 +161,9 @@ const Header = observer(() => {
               activeClassName={styles.linkActive}
             >
               <FontAwesomeIcon className="icon" icon={faHeart} size="1x" />
+              <span className={styles.cartLength}>
+                {ProductsStore.likesItems.length > 0 ? ProductsStore.likesItems.length : null}
+              </span>
             </NavLink>
           </li>
           <li className={styles.item}>
@@ -172,7 +175,7 @@ const Header = observer(() => {
             >
               <FontAwesomeIcon className="icon" icon={faCartPlus} size="1x" />
               <span className={styles.cartLength}>
-                {ProductsStore.cart.length}
+                {ProductsStore.cart.length > 0 ? ProductsStore.cart.length : null}
               </span>
             </NavLink>
           </li>

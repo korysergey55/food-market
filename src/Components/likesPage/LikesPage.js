@@ -34,7 +34,7 @@ const LikesPage = observer(() => {
     <h2 className={styles.title}>Yours Likes</h2>
     <ul className={styles.list}>
       {likesProducts?.map(product => (
-        <ProductItem key={product.id} product={product} isLike={true} />
+        <ProductItem key={product.id} product={product} />
       ))}
     </ul>
   </div>
