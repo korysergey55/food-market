@@ -155,14 +155,14 @@ const Header = observer(() => {
 
           <li className={styles.item}>
             <NavLink
-              to={pathes.likes}
+              to={pathes.favorite}
               exact={true}
               className={styles.link}
               activeClassName={styles.linkActive}
             >
               <FontAwesomeIcon className="icon" icon={faHeart} size="1x" />
               <span className={styles.cartLength}>
-                {ProductsStore.likesItems.length > 0 ? ProductsStore.likesItems.length : null}
+                {ProductsStore.favoriteItems.length > 0 ? ProductsStore.favoriteItems.length : null}
               </span>
             </NavLink>
           </li>

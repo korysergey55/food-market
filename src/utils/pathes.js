@@ -3,7 +3,7 @@ export const pathes = {
   shop: 'shop',
   products: '/products',
   cart: '/cart',
-  likes: '/likes',
+  favorite: '/favorite',
   order: '/order',
   contacts: '/contacts',
   admin: '/admin',

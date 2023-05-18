@@ -24,10 +24,8 @@ const ProductItem = observer(({ product }, isLike) => {
 
   const [activeClass, setActive] = useState(false)
 
-
-
   useEffect(() => {
-    if (location.pathname === '/likes') setActive(true)
+    if (location.pathname === '/favorite') setActive(true)
   }, [])
 
   const bayNow = () => {
@@ -44,8 +42,8 @@ const ProductItem = observer(({ product }, isLike) => {
 
   const setLike = () => {
     setActive(!activeClass)
-    if (!activeClass) { ProductsStore.setLikeItemAction(product.id) }
-    else { ProductsStore.remuveLikeItemAction(product.id) }
+    if (!activeClass) { ProductsStore.setFavoriteItemAction(product.id) }
+    else { ProductsStore.remuveFavoriteItemAction(product.id) }
   }
 
   return (

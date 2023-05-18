@@ -38,9 +38,9 @@ export const mainRoutes = [
     isPrivate: false,
   },
   {
-    name: 'Likes',
-    path: '/likes',
-    component: lazy(() => import('../Components/likesPage/LikesPage')),
+    name: 'Favorite',
+    path: '/favorite',
+    component: lazy(() => import('../Components/favoritePage/FavoritePage')),
     exact: true,
     isRestricted: false,
     isPrivate: false,
