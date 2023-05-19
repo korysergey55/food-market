@@ -33,7 +33,7 @@ const DirectionServiseForm = ({ onSubmitBuildRoute }) => {
             name="ORIGIN"
             value={origin}
             type="text"
-            placeholder="from..."
+            placeholder="my location"
             onChange={onChangeInput}
           />
         </div>

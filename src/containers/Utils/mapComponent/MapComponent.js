@@ -28,9 +28,9 @@ const MapComponent = () => {
     travelMode: 'DRIVING',
   })
 
-  // useEffect(()=>{
-  //   onSubmitBuildRoute()
-  // },[])
+  useEffect(() => {
+    onSubmitBuildRoute()
+  }, [])
 
   useEffect(() => {
     positions &&
@@ -45,14 +45,17 @@ const MapComponent = () => {
     id: 'myprojectrealsoft',
     googleMapsApiKey: 'AIzaSyARFt_e8aIQbS3evmvme0k4dInWVus72gw',
   })
+
   const onLoad = useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds()
     map.fitBounds(bounds)
     setMap(map)
   }, [])
+
   const onUnmount = useCallback(function callback(map) {
     setMap(null)
   }, [])
+
   const onMapClick = useCallback((...args) => {
   }, [])
 
@@ -104,7 +107,7 @@ const MapComponent = () => {
             onUnmount={onUnmount}
             onClick={onMapClick}
           >
-            <Marker position={currentPosition} label="Your position"></Marker>
+            <Marker position={currentPosition} label="My position"></Marker>
             <Marker position={shopGeoposition} label="Shop"></Marker>
             {formState.destination && formState.origin && (
               <DirectionsService
@@ -122,7 +125,7 @@ const MapComponent = () => {
           </GoogleMap>
         ) : null}
       </div>
-      {/* <DirectionServiseForm onSubmitBuildRoute={onSubmitBuildRoute} /> */}
+      <DirectionServiseForm onSubmitBuildRoute={onSubmitBuildRoute} />
     </div>
   )
 }
