@@ -27,7 +27,7 @@ const AdminForm = observer(() => {
     price: 0,
     discount: '',
     isSale: false,
-    image: '',
+    image: {},
     images: [],
     qantity: 1,
   }
@@ -46,32 +46,23 @@ const AdminForm = observer(() => {
     { value: 'Разное', label: 'Разное' },
     { value: 'Новинки', label: 'Новинки' },
   ]
-  const [fileList, setFileList] = useState([
-    // {
-    //   uid: '-1',
-    //   name: 'image.png',
-    //   status: 'done',
-    //   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-    // },
-  ]);
+  const [fileList, setFileList] = useState([]);
 
-  // useEffect(() => {
-  //   let formData = new FormData();
-  //   fileList && fileList[0] && fileList[0].originFileObj && formData.append("file", fileList[0].originFileObj);
-  //   console.log(formData)
-  // }, [fileList])
+  useEffect(() => {
+    // let formData = new FormData();
+    // fileList && fileList[0] && fileList[0].originFileObj && formData.append("file", fileList[0].originFileObj);
+    // console.log(fileList?.[0]?.originFileObj)
+  }, [fileList])
 
   const onChangeUpload: UploadProps['onChange'] = ({ fileList: newFileList }) => {
     setFileList(newFileList);
-    console.log(newFileList)
-    console.log(newFileList[0].thumbUrl)
-    // let formData = new FormData();
-    // formData.append("file", newFileList[0].originFileObj);
-    // setState((prev) => ({ ...prev, image: formData }))
-
     // setState((prev) => ({
-    //   ...prev, image: newFileList[0].thumbUrl
+    //   ...prev, image: newFileList?.[0]?.originFileObj
     // }))
+    let formData = new FormData();
+    formData.append("file", newFileList[0].originFileObj);
+    setState((prev) => ({ ...prev, image: formData }))
+    console.log(formData.get("file"))
   };
 
   const onPreview = async (file: UploadFile) => {

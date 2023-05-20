@@ -10,10 +10,10 @@ const FavoritePage = observer(() => {
   const { ProductsStore } = useStore()
   const { products, favoriteItems, favoriteProducts } = ProductsStore
 
-  const findProductLikes = () => {
+  const findFavoriteProducts = () => {
     const cartArr = []
-    const unq = Array.from(new Set(favoriteItems))
-    unq.forEach(key => {
+    const newArrayProducts = Array.from(new Set(favoriteItems))
+    newArrayProducts.forEach(key => {
       const item = products.find(prod => prod.id === key)
       if (item) {
         cartArr.push(item)
@@ -23,7 +23,7 @@ const FavoritePage = observer(() => {
   }
 
   useEffect(() => {
-    ProductsStore.setFavoriteProductsAction(findProductLikes())
+    ProductsStore.setFavoriteProductsAction(findFavoriteProducts())
   }, [products, favoriteItems])
 
   return (<div className={styles.likesPage}>

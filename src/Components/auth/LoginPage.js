@@ -16,7 +16,7 @@ const LoginPage = observer(() => {
 
   useEffect(() => {
     AuthStore.toggleAntModalAction()
-  }, [])
+  }, [AuthStore])
 
   return (
     <div className={styles.LoginPage}>

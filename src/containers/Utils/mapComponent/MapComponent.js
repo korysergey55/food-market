@@ -53,10 +53,13 @@ const MapComponent = () => {
   }, [])
 
   const onUnmount = useCallback(function callback(map) {
+    const bounds = new window.google.maps.LatLngBounds()
+    map.fitBounds(bounds)
     setMap(null)
   }, [])
 
   const onMapClick = useCallback((...args) => {
+    console.log(args)
   }, [])
 
   //Directions service  code
