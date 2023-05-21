@@ -198,6 +198,22 @@ class ProductsStore {
       console.log(error)
     }
   }
+
+  @action createNewAdvAPI = async (category: any, newProduct: any) => {
+    try {
+      const response = await axios.post(
+        baseURL + `products/.json`,
+        newProduct
+        //   {
+        //   headers: { Authorization: 'Bearer ' + process.env.REACT_APP_API_KEY }
+        // }
+      )
+      if (response && response.status === 200) console.log(response)
+      return response
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }
 
 export default new ProductsStore()

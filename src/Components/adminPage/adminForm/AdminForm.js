@@ -3,8 +3,6 @@ import { useStore } from '../../../storeMobx'
 import { observer } from 'mobx-react'
 import { v4 as uuidv4 } from 'uuid';
 
-import { createNewAdvApi } from "../../../services/api";
-
 import styles from './styles.module.scss'
 import { Button, Checkbox, Form, Input, Select, Upload } from 'antd';
 import ImgCrop from 'antd-img-crop';
@@ -56,13 +54,13 @@ const AdminForm = observer(() => {
 
   const onChangeUpload: UploadProps['onChange'] = ({ fileList: newFileList }) => {
     setFileList(newFileList);
-    // setState((prev) => ({
-    //   ...prev, image: newFileList?.[0]?.originFileObj
-    // }))
-    let formData = new FormData();
-    formData.append("file", newFileList[0].originFileObj);
-    setState((prev) => ({ ...prev, image: formData }))
-    console.log(formData.get("file"))
+    setState((prev) => ({
+      ...prev, image: newFileList?.[0]?.originFileObj
+    }))
+    // let formData = new FormData();
+    // formData.append("file", newFileList[0].originFileObj);
+    // setState((prev) => ({ ...prev, image: formData }))
+    // console.log(formData.get("file"))
   };
 
   const onPreview = async (file: UploadFile) => {
@@ -103,7 +101,7 @@ const AdminForm = observer(() => {
   const onFinish = (values) => {
     // evt.preventDefault();
     ProductsStore.setNewProductAction(state)
-    createNewAdvApi(state.category, state)
+    ProductsStore.createNewAdvAPI(state.category, state)
     // setState({ ...initialState });
     // form.resetFields()
 

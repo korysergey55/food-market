@@ -27,20 +27,20 @@ const baseURL = "https://goodfood-c0ae2-default-rtdb.firebaseio.com/"
 //   }
 // };
 
-export const createNewAdvApi = async (category, newProduct) => {
-  try {
-    const response = await axios.post(
-      baseURL + `products/.json`,
-      newProduct,
-      //   {
-      //   headers: { Authorization: 'Bearer ' + process.env.REACT_APP_API_KEY }
-      // }
-    );
-    return response;
-  } catch (error) {
-    console.log(error);
-  }
-};
+// export const createNewAdvApi = async (category, newProduct) => {
+//   try {
+//     const response = await axios.post(
+//       baseURL + `products/.json`,
+//       newProduct,
+//       //   {
+//       //   headers: { Authorization: 'Bearer ' + process.env.REACT_APP_API_KEY }
+//       // }
+//     );
+//     return response;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 export const deleteAdvApi = async (category, id) => {
   try {
