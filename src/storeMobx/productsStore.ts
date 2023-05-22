@@ -25,13 +25,13 @@ const baseURL = 'https://goodfood-c0ae2-default-rtdb.firebaseio.com/'
 class ProductsStore {
   @observable products: IProduct[] = []
   @observable filteredProducts: IProduct[] = [...this.products]
+  @observable productById: IProduct | null = null
+  @observable productImage: any = {}
 
   @observable сategory: IсategoryJSON[] = [...categoriesJSON]
   @observable brands: string[] = [...brandsJSON]
   @observable country: string[] = [...countryJSON]
   @observable packing: string[] = [...packingJSON]
-
-  @observable productById: IProduct | null = null
 
   @observable cart: any = localStorage.getItem('cart')
     ? JSON.parse(localStorage.getItem('cart'))
@@ -45,8 +45,8 @@ class ProductsStore {
   constructor() {
     makeAutoObservable(this)
     reaction(
-      () => this.favoriteProducts,
-      _ => console.log('favoriteProducts', toJS(this.favoriteProducts))
+      () => this.productImage,
+      _ => console.log('productImage', toJS(this.productImage))
     )
   }
   @action setFavoriteItemAction(data: any) {
@@ -57,6 +57,9 @@ class ProductsStore {
   }
   @action setFavoriteProductsAction(data: any) {
     this.favoriteProducts = [...data]
+  }
+  @action setProductImageAction(data: any) {
+    this.productImage = data
   }
 
   @action setAllProductsAction(data: any) {
@@ -207,6 +210,24 @@ class ProductsStore {
         //   {
         //   headers: { Authorization: 'Bearer ' + process.env.REACT_APP_API_KEY }
         // }
+      )
+      if (response && response.status === 200) {
+        this.addImageAdvAPI(response.data.name)
+      }
+      return response
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  @action addImageAdvAPI = async (id: any) => {
+    try {
+      const response = await axios.patch(
+        baseURL + `products/${id}.json`,
+        { image: this.productImage },
+        {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        }
       )
       if (response && response.status === 200) console.log(response)
       return response

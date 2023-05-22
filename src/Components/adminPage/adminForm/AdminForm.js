@@ -57,10 +57,11 @@ const AdminForm = observer(() => {
     setState((prev) => ({
       ...prev, image: newFileList?.[0]?.originFileObj
     }))
-    // let formData = new FormData();
-    // formData.append("file", newFileList[0].originFileObj);
-    // setState((prev) => ({ ...prev, image: formData }))
-    // console.log(formData.get("file"))
+    let formData = new FormData();
+    formData.append("file", newFileList[0].originFileObj);
+    setState((prev) => ({ ...prev, image: formData }))
+    console.log(formData.get("file"))
+    ProductsStore.setProductImageAction(formData)
   };
 
   const onPreview = async (file: UploadFile) => {
