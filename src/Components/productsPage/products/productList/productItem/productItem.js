@@ -42,7 +42,7 @@ const ProductItem = observer(({ product }, isLike) => {
 
   const setLike = () => {
     setActive(!activeClass)
-    if (!activeClass) { ProductsStore.setFavoriteItemAction(product.id) }
+    if (!activeClass) { ProductsStore.setFavoriteItemIdAction(product.id) }
     else { ProductsStore.remuveFavoriteItemAction(product.id) }
   }
 

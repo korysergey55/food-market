@@ -38,9 +38,12 @@ class ProductsStore {
     : []
   @observable cartProducts: any = []
   @observable totalPrice: number = 0
-  @observable viewedProducts: IProduct | IProduct[] = []
-  @observable favoriteItems: any = []
+
+  @observable favoriteItems: any = localStorage.getItem('favorite')
+    ? JSON.parse(localStorage.getItem('favorite'))
+    : []
   @observable favoriteProducts: any = []
+  @observable viewedProducts: IProduct | IProduct[] = []
 
   constructor() {
     makeAutoObservable(this)
@@ -49,19 +52,19 @@ class ProductsStore {
       _ => console.log('productImage', toJS(this.productImage))
     )
   }
-  @action setFavoriteItemAction(data: any) {
+  //Favorite
+  @action setFavoriteItemIdAction(data: any) {
     this.favoriteItems = [...this.favoriteItems, data]
-  }
-  @action remuveFavoriteItemAction(data: any) {
-    this.favoriteItems = this.favoriteItems.filter((item: any) => item !== data)
+    localStorage.setItem('favorite', JSON.stringify(this.favoriteItems))
   }
   @action setFavoriteProductsAction(data: any) {
     this.favoriteProducts = [...data]
   }
-  @action setProductImageAction(data: any) {
-    this.productImage = data
+  @action remuveFavoriteItemAction(data: any) {
+    this.favoriteItems = this.favoriteItems.filter((item: any) => item !== data)
+    localStorage.setItem('favorite', JSON.stringify(this.favoriteItems))
   }
-
+  //Products
   @action setAllProductsAction(data: any) {
     this.products = [...data]
     this.filteredProducts = [...this.products]
@@ -72,17 +75,12 @@ class ProductsStore {
     this.filteredProducts = [...this.products]
   }
 
-  @action setProductDetailsAction(id: string) {
-    this.productById = this.products.find((item: any) => item.id === id)
+  @action setProductImageAction(data: any) {
+    this.productImage = data
   }
 
-  @action setViewedProducts(id: string) {
-    const newProduct = this.products.find((item: any) => item.id === id)
-    // this.viewedProducts = [...this.viewedProducts, newProduct]
-    const undublicate = this.viewedProducts.filter(
-      (item: any) => item.id !== newProduct.id
-    )
-    this.viewedProducts = [...undublicate, newProduct]
+  @action setProductDetailsAction(id: string) {
+    this.productById = this.products.find((item: any) => item.id === id)
   }
 
   @action filterProducts(data: any) {
@@ -93,6 +91,14 @@ class ProductsStore {
     this.filteredProducts = filtered
   }
 
+  @action setViewedProducts(id: string) {
+    const newProduct = this.products.find((item: any) => item.id === id)
+    const undublicate = this.viewedProducts.filter(
+      (item: any) => item.id !== newProduct?.id
+    )
+    this.viewedProducts = [...undublicate, newProduct]
+  }
+  //Filters
   @action sortProducts(data: any) {
     if (data === 'price') {
       const sortedProducts = this.products.sort(
@@ -128,6 +134,7 @@ class ProductsStore {
     this.filteredProducts = sortedProducts
   }
 
+  //Cart
   @action addToCart(id: any) {
     this.cart = [...this.cart, id]
     localStorage.setItem('cart', JSON.stringify(this.cart))

@@ -54,9 +54,10 @@ const ProductsPage = observer(() => {
       <div className={styles.container}>
         <h2
           className={styles.title}
+          onClick={() => history.push(match.path + '/all')}
         >
           {t('Ветрина товаров')}
-        </h2>
+        </h2 >
         <div className={styles.filterWripper}>
           <FontAwesomeIcon
             className={styles.icon}
