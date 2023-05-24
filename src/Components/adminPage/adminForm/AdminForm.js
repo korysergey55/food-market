@@ -57,10 +57,14 @@ const AdminForm = observer(() => {
     setState((prev) => ({
       ...prev, image: newFileList?.[0]?.originFileObj
     }))
+    console.log(newFileList?.[0])
+    console.log(newFileList?.[0].thumbUrl)
+
     let formData = new FormData();
     formData.append("file", newFileList[0].originFileObj);
     setState((prev) => ({ ...prev, image: formData }))
     console.log(formData.get("file"))
+
     ProductsStore.setProductImageAction(formData)
   };
 

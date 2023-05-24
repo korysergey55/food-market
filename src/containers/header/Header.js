@@ -87,7 +87,7 @@ const Header = observer(() => {
           </li>
           <li className={styles.item}>
             <NavLink
-              to={pathes.products}
+              to={'/products/all'}
               exact={true}
               className={styles.link}
               activeClassName={styles.linkActive}
