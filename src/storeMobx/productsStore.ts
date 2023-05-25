@@ -51,6 +51,10 @@ class ProductsStore {
       () => this.productImage,
       _ => console.log('productImage', toJS(this.productImage))
     )
+    reaction(
+      () => this.favoriteItems,
+      _ => console.log('favoriteItems', toJS(this.favoriteItems))
+    )
   }
   //Favorite
   @action setFavoriteItemIdAction(data: any) {

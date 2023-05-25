@@ -16,13 +16,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faCartPlus } from '@fortawesome/free-solid-svg-icons'
 // import { faHeart } from '@fortawesome/free-regular-svg-icons'
 
-const ProductItem = observer(({ product }, isLike) => {
+const ProductItem = observer(({ product }) => {
   const { ProductsStore } = useStore()
+  const { favoriteItems } = ProductsStore
   const { t } = useTranslation();
   const history = useHistory()
   const location = useLocation()
 
-  const [activeClass, setActive] = useState(false)
+  const findFavorite = () => {
+    return favoriteItems.find((item) => {
+      if (item === product.id) return true
+      return false
+    })
+  }
+  const [activeClass, setActive] = useState(findFavorite())
+
 
   useEffect(() => {
     if (location.pathname === '/favorite') setActive(true)

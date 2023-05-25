@@ -12,15 +12,15 @@ const FavoritePage = observer(() => {
   const { t } = useTranslation();
 
   const findFavoriteProducts = () => {
-    const cartArr = []
+    const favoriteArr = []
     const newArrayProducts = Array.from(new Set(favoriteItems))
     newArrayProducts.forEach(key => {
       const item = products.find(prod => prod.id === key)
       if (item) {
-        cartArr.push(item)
+        favoriteArr.push(item)
       }
     })
-    return cartArr
+    return favoriteArr
   }
 
   useEffect(() => {
