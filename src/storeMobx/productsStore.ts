@@ -14,7 +14,7 @@ import { toast } from 'react-toastify'
 import { productsJSON } from '../sourses/dataProduct/products'
 import { categoriesJSON } from '../sourses/dataProduct/categories'
 import { brandsJSON } from '../sourses/dataProduct/brands'
-import { countryJSON } from '../sourses/dataProduct/country'
+import { manufacturJSON } from '../sourses/dataProduct/country'
 import { packingJSON } from '../sourses/dataProduct/packing'
 
 import { IсategoryJSON } from '../models/index'
@@ -30,7 +30,7 @@ class ProductsStore {
 
   @observable сategory: IсategoryJSON[] = [...categoriesJSON]
   @observable brands: string[] = [...brandsJSON]
-  @observable country: string[] = [...countryJSON]
+  @observable manufactur: string[] = [...manufacturJSON]
   @observable packing: string[] = [...packingJSON]
 
   @observable cart: any = localStorage.getItem('cart')
@@ -138,12 +138,30 @@ class ProductsStore {
     this.filteredProducts = sortedProducts
   }
 
+  @action sortByManufactur(data: any) {
+    const sortedProducts = this.products.filter((item: any) =>
+      item.manufactur.includes(data)
+    )
+    this.filteredProducts = sortedProducts
+  }
+
+  @action sortByPacking(data: any) {
+    const sortedProducts = this.products.filter((item: any) =>
+      item.weight.includes(data)
+    )
+    this.filteredProducts = sortedProducts
+  }
+
+  @action resetFilters() {
+    this.filteredProducts = [...this.products]
+  }
+
   //Cart
   @action addToCart(id: any) {
     this.cart = [...this.cart, id]
     localStorage.setItem('cart', JSON.stringify(this.cart))
 
-    toast.success('Продукт добавлен в Корзину!', {
+    toast.success('Товар добавлен в Корзину!', {
       theme: 'colored',
     })
   }
@@ -152,7 +170,7 @@ class ProductsStore {
     this.cart = this.cart.filter((cartItem: any) => cartItem !== id)
     localStorage.setItem('cart', JSON.stringify(this.cart))
 
-    toast.info('Продукт удален из Корзину!', {
+    toast.info('Товар удален из Корзины!', {
       theme: 'colored',
     })
   }

@@ -17,7 +17,7 @@ const AdminForm = observer(() => {
     subcategory: '',
     description: '',
     brand: '',
-    weight: '',
+    weight: 0,
     manufactur: '',
     fullDescription: '',
     AdditionalInformation: '',
@@ -90,7 +90,7 @@ const AdminForm = observer(() => {
       setState((prev) => ({ ...prev, [name]: checked }));
       return
     }
-    if (name === 'price') {
+    if (name === 'price' || name === 'weight') {
       setState((prev) => ({ ...prev, [name]: Number(value) }))
       return
     }

@@ -13,27 +13,22 @@ const Filters = observer(({ setShowFilters }) => {
   const [to, setTo] = useState(300)
 
   const handleChangeSorter = value => {
-    console.log(value)
     ProductsStore.sortProducts(value)
   }
 
   const onChangePrice = value => {
     setFrom(value[0])
     setTo(value[1])
-    console.log(value)
     ProductsStore.sortByPpice(value)
   }
-  const changeBrand = value => {
-    const { name } = value.target
-    // console.log('changeBrand', value.target.name)
-    ProductsStore.sortByBrand(name)
-  }
+  const onChange = value => {
+    const { name, checked, dataTagname } = value.target
+    console.log(dataTagname)
+    if (dataTagname === 'brand') ProductsStore.sortByBrand(name)
+    if (dataTagname === 'manufactur') ProductsStore.sortByManufactur(name)
+    if (dataTagname === 'packing') ProductsStore.sortByPacking(name)
+    if (checked === false) ProductsStore.resetFilters()
 
-  const changeCountry = value => {
-    console.log(value)
-  }
-  const changePacking = value => {
-    console.log(value)
   }
 
   function callback(key) {
@@ -42,7 +37,7 @@ const Filters = observer(({ setShowFilters }) => {
 
   const onSubmit = () => {
     console.log('onSubmit')
-    setShowFilters(false)
+    // setShowFilters(false)
   }
 
   return (
@@ -65,7 +60,7 @@ const Filters = observer(({ setShowFilters }) => {
       <h3 className={styles.subtitle}>Цена</h3>
       <Slider
         range
-        defaultValue={[50, 300]}
+        defaultValue={[10, 500]}
         min={10}
         max={500}
         onChange={onChangePrice}
@@ -83,9 +78,10 @@ const Filters = observer(({ setShowFilters }) => {
             {ProductsStore.brands.map(item => (
               <Checkbox
                 className={styles.item}
-                onChange={changeBrand}
+                onChange={onChange}
                 name={item}
                 key={item}
+                dataTagname="brand"
               >
                 {item}
               </Checkbox>
@@ -94,11 +90,13 @@ const Filters = observer(({ setShowFilters }) => {
         </Panel>
         <Panel header="Страна производства" key="2">
           <ul className={styles.checkboxList}>
-            {ProductsStore.country.map(item => (
+            {ProductsStore.manufactur.map(item => (
               <Checkbox
                 className={styles.item}
-                onChange={changeCountry}
+                onChange={onChange}
+                name={item}
                 key={item}
+                dataTagname="manufactur"
               >
                 {item}
               </Checkbox>
@@ -110,8 +108,10 @@ const Filters = observer(({ setShowFilters }) => {
             {ProductsStore.packing.map(item => (
               <Checkbox
                 className={styles.item}
-                onChange={changePacking}
+                onChange={onChange}
+                name={item}
                 key={item}
+                dataTagname="packing"
               >
                 {item}
               </Checkbox>

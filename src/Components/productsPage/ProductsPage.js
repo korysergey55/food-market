@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useStore } from '../../storeMobx'
 import { observer } from 'mobx-react'
-import { useHistory, useRouteMatch } from 'react-router-dom'
+import { useHistory, useLocation, useRouteMatch } from 'react-router-dom'
 
 import ProductRout from './products/productsRouts/ProductRouts'
 import Filters from '../productsPage/filters/Filters'
@@ -22,6 +22,7 @@ const ProductsPage = observer(() => {
   const { t } = useTranslation();
 
   const history = useHistory()
+  const location = useLocation()
   const match = useRouteMatch()
 
   const [search, setSearchValue] = useState('')
@@ -30,6 +31,10 @@ const ProductsPage = observer(() => {
   useEffect(() => {
     history.push(match.path + '/all')
   }, [match.path])
+
+  useEffect(() => {
+    setSearchValue('')
+  }, [location.pathname])
 
   useEffect(() => {
     window.scroll(0, 350)
@@ -41,11 +46,17 @@ const ProductsPage = observer(() => {
     if (value === '') {
       ProductsStore.filterProducts('')
     }
+    ProductsStore.filterProducts(value)
   }
-  const onSearch = value => ProductsStore.filterProducts(value)
+
+  const onSearch = (value) => {
+    ProductsStore.filterProducts(value)
+    setSearchValue(value)
+  }
 
   const handleShowFilters = () => {
     setShowFilters(!showFilters)
+    ProductsStore.resetFilters()
   }
 
   return (
@@ -77,7 +88,7 @@ const ProductsPage = observer(() => {
           />
         </div>
         <div className={styles.wripper}>
-          {showFilters && <Filters setShowFilters={setShowFilters} />}
+          {showFilters && < Filters setShowFilters={setShowFilters} />}
           <ProductRout />
         </div>
         <SubForm />

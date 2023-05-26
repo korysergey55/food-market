@@ -1,4 +1,4 @@
-const countryJSON = [
+const manufacturJSON = [
   'Германия',
   'Польша',
   'Швеция',
@@ -6,4 +6,4 @@ const countryJSON = [
   'Австрия',
   'Щвейцария',
 ]
-export { countryJSON }
+export { manufacturJSON }
