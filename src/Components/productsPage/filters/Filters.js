@@ -9,26 +9,34 @@ const { Option } = Select
 
 const Filters = observer(({ setShowFilters }) => {
   const { ProductsStore } = useStore()
-  const [from, setFrom] = useState(50)
-  const [to, setTo] = useState(300)
+
+  const initialState = {
+    brand: '',
+    manufactur: '',
+    packing: '',
+    price: [0, 500]
+  }
+  const [state, setState] = useState({ ...initialState })
 
   const handleChangeSorter = value => {
     ProductsStore.sortProducts(value)
   }
 
   const onChangePrice = value => {
-    setFrom(value[0])
-    setTo(value[1])
-    ProductsStore.sortByPpice(value)
+    setState((prev) => ({ ...prev, price: [value[0], value[1]] }))
+    ProductsStore.filterByPrice(value)
   }
+
   const onChange = value => {
     const { name, checked, dataTagname } = value.target
-    console.log(dataTagname)
-    if (dataTagname === 'brand') ProductsStore.sortByBrand(name)
-    if (dataTagname === 'manufactur') ProductsStore.sortByManufactur(name)
-    if (dataTagname === 'packing') ProductsStore.sortByPacking(name)
-    if (checked === false) ProductsStore.resetFilters()
+    setState((prev) => ({ ...prev, [dataTagname]: name }))
+    if (checked) setState((prev) => ({ ...prev, [dataTagname]: '' }))
 
+    if (dataTagname === 'brand') ProductsStore.filterByBrand(name)
+    if (dataTagname === 'manufactur') ProductsStore.filterByManufactur(name)
+    if (dataTagname === 'packing') ProductsStore.filterByPacking(name)
+    if (checked === false) ProductsStore.resetFilters()
+    console.log(state)
   }
 
   function callback(key) {
@@ -65,8 +73,8 @@ const Filters = observer(({ setShowFilters }) => {
         max={500}
         onChange={onChangePrice}
       />
-      <p className={styles.text}>от - {from} грн</p>
-      <p className={styles.text}>до - {to} грн</p>
+      <p className={styles.text}>от - {state.price[0]} грн</p>
+      <p className={styles.text}>до - {state.price[1]} грн</p>
       <Collapse
         className={styles.collapse}
         defaultActiveKey={['1']}

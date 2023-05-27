@@ -124,29 +124,29 @@ class ProductsStore {
     }
   }
 
-  @action sortByPpice(data: any) {
+  @action filterByPrice(data: any) {
     const sortedProducts = this.products.filter(
       (item: any) => item.price >= data[0] && item.price <= data[1]
     )
     this.filteredProducts = sortedProducts
   }
 
-  @action sortByBrand(data: any) {
-    const sortedProducts = this.products.filter((item: any) =>
+  @action filterByBrand(data: any) {
+    const sortedProducts = this.filteredProducts.filter((item: any) =>
       item.brand.includes(data)
     )
     this.filteredProducts = sortedProducts
   }
 
-  @action sortByManufactur(data: any) {
-    const sortedProducts = this.products.filter((item: any) =>
+  @action filterByManufactur(data: any) {
+    const sortedProducts = this.filteredProducts.filter((item: any) =>
       item.manufactur.includes(data)
     )
     this.filteredProducts = sortedProducts
   }
 
-  @action sortByPacking(data: any) {
-    const sortedProducts = this.products.filter((item: any) =>
+  @action filterByPacking(data: any) {
+    const sortedProducts = this.filteredProducts.filter((item: any) =>
       item.weight.includes(data)
     )
     this.filteredProducts = sortedProducts

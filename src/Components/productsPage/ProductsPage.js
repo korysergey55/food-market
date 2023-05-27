@@ -3,7 +3,7 @@ import { useStore } from '../../storeMobx'
 import { observer } from 'mobx-react'
 import { useHistory, useLocation, useRouteMatch } from 'react-router-dom'
 
-import ProductRout from './products/productsRouts/ProductRouts'
+import ProductRout from '../../routes/productsRouts/ProductRouts'
 import Filters from '../productsPage/filters/Filters'
 import SubForm from '../../containers/Reuseble/subForm/SubForm'
 import Footer from '../../containers/footer/Footer'
@@ -34,6 +34,7 @@ const ProductsPage = observer(() => {
 
   useEffect(() => {
     setSearchValue('')
+    ProductsStore.filterProducts('')
   }, [location.pathname])
 
   useEffect(() => {

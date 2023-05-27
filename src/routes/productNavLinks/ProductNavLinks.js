@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, useRouteMatch } from "react-router-dom";
-import { productsRoutes } from "../../../../routes/productsRoutes";
+import { productsRoutes } from "../productsRoutes";
 import styles from './styles.module.scss'
 
 const ProductNavLinks = () => {
@@ -15,7 +15,7 @@ const ProductNavLinks = () => {
               <NavLink
                 // to={match.url + route.path}
                 to={'/products' + route.path}
-                
+
                 exact={route.exact}
                 icon={route.icon}
                 className={styles.navLink}

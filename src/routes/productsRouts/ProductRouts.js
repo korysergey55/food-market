@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, useRouteMatch } from "react-router-dom";
-import { productsRoutes } from "../../../../routes/productsRoutes";
+import { productsRoutes } from "../productsRoutes";
 import { v4 as uuidv4 } from 'uuid';
 
 const ProductRouts = () => {
