@@ -97,7 +97,7 @@ class ProductsStore {
 
   @action setViewedProducts(id: string) {
     const newProduct = this.products.find((item: any) => item.id === id)
-    const undublicate = this.viewedProducts.filter(
+    const undublicate = this.viewedProducts?.filter(
       (item: any) => item.id !== newProduct?.id
     )
     this.viewedProducts = [...undublicate, newProduct]
@@ -132,21 +132,21 @@ class ProductsStore {
   }
 
   @action filterByBrand(data: any) {
-    const sortedProducts = this.filteredProducts.filter((item: any) =>
+    const sortedProducts = this.products.filter((item: any) =>
       item.brand.includes(data)
     )
     this.filteredProducts = sortedProducts
   }
 
   @action filterByManufactur(data: any) {
-    const sortedProducts = this.filteredProducts.filter((item: any) =>
+    const sortedProducts = this.products.filter((item: any) =>
       item.manufactur.includes(data)
     )
     this.filteredProducts = sortedProducts
   }
 
   @action filterByPacking(data: any) {
-    const sortedProducts = this.filteredProducts.filter((item: any) =>
+    const sortedProducts = this.products.filter((item: any) =>
       item.weight.includes(data)
     )
     this.filteredProducts = sortedProducts
