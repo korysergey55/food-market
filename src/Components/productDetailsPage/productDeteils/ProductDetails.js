@@ -69,9 +69,10 @@ const ProductItemDetails = observer(() => {
     }
   }
 
-  const addProductToCart = ({ id }) => {
-    console.log(id)
-    ProductsStore.addToCart(id)
+  const addProductToCart = (id) => {
+    for (let i = 0; i < counter; i++) {
+      ProductsStore.addToCart(id)
+    }
   }
 
   const goBack = () => {
@@ -143,7 +144,7 @@ const ProductItemDetails = observer(() => {
           </div>
 
           <button
-            onClick={() => addProductToCart(productById)}
+            onClick={() => addProductToCart(productById.id)}
             className={styles.addToCart}
           >
             {t('В корзину')}
