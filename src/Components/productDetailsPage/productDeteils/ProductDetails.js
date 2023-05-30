@@ -69,6 +69,11 @@ const ProductItemDetails = observer(() => {
     }
   }
 
+  const addProductToCart = ({ id }) => {
+    console.log(id)
+    ProductsStore.addToCart(id)
+  }
+
   const goBack = () => {
     if (location.state) {
       history.push(location.state.from)
@@ -138,7 +143,7 @@ const ProductItemDetails = observer(() => {
           </div>
 
           <button
-            onClick={() => ProductsStore.addToCart(productById.id)}
+            onClick={() => addProductToCart(productById)}
             className={styles.addToCart}
           >
             {t('В корзину')}

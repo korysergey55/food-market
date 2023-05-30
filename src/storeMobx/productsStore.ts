@@ -52,8 +52,8 @@ class ProductsStore {
       _ => console.log('productImage', toJS(this.productImage))
     )
     reaction(
-      () => this.favoriteItems,
-      _ => console.log('favoriteItems', toJS(this.favoriteItems))
+      () => this.cart,
+      _ => console.log('cart', toJS(this.cart))
     )
   }
   //Favorite
@@ -186,12 +186,13 @@ class ProductsStore {
   }
   @action setQantityCartProducts(id: string, type: string) {
     this.cartProducts?.map((item: any) => {
-      if (item.id === id && type === 'increment') {
-        return (item.qantity = item.qantity += 1)
-      }
-      if (item.id === id && type === 'decrement') {
-        return (item.qantity = item.qantity -= 1)
-      }
+      // if (item.id === id && type === 'increment') {
+      //   return (item.qantity = item.qantity += 1)
+      // }
+      // if (item.id === id && type === 'decrement') {
+      //   return (item.qantity = item.qantity -= 1)
+      // }
+
       return item
     })
   }
