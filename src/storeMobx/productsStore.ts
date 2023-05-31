@@ -98,7 +98,7 @@ class ProductsStore {
   @action setViewedProducts(id: string) {
     const newProduct = this.products.find((item: any) => item.id === id)
     const undublicate = this.viewedProducts?.filter(
-      (item: any) => item.id !== newProduct?.id
+      (item: any) => item?.id !== newProduct?.id
     )
     this.viewedProducts = [...undublicate, newProduct]
   }
@@ -157,13 +157,14 @@ class ProductsStore {
   }
 
   //Cart
-  @action addToCart(id: any) {
+  @action addToCart(id: any, notification = true) {
     this.cart = [...this.cart, id]
     localStorage.setItem('cart', JSON.stringify(this.cart))
 
-    toast.success('Товар добавлен в Корзину!', {
-      theme: 'colored',
-    })
+    notification &&
+      toast.success('Товар добавлен в Корзину!', {
+        theme: 'colored',
+      })
   }
 
   @action remuveFromCart(id: any) {

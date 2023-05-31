@@ -60,12 +60,10 @@ const ProductItemDetails = observer(() => {
     if (dataset.name === 'decrement') {
       if (counter > 1) {
         setCounter(prev => prev - 1)
-        // ProductsStore.setQantityCartProducts(productById.id, 'decrement')
       }
     }
     if (dataset.name === 'increment') {
       setCounter(prev => prev + 1)
-      // ProductsStore.setQantityCartProducts(productById.id, 'increment')
     }
   }
 
@@ -76,9 +74,11 @@ const ProductItemDetails = observer(() => {
   }
 
   const goBack = () => {
-    if (location.state) {
-      history.push(location.state.from)
-    } else history.push(`/products/${category}`)
+    window.history.back()
+    // if (location.state) {
+    //   history.push(location.state.from)
+    // }
+    // else history.push(`/products/${category}`)
   }
 
   return productById ? (
@@ -120,7 +120,8 @@ const ProductItemDetails = observer(() => {
           </p>
           <p className={styles.price}>
             {productById.price}грн
-            {productById.discount ? <span className={styles.sale}> {productById.price + productById.price * Number(productById.discount / 100)}грн</span> : null}
+            {productById.discount ?
+              <span className={styles.sale}> {productById.price + productById.price * Number(productById.discount / 100)}грн</span> : null}
           </p>
 
           <div className={styles.btnContainer}>
