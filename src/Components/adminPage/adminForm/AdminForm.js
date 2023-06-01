@@ -52,20 +52,29 @@ const AdminForm = observer(() => {
     // console.log(fileList?.[0]?.originFileObj)
   }, [fileList])
 
-  const onChangeUpload: UploadProps['onChange'] = ({ fileList: newFileList }) => {
+  const onChangeUpload: UploadProps['onChange'] = async ({ fileList: newFileList }) => {
     setFileList(newFileList);
+
+    const src = await new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(newFileList?.[0]?.originFileObj);
+      reader.onload = () => resolve(reader.result);
+    });
+
     setState((prev) => ({
-      ...prev, image: newFileList?.[0]?.originFileObj
+      ...prev, image: src
     }))
-    console.log(newFileList?.[0])
-    console.log(newFileList?.[0].thumbUrl)
 
-    let formData = new FormData();
-    formData.append("file", newFileList[0].originFileObj);
-    setState((prev) => ({ ...prev, image: formData }))
-    console.log(formData.get("file"))
+    // setState((prev) => ({
+    //   ...prev, image: newFileList?.[0]?.originFileObj
+    // }))
 
-    ProductsStore.setProductImageAction(formData)
+    // let formData = new FormData();
+    // formData.append("file", newFileList[0].originFileObj);
+    // setState((prev) => ({ ...prev, image: formData }))
+    // console.log(formData.get("file"))
+
+    // ProductsStore.setProductImageAction(formData)
   };
 
   const onPreview = async (file: UploadFile) => {

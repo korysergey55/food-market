@@ -241,9 +241,9 @@ class ProductsStore {
         //   headers: { Authorization: 'Bearer ' + process.env.REACT_APP_API_KEY }
         // }
       )
-      if (response && response.status === 200) {
-        this.addImageAdvAPI(response.data.name)
-      }
+      // if (response && response.status === 200) {
+      //   this.addImageAdvAPI(response.data.name)
+      // }
       return response
     } catch (error) {
       console.log(error)
@@ -259,8 +259,7 @@ class ProductsStore {
           headers: { 'Content-Type': 'multipart/form-data' },
         }
       )
-      if (response && response.status === 200) console.log(response)
-      return response
+      if (response && response.status === 200) return response
     } catch (error) {
       console.log(error)
     }
