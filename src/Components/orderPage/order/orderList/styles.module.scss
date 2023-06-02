@@ -9,23 +9,31 @@
   }
   .wripper {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     // flex-wrap: wrap;
     margin-top: 20px;
     padding: 10px;
 
     .total {
+      margin-right: 5px;
       padding: 3px;
+      padding-left: 10px;
       font-size: 20px;
       font-weight: 700;
       text-align: center;
       color: white;
-      background-color: #32c220;
+      background-color: #ff843d;
       border-radius: 5px;
+      // #ff843d
     }
     .price {
       padding: 3px;
-      color: white;
+      padding-left: 10px;
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      color: rgb(255, 255, 255);
+      background-color: #32c220;
       border-radius: 5px;
     }
     .orderButton {

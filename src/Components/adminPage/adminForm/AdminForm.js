@@ -45,14 +45,7 @@ const AdminForm = observer(() => {
     { value: 'Новинки', label: 'Новинки' },
   ]
   const [fileList, setFileList] = useState([]);
-  const [fileListArr, setFileListArr] = useState([
-    //   {
-    //   uid: '-1',
-    //   name: 'image.png',
-    //   status: 'done',
-    //   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-    // },
-  ]);
+  const [fileListArr, setFileListArr] = useState([]);
 
   useEffect(() => {
     // let formData = new FormData();
@@ -308,13 +301,13 @@ const AdminForm = observer(() => {
       >
         <ImgCrop rotationSlider>
           <Upload
-            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+            // action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
             listType="picture-card"
             fileList={fileListArr}
             onChange={onChangeUploadArr}
             onPreview={onPreview}
           >
-            {fileListArr.length < 5 && '+ Upload'}
+            {fileListArr.length < 7 && '+ Upload'}
           </Upload>
         </ImgCrop>
       </Form.Item>
