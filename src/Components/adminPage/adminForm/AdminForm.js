@@ -87,31 +87,20 @@ const AdminForm = observer(() => {
 
   const onChangeUploadArr: UploadProps['onChange'] = async ({ fileList: newFileList }) => {
     setFileListArr(newFileList);
-    console.log(newFileList)
-    console.log(fileListArr)
 
+    let newSrcArr = []
     for (const item of newFileList) {
-      let newSrcArr = []
-      console.log('item', item)
-      console.log('newFileList[item]', newFileList?.[item])
-
-      // const src = await new Promise((resolve) => {
-      //   const reader = new FileReader();
-      //   reader.readAsDataURL(newFileList?.[0]?.originFileObj);
-      //   reader.onload = () => resolve(reader.result);
-      // });
-
-      // newSrcArr.push(src)
-      // console.log(newSrcArr)
-      return newSrcArr
-
+      const src = await new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(newFileList?.[newFileList.indexOf(item)]?.originFileObj);
+        reader.onload = () => resolve(reader.result);
+      });
+      newSrcArr.push(src)
     }
 
-
-    // setState((prev) => ({
-    //   ...prev, images: src
-    // }))
-
+    setState((prev) => ({
+      ...prev, images: [...newSrcArr]
+    }))
   };
 
   const onPreview = async (file: UploadFile) => {
