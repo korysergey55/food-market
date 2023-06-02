@@ -45,6 +45,14 @@ const AdminForm = observer(() => {
     { value: 'Новинки', label: 'Новинки' },
   ]
   const [fileList, setFileList] = useState([]);
+  const [fileListArr, setFileListArr] = useState([
+    //   {
+    //   uid: '-1',
+    //   name: 'image.png',
+    //   status: 'done',
+    //   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    // },
+  ]);
 
   useEffect(() => {
     // let formData = new FormData();
@@ -75,6 +83,35 @@ const AdminForm = observer(() => {
     // console.log(formData.get("file"))
 
     // ProductsStore.setProductImageAction(formData)
+  };
+
+  const onChangeUploadArr: UploadProps['onChange'] = async ({ fileList: newFileList }) => {
+    setFileListArr(newFileList);
+    console.log(newFileList)
+    console.log(fileListArr)
+
+    for (const item of newFileList) {
+      let newSrcArr = []
+      console.log('item', item)
+      console.log('newFileList[item]', newFileList?.[item])
+
+      // const src = await new Promise((resolve) => {
+      //   const reader = new FileReader();
+      //   reader.readAsDataURL(newFileList?.[0]?.originFileObj);
+      //   reader.onload = () => resolve(reader.result);
+      // });
+
+      // newSrcArr.push(src)
+      // console.log(newSrcArr)
+      return newSrcArr
+
+    }
+
+
+    // setState((prev) => ({
+    //   ...prev, images: src
+    // }))
+
   };
 
   const onPreview = async (file: UploadFile) => {
@@ -189,7 +226,7 @@ const AdminForm = observer(() => {
         name="weight"
         rules={[{ required: true, message: 'Please input your Product weight!' }]}
       >
-        <Input placeholder="Please input your Product weight" onChange={onChange} name="weight" />
+        <Input placeholder="Please input your Product weight" type='number' onChange={onChange} name="weight" />
       </Form.Item>
 
       <Form.Item
@@ -257,19 +294,10 @@ const AdminForm = observer(() => {
           type="number" />
       </Form.Item>
 
-      {/* <Form.Item
-        label="image"
-        name="image"
-        rules={[{ required: false, message: 'Please input your Product image!' }]}
-      >
-        <Input placeholder="Please input your Product image"
-          onChange={onChange}
-          name="image" />
-      </Form.Item> */}
       <Form.Item
-        label="image"
+        label="Main image"
         name="image"
-        rules={[{ required: false, message: 'Please input your Product image!' }]}
+        rules={[{ required: false, message: 'Please input your Product Main image!' }]}
       >
         <ImgCrop rotationSlider>
           <Upload
@@ -280,6 +308,24 @@ const AdminForm = observer(() => {
             onPreview={onPreview}
           >
             {fileList.length < 1 && '+ Upload'}
+          </Upload>
+        </ImgCrop>
+      </Form.Item>
+
+      <Form.Item
+        label="images"
+        name="images"
+        rules={[{ required: false, message: 'Please input your Product images!' }]}
+      >
+        <ImgCrop rotationSlider>
+          <Upload
+            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+            listType="picture-card"
+            fileList={fileListArr}
+            onChange={onChangeUploadArr}
+            onPreview={onPreview}
+          >
+            {fileListArr.length < 5 && '+ Upload'}
           </Upload>
         </ImgCrop>
       </Form.Item>
