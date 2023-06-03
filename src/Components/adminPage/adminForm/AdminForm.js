@@ -130,13 +130,14 @@ const AdminForm = observer(() => {
     setState((prev) => ({ ...prev, category: value }))
   }
 
-
   const onFinish = (values) => {
     // evt.preventDefault();
     ProductsStore.setNewProductAction(state)
     ProductsStore.createNewAdvAPI(state.category, state)
-    // setState({ ...initialState });
-    // form.resetFields()
+    setState({ ...initialState });
+    setFileList([])
+    setFileListArr([])
+    form.resetFields()
 
   };
 
@@ -162,7 +163,12 @@ const AdminForm = observer(() => {
         name="name"
         rules={[{ required: true, message: 'Please input your Product name!' }]}
       >
-        <Input placeholder="Please input your Product name" onChange={onChange} name="name" />
+        <Input
+          placeholder="Please input your Product name"
+          name="name"
+          value={state.name}
+          onChange={onChange}
+        />
       </Form.Item>
 
       <Form.Item
@@ -175,8 +181,10 @@ const AdminForm = observer(() => {
           placeholder="Please input your Product category"
           rules={[{ required: true, message: 'Please input your Product category!' }]}
           options={сategory}
+          name="category"
+          value={state.category}
           onChange={onChangeCategory}
-          name="category" />
+        />
       </Form.Item>
 
       <Form.Item
@@ -184,7 +192,11 @@ const AdminForm = observer(() => {
         name="subcategory"
         rules={[{ required: false, message: 'Please input your Product subcategory!' }]}
       >
-        <Input placeholder="Please input your Product subcategory" onChange={onChange} name="subcategory" />
+        <Input placeholder="Please input your Product subcategory"
+          name="subcategory"
+          value={state.subcategory}
+          onChange={onChange}
+        />
       </Form.Item>
 
       <Form.Item
@@ -192,7 +204,11 @@ const AdminForm = observer(() => {
         name="description"
         rules={[{ required: true, message: 'Please input your Product short-description!' }]}
       >
-        <Input placeholder="Please input your Product short-description" onChange={onChange} name="description" />
+        <Input placeholder="Please input your Product short-description"
+          name="description"
+          value={state.description}
+          onChange={onChange}
+        />
       </Form.Item>
 
       <Form.Item
@@ -200,7 +216,11 @@ const AdminForm = observer(() => {
         name="brand"
         rules={[{ required: true, message: 'Please input your Product brand!' }]}
       >
-        <Input placeholder="Please input your Product brand" onChange={onChange} name="brand" />
+        <Input placeholder="Please input your Product brand"
+          value={state.brand}
+          name="brand"
+          onChange={onChange}
+        />
       </Form.Item>
 
       <Form.Item
@@ -208,7 +228,12 @@ const AdminForm = observer(() => {
         name="weight"
         rules={[{ required: true, message: 'Please input your Product weight!' }]}
       >
-        <Input placeholder="Please input your Product weight" type='number' onChange={onChange} name="weight" />
+        <Input placeholder="Please input your Product weight"
+          type='number'
+          name="weight"
+          value={state.weight}
+          onChange={onChange}
+        />
       </Form.Item>
 
       <Form.Item
@@ -216,7 +241,11 @@ const AdminForm = observer(() => {
         name="manufactur"
         rules={[{ required: true, message: 'Please input your Product manufacture!' }]}
       >
-        <Input placeholder="Please input your Product manufacture" onChange={onChange} name="manufactur" />
+        <Input placeholder="Please input your Product manufacture"
+          name="manufactur"
+          value={state.manufactur}
+          onChange={onChange}
+        />
       </Form.Item>
 
       <Form.Item
@@ -228,9 +257,10 @@ const AdminForm = observer(() => {
           showCount
           maxLength={100}
           style={{ height: 120, marginBottom: 24 }}
-          onChange={onChange}
           placeholder="Please input your Product full description!"
           name="fullDescription"
+          value={state.fullDescription}
+          onChange={onChange}
         />
       </Form.Item>
 
@@ -240,8 +270,10 @@ const AdminForm = observer(() => {
         rules={[{ required: false, message: 'Please input your Product Additional Information!' }]}
       >
         <Input placeholder="Please input your Product Additional Information"
+          name="AdditionalInformation"
+          value={state.AdditionalInformation}
           onChange={onChange}
-          name="AdditionalInformation" />
+        />
       </Form.Item>
 
       <Form.Item
@@ -251,7 +283,9 @@ const AdminForm = observer(() => {
       >
         <Input placeholder="Please input your Product Reviews"
           onChange={onChange}
-          name="Reviews" />
+          name="Reviews"
+          value={state.Reviews}
+        />
       </Form.Item>
 
       <Form.Item
@@ -260,9 +294,11 @@ const AdminForm = observer(() => {
         rules={[{ required: true, message: 'Please input your Product price!' }]}
       >
         <Input placeholder="Please input your Product price"
-          onChange={onChange}
           name="price"
-          type='number' />
+          value={state.price}
+          type='number'
+          onChange={onChange}
+        />
       </Form.Item>
 
       <Form.Item
@@ -271,9 +307,11 @@ const AdminForm = observer(() => {
         rules={[{ required: false, message: 'Please input your Product discount %!' }]}
       >
         <Input placeholder="Please input your Product discount %"
-          onChange={onChange}
           name="discount"
-          type="number" />
+          value={state.discount}
+          type="number"
+          onChange={onChange}
+        />
       </Form.Item>
 
       <Form.Item
@@ -313,11 +351,18 @@ const AdminForm = observer(() => {
       </Form.Item>
 
       <Form.Item name="Is sale" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
-        <Checkbox name="isSale" onChange={onChange}>Is sale</Checkbox>
+        <Checkbox
+          name="isSale"
+          value={state.isSale}
+          onChange={onChange}>
+          Is sale
+        </Checkbox>
       </Form.Item>
 
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit">
+        <Button
+          type="primary"
+          htmlType="submit">
           Create product
         </Button>
       </Form.Item>
