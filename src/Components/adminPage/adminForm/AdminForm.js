@@ -25,7 +25,7 @@ const AdminForm = observer(() => {
     price: 0,
     discount: '',
     isSale: false,
-    image: {},
+    image: '',
     images: [],
     qantity: 1,
   }
@@ -66,16 +66,11 @@ const AdminForm = observer(() => {
       ...prev, image: src
     }))
 
-    // setState((prev) => ({
-    //   ...prev, image: newFileList?.[0]?.originFileObj
-    // }))
-
-    // let formData = new FormData();
-    // formData.append("file", newFileList[0].originFileObj);
-    // setState((prev) => ({ ...prev, image: formData }))
-    // console.log(formData.get("file"))
-
-    // ProductsStore.setProductImageAction(formData)
+    //formData
+    let formData = new FormData();
+    formData.append("file", newFileList?.[0]?.originFileObj);
+    console.log(formData.get("file"))
+    ProductsStore.setProductImageAction(formData)
   };
 
   const onChangeUploadArr: UploadProps['onChange'] = async ({ fileList: newFileList }) => {
@@ -130,10 +125,10 @@ const AdminForm = observer(() => {
     setState((prev) => ({ ...prev, category: value }))
   }
 
-  const onFinish = (values) => {
+  const onFinish = async (values) => {
     // evt.preventDefault();
     ProductsStore.setNewProductAction(state)
-    ProductsStore.createNewAdvAPI(state.category, state)
+    await ProductsStore.createNewAdvAPI(state.category, state)
     setState({ ...initialState });
     setFileList([])
     setFileListArr([])
@@ -324,10 +319,11 @@ const AdminForm = observer(() => {
             // action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
             listType="picture-card"
             fileList={fileList}
+            value={fileList}
             onChange={onChangeUpload}
             onPreview={onPreview}
           >
-            {fileList.length < 1 && '+ Upload'}
+            {'+ Upload'}
           </Upload>
         </ImgCrop>
       </Form.Item>
@@ -342,6 +338,7 @@ const AdminForm = observer(() => {
             // action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
             listType="picture-card"
             fileList={fileListArr}
+            value={[...fileListArr]}
             onChange={onChangeUploadArr}
             onPreview={onPreview}
           >
