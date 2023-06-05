@@ -3,7 +3,7 @@ import { useStore } from '../../storeMobx'
 import { observer } from 'mobx-react'
 import { useHistory, useLocation, NavLink } from 'react-router-dom'
 import { pathes } from '../../utils/pathes'
-import { shopTel } from '../../utils/location'
+
 
 import Logo from '../Reuseble/Logo/Logo'
 import { useTranslation } from 'react-i18next';
@@ -19,15 +19,19 @@ import {
   faPhoneAlt,
   faBars,
 } from '@fortawesome/free-solid-svg-icons'
-import { Select } from 'antd'
+import { Select, Input } from 'antd'
+const { Search } = Input
 const { Option } = Select
 
 const Header = observer(() => {
   const { AuthStore, ProductsStore } = useStore()
+  const { t, i18n } = useTranslation();
+
   const history = useHistory()
   const location = useLocation()
+
   const [state, setState] = useState(false)
-  const { t, i18n } = useTranslation();
+  const [search, setSearchValue] = useState('')
 
   useEffect(() => {
     window.addEventListener('scroll', () => window.scrollY)
@@ -39,6 +43,26 @@ const Header = observer(() => {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [location.pathname])
+
+  useEffect(() => {
+    setSearchValue('')
+    ProductsStore.filterProducts('')
+  }, [location.pathname])
+
+
+  const onChangeSearch = evt => {
+    const { value } = evt.target
+    setSearchValue(value)
+    if (value === '') {
+      ProductsStore.filterProducts('')
+    }
+    ProductsStore.filterProducts(value)
+  }
+
+  const onSearch = (value) => {
+    ProductsStore.filterProducts(value)
+    setSearchValue(value)
+  }
 
   const handleMenu = () => {
     setState(!state)
@@ -94,6 +118,17 @@ const Header = observer(() => {
             >
               {t('Товары')}
             </NavLink>
+          </li>
+          <li className={styles.item}>
+            <Search
+              className={styles.search}
+              placeholder={t("Поиск товара")}
+              value={search}
+              onChange={evt => onChangeSearch(evt)}
+              onSearch={onSearch}
+              size="large"
+              enterButton={t("Поиск")}
+            />
           </li>
           <li className={styles.item}>
             <NavLink
@@ -188,7 +223,6 @@ const Header = observer(() => {
             >
               <Option value="en">en</Option>
               <Option value="ua">ua</Option>
-              {/* <Option value="es">es</Option> */}
             </Select>
           </li>
         </ul>
