@@ -119,7 +119,7 @@ const Header = observer(() => {
               {t('Товары')}
             </NavLink>
           </li>
-          <li className={styles.item}>
+          {/* <li className={styles.item}>
             <Search
               className={styles.search}
               placeholder={t("Поиск товара")}
@@ -129,7 +129,7 @@ const Header = observer(() => {
               size="large"
               enterButton={t("Поиск")}
             />
-          </li>
+          </li> */}
           <li className={styles.item}>
             <NavLink
               to={pathes.contacts}
@@ -140,18 +140,18 @@ const Header = observer(() => {
               {t('Контакты')}
             </NavLink>
           </li>
-          {/* {AuthStore.token && ( */}
-          <li className={styles.item}>
-            <NavLink
-              to={pathes.admin}
-              exact={true}
-              className={styles.link}
-              activeClassName={styles.linkActive}
-            >
-              Admin
-            </NavLink>
-          </li>
-          {/* )} */}
+          {AuthStore.token && (
+            <li className={styles.item}>
+              <NavLink
+                to={pathes.admin}
+                exact={true}
+                className={styles.link}
+                activeClassName={styles.linkActive}
+              >
+                Admin
+              </NavLink>
+            </li>
+          )}
         </ul>
         <ul
           className={classnames({

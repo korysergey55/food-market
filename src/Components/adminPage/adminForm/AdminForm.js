@@ -47,30 +47,26 @@ const AdminForm = observer(() => {
   const [fileList, setFileList] = useState([]);
   const [fileListArr, setFileListArr] = useState([]);
 
-  useEffect(() => {
-    // let formData = new FormData();
-    // fileList && fileList[0] && fileList[0].originFileObj && formData.append("file", fileList[0].originFileObj);
-    // console.log(fileList?.[0]?.originFileObj)
-  }, [fileList])
-
   const onChangeUpload: UploadProps['onChange'] = async ({ fileList: newFileList }) => {
     setFileList(newFileList);
+    console.log(newFileList)
 
-    const src = await new Promise((resolve) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(newFileList?.[0]?.originFileObj);
-      reader.onload = () => resolve(reader.result);
-    });
+    if (newFileList.length) {
+      const src = await new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(newFileList?.[0]?.originFileObj);
+        reader.onload = () => resolve(reader.result);
+      });
 
-    setState((prev) => ({
-      ...prev, image: src
-    }))
-
+      setState((prev) => ({
+        ...prev, image: src
+      }))
+    }
     //formData
-    let formData = new FormData();
-    formData.append("file", newFileList?.[0]?.originFileObj);
-    console.log(formData.get("file"))
-    ProductsStore.setProductImageAction(formData)
+    // let formData = new FormData();
+    // formData.append("file", newFileList?.[0]?.originFileObj);
+    // console.log(formData.get("file"))
+    // ProductsStore.setProductImageAction(formData)
   };
 
   const onChangeUploadArr: UploadProps['onChange'] = async ({ fileList: newFileList }) => {
@@ -323,7 +319,7 @@ const AdminForm = observer(() => {
             onChange={onChangeUpload}
             onPreview={onPreview}
           >
-            {'+ Upload'}
+            {fileList.length < 1 && '+ Upload'}
           </Upload>
         </ImgCrop>
       </Form.Item>

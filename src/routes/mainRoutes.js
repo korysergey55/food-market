@@ -71,7 +71,7 @@ export const mainRoutes = [
     component: lazy(() => import('../Components/adminPage/AdminPage.js')),
     exact: true,
     isRestricted: false,
-    isPrivate: false,
+    isPrivate: true,
   },
   {
     name: 'Login',
@@ -88,7 +88,7 @@ export const mainRoutes = [
     component: lazy(() =>
       import('../Components/notFoundComponent/NotFoundComponent.js')
     ),
-    isPrivate: false,
     iisRestricted: false,
+    isPrivate: false,
   },
 ]
