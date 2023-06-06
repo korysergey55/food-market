@@ -28,13 +28,14 @@ const Filters = observer(({ setShowFilters }) => {
   }
 
   const onChange = value => {
-    const { name, checked, dataTagname } = value.target
-    setState((prev) => ({ ...prev, [dataTagname]: name }))
+    const { checked, dataTagname, itemValue } = value.target
+    setState((prev) => ({ ...prev, [dataTagname]: itemValue }))
+
     if (checked) setState((prev) => ({ ...prev, [dataTagname]: '' }))
 
-    if (dataTagname === 'brand') ProductsStore.filterByBrand(name)
-    if (dataTagname === 'manufactur') ProductsStore.filterByManufactur(name)
-    if (dataTagname === 'packing') ProductsStore.filterByPacking(name)
+    if (dataTagname === 'brand') ProductsStore.filterByBrand(itemValue)
+    if (dataTagname === 'manufactur') ProductsStore.filterByManufactur(itemValue)
+    if (dataTagname === 'packing') ProductsStore.filterByPacking(itemValue)
     if (checked === false) ProductsStore.resetFilters()
     console.log(state)
   }
@@ -90,6 +91,7 @@ const Filters = observer(({ setShowFilters }) => {
                 name={item}
                 key={item}
                 dataTagname="brand"
+                itemValue={item}
               >
                 {item}
               </Checkbox>
@@ -105,6 +107,7 @@ const Filters = observer(({ setShowFilters }) => {
                 name={item}
                 key={item}
                 dataTagname="manufactur"
+                itemValue={item}
               >
                 {item}
               </Checkbox>
@@ -120,6 +123,7 @@ const Filters = observer(({ setShowFilters }) => {
                 name={item}
                 key={item}
                 dataTagname="packing"
+                itemValue={item}
               >
                 {item}
               </Checkbox>

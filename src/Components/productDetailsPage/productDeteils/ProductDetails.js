@@ -116,7 +116,7 @@ const ProductItemDetails = observer(() => {
             {t('Производитель')}: {productById.manufactur} {productById.brand}
           </p>
           <p className={styles.description}>
-            {t('Вес')}: {productById.weight}
+            {t('Вес')}: {productById.weight} {t('гр.')}
           </p>
           <p className={styles.price}>
             {productById.price}грн

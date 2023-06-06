@@ -3,15 +3,11 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from 'i18next'
 import Backend from 'i18next'
 import common_en from './translations/en/translation.json'
-import common_es from './translations/es/translation.json'
 
 const resources = {
   en: {
     translation: common_en
   },
-  es: {
-    translation: common_es
-  }
 };
 
 i18n
