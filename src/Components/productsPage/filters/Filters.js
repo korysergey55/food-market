@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useStore } from '../../../storeMobx'
 import { observer } from 'mobx-react'
 
@@ -18,6 +18,10 @@ const Filters = observer(({ setShowFilters }) => {
   }
   const [state, setState] = useState({ ...initialState })
 
+  useEffect(() => {
+    console.log('useEffect', state)
+  }, [state])
+
   const handleChangeSorter = value => {
     ProductsStore.sortProducts(value)
   }
@@ -28,10 +32,16 @@ const Filters = observer(({ setShowFilters }) => {
   }
 
   const onChange = value => {
-    const { checked, dataTagname, itemValue } = value.target
+    console.log(value)
+    const { checked, dataTagname, itemValue, name } = value.target
     setState((prev) => ({ ...prev, [dataTagname]: itemValue }))
-
     if (checked) setState((prev) => ({ ...prev, [dataTagname]: '' }))
+
+    // setState((prev) => ({ ...prev, [dataTagname]: [...prev[dataTagname], itemValue] }))
+    // if (checked) setState((prev) => ({
+    //   ...prev,
+    //   [dataTagname]: state[dataTagname].filter((item) => item !== itemValue)
+    // }))
 
     if (dataTagname === 'brand') ProductsStore.filterByBrand(itemValue)
     if (dataTagname === 'manufactur') ProductsStore.filterByManufactur(itemValue)
