@@ -29,6 +29,8 @@ const ProductsPage = observer(() => {
   const [showFilters, setShowFilters] = useState(false)
 
   useEffect(() => {
+    console.log(location.pathname)
+
     history.push(match.path + '/all')
   }, [match.path])
 
@@ -68,26 +70,27 @@ const ProductsPage = observer(() => {
           className={styles.title}
           onClick={() => history.push(match.path + '/all')}
         >
-          {t('Ветрина товаров')}
+          {t('Категории товаров')}
         </h2 >
-        <div className={styles.filterWripper}>
-          <FontAwesomeIcon
-            className={styles.icon}
-            icon={faFilter}
-            size="2x"
-            color="#1890ff"
-            onClick={() => handleShowFilters()}
-          />
-          <Search
-            className={styles.search}
-            placeholder={t("Поиск товара")}
-            value={search}
-            onChange={evt => onChangeSearch(evt)}
-            onSearch={onSearch}
-            size="large"
-            enterButton={t("Поиск")}
-          />
-        </div>
+        {location.pathname !== '/products/all' ?
+          <div className={styles.filterWripper}>
+            <FontAwesomeIcon
+              className={styles.icon}
+              icon={faFilter}
+              size="2x"
+              color="#1890ff"
+              onClick={() => handleShowFilters()}
+            />
+            <Search
+              className={styles.search}
+              placeholder={t("Поиск товара")}
+              value={search}
+              onChange={evt => onChangeSearch(evt)}
+              onSearch={onSearch}
+              size="large"
+              enterButton={t("Поиск")}
+            />
+          </div> : null}
         <div className={styles.wripper}>
           {showFilters && < Filters setShowFilters={setShowFilters} />}
           <ProductRout />

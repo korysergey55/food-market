@@ -136,7 +136,7 @@ class ProductsStore {
       item.brand.includes(data)
     )
     // const sortedProducts = this.products.filter((item: any) =>
-    //   data.filter((brand: any) => item.brand === brand)
+    //   data.map((brand: any) => item.brand === brand)
     // )
     this.filteredProducts = sortedProducts
   }
