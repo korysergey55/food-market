@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useStore } from '../../../storeMobx'
+import { useStore } from '../../storeMobx'
 import { observer } from 'mobx-react'
 import { createPortal } from 'react-dom'
 

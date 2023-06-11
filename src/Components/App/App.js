@@ -12,7 +12,6 @@ import PublicRoute from '../../routes/PublicRoute'
 import Loader from '../../containers/Utils/Loader/Loader'
 import Header from '../../containers/header/Header'
 
-
 const App = observer(() => {
   const { AuthStore } = useStore()
   const { token } = AuthStore

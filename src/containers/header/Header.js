@@ -45,24 +45,28 @@ const Header = observer(() => {
   }, [location.pathname])
 
   useEffect(() => {
-    setSearchValue('')
-    ProductsStore.filterProducts('')
+    handleMenu()
   }, [location.pathname])
 
+  // useEffect(() => {
+  //   setSearchValue('')
+  //   ProductsStore.filterProducts('')
+  // }, [location.pathname])
 
-  const onChangeSearch = evt => {
-    const { value } = evt.target
-    setSearchValue(value)
-    if (value === '') {
-      ProductsStore.filterProducts('')
-    }
-    ProductsStore.filterProducts(value)
-  }
 
-  const onSearch = (value) => {
-    ProductsStore.filterProducts(value)
-    setSearchValue(value)
-  }
+  // const onChangeSearch = evt => {
+  //   const { value } = evt.target
+  //   setSearchValue(value)
+  //   if (value === '') {
+  //     ProductsStore.filterProducts('')
+  //   }
+  //   ProductsStore.filterProducts(value)
+  // }
+
+  // const onSearch = (value) => {
+  //   ProductsStore.filterProducts(value)
+  //   setSearchValue(value)
+  // }
 
   const handleMenu = () => {
     setState(!state)

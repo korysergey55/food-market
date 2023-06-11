@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { useStore } from '../../storeMobx'
+import React from 'react'
+
 import { observer } from 'mobx-react'
 
 import Title from './title/Title'
