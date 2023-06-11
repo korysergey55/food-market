@@ -9,8 +9,9 @@ import { mainRoutes } from '../../routes/mainRoutes'
 import PrivateRoute from '../../routes/PrivateRoute'
 import PublicRoute from '../../routes/PublicRoute'
 
-import Loader from '../../containers/Utils/Loader/Loader'
 import Header from '../../containers/header/Header'
+import Loader from '../../containers/Utils/Loader/Loader'
+import Baner from '../../containers/baner/Baner'
 
 const App = observer(() => {
   const { AuthStore } = useStore()
@@ -27,6 +28,7 @@ const App = observer(() => {
   return (
     <div className="appContainer">
       <Header></Header>
+      <Baner></Baner>
       <Suspense fallback={<Loader />}>
         <Switch>
           {mainRoutes.map(route =>

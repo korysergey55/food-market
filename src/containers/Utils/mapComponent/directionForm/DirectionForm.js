@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next';
 import styles from './styles.module.scss'
 
 const DirectionServiseForm = ({ onSubmitBuildRoute }) => {
+  const { t } = useTranslation();
   const [travelMode, setTravelMode] = useState('DRIVING')
   const [origin, setOrigin] = useState('')
   const [destination, setDestination] = useState('')
@@ -25,7 +27,7 @@ const DirectionServiseForm = ({ onSubmitBuildRoute }) => {
       <div className={styles.inputContainer}>
         <div className={styles.inputWripper}>
           <label className={styles.label} htmlFor="ORIGIN">
-            From
+            {t('Построить маршрут')}
           </label>
           <br />
           <input
@@ -33,13 +35,12 @@ const DirectionServiseForm = ({ onSubmitBuildRoute }) => {
             name="ORIGIN"
             value={origin}
             type="text"
-            placeholder="my location"
+            placeholder={t('Ваше местоположение')}
             onChange={onChangeInput}
           />
         </div>
         <div className={styles.inputWripper}>
           <label className={styles.label} htmlFor="DESTINATION">
-            To
           </label>
           <br />
           <input
@@ -47,7 +48,7 @@ const DirectionServiseForm = ({ onSubmitBuildRoute }) => {
             name="DESTINATION"
             value={destination}
             type="text"
-            placeholder="Shop"
+            placeholder={t('Магазин')}
             onChange={onChangeInput}
             disabled
 
@@ -58,7 +59,7 @@ const DirectionServiseForm = ({ onSubmitBuildRoute }) => {
           type="button"
           onClick={() => onSubmitBuildRoute(travelMode, origin, destination)}
         >
-          Build Route
+          {t('Построить маршрут')}
         </button>
       </div>
 

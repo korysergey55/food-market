@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useStore } from '../../storeMobx'
 import { observer } from 'mobx-react'
 import { useHistory, useLocation, useRouteMatch } from 'react-router-dom'
+import { useTranslation } from 'react-i18next';
 
 import ProductRout from '../../routes/productsRouts/ProductRouts'
 import Filters from '../productsPage/filters/Filters'
 import SubForm from '../../containers/Reuseble/subForm/SubForm'
 import Footer from '../../containers/footer/Footer'
-
-import { useTranslation } from 'react-i18next';
 
 import styles from './styles.module.scss'
 import classnames from 'classnames'
@@ -29,19 +28,17 @@ const ProductsPage = observer(() => {
   const [showFilters, setShowFilters] = useState(false)
 
   useEffect(() => {
-    console.log(location.pathname)
-
     history.push(match.path + '/all')
   }, [match.path])
+
+  useEffect(() => {
+    window.scroll(0, 350)
+  }, [])
 
   useEffect(() => {
     setSearchValue('')
     ProductsStore.filterProducts('')
   }, [location.pathname])
-
-  useEffect(() => {
-    window.scroll(0, 350)
-  }, [])
 
   const onChangeSearch = evt => {
     const { value } = evt.target
@@ -64,7 +61,6 @@ const ProductsPage = observer(() => {
 
   return (
     <div className={styles.productPage}>
-      <div className={styles.baner}></div>
       <div className={styles.container}>
         <h2
           className={styles.title}
