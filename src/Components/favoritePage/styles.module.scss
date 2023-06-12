@@ -1,16 +1,16 @@
-.baner {
-  width: 100%;
-  height: 240px;
-  margin: 0 auto;
-  background-image: url('../../sourses/images/headerIMG/headerIMG2.jpeg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center;
-}
+@import '../../sourses/styles/variables.scss';
 .title {
   display: block;
   margin: 20px 0;
-  font-size: 35px;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  color: $brandColor;
+}
+.subtitle {
+  display: block;
+  margin: 20px 0;
+  font-size: 25px;
   font-weight: 700;
   text-align: center;
 }
@@ -22,14 +22,4 @@
   width: 100%;
 }
 @media screen and(min-width: 768px) {
-  .baner {
-    width: 100%;
-    height: 370px;
-    margin: 0 auto;
-    margin-top: 90px;
-    background-image: url('../../sourses/images/headerIMG/headerIMG2.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top center;
-  }
 }

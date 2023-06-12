@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import styles from './styles.module.scss'
 import ProductItem from '../productsPage/products/productList/productItem/productItem'
+import { Empty } from 'antd'
 
 const FavoritePage = observer(() => {
   const { ProductsStore } = useStore()
@@ -28,12 +29,11 @@ const FavoritePage = observer(() => {
   }, [products, favoriteItems])
 
   return (<div className={styles.likesPage}>
-    <div className={styles.baner}></div>
-    <h2 className={styles.title}>{t('Ваши любимые продукты')}</h2>
+    <h2 className={styles.title}>{t('Мои любимые продукты')}</h2>
     <ul className={styles.list}>
-      {favoriteProducts?.map(product => (
+      {favoriteProducts.lenth ? favoriteProducts?.map(product => (
         <ProductItem key={product.id} product={product} />
-      ))}
+      )) : <Empty description={t('Нет добавленних продуктов')} />}
     </ul>
   </div>
   );
