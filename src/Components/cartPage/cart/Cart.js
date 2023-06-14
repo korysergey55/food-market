@@ -60,7 +60,7 @@ const Cart = observer(() => {
             ))}
           </ul>
           <div className={styles.totalContainer}>
-            <h2 className={styles.totalPrice}>{totalPrice} грн</h2>
+            <h2 className={styles.totalPrice}>{totalPrice} {t('грн')}</h2>
             <button
               className={styles.orderButton}
               type="button"

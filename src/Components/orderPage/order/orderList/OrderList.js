@@ -20,7 +20,7 @@ const OrderList = observer(() => {
       </ul>
       {cartProducts.length > 0 && (
         <div className={styles.wripper}>
-          <p className={styles.total}>{t('Общая стоимость')} - </p><p className={styles.price}>{totalPrice} грн</p>
+          <p className={styles.total}>{t('Общая стоимость')} - </p><p className={styles.price}>{totalPrice} {t('грн')}</p>
         </div>
       )}
     </div>
