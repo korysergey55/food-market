@@ -22,7 +22,6 @@ const ProductDatailPage = observer(() => {
 
   return (
     <div className={styles.productDetails}>
-      <div className={styles.baner}></div>
       <div className={styles.container}>
         <ProductItemDetails />
       </div>
