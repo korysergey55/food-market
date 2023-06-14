@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, useRouteMatch } from "react-router-dom";
-import { productsRoutes } from "../productsRoutes";
+import { productsRoutes } from "../categoryRoutesArr";
 import styles from './styles.module.scss'
 
 const ProductNavLinks = () => {

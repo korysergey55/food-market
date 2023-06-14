@@ -5,7 +5,7 @@ import { observer } from 'mobx-react'
 import { Switch } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 
-import { mainRoutes } from '../../routes/mainRoutes'
+import { mainRoutes } from '../../routes/mainRoutesArr'
 import PrivateRoute from '../../routes/PrivateRoute'
 import PublicRoute from '../../routes/PublicRoute'
 

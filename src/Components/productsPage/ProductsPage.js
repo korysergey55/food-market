@@ -4,7 +4,7 @@ import { observer } from 'mobx-react'
 import { useHistory, useLocation, useRouteMatch } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
 
-import ProductRout from '../../routes/productsRouts/ProductRouts'
+import CategoryRouts from '../../routes/CategoryRouts'
 import Filters from '../productsPage/filters/Filters'
 import SubForm from '../../containers/Reuseble/subForm/SubForm'
 import Footer from '../../containers/footer/Footer'
@@ -89,7 +89,7 @@ const ProductsPage = observer(() => {
           </div> : null}
         <div className={styles.wripper}>
           {showFilters && < Filters setShowFilters={setShowFilters} />}
-          <ProductRout />
+          <CategoryRouts />
         </div>
         <SubForm />
       </div>
