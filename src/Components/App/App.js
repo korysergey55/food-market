@@ -21,7 +21,7 @@ const App = observer(() => {
   const { products } = ProductsStore
 
   useEffect(() => {
-    // ProductsStore.setAllAdvByCategoryAPI(products)
+    ProductsStore.setAllAdvByCategoryAPI(products)
     ProductsStore.getAllAdvByCategoryAPI()
   }, [])
 
