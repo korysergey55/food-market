@@ -23,7 +23,7 @@ import { IProduct } from '../models/index'
 const baseURL = 'https://food-market-35c08-default-rtdb.firebaseio.com/'
 
 class ProductsStore {
-  @observable products: IProduct[] = [...productsJSON]
+  @observable products: IProduct[] = []
   @observable filteredProducts: IProduct[] = [...this.products]
   @observable productById: IProduct | null = null
   @observable productImage: any = {}
