@@ -10,6 +10,8 @@ import {
 } from 'mobx'
 import axios from 'axios'
 
+const baseURL = 'https://food-market-35c08-default-rtdb.firebaseio.com/'
+
 class AuthStore {
   @observable token: any = null
   @observable user: any = null
@@ -18,15 +20,15 @@ class AuthStore {
   @observable antModal: boolean = false
   @observable forgotPassword: boolean = false
 
-  @observable subscribeForm: any = []
+  @observable subscribeData: string = ''
+  @observable orderData: any = {}
   @observable contactForm: any = []
-  @observable orders: any = []
 
   constructor() {
     makeAutoObservable(this)
     reaction(
-      () => this.subscribeForm,
-      _ => console.log('mobx', toJS(this.subscribeForm))
+      () => this.orderData,
+      _ => console.log('mobx', toJS(this.orderData))
     )
   }
 
@@ -52,14 +54,16 @@ class AuthStore {
     this.forgotPassword = false
   }
   //Forms
-  @action setSubscribeForm(email: string) {
-    this.subscribeForm = email
+  @action setSubscribeData(email: string) {
+    this.subscribeData = email
   }
+
+  @action setOrderData(data: any) {
+    this.orderData = data
+  }
+
   @action setContactForm(data: any) {
     this.contactForm = [...this.contactForm, data]
-  }
-  @action setOrderFort(data: any) {
-    this.orders = [...this.orders, data]
   }
 }
 export default new AuthStore()

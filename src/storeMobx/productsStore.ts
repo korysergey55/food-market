@@ -269,12 +269,21 @@ class ProductsStore {
   }
 
   //Forms API
-  @action setSubscribeFormAPI = async (email: string) => {
+  @action setSubscribeDataAPI = async (email: string) => {
     try {
       const response = await axios.post(
         baseURL + `subscribe/.json`,
         JSON.stringify(email)
       )
+      return response
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  @action setOrderDataAPI = async (newOrder: any) => {
+    try {
+      const response = await axios.post(baseURL + `order/.json`, newOrder)
       return response
     } catch (error) {
       console.log(error)

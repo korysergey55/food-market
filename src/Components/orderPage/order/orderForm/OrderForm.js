@@ -22,7 +22,7 @@ const validateMessages = {
 }
 const OrderForm = observer(() => {
   const { ProductsStore, AuthStore } = useStore()
-  const { cart, totalPrice } = ProductsStore
+  const { cart, cartProducts, totalPrice } = ProductsStore
   const { t } = useTranslation();
   const [form] = Form.useForm()
 
@@ -34,7 +34,7 @@ const OrderForm = observer(() => {
     city: '',
     dilivery: '',
     payment: '',
-    products: cart,
+    products: [...cartProducts],
     totalPrice,
   })
 
@@ -44,7 +44,6 @@ const OrderForm = observer(() => {
   }
 
   const onChangeDelivery = evt => {
-    console.log('radio checked', evt.target.value)
     setFormData(prev => ({
       ...prev,
       dilivery: evt.target.value,
@@ -59,19 +58,20 @@ const OrderForm = observer(() => {
   }
 
   const submitForm = () => {
-    AuthStore.setOrderFort(formData)
-    form.setFieldsValue({
-      name: '',
-      email: '',
-      tel: '',
-      address: '',
-      message: '',
-      city: '',
-      dilivery: '',
-      payment: '',
-      products: '',
-      totalPrice: '',
-    })
+    AuthStore.setOrderData(formData)
+    ProductsStore.setOrderDataAPI(formData)
+    // form.setFieldsValue({
+    //   name: '',
+    //   email: '',
+    //   tel: '',
+    //   address: '',
+    //   message: '',
+    //   city: '',
+    //   dilivery: '',
+    //   payment: '',
+    //   products: [],
+    //   totalPrice: '',
+    // })
   }
 
   return (
