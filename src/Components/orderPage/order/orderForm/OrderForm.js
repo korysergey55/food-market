@@ -59,7 +59,7 @@ const OrderForm = observer(() => {
   }
 
   const submitForm = () => {
-    AuthStore.setOrder(formData)
+    AuthStore.setOrderFort(formData)
     form.setFieldsValue({
       name: '',
       email: '',

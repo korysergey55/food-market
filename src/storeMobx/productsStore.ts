@@ -267,6 +267,19 @@ class ProductsStore {
       console.log(error)
     }
   }
+
+  //Forms API
+  @action setSubscribeFormAPI = async (email: string) => {
+    try {
+      const response = await axios.post(
+        baseURL + `subscribe/.json`,
+        JSON.stringify(email)
+      )
+      return response
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }
 
 export default new ProductsStore()
