@@ -22,12 +22,11 @@ class AuthStore {
   @observable contactForm: any = []
   @observable orders: any = []
 
-
   constructor() {
     makeAutoObservable(this)
     reaction(
-      () => this.contactForm,
-      _ => console.log('mobx', toJS(this.contactForm))
+      () => this.subscribeForm,
+      _ => console.log('mobx', toJS(this.subscribeForm))
     )
   }
 
@@ -52,15 +51,15 @@ class AuthStore {
   @action resetForgotPasswordAction() {
     this.forgotPassword = false
   }
-  @action setSubscribeForm(data: any) {
-    this.subscribeForm = [...this.subscribeForm, data]
+  //Forms
+  @action setSubscribeForm(email: string) {
+    this.subscribeForm = email
   }
   @action setContactForm(data: any) {
     this.contactForm = [...this.contactForm, data]
   }
-  @action setOrder(data: any) {
+  @action setOrderFort(data: any) {
     this.orders = [...this.orders, data]
   }
-  
 }
 export default new AuthStore()

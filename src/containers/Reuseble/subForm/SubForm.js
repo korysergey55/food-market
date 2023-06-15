@@ -8,7 +8,7 @@ import styles from './styles.module.scss'
 
 const SubForm = observer(() => {
   const { t } = useTranslation();
-  const { AuthStore } = useStore()
+  const { AuthStore, ProductsStore } = useStore()
   const [state, setState] = useState('')
 
   const handleChange = (evt) => {
@@ -18,6 +18,7 @@ const SubForm = observer(() => {
   const onFinish = (evt) => {
     evt.preventDefault()
     AuthStore.setSubscribeForm(state)
+    ProductsStore.setSubscribeFormAPI(state)
     setState('')
   }
 
