@@ -44,7 +44,7 @@ const Header = observer(() => {
   }, [location.pathname])
 
   useEffect(() => {
-    handleMenu()
+    if (state) handleMenu()
   }, [location.pathname])
 
   // useEffect(() => {
@@ -74,6 +74,7 @@ const Header = observer(() => {
   const onChangeLanguage = value => {
     console.log(value)
     i18n.changeLanguage(value)
+    handleMenu()
   }
 
   return (
