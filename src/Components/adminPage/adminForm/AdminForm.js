@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useStore } from '../../../storeMobx'
 import { observer } from 'mobx-react'
 import { v4 as uuidv4 } from 'uuid';
+import { useTranslation } from 'react-i18next';
 
 import styles from './styles.module.scss'
 import { Button, Checkbox, Form, Input, Select, Upload } from 'antd';
@@ -30,6 +31,7 @@ const AdminForm = observer(() => {
     qantity: 1,
   }
   const { ProductsStore } = useStore()
+  const { t } = useTranslation();
   const [state, setState] = useState(initialState);
   const [form] = Form.useForm();
   const сategory = [
@@ -137,229 +139,233 @@ const AdminForm = observer(() => {
   };
 
   return (
-    <Form
-      name="basic"
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 16 }}
-      style={{ maxWidth: 600 }}
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-      className={styles.form}
-      form={form}
-    >
-      <Form.Item
-        label="name"
-        name="name"
-        rules={[{ required: true, message: 'Please input your Product name!' }]}
+    <div className={styles.formWripper}>
+      <h2 className={styles.title}>{t('Панель Администратора')}</h2>
+
+      <Form
+        name="basic"
+        labelCol={{ span: 8 }}
+        wrapperCol={{ span: 16 }}
+        style={{ maxWidth: 600 }}
+        initialValues={{ remember: true }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+        className={styles.form}
+        form={form}
       >
-        <Input
-          placeholder="Please input your Product name"
+        <Form.Item
+          label="name"
           name="name"
-          value={state.name}
-          onChange={onChange}
-        />
-      </Form.Item>
+          rules={[{ required: true, message: 'Please input your Product name!' }]}
+        >
+          <Input
+            placeholder="Please input your Product name"
+            name="name"
+            value={state.name}
+            onChange={onChange}
+          />
+        </Form.Item>
 
-      <Form.Item
-        label="category"
-        name="category"
-        rules={[{ required: true, message: 'Please input your Product category!' }]}
-      >
-        <Select
-          style={{ width: '100%' }}
-          placeholder="Please input your Product category"
-          rules={[{ required: true, message: 'Please input your Product category!' }]}
-          options={сategory}
+        <Form.Item
+          label="category"
           name="category"
-          value={state.category}
-          onChange={onChangeCategory}
-        />
-      </Form.Item>
+          rules={[{ required: true, message: 'Please input your Product category!' }]}
+        >
+          <Select
+            style={{ width: '100%' }}
+            placeholder="Please input your Product category"
+            rules={[{ required: true, message: 'Please input your Product category!' }]}
+            options={сategory}
+            name="category"
+            value={state.category}
+            onChange={onChangeCategory}
+          />
+        </Form.Item>
 
-      <Form.Item
-        label="subcategory"
-        name="subcategory"
-        rules={[{ required: false, message: 'Please input your Product subcategory!' }]}
-      >
-        <Input placeholder="Please input your Product subcategory"
+        <Form.Item
+          label="subcategory"
           name="subcategory"
-          value={state.subcategory}
-          onChange={onChange}
-        />
-      </Form.Item>
+          rules={[{ required: false, message: 'Please input your Product subcategory!' }]}
+        >
+          <Input placeholder="Please input your Product subcategory"
+            name="subcategory"
+            value={state.subcategory}
+            onChange={onChange}
+          />
+        </Form.Item>
 
-      <Form.Item
-        label="short-description"
-        name="description"
-        rules={[{ required: true, message: 'Please input your Product short-description!' }]}
-      >
-        <Input placeholder="Please input your Product short-description"
+        <Form.Item
+          label="short-description"
           name="description"
-          value={state.description}
-          onChange={onChange}
-        />
-      </Form.Item>
+          rules={[{ required: true, message: 'Please input your Product short-description!' }]}
+        >
+          <Input placeholder="Please input your Product short-description"
+            name="description"
+            value={state.description}
+            onChange={onChange}
+          />
+        </Form.Item>
 
-      <Form.Item
-        label="brand"
-        name="brand"
-        rules={[{ required: true, message: 'Please input your Product brand!' }]}
-      >
-        <Input placeholder="Please input your Product brand"
-          value={state.brand}
+        <Form.Item
+          label="brand"
           name="brand"
-          onChange={onChange}
-        />
-      </Form.Item>
+          rules={[{ required: true, message: 'Please input your Product brand!' }]}
+        >
+          <Input placeholder="Please input your Product brand"
+            value={state.brand}
+            name="brand"
+            onChange={onChange}
+          />
+        </Form.Item>
 
-      <Form.Item
-        label="weight"
-        name="weight"
-        rules={[{ required: true, message: 'Please input your Product weight!' }]}
-      >
-        <Input placeholder="Please input your Product weight"
-          type='number'
+        <Form.Item
+          label="weight"
           name="weight"
-          value={state.weight}
-          onChange={onChange}
-        />
-      </Form.Item>
+          rules={[{ required: true, message: 'Please input your Product weight!' }]}
+        >
+          <Input placeholder="Please input your Product weight"
+            type='number'
+            name="weight"
+            value={state.weight}
+            onChange={onChange}
+          />
+        </Form.Item>
 
-      <Form.Item
-        label="manufactur"
-        name="manufactur"
-        rules={[{ required: true, message: 'Please input your Product manufacture!' }]}
-      >
-        <Input placeholder="Please input your Product manufacture"
+        <Form.Item
+          label="manufactur"
           name="manufactur"
-          value={state.manufactur}
-          onChange={onChange}
-        />
-      </Form.Item>
+          rules={[{ required: true, message: 'Please input your Product manufacture!' }]}
+        >
+          <Input placeholder="Please input your Product manufacture"
+            name="manufactur"
+            value={state.manufactur}
+            onChange={onChange}
+          />
+        </Form.Item>
 
-      <Form.Item
-        label="full description"
-        name="fullDescription"
-        rules={[{ required: true, message: 'Please input your Product full description!' }]}
-      >
-        <TextArea
-          showCount
-          maxLength={100}
-          style={{ height: 120, marginBottom: 24 }}
-          placeholder="Please input your Product full description!"
+        <Form.Item
+          label="full description"
           name="fullDescription"
-          value={state.fullDescription}
-          onChange={onChange}
-        />
-      </Form.Item>
+          rules={[{ required: true, message: 'Please input your Product full description!' }]}
+        >
+          <TextArea
+            showCount
+            maxLength={100}
+            style={{ height: 120, marginBottom: 24 }}
+            placeholder="Please input your Product full description!"
+            name="fullDescription"
+            value={state.fullDescription}
+            onChange={onChange}
+          />
+        </Form.Item>
 
-      <Form.Item
-        label="Additional Information"
-        name="Additional Information"
-        rules={[{ required: false, message: 'Please input your Product Additional Information!' }]}
-      >
-        <Input placeholder="Please input your Product Additional Information"
-          name="AdditionalInformation"
-          value={state.AdditionalInformation}
-          onChange={onChange}
-        />
-      </Form.Item>
+        <Form.Item
+          label="Additional Information"
+          name="Additional Information"
+          rules={[{ required: false, message: 'Please input your Product Additional Information!' }]}
+        >
+          <Input placeholder="Please input your Product Additional Information"
+            name="AdditionalInformation"
+            value={state.AdditionalInformation}
+            onChange={onChange}
+          />
+        </Form.Item>
 
-      <Form.Item
-        label="Reviews"
-        name="Reviews"
-        rules={[{ required: true, message: 'Please input your Product Reviews!' }]}
-      >
-        <Input placeholder="Please input your Product Reviews"
-          onChange={onChange}
+        <Form.Item
+          label="Reviews"
           name="Reviews"
-          value={state.Reviews}
-        />
-      </Form.Item>
+          rules={[{ required: true, message: 'Please input your Product Reviews!' }]}
+        >
+          <Input placeholder="Please input your Product Reviews"
+            onChange={onChange}
+            name="Reviews"
+            value={state.Reviews}
+          />
+        </Form.Item>
 
-      <Form.Item
-        label="price"
-        name="price"
-        rules={[{ required: true, message: 'Please input your Product price!' }]}
-      >
-        <Input placeholder="Please input your Product price"
+        <Form.Item
+          label="price"
           name="price"
-          value={state.price}
-          type='number'
-          onChange={onChange}
-        />
-      </Form.Item>
+          rules={[{ required: true, message: 'Please input your Product price!' }]}
+        >
+          <Input placeholder="Please input your Product price"
+            name="price"
+            value={state.price}
+            type='number'
+            onChange={onChange}
+          />
+        </Form.Item>
 
-      <Form.Item
-        label="discount"
-        name="discount"
-        rules={[{ required: false, message: 'Please input your Product discount %!' }]}
-      >
-        <Input placeholder="Please input your Product discount %"
+        <Form.Item
+          label="discount"
           name="discount"
-          value={state.discount}
-          type="number"
-          onChange={onChange}
-        />
-      </Form.Item>
+          rules={[{ required: false, message: 'Please input your Product discount %!' }]}
+        >
+          <Input placeholder="Please input your Product discount %"
+            name="discount"
+            value={state.discount}
+            type="number"
+            onChange={onChange}
+          />
+        </Form.Item>
 
-      <Form.Item
-        label="Main image"
-        name="image"
-        rules={[{ required: false, message: 'Please input your Product Main image!' }]}
-      >
-        <ImgCrop rotationSlider>
-          <Upload
-            // action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-            listType="picture-card"
-            fileList={fileList}
-            value={fileList}
-            onChange={onChangeUpload}
-            onPreview={onPreview}
-          >
-            {fileList.length < 1 && '+ Upload'}
-          </Upload>
-        </ImgCrop>
-      </Form.Item>
+        <Form.Item
+          label="Main image"
+          name="image"
+          rules={[{ required: false, message: 'Please input your Product Main image!' }]}
+        >
+          <ImgCrop rotationSlider>
+            <Upload
+              // action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+              listType="picture-card"
+              fileList={fileList}
+              value={fileList}
+              onChange={onChangeUpload}
+              onPreview={onPreview}
+            >
+              {fileList.length < 1 && '+ Upload'}
+            </Upload>
+          </ImgCrop>
+        </Form.Item>
 
-      <Form.Item
-        label="images"
-        name="images"
-        rules={[{ required: false, message: 'Please input your Product images!' }]}
-      >
-        <ImgCrop rotationSlider>
-          <Upload
-            // action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-            listType="picture-card"
-            fileList={fileListArr}
-            value={[...fileListArr]}
-            onChange={onChangeUploadArr}
-            onPreview={onPreview}
-          >
-            {fileListArr.length < 7 && '+ Upload'}
-          </Upload>
-        </ImgCrop>
-      </Form.Item>
+        <Form.Item
+          label="images"
+          name="images"
+          rules={[{ required: false, message: 'Please input your Product images!' }]}
+        >
+          <ImgCrop rotationSlider>
+            <Upload
+              // action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+              listType="picture-card"
+              fileList={fileListArr}
+              value={[...fileListArr]}
+              onChange={onChangeUploadArr}
+              onPreview={onPreview}
+            >
+              {fileListArr.length < 7 && '+ Upload'}
+            </Upload>
+          </ImgCrop>
+        </Form.Item>
 
-      <Form.Item name="Is sale" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
-        <Checkbox
-          name="isSale"
-          value={state.isSale}
-          onChange={onChange}>
-          Is sale
-        </Checkbox>
-      </Form.Item>
+        <Form.Item name="Is sale" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
+          <Checkbox
+            name="isSale"
+            value={state.isSale}
+            onChange={onChange}>
+            Is sale
+          </Checkbox>
+        </Form.Item>
 
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button
-          type="primary"
-          htmlType="submit">
-          Create product
-        </Button>
-      </Form.Item>
-    </Form >
+        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+          <Button
+            type="primary"
+            htmlType="submit">
+            Create product
+          </Button>
+        </Form.Item>
+      </Form >
+    </div>
   );
 })
 

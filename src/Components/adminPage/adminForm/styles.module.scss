@@ -1,4 +1,16 @@
+@import '../../../sourses/styles/variables.scss';
+.formWripper {
+  padding: 40px 10px;
+}
+.title {
+  margin-bottom: 20px;
+  margin-right: 10px;
+
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+  color: $brandColor;
+}
 .form {
   margin-top: 0px;
-  padding: 40px 10px;
 }

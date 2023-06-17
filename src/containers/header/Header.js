@@ -3,10 +3,9 @@ import { useStore } from '../../storeMobx'
 import { observer } from 'mobx-react'
 import { useHistory, useLocation, NavLink } from 'react-router-dom'
 import { pathes } from '../../utils/pathes'
-
+import { useTranslation } from 'react-i18next';
 
 import Logo from '../Reuseble/Logo/Logo'
-import { useTranslation } from 'react-i18next';
 
 import styles from './styles.module.scss'
 import classnames from 'classnames'
