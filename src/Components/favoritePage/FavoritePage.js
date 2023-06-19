@@ -28,12 +28,13 @@ const FavoritePage = observer(() => {
     ProductsStore.setFavoriteProductsAction(findFavoriteProducts())
   }, [products, favoriteItems])
 
+
   return (<div className={styles.likesPage}>
     <h2 className={styles.title}>{t('Мои любимые продукты')}</h2>
     <ul className={styles.list}>
-      {favoriteProducts.lenth ? favoriteProducts?.map(product => (
+      {favoriteProducts.length ? (favoriteProducts?.map(product => (
         <ProductItem key={product.id} product={product} />
-      )) : <Empty description={t('Нет добавленних продуктов')} />}
+      ))) : (<Empty description={t('Нет добавленних продуктов')} />)}
     </ul>
   </div>
   );

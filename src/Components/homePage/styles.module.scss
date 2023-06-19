@@ -23,7 +23,7 @@
       font-size: 20px;
       font-weight: 700;
       text-align: center;
-      color: #252932;
+      color: $brandColor;
     }
     .subtitle {
       margin: 20px 0 0 0;
@@ -59,6 +59,7 @@
         line-height: 75px;
       }
       .subtitle {
+        margin-top: 0;
         font-size: 30px;
         font-weight: 650;
       }
