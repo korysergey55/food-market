@@ -15,7 +15,7 @@ const LoginPage = observer(() => {
   const { antModal, forgotPassword } = AuthStore
 
   useEffect(() => {
-    AuthStore.toggleAntModalAction()
+    !antModal && AuthStore.toggleAntModalAction()
   }, [AuthStore])
 
   return (
@@ -24,13 +24,13 @@ const LoginPage = observer(() => {
       <div className={styles.hero}></div>
       <div className={styles.container}>
         {antModal && (
-          <ModalAnt visible={true} width="700px">
+          <ModalAnt visible={true} width="">
             <div className={styles.wripper}>
               {!forgotPassword ? (
-                <>
+                <div className={styles.contentWripper}>
                   <AuthForm />
                   <LoginForm />
-                </>
+                </div>
               ) : (
                 <ResetPassword />
               )}
