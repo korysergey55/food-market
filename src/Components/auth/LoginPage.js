@@ -21,7 +21,6 @@ const LoginPage = observer(() => {
   return (
     <div className={styles.LoginPage}>
       <div className={styles.hero}></div>
-      <div className={styles.hero}></div>
       <div className={styles.container}>
         {antModal && (
           <ModalAnt visible={true} width="">

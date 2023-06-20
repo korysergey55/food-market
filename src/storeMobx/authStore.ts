@@ -13,7 +13,9 @@ import axios from 'axios'
 const baseURL = 'https://food-market-35c08-default-rtdb.firebaseio.com/'
 
 class AuthStore {
-  @observable token: any = null
+  @observable token: any = localStorage.getItem('token')
+    ? localStorage.getItem('token')
+    : null
   @observable user: any = null
   @observable registUser: any = null
   @observable modal: boolean = false
@@ -34,9 +36,11 @@ class AuthStore {
 
   @action loginUserAction(token: any) {
     this.token = token
+    localStorage.setItem('token', JSON.stringify(token))
   }
   @action logoutUserAction() {
     this.token = null
+    localStorage.setItem('token', '')
   }
   @action registerUserAction(data: any) {
     this.registUser = data

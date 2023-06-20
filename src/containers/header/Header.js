@@ -77,6 +77,7 @@ const Header = observer(() => {
     handleMenu()
   }
 
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
