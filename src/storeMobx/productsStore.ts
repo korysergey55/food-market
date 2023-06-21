@@ -38,6 +38,7 @@ class ProductsStore {
     : []
   @observable cartProducts: any = []
   @observable totalPrice: number = 0
+  @observable orderData: any = {}
 
   @observable favoriteItems: any = localStorage.getItem('favorite')
     ? JSON.parse(localStorage.getItem('favorite'))
@@ -188,6 +189,11 @@ class ProductsStore {
   @action setCartProducts(items: any) {
     this.cartProducts = [...items]
   }
+
+  @action resetCartProducts() {
+    this.cartProducts = []
+    this.cart = []
+  }
   @action setQantityCartProducts(id: string, type: string) {
     this.cartProducts?.map((item: any) => {
       if (item.id === id && type === 'increment') {
@@ -208,8 +214,12 @@ class ProductsStore {
     this.totalPrice = price
   }
 
-  //API
+  //Order
+  @action setOrderData(data: any) {
+    this.orderData = data
+  }
 
+  //API-Admin
   @action setAllAdvByCategoryAPI = async (products: any) => {
     try {
       await products.forEach((product: any) => {
@@ -267,23 +277,15 @@ class ProductsStore {
       console.log(error)
     }
   }
-
-  //Forms API
-  @action setSubscribeDataAPI = async (email: string) => {
-    try {
-      const response = await axios.post(
-        baseURL + `subscribe/.json`,
-        JSON.stringify(email)
-      )
-      return response
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
+  //API-Order
   @action setOrderDataAPI = async (newOrder: any) => {
     try {
       const response = await axios.post(baseURL + `order/.json`, newOrder)
+      if (response) this.resetCartProducts()
+      localStorage.setItem('cart', JSON.stringify(''))
+      toast.success('Ваш заказ оформлен!', {
+        theme: 'colored',
+      })
       return response
     } catch (error) {
       console.log(error)

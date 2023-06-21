@@ -5,7 +5,7 @@ import { observer } from 'mobx-react'
 import { useTranslation } from 'react-i18next';
 
 import styles from './styles.module.scss'
-import { Form, Input, Button, Row, Col, Radio, Space } from 'antd'
+import { Form, Input, Button, Row, Col, Radio, Space, } from 'antd'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faTruck,
@@ -58,20 +58,20 @@ const OrderForm = observer(() => {
   }
 
   const submitForm = () => {
-    AuthStore.setOrderData(formData)
+    ProductsStore.setOrderData(formData)
     ProductsStore.setOrderDataAPI(formData)
-    // form.setFieldsValue({
-    //   name: '',
-    //   email: '',
-    //   tel: '',
-    //   address: '',
-    //   message: '',
-    //   city: '',
-    //   dilivery: '',
-    //   payment: '',
-    //   products: [],
-    //   totalPrice: '',
-    // })
+    form.setFieldsValue({
+      name: '',
+      email: '',
+      tel: '',
+      address: '',
+      message: '',
+      city: '',
+      dilivery: '',
+      payment: '',
+      products: [],
+      totalPrice: '',
+    })
   }
 
   return (
@@ -132,6 +132,11 @@ const OrderForm = observer(() => {
                 name="tel"
                 value={formData.tel}
                 onChange={inputChange}
+                onKeyPress={(event) => {
+                  if (!/[0-9]/.test(event.key)) {
+                    event.preventDefault();
+                  }
+                }}
               />
             </Form.Item>
           </Col>

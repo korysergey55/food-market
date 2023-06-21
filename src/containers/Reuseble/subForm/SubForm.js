@@ -18,7 +18,7 @@ const SubForm = observer(() => {
   const onFinish = (evt) => {
     evt.preventDefault()
     AuthStore.setSubscribeData(state)
-    ProductsStore.setSubscribeDataAPI(state)
+    AuthStore.setSubscribeDataAPI(state)
     setState('')
   }
 

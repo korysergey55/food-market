@@ -10,8 +10,8 @@ import Slider from 'react-slick'
 import { sliderSettings } from '../../../utils/sliderSettings'
 
 import PhotoList from './photoList/PhotoList'
-import StarList from '../../../containers/Reuseble/starList/StarList'
 import ProductItem from '../../productsPage/products/productList/productItem/productItem'
+import StarList from '../../../containers/Reuseble/starList/StarList'
 import defaultPhoto from '../../../sourses/images/defaultPhoto.png'
 
 import styles from './styles.module.scss'
@@ -121,9 +121,10 @@ const ProductItemDetails = observer(() => {
           <p className={styles.price}>
             {productById.price}грн
             {productById.discount ?
-              <span className={styles.sale}> {productById.price + productById.price * Number(productById.discount / 100)}грн</span> : null}
+              <span className={styles.sale}>
+                {productById.price + productById.price * Number(productById.discount / 100)}грн</span>
+              : null}
           </p>
-
           <div className={styles.btnContainer}>
             <button
               className={styles.btn}

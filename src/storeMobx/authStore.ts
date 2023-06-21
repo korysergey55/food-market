@@ -23,7 +23,6 @@ class AuthStore {
   @observable forgotPassword: boolean = false
 
   @observable subscribeData: string = ''
-  @observable orderData: any = {}
   @observable contactForm: any = []
 
   constructor() {
@@ -33,7 +32,7 @@ class AuthStore {
       _ => console.log('mobx', toJS(this.orderData))
     )
   }
-
+  //Login-Registration
   @action loginUserAction(token: any) {
     this.token = token
     localStorage.setItem('token', JSON.stringify(token))
@@ -45,29 +44,38 @@ class AuthStore {
   @action registerUserAction(data: any) {
     this.registUser = data
   }
-  @action toggleModalAction() {
-    this.modal = !this.modal
-  }
-  @action toggleAntModalAction() {
-    this.antModal = !this.antModal
-  }
   @action setForgotPasswordAction() {
     this.forgotPassword = true
   }
   @action resetForgotPasswordAction() {
     this.forgotPassword = false
   }
+  //Modal
+  @action toggleModalAction() {
+    this.modal = !this.modal
+  }
+  @action toggleAntModalAction() {
+    this.antModal = !this.antModal
+  }
   //Forms
   @action setSubscribeData(email: string) {
     this.subscribeData = email
   }
 
-  @action setOrderData(data: any) {
-    this.orderData = data
-  }
-
   @action setContactForm(data: any) {
     this.contactForm = [...this.contactForm, data]
+  }
+  // API
+  @action setSubscribeDataAPI = async (email: string) => {
+    try {
+      const response = await axios.post(
+        baseURL + `subscribe/.json`,
+        JSON.stringify(email)
+      )
+      return response
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 export default new AuthStore()
