@@ -88,9 +88,11 @@ const OrderForm = observer(() => {
       </h2>
       <Form
         form={form}
-        name="OrderForm"
+        name="order-form"
+        id="order-form"
         validateMessages={validateMessages}
         onFinish={submitForm}
+        className={styles.form}
       >
         <Row gutter={18}>
           <Col span={12}>
@@ -208,10 +210,15 @@ const OrderForm = observer(() => {
           </Space>
         </Radio.Group>
         <Form.Item>
-          <Button type="primary" htmlType="submit" className={styles.button}>
-            {t('Оформить заказ')}
-          </Button>
         </Form.Item>
+        {/* <Button
+          className={styles.button}
+          type="primary"
+          htmlType="submit"
+          form="order-form"
+        >
+          {t('Оформить заказ')}
+        </Button> */}
       </Form>
     </div>
   )

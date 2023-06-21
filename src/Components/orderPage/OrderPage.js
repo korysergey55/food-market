@@ -7,6 +7,8 @@ import { useTranslation } from 'react-i18next';
 
 import OrderList from './order/orderList/OrderList'
 import OrderForm from './order/orderForm/OrderForm'
+
+import { Button } from 'antd'
 import styles from './styles.module.scss'
 
 const OrderPage = observer(() => {
@@ -21,14 +23,22 @@ const OrderPage = observer(() => {
 
   return (
     <section className={styles.orderPage}>
+      <h2 className={styles.title}>{t('Оформление заказа')}</h2>
       <div className={styles.container}>
-        <h2 className={styles.title}>{t('Оформление заказа')}</h2>
         <div className={styles.wripper}>
           <div className={styles.orderForm}>
             <OrderForm />
           </div>
           <OrderList />
         </div>
+        <Button
+          className={styles.button}
+          type="primary"
+          htmlType="submit"
+          form="order-form"
+        >
+          {t('Оформить заказ')}
+        </Button>
       </div>
     </section>
   )

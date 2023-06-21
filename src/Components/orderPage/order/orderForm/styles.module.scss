@@ -7,11 +7,15 @@
   border-radius: 7px;
   background-color: #f6fafb;
 
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+
   .title {
-    margin-bottom: 20px;
+    margin-top: 20px;
     font-size: 20px;
     font-weight: 550;
-    // text-align: center;
     color: #252932;
   }
 }

@@ -7,13 +7,11 @@
   flex-wrap: wrap;
 
   width: 100%;
-  max-width: 600px;
+  max-width: 400px;
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 7px;
-  // box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-  //   1px 4px 6px rgba(0, 0, 0, 0.16);
 
   &:hover {
     cursor: pointer;
@@ -48,7 +46,6 @@
 
     .title {
       max-width: 480px;
-      min-width: 280px;
       margin-bottom: 10px;
       font-size: 20px;
       font-weight: 700;
@@ -66,6 +63,15 @@
       font-size: 20px;
       font-weight: 700;
       color: $brandColor;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .orderItem {
+    max-width: 600px;
+
+    .title {
+      min-width: 280px;
     }
   }
 }

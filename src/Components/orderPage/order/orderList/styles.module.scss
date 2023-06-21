@@ -10,7 +10,6 @@
   .wripper {
     display: flex;
     justify-content: center;
-    // flex-wrap: wrap;
     margin-top: 20px;
     padding: 10px;
 
@@ -18,26 +17,20 @@
       margin-right: 5px;
       padding: 3px;
       padding-left: 10px;
-      font-size: 20px;
-      font-weight: 700;
+
+      font-size: 18px;
+      font-weight: 650;
       text-align: center;
-      color: white;
-      background-color: #ff843d;
-      border-radius: 5px;
-      // #ff843d
-    }
-    .price {
-      padding: 3px;
-      padding-left: 10px;
-      font-size: 20px;
-      font-weight: 700;
-      text-align: center;
-      color: rgb(255, 255, 255);
-      background-color: #32c220;
+      color: black;
       border-radius: 5px;
     }
     .orderButton {
       color: rgb(255, 255, 255);
     }
+  }
+}
+@media screen and (min-width: 768px) {
+  .total {
+    font-size: 25px;
   }
 }

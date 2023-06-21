@@ -1,18 +1,22 @@
 @import '../../sourses/styles/variables.scss';
 
+.orderPage {
+  padding: 0 15px 40px 15px;
+}
+.title {
+  margin: 20px auto;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  color: $brandColor;
+}
 .container {
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
-  padding: 0 15px 70px 15px;
-
-  .title {
-    margin: 20px auto;
-    font-size: 25px;
-    font-weight: 700;
-    text-align: center;
-    color: $brandColor;
-  }
+  padding: 0 15px 40px 15px;
+  border: 1px solid rgb(189, 189, 189);
+  background-color: #f6fafb;
 
   .wripper {
     display: flex;
@@ -21,8 +25,6 @@
     padding: 20px 10px;
 
     border-radius: 7px;
-    border: 1px solid rgb(189, 189, 189);
-    background-color: #f6fafb;
   }
 
   .orderForm {
@@ -31,5 +33,14 @@
     min-height: 500px;
     margin-left: 10px;
     margin-right: 10px;
+  }
+  .button {
+    display: flex;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .title {
   }
 }

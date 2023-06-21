@@ -61,7 +61,6 @@ class AuthStore {
   @action setSubscribeData(email: string) {
     this.subscribeData = email
   }
-
   @action setContactForm(data: any) {
     this.contactForm = [...this.contactForm, data]
   }
