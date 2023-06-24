@@ -17,7 +17,7 @@ export const categoryRoutesArr = [
     path: '/coffee',
     category: 'coffee',
     component: lazy(() =>
-      import('../Components/productsPage/products/productList/ProductList.js')
+      import('../Components/productsPage/products/productList/ProductList.tsx')
     ),
     exact: true,
     isLink: true,
@@ -27,7 +27,7 @@ export const categoryRoutesArr = [
     path: '/olivkovoe_maslo',
     category: 'olivkovoe_maslo',
     component: lazy(() =>
-      import('../Components/productsPage/products/productList/ProductList.js')
+      import('../Components/productsPage/products/productList/ProductList.tsx')
     ),
     exact: true,
     isLink: true,
@@ -37,7 +37,7 @@ export const categoryRoutesArr = [
     path: '/syry_kolbasy',
     category: 'syry_kolbasy',
     component: lazy(() =>
-      import('../Components/productsPage/products/productList/ProductList.js')
+      import('../Components/productsPage/products/productList/ProductList.tsx')
     ),
     exact: true,
     isLink: true,
@@ -47,7 +47,7 @@ export const categoryRoutesArr = [
     path: '/shokoladki',
     category: 'shokoladki',
     component: lazy(() =>
-      import('../Components/productsPage/products/productList/ProductList.js')
+      import('../Components/productsPage/products/productList/ProductList.tsx')
     ),
     exact: true,
     isLink: true,
@@ -57,7 +57,7 @@ export const categoryRoutesArr = [
     path: '/ledency',
     category: 'ledency',
     component: lazy(() =>
-      import('../Components/productsPage/products/productList/ProductList.js')
+      import('../Components/productsPage/products/productList/ProductList.tsx')
     ),
     exact: true,
     isLink: true,
@@ -67,7 +67,7 @@ export const categoryRoutesArr = [
     path: '/makarony',
     category: 'makarony',
     component: lazy(() =>
-      import('../Components/productsPage/products/productList/ProductList.js')
+      import('../Components/productsPage/products/productList/ProductList.tsx')
     ),
     exact: true,
     isLink: true,
@@ -77,7 +77,7 @@ export const categoryRoutesArr = [
     path: '/konservi',
     category: 'konservi',
     component: lazy(() =>
-      import('../Components/productsPage/products/productList/ProductList.js')
+      import('../Components/productsPage/products/productList/ProductList.tsx')
     ),
     exact: true,
     isLink: true,
@@ -87,7 +87,7 @@ export const categoryRoutesArr = [
     path: '/sousy',
     category: 'sousy',
     component: lazy(() =>
-      import('../Components/productsPage/products/productList/ProductList.js')
+      import('../Components/productsPage/products/productList/ProductList.tsx')
     ),
     exact: true,
     isLink: true,
@@ -97,7 +97,7 @@ export const categoryRoutesArr = [
     path: '/vitaminy',
     category: 'vitaminy',
     component: lazy(() =>
-      import('../Components/productsPage/products/productList/ProductList.js')
+      import('../Components/productsPage/products/productList/ProductList.tsx')
     ),
     exact: true,
     isLink: true,
@@ -107,7 +107,7 @@ export const categoryRoutesArr = [
     path: '/raznoe',
     category: 'raznoe',
     component: lazy(() =>
-      import('../Components/productsPage/products/productList/ProductList.js')
+      import('../Components/productsPage/products/productList/ProductList.tsx')
     ),
     exact: true,
     isLink: true,
@@ -117,7 +117,7 @@ export const categoryRoutesArr = [
     path: '/novinki',
     category: 'novinki',
     component: lazy(() =>
-      import('../Components/productsPage/products/productList/ProductList.js')
+      import('../Components/productsPage/products/productList/ProductList.tsx')
     ),
     exact: true,
     isLink: true,

@@ -1,6 +1,6 @@
 import React from 'react'
 import { observer } from 'mobx-react'
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next'
 
 import Title from './title/Title'
 import Feachers from './feachers/Feachers'
@@ -12,11 +12,10 @@ import SubForm from '../../containers/Reuseble/subForm/SubForm'
 import Partners from './partners/Partners'
 import Footer from '../../containers/footer/Footer'
 
-
 import styles from './styles.module.scss'
 
 const HomePage = observer(() => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <div className={styles.homePage}>
@@ -26,14 +25,14 @@ const HomePage = observer(() => {
         <h3 className={styles.subtitle}>{t('Покупатели рекомендуют')}</h3>
         <h2 className={styles.title}>{t('Самые популярные товары')}</h2>
         <div className={styles.wripper}>
-          <ProductList homePage={true} />
+          <ProductList isHomePage={true} category={''} />
         </div>
         {/* <Baner /> */}
         <AboutUs />
         <h3 className={styles.subtitle}>{t('Наиболее продаваемые')}</h3>
         <h2 className={styles.title}>{t('Рекомендуемые товары')}</h2>
         <div className={styles.wripper}>
-          <ProductList homePage={true} />
+          <ProductList isHomePage={true} category={''} />
         </div>
         <Differences />
         <Partners />

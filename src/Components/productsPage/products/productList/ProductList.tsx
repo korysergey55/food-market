@@ -2,11 +2,14 @@ import React from 'react'
 import { useStore } from '../../../../storeMobx'
 import { observer } from 'mobx-react'
 import ProductItem from './productItem/productItem'
-import { v4 as uuidv4 } from 'uuid';
-
 import styles from './styles.module.scss'
 
-const ProductList = observer(({ category, homePage }) => {
+interface IProps {
+  // category: string
+  // isHomePage: boolean
+}
+
+const ProductList: React.FC<any> = observer(({ category, isHomePage }) => {
   const { ProductsStore } = useStore()
   const { filteredProducts } = ProductsStore
 
@@ -15,7 +18,7 @@ const ProductList = observer(({ category, homePage }) => {
       <ul className={styles.list}>
         {filteredProducts.length > 0 ? (
           filteredProducts?.map(item => {
-            if (homePage || category === 'all') {
+            if (isHomePage || category === 'all') {
               return <ProductItem product={item} key={item.id} />
             }
             if (item.category === category) {
