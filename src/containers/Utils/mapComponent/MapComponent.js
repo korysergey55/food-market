@@ -40,7 +40,7 @@ const MapComponent = () => {
       })
   }, [positions])
 
-  //Map component code
+  //Map component 
   const { isLoaded } = useJsApiLoader({
     id: 'myprojectrealsoft',
     googleMapsApiKey: 'AIzaSyARFt_e8aIQbS3evmvme0k4dInWVus72gw',
@@ -62,7 +62,7 @@ const MapComponent = () => {
     console.log(args)
   }, [])
 
-  //Directions service  code
+  //Directions service 
   const directionsServiceOptions = useMemo(() => {
     return {
       destination: formState.destination,
