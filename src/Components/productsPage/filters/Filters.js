@@ -32,8 +32,8 @@ const Filters = observer(({ setShowFilters }) => {
   }
 
   const onChange = value => {
-    console.log(value)
     const { checked, dataTagname, itemValue, name } = value.target
+
     setState((prev) => ({ ...prev, [dataTagname]: itemValue }))
     if (checked) setState((prev) => ({ ...prev, [dataTagname]: '' }))
 
@@ -47,7 +47,6 @@ const Filters = observer(({ setShowFilters }) => {
     if (dataTagname === 'manufactur') ProductsStore.filterByManufactur(itemValue)
     if (dataTagname === 'packing') ProductsStore.filterByPacking(itemValue)
     if (checked === false) ProductsStore.resetFilters()
-    console.log(state)
   }
 
   function callback(key) {
@@ -73,7 +72,7 @@ const Filters = observer(({ setShowFilters }) => {
       >
         <Option value="name">Сортировка по имени</Option>
         <Option value="price">Сортировка по цене</Option>
-        <Option value="default">Самые новые товары</Option>
+        <Option value="brand">Сортировка по брендам</Option>
       </Select>
 
       <h3 className={styles.subtitle}>Цена</h3>

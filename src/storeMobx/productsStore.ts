@@ -25,7 +25,7 @@ const baseURL = 'https://food-market-35c08-default-rtdb.firebaseio.com/'
 class ProductsStore {
   @observable products: IProduct[] = []
   @observable filteredProducts: IProduct[] = [...this.products]
-  @observable productById: IProduct | null = null
+  @observable productById: IProduct | null | undefined = null
   @observable productImage: any = {}
 
   @observable сategory: IсategoryJSON[] = [...categoriesJSON]
@@ -105,24 +105,13 @@ class ProductsStore {
   }
   //Filters
   @action sortProducts(data: any) {
-    if (data === 'price') {
-      const sortedProducts = this.products.sort(
-        (min: any, max: any) => min.price - max.price
-      )
-      this.filteredProducts = sortedProducts
-    }
-    if (data === 'name') {
-      const sortedProducts = this.products.sort((a: any, b: any) =>
-        a.name.localeCompare(b.name)
-      )
-      this.filteredProducts = sortedProducts
-    }
-    if (data === 'default') {
-      const sortedProducts = this.products.sort((a: any, b: any) =>
-        b.name.localeCompare(a.name)
-      )
-      this.filteredProducts = sortedProducts
-    }
+    const sortedProducts = this.products.sort((min: any, max: any) => {
+      if (data === 'name' || data === 'brand') {
+        return min[data].localeCompare(max[data])
+      }
+      return min[data] - max[data]
+    })
+    this.filteredProducts = sortedProducts
   }
 
   @action filterByPrice(data: any) {
