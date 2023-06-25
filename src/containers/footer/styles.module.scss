@@ -1,4 +1,4 @@
-@import "../../sourses/styles/variables.scss";
+@import '../../sourses/styles/variables.scss';
 
 .footer {
   position: relative;
@@ -23,7 +23,7 @@
           margin-bottom: 10px;
           font-size: 25px;
           font-weight: 700;
-          text-align: center;
+          text-align: left;
           color: #ffffff;
         }
 
@@ -67,7 +67,7 @@
           font-family: Barlow;
           font-size: 18px;
           font-weight: 300;
-          text-align: center;
+          text-align: left;
           color: #ffffff;
 
           &:hover {
