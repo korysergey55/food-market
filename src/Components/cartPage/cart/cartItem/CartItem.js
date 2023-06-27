@@ -86,7 +86,7 @@ const CartListItem = observer(({ product }) => {
         </div>
 
         <div
-          className={styles.iconContainer}
+          className={styles.iconBinContainer}
           onClick={() => removeFromCart(product)}
         >
           <svg className={styles.iconBin}>

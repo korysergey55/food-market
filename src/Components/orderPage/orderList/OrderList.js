@@ -7,8 +7,31 @@ import styles from './styles.module.scss'
 
 const OrderList = observer(() => {
   const { ProductsStore } = useStore()
-  const { totalPrice, cartProducts } = ProductsStore
+  const { totalPrice, cartProducts, cart, products, } = ProductsStore
   const { t } = useTranslation();
+
+  const findProductCart = () => {
+    const cartArr = []
+    const unq = Array.from(new Set(cart))
+    unq.forEach(key => {
+      const item = products.find(v => v.id === key)
+      if (item) {
+        cartArr.push({
+          ...item,
+          qantity: cart.filter(product => product === item.id).length,
+        })
+      }
+    })
+    return cartArr
+  }
+
+  useEffect(() => {
+    ProductsStore.setCartProducts(findProductCart())
+  }, [cart, products])
+
+  useEffect(() => {
+    ProductsStore.setTotalPrice()
+  }, [cartProducts])
 
   return (
     <div className={styles.container}>
