@@ -5,8 +5,8 @@ import { observer } from 'mobx-react';
 import { useHistory } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
-import OrderList from './order/orderList/OrderList'
-import OrderForm from './order/orderForm/OrderForm'
+import OrderList from './orderList/OrderList'
+import OrderForm from './orderForm/OrderForm'
 
 import { Button } from 'antd'
 import styles from './styles.module.scss'

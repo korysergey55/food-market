@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
-import { useStore } from '../../../../../storeMobx'
+import { useStore } from '../../../../storeMobx'
 import { observer } from 'mobx-react'
 
 import styles from "./styles.module.scss";

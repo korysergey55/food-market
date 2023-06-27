@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useStore } from '../../../../storeMobx'
+import { useStore } from '../../../storeMobx'
 import { observer } from 'mobx-react'
 import { useTranslation } from 'react-i18next';
 import OrderItem from './orderItem/OrderItem'

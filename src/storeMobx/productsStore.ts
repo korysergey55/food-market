@@ -44,13 +44,13 @@ class ProductsStore {
     ? JSON.parse(localStorage.getItem('favorite'))
     : []
   @observable favoriteProducts: any = []
-  @observable viewedProducts: IProduct | IProduct[] = []
+  @observable viewedProducts: any = []
 
   constructor() {
     makeAutoObservable(this)
     reaction(
-      () => this.productImage,
-      _ => console.log('productImage', toJS(this.productImage))
+      () => this.viewedProducts,
+      _ => console.log('this.viewedProducts', toJS(this.viewedProducts))
     )
     reaction(
       () => this.cart,
