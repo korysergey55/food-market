@@ -19,7 +19,7 @@ const Filters = observer(({ setShowFilters }) => {
   const [state, setState] = useState({ ...initialState })
 
   useEffect(() => {
-    console.log('useEffect', state)
+    console.log("🚀 ~ file: Filters.js:24 ~ Filters ~ state:", state)
   }, [state])
 
   const handleChangeSorter = value => {

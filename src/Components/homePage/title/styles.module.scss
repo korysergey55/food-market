@@ -17,12 +17,11 @@
     padding: 10px;
 
     .logoText {
-      font-size: 40px;
+      font-size: 45px;
       font-weight: 700;
       color: $brandColor;
       margin-bottom: 0;
       margin-left: 20px;
-      text-shadow: 1px -1px 5px rgba(22, 44, 255, 0.67);
     }
   }
   .title {
@@ -46,8 +45,6 @@
 @media screen and(min-width:768px) {
   .container {
     .logoWripper {
-      margin-top: 20px;
-
       .logo {
         font-size: 40px;
       }

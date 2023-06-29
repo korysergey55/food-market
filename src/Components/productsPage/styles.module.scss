@@ -15,6 +15,7 @@
       align-items: center;
 
       .icon {
+        display: none;
         margin-right: 20px;
 
         &:hover {
@@ -31,7 +32,6 @@
 
     .wripper {
       display: flex;
-      padding-left: 35px;
     }
 
     .title {
@@ -57,6 +57,11 @@
     .container {
       max-width: 1600px;
       min-height: 600px;
+      .filterWripper {
+        .icon {
+          display: block;
+        }
+      }
 
       .wripper {
         display: flex;

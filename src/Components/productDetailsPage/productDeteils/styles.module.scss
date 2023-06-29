@@ -41,7 +41,7 @@
       }
 
       .img {
-        max-width: 500px;
+        // max-width: 500px;
         margin-left: 20px;
         padding: 10px 0;
         max-height: 450px;
@@ -215,6 +215,8 @@
         }
 
         .img {
+          max-width: 500px;
+          min-width: 350px;
         }
       }
       .wripper {
