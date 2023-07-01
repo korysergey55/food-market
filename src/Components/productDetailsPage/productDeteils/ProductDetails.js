@@ -51,8 +51,8 @@ const ProductItemDetails = observer(() => {
     setDiscriptionText(text)
   }
 
-  const changePhoto = data => {
-    setPhoto(data)
+  const changePhoto = src => {
+    setPhoto(src)
   }
 
   const changeQantity = evt => {

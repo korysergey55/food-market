@@ -13,7 +13,7 @@ export const sliderSettings = {
     <button type="button">
       <FontAwesomeIcon
         icon={faChevronDown}
-        color="white"
+        color="blue"
       />
     </button>
   ),
@@ -21,7 +21,7 @@ export const sliderSettings = {
     <button type="button">
       <FontAwesomeIcon
         icon={faChevronUp}
-        color="white"
+        color="blue"
       />
     </button>
   ),

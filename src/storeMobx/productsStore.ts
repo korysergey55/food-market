@@ -49,12 +49,12 @@ class ProductsStore {
   constructor() {
     makeAutoObservable(this)
     reaction(
-      () => this.viewedProducts,
-      _ => console.log('this.viewedProducts', toJS(this.viewedProducts))
+      () => this.products,
+      _ => console.log('this.products', toJS(this.products))
     )
     reaction(
-      () => this.cart,
-      _ => console.log('cart', toJS(this.cart))
+      () => this.productById,
+      _ => console.log('productById', toJS(this.productById))
     )
   }
   //Favorite
