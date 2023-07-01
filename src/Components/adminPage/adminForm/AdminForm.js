@@ -125,12 +125,13 @@ const AdminForm = observer(() => {
 
   const onFinish = async (values) => {
     // evt.preventDefault();
+    setState((prev) => ({ ...prev, images: [...prev.images, image] }));
     ProductsStore.setNewProductAction(state)
     await ProductsStore.createNewAdvAPI(state.category, state)
-    setState({ ...initialState });
-    setFileList([])
-    setFileListArr([])
-    form.resetFields()
+    // setState({ ...initialState });
+    // setFileList([])
+    // setFileListArr([])
+    // form.resetFields()
 
   };
 
@@ -320,7 +321,7 @@ const AdminForm = observer(() => {
               // action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
               listType="picture-card"
               fileList={fileList}
-              value={fileList}
+              // value={fileList}
               onChange={onChangeUpload}
               onPreview={onPreview}
             >
@@ -339,7 +340,7 @@ const AdminForm = observer(() => {
               // action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
               listType="picture-card"
               fileList={fileListArr}
-              value={[...fileListArr]}
+              // value={[...state.images]}
               onChange={onChangeUploadArr}
               onPreview={onPreview}
             >
