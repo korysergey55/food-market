@@ -72,6 +72,10 @@ button {
 }
 
 //Slick slider
+
+// .slick-track {
+//   display: flex;
+// }
 .slick-slider {
   width: 95px;
 
@@ -97,8 +101,7 @@ button {
 }
 
 .linkActive {
-   .cart {
+  .cart {
     fill: $activeColor;
   }
 }
-

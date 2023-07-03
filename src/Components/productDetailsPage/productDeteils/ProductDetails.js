@@ -7,7 +7,7 @@ import { useParams } from 'react-router'
 import { useTranslation } from 'react-i18next';
 
 import Slider from 'react-slick'
-import { sliderSettings } from '../../../utils/sliderSettings'
+import { settings } from '../../../utils/sliderSettings'
 
 import PhotoList from './photoList/PhotoList'
 import ProductItem from '../../productsPage/products/productList/productItem/productItem'
@@ -89,13 +89,13 @@ const ProductItemDetails = observer(() => {
       <div className={styles.content}>
         <div className={styles.imageWrapper}>
           {productById.images && (
-            <div className={styles.sliderContainer}>
-              <Slider {...sliderSettings} className={styles.sliderList}>
-                {productById.images?.map(item => (
-                  <PhotoList item={item} changePhoto={changePhoto} key={item} />
-                ))}
-              </Slider>
-            </div>
+            <ul className={styles.sliderContainer}>
+              {/* <Slider {...settings} className={styles.sliderList}> */}
+              {productById.images?.map(item => (
+                <PhotoList item={item} changePhoto={changePhoto} key={item} />
+              ))}
+              {/* </Slider> */}
+            </ul>
           )}
           <img
             src={photo ? photo : (productById?.image ? productById.image : defaultPhoto)}

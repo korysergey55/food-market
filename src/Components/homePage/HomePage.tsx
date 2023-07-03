@@ -22,14 +22,13 @@ const HomePage = observer(() => {
       <Title />
       <Feachers />
       <div className={styles.container}>
-        <h3 className={styles.subtitle}>{t('Покупатели рекомендуют')}</h3>
         <h2 className={styles.title}>{t('Самые популярные товары')}</h2>
+        <h3 className={styles.subtitle}>{t('Покупатели рекомендуют')}</h3>
         <div className={styles.wripper}>
           <ProductList isHomePage={true} category={''} />
         </div>
         {/* <Baner /> */}
         <AboutUs />
-        <h3 className={styles.subtitle}>{t('Наиболее продаваемые')}</h3>
         <h2 className={styles.title}>{t('Рекомендуемые товары')}</h2>
         <div className={styles.wripper}>
           <ProductList isHomePage={true} category={''} />

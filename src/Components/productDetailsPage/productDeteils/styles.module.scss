@@ -41,10 +41,10 @@
       }
 
       .img {
-        // max-width: 500px;
+        max-width: 500px;
+        max-height: 450px;
         margin-left: 20px;
         padding: 10px 0;
-        max-height: 450px;
       }
     }
     .wripper {
@@ -129,6 +129,7 @@
         margin: 0 5px;
         border: 1px solid #deecf0;
         background-color: #f6fafb;
+        color: black;
 
         &:hover {
           cursor: pointer;
@@ -141,6 +142,7 @@
         margin-bottom: 0;
         border: 1px solid #deecf0;
         background-color: #f6fafb;
+        color: black;
       }
     }
   }
@@ -208,7 +210,11 @@
       .imageWrapper {
         padding: 20px;
         .sliderContainer {
-          display: block;
+          display: flex;
+          flex-direction: column;
+          justify-content: column;
+          align-items: center;
+
           width: 95px;
           .scrollBtn {
           }
