@@ -225,7 +225,9 @@ class ProductsStore {
       const response = await axios.get(baseURL + `products/.json`)
       let newProducts = []
       for (const [key, value] of Object.entries(response.data)) {
-        newProducts.push(value)
+        let ubdetedProductId: any = value
+        ubdetedProductId.id = key
+        newProducts.push(ubdetedProductId)
       }
       this.setAllProductsAction(newProducts)
       return response.data

@@ -131,10 +131,10 @@ const AdminForm = observer(() => {
     // evt.preventDefault();
     ProductsStore.setNewProductAction(state)
     await ProductsStore.createNewAdvAPI(state.category, state)
-    // setState({ ...initialState });
-    // setFileList([])
-    // setFileListArr([])
-    // form.resetFields()
+    setState({ ...initialState });
+    setFileList([])
+    setFileListArr([])
+    form.resetFields()
 
   };
 
