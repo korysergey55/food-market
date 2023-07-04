@@ -49,6 +49,10 @@ const AdminForm = observer(() => {
   const [fileList, setFileList] = useState([]);
   const [fileListArr, setFileListArr] = useState([]);
 
+  // useEffect(() => {
+  //   setState((prev) => ({ ...prev, images: [...state.images, state.image] }))
+  // }, [state.image])
+
   const onChangeUpload: UploadProps['onChange'] = async ({ fileList: newFileList }) => {
     setFileList(newFileList);
     console.log(newFileList)
@@ -127,10 +131,10 @@ const AdminForm = observer(() => {
     // evt.preventDefault();
     ProductsStore.setNewProductAction(state)
     await ProductsStore.createNewAdvAPI(state.category, state)
-    setState({ ...initialState });
-    setFileList([])
-    setFileListArr([])
-    form.resetFields()
+    // setState({ ...initialState });
+    // setFileList([])
+    // setFileListArr([])
+    // form.resetFields()
 
   };
 
@@ -313,16 +317,17 @@ const AdminForm = observer(() => {
         <Form.Item
           label="Main image"
           name="image"
-          rules={[{ required: false, message: 'Please input your Product Main image!' }]}
+          rules={[{ required: true, message: 'Please input your Product Main image!' }]}
         >
           <ImgCrop rotationSlider>
             <Upload
               // action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
               listType="picture-card"
               fileList={fileList}
-              // value={fileList}
+              value={fileList}
               onChange={onChangeUpload}
               onPreview={onPreview}
+              onRemove={() => setState((prev) => ({ ...prev, image: '' }))}
             >
               {fileList.length < 1 && '+ Upload'}
             </Upload>
@@ -339,7 +344,7 @@ const AdminForm = observer(() => {
               // action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
               listType="picture-card"
               fileList={fileListArr}
-              // value={[...state.images]}
+              value={[...state.images]}
               onChange={onChangeUploadArr}
               onPreview={onPreview}
             >

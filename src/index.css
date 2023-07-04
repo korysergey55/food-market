@@ -20,15 +20,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-/* .ant-input-search
-  > .ant-input-group
-  > .ant-input-group-addon:last-child
-  .ant-input-search-button {
-  background-color: greenyellow;
-} */
-
-.ant-form .ant-form-item .ant-form-item-control {
-  max-width: 300px !important;
-  flex: auto !important;
-}
