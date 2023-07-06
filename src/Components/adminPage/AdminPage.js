@@ -1,6 +1,8 @@
 import React from 'react'
-import AdminForm from './adminForm/AdminForm'
 import Header from '../../containers/header/Header'
+import AdminForm from './adminForm/AdminForm'
+import AdminList from './adminList/AdminList'
+
 import styles from './styles.module.scss'
 
 const AdminPage = () => {
@@ -9,6 +11,7 @@ const AdminPage = () => {
       <Header />
       <div className={styles.container}>
         <AdminForm />
+        <AdminList />
       </div>
     </div>
   )

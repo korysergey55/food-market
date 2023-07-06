@@ -223,6 +223,7 @@ class ProductsStore {
   @action getAllAdvByCategoryAPI = async () => {
     try {
       const response = await axios.get(baseURL + `products/.json`)
+
       let newProducts = []
       for (const [key, value] of Object.entries(response.data)) {
         let ubdetedProductId: any = value
