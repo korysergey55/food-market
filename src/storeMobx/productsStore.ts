@@ -20,7 +20,7 @@ import { packingJSON } from '../sourses/dataProduct/packing'
 import { IсategoryJSON } from '../models/index'
 import { IProduct } from '../models/index'
 
-const baseURL = 'https://online-market-4a320-default-rtdb.firebaseio.com/'
+const baseURL = 'https://online-market-8bacd-default-rtdb.firebaseio.com/'
 
 class ProductsStore {
   @observable products: IProduct[] = []
@@ -51,6 +51,10 @@ class ProductsStore {
     reaction(
       () => this.products,
       _ => console.log('this.products', toJS(this.products))
+    )
+    reaction(
+      () => this.filteredProducts,
+      _ => console.log('this.filteredProducts', toJS(this.filteredProducts))
     )
     reaction(
       () => this.productById,
@@ -223,14 +227,15 @@ class ProductsStore {
   @action getAllAdvByCategoryAPI = async () => {
     try {
       const response = await axios.get(baseURL + `products/.json`)
-
+      console.log(response.data)
       let newProducts = []
       for (const [key, value] of Object.entries(response.data)) {
-        let ubdetedProductId: any = value
-        ubdetedProductId.id = key
-        newProducts.push(ubdetedProductId)
+        let ubdetedProduct: any = value
+        ubdetedProduct.id = key
+        newProducts.push(ubdetedProduct)
       }
       this.setAllProductsAction(newProducts)
+
       return response.data
     } catch (error) {
       console.log(error)

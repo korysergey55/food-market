@@ -88,8 +88,10 @@
         width: 40px;
         height: 40px;
         margin: 0 5px;
-        border: 1px solid #deecf0;
+
+        color: black;
         background-color: #f6fafb;
+        border: 1px solid #deecf0;
 
         &:hover {
           cursor: pointer;
@@ -99,8 +101,10 @@
         display: inline-block;
         width: 70px;
         height: 40px;
-        border: 1px solid #deecf0;
+
+        color: black;
         background-color: #f6fafb;
+        border: 1px solid #deecf0;
       }
     }
     .iconBinContainer {

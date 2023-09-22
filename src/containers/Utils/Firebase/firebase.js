@@ -4,13 +4,13 @@ import { pathes } from '../../../utils/pathes'
 
 let configKorySergey = {
   apiKey: process.env.REACT_APP_WEB_API_KEY,
-  authDomain: "online-market-4a320.firebaseapp.com",
-  databaseURL: "https://online-market-4a320-default-rtdb.firebaseio.com",
-  projectId: "online-market-4a320",
-  storageBucket: "online-market-4a320.appspot.com",
-  messagingSenderId: "61451575082",
-  appId: "1:61451575082:web:f418fe01017c8dd7a48853",
-  measurementId: "G-7P6WWVD6SZ"
+  authDomain: "online-market-8bacd.firebaseapp.com",
+  databaseURL: "https://online-market-8bacd-default-rtdb.firebaseio.com",
+  projectId: "online-market-8bacd",
+  storageBucket: "online-market-8bacd.appspot.com",
+  messagingSenderId: "207751928645",
+  appId: "1:207751928645:web:96aa8b2226e314976e7c2c",
+  measurementId: "G-M46CWDZ01V"
 }
 
 const app = firebase.initializeApp(configKorySergey)
