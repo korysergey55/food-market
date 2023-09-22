@@ -5,7 +5,7 @@ import {
   shopTel,
   shopEmail,
   shopAdress,
-} from '../../utils/location'
+} from '../../utils/shopLocation'
 import SotialList from '../Reuseble/sotialList/SotialList'
 import { pathes } from '../../utils/pathes'
 import visa from '../../sourses/images/footer/visamaster.png'

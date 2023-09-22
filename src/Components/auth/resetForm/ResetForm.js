@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
-import { sendPasswordResetEmail } from '../../../containers/Utils/Firebase/firebase'
+import { sendPasswordResetEmail } from '../../../Firebase/firebase'
 
 import styles from './styles.module.scss'
 import { Form, Input, Button } from 'antd'
@@ -31,7 +31,7 @@ const ResetPassword = () => {
       >
         <h2 className={styles.title}>Страница сброса пароля!</h2>
         <Form.Item
-         className={styles.label}
+          className={styles.label}
           label="Введите Ваш email"
           rules={[{ required: true, message: 'Введите Ваш email!' }]}
         >

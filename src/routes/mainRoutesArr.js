@@ -1,5 +1,5 @@
 import { lazy } from 'react'
-import IconComponent from '../containers/Utils/IconComponent/IconComponent'
+import IconComponent from '../containers/Reuseble/IconComponent/IconComponent'
 
 export const mainRoutes = [
   {

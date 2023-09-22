@@ -1,6 +1,6 @@
 import React from 'react'
 import ContactInfo from '../../Components/contactsPage/contactInfo/ContactInfo'
-import MapComponent from '../../containers/Utils/mapComponent/MapComponent'
+import MapComponent from '../../GoogleMap/MapComponent/MapComponent'
 import ReachUs from './reachUs/ReachUs'
 import Partners from '../../Components/homePage/partners/Partners'
 import Footer from '../../containers/footer/Footer'

@@ -10,7 +10,7 @@ import PrivateRoute from '../../routes/PrivateRoute'
 import PublicRoute from '../../routes/PublicRoute'
 
 import Header from '../../containers/header/Header'
-import Loader from '../../containers/Utils/Loader/Loader'
+import Loader from '../../containers/Loader/Loader'
 import Baner from '../../containers/baner/Baner'
 
 const App = observer(() => {

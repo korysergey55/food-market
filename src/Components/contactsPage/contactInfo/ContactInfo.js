@@ -4,7 +4,7 @@ import {
   shopTel,
   shopEmail,
   shopAdress,
-} from '../../../utils/location'
+} from '../../../utils/shopLocation'
 
 import { useTranslation } from 'react-i18next';
 

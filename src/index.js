@@ -8,9 +8,11 @@ import i18n from './i18n'
 import 'normalize.css'
 import './index.css'
 import './sourses/styles/styles.scss'
-// import 'antd/dist/antd.css'
+
 import 'video-react/dist/video-react.css'
 import 'react-toastify/dist/ReactToastify.css'
+
+// import 'antd/dist/antd.css'
 
 
 ReactDOM.render(

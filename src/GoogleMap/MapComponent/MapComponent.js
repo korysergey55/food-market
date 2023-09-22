@@ -1,5 +1,5 @@
 import React, { useCallback, useState, useEffect, useMemo } from 'react'
-import useGeoPosition from '../currentGeoposition/CurrentGeoposition'
+import useGeoPosition from '../CurrentGeoposition/CurrentGeoposition'
 import {
   GoogleMap,
   useJsApiLoader,
@@ -7,7 +7,7 @@ import {
   DirectionsRenderer,
 } from '@react-google-maps/api'
 import { Marker } from '@react-google-maps/api'
-import { shopGeoposition, shopAdress } from '../../../utils/location'
+import { shopGeoposition, shopAdress } from '../../utils/shopLocation'
 import DirectionServiseForm from './directionForm/DirectionForm'
 import styles from './styles.module.scss'
 

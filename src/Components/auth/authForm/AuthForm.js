@@ -6,7 +6,7 @@ import { pathes } from '../../../utils/pathes'
 import {
   signInWithEmailAndPassword,
   registerWithEmailAndPassword,
-} from '../../../containers/Utils/Firebase/firebase'
+} from '../../../Firebase/firebase'
 
 import { useTranslation } from 'react-i18next';
 
