@@ -139,7 +139,7 @@ const AdminForm = observer(() => {
   const onFinish = async (values) => {
     // evt.preventDefault();
     ProductsStore.setNewProductAction(state)
-    await ProductsStore.createNewAdvAPI(state.category, state)
+    await ProductsStore.createProductAPI(state.category, state)
     setState({ ...initialState });
     setFileList([])
     setFileListArr([])

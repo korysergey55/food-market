@@ -72,11 +72,9 @@ const Header = observer(() => {
   }
 
   const onChangeLanguage = value => {
-    console.log(value)
     i18n.changeLanguage(value)
     handleMenu()
   }
-
 
   return (
     <header className={styles.header}>

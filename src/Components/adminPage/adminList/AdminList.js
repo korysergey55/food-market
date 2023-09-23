@@ -14,7 +14,7 @@ const AdminList = observer(() => {
   return (
     <div className='container'>
       <button type='button' className='showButton' onClick={() => setState(!state)}>
-        {!state ? 'Show all Products on Databese' : 'Hide Products'}
+        {!state ? 'Show all Products on Databese' : 'Hide Product list'}
       </button>
       {state &&
         <ul className={styles.list}>

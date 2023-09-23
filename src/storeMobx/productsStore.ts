@@ -219,22 +219,10 @@ class ProductsStore {
     this.orderData = data
   }
 
-  //API-Admin
-  @action setAllAdvByCategoryAPI = async (products: any) => {
-    try {
-      await products.forEach((product: any) => {
-        const response = axios.post(baseURL + `products/.json`, product)
-        return response
-      })
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
+  //API
   @action getAllProductsAPI = async () => {
     try {
       const response = await axios.get(baseURL + `products/.json`)
-      console.log(response.data)
       let newProducts = []
       for (const [key, value] of Object.entries(response.data)) {
         let ubdetedProduct: any = value
@@ -249,17 +237,27 @@ class ProductsStore {
     }
   }
 
-  @action createNewAdvAPI = async (category: any, newProduct: any) => {
+  @action setAllProductsAPI = async (products: any) => {
     try {
-      const response = await axios.post(
-        baseURL + `products/.json`,
-        newProduct
-        //   {
-        //   headers: { Authorization: 'Bearer ' + process.env.REACT_APP_API_KEY }
-        // }
-      )
+      await products.forEach((product: any) => {
+        const response = axios.post(baseURL + `products/.json`, product)
+        return response
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  @action createProductAPI = async (category: any, newProduct: any) => {
+    try {
+      const response = await axios.post(baseURL + `products/.json`, newProduct)
+      if (response && response.status === 200) {
+        toast.success('New product was added in the Database!', {
+          theme: 'colored',
+        })
+      }
       // if (response && response.status === 200) {
-      //   this.addImageAdvAPI(response.data.name)
+      //   this.addProductImageAPI(response.data.name)
       // }
       return response
     } catch (error) {
@@ -267,16 +265,7 @@ class ProductsStore {
     }
   }
 
-  @action deleteProductAPI = async (id: string) => {
-    try {
-      const response = await axios.delete(baseURL + `products/${id}.json`)
-      return response
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  @action addImageAdvAPI = async (id: any) => {
+  @action addProductImageAPI = async (id: any) => {
     try {
       const response = await axios.patch(
         baseURL + `products/${id}.json`,
@@ -290,15 +279,31 @@ class ProductsStore {
       console.log(error)
     }
   }
+
+  @action deleteProductAPI = async (id: string) => {
+    try {
+      const response = await axios.delete(baseURL + `products/${id}.json`)
+      if (response && response.status === 200) {
+        toast.success('Product was successfully delated from Database!', {
+          theme: 'colored',
+        })
+      }
+      return response
+    } catch (error) {
+      console.log(error)
+    }
+  }
   //API-Order
   @action setOrderDataAPI = async (newOrder: any) => {
     try {
       const response = await axios.post(baseURL + `order/.json`, newOrder)
-      if (response) this.resetCartProducts()
-      localStorage.setItem('cart', JSON.stringify(''))
-      toast.success('Ваш заказ оформлен!', {
-        theme: 'colored',
-      })
+      if (response && response.status === 200) {
+        this.resetCartProducts()
+        localStorage.setItem('cart', JSON.stringify(''))
+        toast.success('Ваш заказ оформлен!', {
+          theme: 'colored',
+        })
+      }
       return response
     } catch (error) {
       console.log(error)

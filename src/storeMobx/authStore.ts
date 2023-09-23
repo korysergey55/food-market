@@ -9,8 +9,9 @@ import {
   runInAction,
 } from 'mobx'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
-const baseURL = 'https://food-market-35c08-default-rtdb.firebaseio.com/'
+const baseURL = 'https://online-market-8bacd-default-rtdb.firebaseio.com/'
 
 class AuthStore {
   @observable token: any = localStorage.getItem('token')
@@ -28,8 +29,8 @@ class AuthStore {
   constructor() {
     makeAutoObservable(this)
     reaction(
-      () => this.orderData,
-      _ => console.log('mobx', toJS(this.orderData))
+      () => this.token,
+      _ => console.log('mobx', toJS(this.token))
     )
   }
   //Login-Registration
@@ -65,16 +66,22 @@ class AuthStore {
     this.contactForm = [...this.contactForm, data]
   }
   // API
-  @action setSubscribeDataAPI = async (email: string) => {
+  @action setSubscribeOperationAPI = async (email: string) => {
     try {
       const response = await axios.post(
         baseURL + `subscribe/.json`,
         JSON.stringify(email)
       )
+      if (response && response.status === 200) {
+        toast.success('Form was successfuly sent!', {
+          theme: 'colored',
+        })
+      }
       return response
     } catch (error) {
       console.log(error)
     }
+    this.setSubscribeData(email)
   }
 }
 export default new AuthStore()

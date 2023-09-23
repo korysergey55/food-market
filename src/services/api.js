@@ -1,46 +1,43 @@
 import axios from "axios";
-const baseURL = "https://goodfood-c0ae2-default-rtdb.firebaseio.com/"
+const baseURL = process.env.BASE_URL
 
+export const setAllAdvByCategoryApi = async (products) => {
+  try {
 
+    await products.forEach((product) => {
+      const response = axios.post(baseURL + `products/${product.category}.json`,
+        product);
+      return response;
 
-// export const setAllAdvByCategoryApi = async (products) => {
-//   try {
+    })
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-//     await products.forEach((product) => {
-//       const response = axios.post(baseURL + `products/${product.category}.json`,
-//         product);
-//       return response;
+export const getAllAdvByCategoryApi = async () => {
+  try {
+    const response = await axios.get(baseURL + `products/.json`);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-//     })
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-// export const getAllAdvByCategoryApi = async () => {
-//   try {
-//     const response = await axios.get(baseURL + `products/.json`);
-//     // console.log(response.data)
-//     return response.data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-// export const createNewAdvApi = async (category, newProduct) => {
-//   try {
-//     const response = await axios.post(
-//       baseURL + `products/.json`,
-//       newProduct,
-//       //   {
-//       //   headers: { Authorization: 'Bearer ' + process.env.REACT_APP_API_KEY }
-//       // }
-//     );
-//     return response;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+export const createNewAdvApi = async (category, newProduct) => {
+  try {
+    const response = await axios.post(
+      baseURL + `products/.json`,
+      newProduct,
+      {
+        headers: { Authorization: 'Bearer ' + process.env.REACT_APP_API_KEY }
+      }
+    );
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const deleteAdvApi = async (category, id) => {
   try {
