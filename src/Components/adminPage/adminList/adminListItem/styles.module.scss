@@ -1,46 +1,85 @@
 @import '../../../../sourses/styles/variables.scss';
 
-.list {
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: 20px;
-
-  max-width: 300px;
-  padding: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 5px;
-
-  &:hover {
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-      1px 4px 6px rgba(0, 0, 0, 0.16);
-  }
-
-  .item {
-  }
+::-webkit-scrollbar {
+  width: 15px;
 }
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+  box-shadow: inset 0 0 5px grey;
+}
+::-webkit-scrollbar-thumb {
+  background: $brandColor;
+  border-radius: 5px;
+}
+.container {
+  max-height: 300px;
+  overflow-y: scroll;
 
-.iconContainer {
-  position: absolute;
-  top: 0%;
-  right: 0%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  .list {
+    position: relative;
 
-  width: 50px;
-  height: 50px;
-  border-radius: 4px;
-  fill: $brandColor;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
 
-  &:hover {
-    cursor: pointer;
-    fill: #dd1818;
+    max-width: 300px;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+
+    &:hover {
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
+        0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+    }
+
+    .item {
+    }
   }
-  .icon {
-    width: 20px;
-    height: 20px;
+
+  .iconEditContainer {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    fill: $brandColor;
+
+    &:hover {
+      cursor: pointer;
+      fill: #dd1818;
+    }
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .iconBinContainer {
+    position: absolute;
+    top: 0%;
+    right: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    fill: $brandColor;
+
+    &:hover {
+      cursor: pointer;
+      fill: #dd1818;
+    }
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
   }
 }

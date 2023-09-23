@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect } from 'react'
 import { useStore } from '../../../../storeMobx'
 import { observer } from 'mobx-react'
 import { toJS } from 'mobx'
@@ -7,7 +7,6 @@ import styles from './styles.module.scss'
 import sprite from '../../../../sourses/icons/productsSprite.svg'
 
 const AdminListItem = observer((...product) => {
-  // console.log(toJS(product[0].product))
   const {
     id,
     name,
@@ -26,13 +25,24 @@ const AdminListItem = observer((...product) => {
     images,
     qantity
   } = product[0].product
+
   const { ProductsStore } = useStore()
+
+  const remuveProductDatabase = async (id) => {
+    const responce = await ProductsStore.deleteProductAPI(id);
+    if (responce) ProductsStore.getAllProductsAPI();
+  }
 
   return (
     <li className={styles.container}>
       <ul className={styles.list}>
-        <li className={styles.item}>
-          <div className={styles.iconContainer}>
+        <li className={styles.item} >
+          <div className={styles.iconEditContainer} onClick={() => ProductsStore.setEditedProduct(id)}>
+            <svg className={styles.icon}>
+              <use href={sprite + '#icon-pencil'} />
+            </svg>
+          </div>
+          <div className={styles.iconBinContainer} onClick={() => remuveProductDatabase(id)}>
             <svg className={styles.icon}>
               <use href={sprite + '#icon-bin'} />
             </svg>

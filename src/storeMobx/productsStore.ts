@@ -27,6 +27,7 @@ class ProductsStore {
   @observable filteredProducts: IProduct[] = [...this.products]
   @observable productById: IProduct | null | undefined = null
   @observable productImage: any = {}
+  @observable editedProduct: IProduct | null | undefined = null
 
   @observable сategory: IсategoryJSON[] = [...categoriesJSON]
   @observable brands: string[] = [...brandsJSON]
@@ -57,8 +58,8 @@ class ProductsStore {
       _ => console.log('this.filteredProducts', toJS(this.filteredProducts))
     )
     reaction(
-      () => this.productById,
-      _ => console.log('productById', toJS(this.productById))
+      () => this.editedProduct,
+      _ => console.log('editedProduct', toJS(this.editedProduct))
     )
   }
   //Favorite
@@ -107,6 +108,12 @@ class ProductsStore {
     )
     this.viewedProducts = [...undublicate, newProduct]
   }
+
+  @action setEditedProduct(id: any) {
+    this.editedProduct = this.products.find((item: any) => item.id === id)
+    // console.log(toJS(this.editedProduct))
+  }
+
   //Filters
   @action sortProducts(data: any) {
     const sortedProducts = this.products.sort((min: any, max: any) => {
@@ -224,7 +231,7 @@ class ProductsStore {
     }
   }
 
-  @action getAllAdvByCategoryAPI = async () => {
+  @action getAllProductsAPI = async () => {
     try {
       const response = await axios.get(baseURL + `products/.json`)
       console.log(response.data)
@@ -254,6 +261,15 @@ class ProductsStore {
       // if (response && response.status === 200) {
       //   this.addImageAdvAPI(response.data.name)
       // }
+      return response
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  @action deleteProductAPI = async (id: string) => {
+    try {
+      const response = await axios.delete(baseURL + `products/${id}.json`)
       return response
     } catch (error) {
       console.log(error)

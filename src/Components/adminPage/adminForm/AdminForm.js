@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import { useStore } from '../../../storeMobx'
 import { observer } from 'mobx-react'
+import { toJS } from 'mobx'
 
 import { v4 as uuidv4 } from 'uuid';
 import { useTranslation } from 'react-i18next';
@@ -33,6 +34,7 @@ const AdminForm = observer(() => {
     qantity: 1,
   }
   const { ProductsStore } = useStore()
+  const { editedProduct } = ProductsStore
   const { t } = useTranslation();
   const [state, setState] = useState(initialState);
   const [form] = Form.useForm();
@@ -51,13 +53,18 @@ const AdminForm = observer(() => {
   const [fileList, setFileList] = useState([]);
   const [fileListArr, setFileListArr] = useState([]);
 
+  useEffect(() => {
+    if (editedProduct) setState(toJS(editedProduct))
+  }, [editedProduct])
+  console.log(state)
+
   // useEffect(() => {
   //   setState((prev) => ({ ...prev, images: [...state.images, state.image] }))
   // }, [state.image])
 
   const onChangeUpload: UploadProps['onChange'] = async ({ fileList: newFileList }) => {
     setFileList(newFileList);
-    console.log(newFileList)
+    // console.log(newFileList)
 
     if (newFileList.length) {
       const src = await new Promise((resolve) => {
@@ -122,7 +129,7 @@ const AdminForm = observer(() => {
       return
     }
     setState((prev) => ({ ...prev, [name]: value }))
-    console.log(state)
+    // console.log(state)
   }
 
   const onChangeCategory = (value) => {
@@ -141,7 +148,7 @@ const AdminForm = observer(() => {
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+    // console.log('Failed:', errorInfo);
   };
 
   return (
@@ -319,7 +326,7 @@ const AdminForm = observer(() => {
         <Form.Item
           label="Main image"
           name="image"
-          rules={[{ required: true, message: 'Please input your Product Main image!' }]}
+        // rules={[{ required: true, message: 'Please input your Product Main image!' }]}
         >
           <ImgCrop rotationSlider>
             <Upload

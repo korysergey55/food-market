@@ -1,7 +1,10 @@
+.showButton {
+  margin-bottom: 20px;
+}
 .list {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 40px;
+  padding: 10px 10px 40px 10px;
   gap: 20px;
 }
