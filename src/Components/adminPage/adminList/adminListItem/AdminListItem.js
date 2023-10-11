@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { useStore } from '../../../../storeMobx'
 import { observer } from 'mobx-react'
-import { toJS } from 'mobx'
 
 import styles from './styles.module.scss'
 import sprite from '../../../../sourses/icons/productsSprite.svg'
@@ -116,7 +115,7 @@ const AdminListItem = observer((...product) => {
         </li>
         <li className={styles.item}>
           <p className='fieldName'>isSale</p>
-          <h3 className='fieldText'> {isSale ? isSale : 'no'}</h3>
+          <h3 className='fieldText'> {isSale ? isSale : 'not'}</h3>
         </li>
       </ul>
     </li>

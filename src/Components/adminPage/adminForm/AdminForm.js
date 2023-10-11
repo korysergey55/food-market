@@ -56,7 +56,7 @@ const AdminForm = observer(() => {
   useEffect(() => {
     if (editedProduct) setState(toJS(editedProduct))
   }, [editedProduct])
-  console.log(state)
+  console.log("🚀 ~ file: AdminForm.js:60 ~ AdminForm ~ state:", state)
 
   // useEffect(() => {
   //   setState((prev) => ({ ...prev, images: [...state.images, state.image] }))
@@ -64,7 +64,6 @@ const AdminForm = observer(() => {
 
   const onChangeUpload: UploadProps['onChange'] = async ({ fileList: newFileList }) => {
     setFileList(newFileList);
-    // console.log(newFileList)
 
     if (newFileList.length) {
       const src = await new Promise((resolve) => {
@@ -103,7 +102,7 @@ const AdminForm = observer(() => {
   };
 
   const onPreview = async (file: UploadFile) => {
-    console.log(file)
+    // console.log("🚀 ~ file: AdminForm.js:106 ~ onPreview ~ file:", file)
     let src = file.url;
     if (!src) {
       src = await new Promise((resolve) => {
@@ -129,7 +128,7 @@ const AdminForm = observer(() => {
       return
     }
     setState((prev) => ({ ...prev, [name]: value }))
-    // console.log(state)
+    // console.log("🚀 ~ file: AdminForm.js:132 ~ onChange ~ state:", state)
   }
 
   const onChangeCategory = (value) => {
@@ -144,11 +143,10 @@ const AdminForm = observer(() => {
     setFileList([])
     setFileListArr([])
     form.resetFields()
-
   };
 
   const onFinishFailed = (errorInfo) => {
-    // console.log('Failed:', errorInfo);
+    // console.log("🚀 ~ file: AdminForm.js:149 ~ onFinishFailed ~ errorInfo:", errorInfo)
   };
 
   return (

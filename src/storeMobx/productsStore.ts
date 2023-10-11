@@ -49,14 +49,14 @@ class ProductsStore {
 
   constructor() {
     makeAutoObservable(this)
-    reaction(
-      () => this.products,
-      _ => console.log('this.products', toJS(this.products))
-    )
-    reaction(
-      () => this.filteredProducts,
-      _ => console.log('this.filteredProducts', toJS(this.filteredProducts))
-    )
+    // reaction(
+    //   () => this.products,
+    //   _ => console.log('this.products', toJS(this.products))
+    // )
+    // reaction(
+    //   () => this.filteredProducts,
+    //   _ => console.log('this.filteredProducts', toJS(this.filteredProducts))
+    // )
     reaction(
       () => this.editedProduct,
       _ => console.log('editedProduct', toJS(this.editedProduct))
@@ -111,7 +111,6 @@ class ProductsStore {
 
   @action setEditedProduct(id: any) {
     this.editedProduct = this.products.find((item: any) => item.id === id)
-    // console.log(toJS(this.editedProduct))
   }
 
   //Filters
@@ -136,9 +135,6 @@ class ProductsStore {
     const sortedProducts = this.products.filter((item: any) =>
       item.brand.includes(data)
     )
-    // const sortedProducts = this.products.filter((item: any) =>
-    //   data.map((brand: any) => item.brand === brand)
-    // )
     this.filteredProducts = sortedProducts
   }
 
