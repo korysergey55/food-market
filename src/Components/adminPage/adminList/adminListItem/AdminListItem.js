@@ -5,6 +5,7 @@ import { toJS } from 'mobx'
 
 import styles from './styles.module.scss'
 import sprite from '../../../../sourses/icons/productsSprite.svg'
+import { Button, message, Popconfirm } from 'antd';
 
 const AdminListItem = observer((...product) => {
   const {
@@ -23,15 +24,21 @@ const AdminListItem = observer((...product) => {
     isSale,
     image,
     images,
-    qantity
   } = product[0].product
 
   const { ProductsStore } = useStore()
 
-  const remuveProductDatabase = async (id) => {
+  const confirm = async (e: React.MouseEvent<HTMLElement>) => {
     const responce = await ProductsStore.deleteProductAPI(id);
-    if (responce) ProductsStore.getAllProductsAPI();
-  }
+    if (responce) {
+      message.success('Product was secsesfuly deleted');
+      ProductsStore.getAllProductsAPI();
+    }
+  };
+
+  const cancel = (e: React.MouseEvent<HTMLElement>) => {
+    message.error('Rejected deleted');
+  };
 
   return (
     <li className={styles.container}>
@@ -42,10 +49,17 @@ const AdminListItem = observer((...product) => {
               <use href={sprite + '#icon-pencil'} />
             </svg>
           </div>
-          <div className={styles.iconBinContainer} onClick={() => remuveProductDatabase(id)}>
-            <svg className={styles.icon}>
-              <use href={sprite + '#icon-bin'} />
-            </svg>
+          <div className={styles.iconBinContainer}>
+            <Popconfirm
+              title="Delete product"
+              description="Are you sure to delete this product?"
+              onConfirm={confirm}
+              onCancel={cancel}
+              okText="Yes"
+              cancelText="No"
+            >
+              <Button danger>Delete</Button>
+            </Popconfirm>
           </div>
         </li>
         <li className={styles.item}>
