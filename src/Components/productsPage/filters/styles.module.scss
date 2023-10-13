@@ -1,4 +1,4 @@
-@import "../../../sourses/styles/variables.scss";
+@import '../../../sourses/styles/variables.scss';
 
 .filters {
   max-width: 300px;
@@ -8,12 +8,14 @@
   font-weight: 700;
 
   .title {
+    margin-bottom: 20px;
     font-weight: 500;
     color: #40a9ff;
   }
   .text {
     display: inline-block;
     margin-right: 20px;
+    margin-bottom: 20px;
     font-size: 15;
     font-weight: 500;
   }

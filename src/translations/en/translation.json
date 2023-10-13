@@ -87,6 +87,19 @@
   "Нет добавленних продуктов": "No added products",
   "грн": "uan",
   "Панель Администратора": "Administrator Panel",
-  "Популярные продукты": "Popular products"
-  
+  "Популярные продукты": "Popular products",
+  "filters": {
+    "filter": "Filters",
+    "sort_by_name": "Sort by name",
+    "sort_by_price": "Sort by price",
+    "sort_by_brand": "Sort by brand",
+    "price": "Price",
+    "from": "from",
+    "to": "to",
+    "uan": "uan",
+    "brands": "Вrands",
+    "country_of_manufacture": "Country of manufacture",
+    "packaging": "Packaging",
+    "apply": "Apply"
+  }
 }

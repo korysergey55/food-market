@@ -1,0 +1,16 @@
+{
+  "filters": {
+    "filter": "Фільтри",
+    "sort_by_name": "Сортувати за назвою",
+    "sort_by_price": "Сортувати за ціною",
+    "sort_by_brand": "Сортувати за брендом",
+    "price": "Ціна",
+    "from": "від",
+    "to": "до",
+    "uan": "грн",
+    "brands": "Бренди",
+    "country_of_manufacture": "Країна виробник",
+    "packaging": "Упаковка",
+    "apply": "Застосувати"
+  }
+}

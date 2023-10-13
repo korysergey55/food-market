@@ -2,13 +2,17 @@ import React, { useState, useEffect } from 'react'
 import { useStore } from '../../../storeMobx'
 import { observer } from 'mobx-react'
 
+import { useTranslation } from 'react-i18next'
+
 import styles from './styles.module.scss'
 import { Slider, Button, Checkbox, Collapse, Select } from 'antd'
+
 const { Panel } = Collapse
 const { Option } = Select
 
 const Filters = observer(({ setShowFilters }) => {
   const { ProductsStore } = useStore()
+  const { t } = useTranslation(['translation', 'common_en'])
 
   const initialState = {
     brand: '',
@@ -60,9 +64,7 @@ const Filters = observer(({ setShowFilters }) => {
 
   return (
     <div className={styles.filters}>
-      <h2 className={styles.title}>Фильтр</h2>
-
-      <h3 className={styles.subtitle}>Сортировка</h3>
+      <h2 className={styles.title}>{t('filters.filter')}</h2>
       <Select
         className={styles.select}
         defaultValue="name"
@@ -70,12 +72,12 @@ const Filters = observer(({ setShowFilters }) => {
         style={{ height: 44 }}
         onChange={handleChangeSorter}
       >
-        <Option value="name">Сортировка по имени</Option>
-        <Option value="price">Сортировка по цене</Option>
-        <Option value="brand">Сортировка по брендам</Option>
+        <Option value="name">{t('filters.sort_by_name')}</Option>
+        <Option value="price">{t('filters.sort_by_price')}</Option>
+        <Option value="brand">{t('filters.sort_by_brand')}</Option>
       </Select>
 
-      <h3 className={styles.subtitle}>Цена</h3>
+      <h3 className={styles.subtitle}>{t('filters.price')}</h3>
       <Slider
         range
         defaultValue={[10, 500]}
@@ -83,15 +85,15 @@ const Filters = observer(({ setShowFilters }) => {
         max={500}
         onChange={onChangePrice}
       />
-      <p className={styles.text}>от - {state.price[0]} грн</p>
-      <p className={styles.text}>до - {state.price[1]} грн</p>
+      <p className={styles.text}>{t('filters.from')} - {state.price[0]} {t('filters.uan')}</p>
+      <p className={styles.text}>{t('filters.to')} - {state.price[1]} {t('filters.uan')}</p>
       <Collapse
         className={styles.collapse}
         defaultActiveKey={['1']}
         ghost={true}
         onChange={callback}
       >
-        <Panel header="Бренд" key="1">
+        <Panel header={t('filters.brands')} key="1">
           <ul className={styles.checkboxList}>
             {ProductsStore.brands.map(item => (
               <Checkbox
@@ -107,7 +109,7 @@ const Filters = observer(({ setShowFilters }) => {
             ))}
           </ul>
         </Panel>
-        <Panel header="Страна производства" key="2">
+        <Panel header={t("filters.country_of_manufacture")} key="2">
           <ul className={styles.checkboxList}>
             {ProductsStore.manufactur.map(item => (
               <Checkbox
@@ -123,7 +125,7 @@ const Filters = observer(({ setShowFilters }) => {
             ))}
           </ul>
         </Panel>
-        <Panel header="Фасовка" key="3">
+        <Panel header={t("packaging")} key="3">
           <ul className={styles.checkboxList}>
             {ProductsStore.packing.map(item => (
               <Checkbox
@@ -145,7 +147,7 @@ const Filters = observer(({ setShowFilters }) => {
         type="primary"
         onClick={() => onSubmit()}
       >
-        Применить
+        {t('apply')}
       </Button>
     </div>
   )
