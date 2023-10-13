@@ -109,7 +109,7 @@ const Header = observer(() => {
               className={styles.link}
               activeClassName={styles.linkActive}
             >
-              {t('Главная')}
+              {t('header.main_page')}
             </NavLink>
           </li>
           <li className={styles.item}>
@@ -119,20 +119,10 @@ const Header = observer(() => {
               className={styles.link}
               activeClassName={styles.linkActive}
             >
-              {t('Товары')}
+              {t('header.goods')}
             </NavLink>
           </li>
-          {/* <li className={styles.item}>
-            <Search
-              className={styles.search}
-              placeholder={t("Поиск товара")}
-              value={search}
-              onChange={evt => onChangeSearch(evt)}
-              onSearch={onSearch}
-              size="large"
-              enterButton={t("Поиск")}
-            />
-          </li> */}
+
           <li className={styles.item}>
             <NavLink
               to={pathes.contacts}
@@ -140,9 +130,20 @@ const Header = observer(() => {
               className={styles.link}
               activeClassName={styles.linkActive}
             >
-              {t('Контакты')}
+              {t('header.contacts')}
             </NavLink>
           </li>
+          {/* <li className={styles.item}>
+            <Search
+              className={styles.search}
+              placeholder={t("header.search_product")}
+              value={search}
+              onChange={evt => onChangeSearch(evt)}
+              onSearch={onSearch}
+              size="large"
+              enterButton={t("header.search")}
+            />
+          </li> */}
           {AuthStore.token && (
             <li className={styles.item}>
               <NavLink
@@ -151,7 +152,7 @@ const Header = observer(() => {
                 className={styles.link}
                 activeClassName={styles.linkActive}
               >
-                Admin
+                {t('header.admin_panel')}
               </NavLink>
             </li>
           )}
@@ -220,7 +221,7 @@ const Header = observer(() => {
           <li className={styles.item}>
             <Select
               className={styles.select}
-              defaultValue="ua"
+              defaultValue="en"
               size="small"
               onChange={onChangeLanguage}
             >

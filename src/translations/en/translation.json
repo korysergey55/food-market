@@ -1,4 +1,12 @@
 {
+  "header": {
+    "main_page": "Main Page",
+    "goods": "Goods",
+    "contacts": "Contacts",
+    "admin_panel": "Admin Panel",
+    "search": "Search",
+    "search_product": "Search product"
+  },
   "home": {
     "most_popular_products": "Most popular products",
     "buyers_recommend": "Buyers recommend",
@@ -41,13 +49,6 @@
     "enter_yours_email": "Enter Yours email",
     "subscribe": "Subscribe"
   },
-  "Введите Ваш еmail": "Enter Yours email",
-  "Главная": "Main Page",
-  "Товары": "Goods",
-  "Контакты": "Contacts",
-  "Категории товаров": "Category of goods",
-  "Поиск товара": "Product search",
-  "Поиск": "Search",
   "Tелефоны": "Phones",
   "Позвонить": "Call",
   "График роботи": "Schedule",
@@ -55,9 +56,6 @@
   "Сб": "Sat",
   "Вс": "Sun",
   "Показать адрес": "Show address",
-  "Наши контакты": "Our contacts",
-  "Полезные ссылки": "Useful links",
-  "Социальные сети": "Social media",
   "Назад": "Go beck",
   "Код продукта": "Code of product",
   "Рейтинг": "Rating scale",
@@ -103,18 +101,33 @@
   "грн": "uan",
   "Панель Администратора": "Administrator Panel",
   "Популярные продукты": "Popular products",
-  "filters": {
-    "filter": "Filters",
-    "sort_by_name": "Sort by name",
-    "sort_by_price": "Sort by price",
-    "sort_by_brand": "Sort by brand",
-    "price": "Price",
-    "from": "from",
-    "to": "to",
-    "uan": "uan",
-    "brands": "Вrands",
-    "country_of_manufacture": "Country of manufacture",
-    "packaging": "Packaging",
-    "apply": "Apply"
+  "products_page": {
+    "category_of_goods": "Category of goods",
+    "search_product": "Search product",
+    "search": "Search",
+    "filters": {
+      "filter": "Filters",
+      "sort_by_name": "Sort by name",
+      "sort_by_price": "Sort by price",
+      "sort_by_brand": "Sort by brand",
+      "price": "Price",
+      "from": "from",
+      "to": "to",
+      "uan": "uan",
+      "brands": "Вrands",
+      "country_of_manufacture": "Country of manufacture",
+      "packaging": "Packaging",
+      "apply": "Apply"
+    }
+  },
+  "footer": {
+    "contacts": "Contacts",
+    "useful_links": "Useful links",
+    "social_media": "Social media",
+    "show_address": "Show address",
+    "call": "Call",
+    "send_email": "Send email",
+    "popular_products": "Popular products",
+    "goods": "Goods"
   }
 }

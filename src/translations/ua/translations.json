@@ -1,4 +1,12 @@
 {
+  "header": {
+    "main_page": "Головна",
+    "goods": "Товари",
+    "contacts": "Контакти",
+    "admin_panel": "Панель Адміністратора",
+    "search": "Пошук",
+    "search_product": "Пошук товару"
+  },
   "home": {
     "most_popular_products": "Найпопулярніші товари",
     "buyers_recommend": "Покупці рекомендують",
@@ -40,18 +48,33 @@
     "enter_yours_email": "Enter Yours email",
     "subscribe": "Підписатися"
   },
-  "filters": {
-    "filter": "Фільтри",
-    "sort_by_name": "Сортувати за назвою",
-    "sort_by_price": "Сортувати за ціною",
-    "sort_by_brand": "Сортувати за брендом",
-    "price": "Ціна",
-    "from": "від",
-    "to": "до",
-    "uan": "грн",
-    "brands": "Бренди",
-    "country_of_manufacture": "Країна виробник",
-    "packaging": "Упаковка",
-    "apply": "Застосувати"
+  "products_page": {
+    "category_of_goods": "Категорії товарів",
+    "search_product": "Пошук товару",
+    "search": "Пошук",
+    "filters": {
+      "filter": "Фільтри",
+      "sort_by_name": "Сортувати за назвою",
+      "sort_by_price": "Сортувати за ціною",
+      "sort_by_brand": "Сортувати за брендом",
+      "price": "Ціна",
+      "from": "від",
+      "to": "до",
+      "uan": "грн",
+      "brands": "Бренди",
+      "country_of_manufacture": "Країна виробник",
+      "packaging": "Упаковка",
+      "apply": "Застосувати"
+    }
+  },
+  "footer": {
+    "contacts": "Контакти",
+    "useful_links": "Корисні посилання",
+    "social_media": "Соціальні мережі",
+    "show_address": "Показати адресу",
+    "call": "Позвонити",
+    "send_email": "Відправити лист",
+    "popular_products": "Популярні товари",
+    "goods": "Товари"
   }
 }

@@ -12,7 +12,7 @@ const { Option } = Select
 
 const Filters = observer(({ setShowFilters }) => {
   const { ProductsStore } = useStore()
-  const { t } = useTranslation(['translation', 'common_en'])
+  const { t } = useTranslation()
 
   const initialState = {
     brand: '',
@@ -64,7 +64,7 @@ const Filters = observer(({ setShowFilters }) => {
 
   return (
     <div className={styles.filters}>
-      <h2 className={styles.title}>{t('filters.filter')}</h2>
+      <h2 className={styles.title}>{t('products_page.filters.filter')}</h2>
       <Select
         className={styles.select}
         defaultValue="name"
@@ -72,12 +72,12 @@ const Filters = observer(({ setShowFilters }) => {
         style={{ height: 44 }}
         onChange={handleChangeSorter}
       >
-        <Option value="name">{t('filters.sort_by_name')}</Option>
-        <Option value="price">{t('filters.sort_by_price')}</Option>
-        <Option value="brand">{t('filters.sort_by_brand')}</Option>
+        <Option value="name">{t('products_page.filters.sort_by_name')}</Option>
+        <Option value="price">{t('products_page.filters.sort_by_price')}</Option>
+        <Option value="brand">{t('products_page.filters.sort_by_brand')}</Option>
       </Select>
 
-      <h3 className={styles.subtitle}>{t('filters.price')}</h3>
+      <h3 className={styles.subtitle}>{t('products_page.filters.price')}</h3>
       <Slider
         range
         defaultValue={[10, 500]}
@@ -85,15 +85,15 @@ const Filters = observer(({ setShowFilters }) => {
         max={500}
         onChange={onChangePrice}
       />
-      <p className={styles.text}>{t('filters.from')} - {state.price[0]} {t('filters.uan')}</p>
-      <p className={styles.text}>{t('filters.to')} - {state.price[1]} {t('filters.uan')}</p>
+      <p className={styles.text}>{t('products_page.filters.from')} - {state.price[0]} {t('products_page.filters.uan')}</p>
+      <p className={styles.text}>{t('products_page.filters.to')} - {state.price[1]} {t('products_page.filters.uan')}</p>
       <Collapse
         className={styles.collapse}
         defaultActiveKey={['1']}
         ghost={true}
         onChange={callback}
       >
-        <Panel header={t('filters.brands')} key="1">
+        <Panel header={t('products_page.filters.brands')} key="1">
           <ul className={styles.checkboxList}>
             {ProductsStore.brands.map(item => (
               <Checkbox
@@ -109,7 +109,7 @@ const Filters = observer(({ setShowFilters }) => {
             ))}
           </ul>
         </Panel>
-        <Panel header={t("filters.country_of_manufacture")} key="2">
+        <Panel header={t("products_page.filters.country_of_manufacture")} key="2">
           <ul className={styles.checkboxList}>
             {ProductsStore.manufactur.map(item => (
               <Checkbox
@@ -125,7 +125,7 @@ const Filters = observer(({ setShowFilters }) => {
             ))}
           </ul>
         </Panel>
-        <Panel header={t("packaging")} key="3">
+        <Panel header={t("products_page.filters.packaging")} key="3">
           <ul className={styles.checkboxList}>
             {ProductsStore.packing.map(item => (
               <Checkbox
@@ -147,7 +147,7 @@ const Filters = observer(({ setShowFilters }) => {
         type="primary"
         onClick={() => onSubmit()}
       >
-        {t('apply')}
+        {t('products_page.filters.apply')}
       </Button>
     </div>
   )

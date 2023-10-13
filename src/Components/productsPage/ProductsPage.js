@@ -66,7 +66,7 @@ const ProductsPage = observer(() => {
           className={styles.title}
           onClick={() => history.push(match.path + '/all')}
         >
-          {t('Категории товаров')}
+          {t('products_page.category_of_goods')}
         </h2 >
         {location.pathname !== '/products/all' ?
           <div className={styles.filterWripper}>
@@ -79,12 +79,12 @@ const ProductsPage = observer(() => {
             />
             <Search
               className={styles.search}
-              placeholder={t("Поиск товара")}
+              placeholder={t("products_page.search_product")}
               value={search}
               onChange={evt => onChangeSearch(evt)}
               onSearch={onSearch}
               size="large"
-              enterButton={t("Поиск")}
+              enterButton={t("products_page.search")}
             />
           </div> : null}
         <div className={styles.wripper}>
