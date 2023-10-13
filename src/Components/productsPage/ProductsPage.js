@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 import CategoryRouts from '../../routes/CategoryRouts'
 import Filters from '../productsPage/filters/Filters'
-import SubForm from '../../containers/Reuseble/subForm/SubForm'
+import SubscribeForm from '../../containers/Reuseble/subscribeForm/SubscribeForm.tsx'
 import Footer from '../../containers/footer/Footer'
 
 import styles from './styles.module.scss'
@@ -91,7 +91,7 @@ const ProductsPage = observer(() => {
           {showFilters && < Filters setShowFilters={setShowFilters} />}
           <CategoryRouts />
         </div>
-        <SubForm />
+        <SubscribeForm />
       </div>
       <Footer />
     </div>

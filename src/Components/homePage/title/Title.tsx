@@ -15,9 +15,7 @@ const Title: React.FC<IProps> = ({ dataText = 'Title' }) => {
         <Logo />
         <h2 className={styles.logoText}> {dataText}</h2>
       </div>
-      <h1 className={styles.title}>
-        {t('Интернет магазин Товаров из Европы')}
-      </h1>
+      <h1 className={styles.title}>{t('title.online_products_store')}</h1>
     </div>
   )
 }

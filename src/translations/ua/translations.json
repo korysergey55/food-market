@@ -1,4 +1,45 @@
 {
+  "home": {
+    "most_popular_products": "Найпопулярніші товари",
+    "buyers_recommend": "Покупці рекомендують",
+    "recommended_products": "Рекомендовані продукти"
+  },
+  "title": {
+    "online_products_store": "Інтернет магазин продуктових товарів"
+  },
+  "feachers": {
+    "european_brands_and_perfect_quality": "Європейські бренди та ідеальна якість",
+    "we_work_directly_with_suppliers_from_europe": "Ми працюємо напряму з постачальниками з Європи",
+    "the_highest_quality_of_delivered_products": "Найвища якість продукції, що поставляється",
+    "buy": "Купити"
+  },
+  "aboutUs": {
+    "about_us": "Про Нас",
+    "we_provide_you_the_best_experience": "Ми надаємо вам найкращий досвід",
+    "description": "Наша компанія прагне пропонувати продукти, яким люди можуть довіряти. Ми пропонуємо продукти харчування, рецепти та індивідуальні рішення для широкого кола сегментів, включаючи ресторани та спеціалізовані кав'ярні, школи, торгові точки та мікроринки, а також доставка додому по всій Україні.",
+    "description-2": "Наша компанія прагне пропонувати продукти, яким люди можуть довіряти. Ми пропонуємо продукти харчування, рецепти та індивідуальні рішення для широкого кола сегментів, включаючи ресторани та спеціалізовані кав'ярні, школи, торгові точки та мікроринки, а також доставка додому по всій Україні.",
+    "to_shop": "В Магазин"
+  },
+  "differences": {
+    "why_choose_us": "Чому обирають нас",
+    "quality_products": "Якісна продукція",
+    "we_provide_only_certified_products": "Ми пропонуємо тільки сертифіковану продукцію",
+    "online_order": "Онлайн замовлення",
+    "fast_ordering_and_same_day_shipping": "Швидке замовлення та відправка в той же день",
+    "fast_delivery": "Швидка доставка",
+    "sending_goods_within_an_hour_after_ordering": "Sending goods within an hour after ordering",
+    "24_7_service": "24/7 Сервіс",
+    "our_service_works_around_the_clock": "Наш сервіс працює цілодобово",
+    "to_shop": "В Магазин"
+  },
+  "partners": {
+    "our_partners": "Наші партнеры"
+  },
+  "subscribe_Form": {
+    "subscribe_and_get_150_uan_on_purchases": "Підпишіться та отримуйте 150 грн на покупки",
+    "enter_yours_email": "Enter Yours email",
+    "subscribe": "Підписатися"
+  },
   "filters": {
     "filter": "Фільтри",
     "sort_by_name": "Сортувати за назвою",

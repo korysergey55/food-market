@@ -1,31 +1,46 @@
 {
-  "Самые популярные товары": "Most Popular products",
-  "Покупатели рекомендуют": "Buyers Recommend",
-  "Лидеры продаж": "Best seller",
-  "Наиболее продаваемые": "Best seller",
-  "Рекомендуемые товары": "Recommended products",
-  "Интернет магазин Товаров из Европы": "Online Shop Products from Europe",
-  "Европейские бренды и Идеальное Качество": "European Brands and Perfect Quality",
-  "Купить": "Buy",
-  "Работаем напрямую с поставщиками из Европы": "We work directly with suppliers from Europe",
-  "Наивысшее качество поставляемых продуктов!": "The highest quality of delivered products!",
-  "О нас": "About Us",
-  "Мы предоставляем вам лучший опыт": "We provide you with the best experience",
-  "Нашa компания стремится предлагать продукты, которым люди могут доверять. Мы предлагаем продукты питания, рецепты и индивидуальные решения для широкого круга сегментов, включая рестораны и специализированные кофейни, школы, торговые точки и микрорынки, а также доставка на дом по всей Украине.": "Our company is committed to offering products that people can trust. We offer food, recipes and customized solutions for a wide range of segments including restaurants and specialty coffee shops, schools, retail outlets and micro markets, as well as home delivery throughout Ukraine.",
-  "Наша цель – соединять людей через еду, которую они любят. Мы верим, что еда создает связи — друг с другом и с миром, который мы разделяем и о котором заботимся, — и эти связи обогащают нашу жизнь.": "Our goal is to connect people through the food they love. We believe that food creates connections—to each other and to the world we share and care about—and those connections enrich our lives.",
-  "В Магазин": "To Shop",
-  "Почему выберают нас": "Why choose us",
-  "Качественные продукты": "Quality products",
-  "Мы предоставляем только сертифицируемые продукты": "We provide only certified products",
-  "Онлайн-заказ": "Online order",
-  "Быстрое оформление заказа и отправка в тот же день": "Fast ordering and same day shipping",
-  "Быстрая доставка": "Fast delivery",
-  "Отправка товара в течение часа после заказа": "Sending goods within an hour after ordering",
-  "24/7 Сервис": "24/7 Service",
-  "Наш сервис работает круглосуточно": "Our service works around the clock",
-  "Наши партнеры": "Our partners",
-  "Подпишись и получи 150 грн на покупки!": "Subscribe and get 150 UAH for purchases!",
-  "Подписаться": "Subscribe",
+  "home": {
+    "most_popular_products": "Most popular products",
+    "buyers_recommend": "Buyers recommend",
+    "recommended_products": "Recommended products",
+    "online_products_store": "Online products store"
+  },
+  "title": {
+    "online_products_store": "Online products store"
+  },
+  "feachers": {
+    "european_brands_and_perfect_quality": "European brands and perfect quality",
+    "we_work_directly_with_suppliers_from_europe": "We work directly with suppliers from Europe",
+    "the_highest_quality_of_delivered_products": "The highest quality of delivered products",
+    "buy": "Buy"
+  },
+  "aboutUs": {
+    "about_us": "About Us",
+    "we_provide_you_the_best_experience": "We provide you the best experience",
+    "description": "Our company is committed to offering products that people can trust. We offer food, recipes and customized solutions for a wide range of segments including restaurants and specialty coffee shops, schools, retail outlets and micro markets, as well as home delivery throughout Ukraine.",
+    "description-2": "Our goal is to connect people through the food they love. We believe that food creates connections—to each other and to the world we share and care about—and those connections enrich our lives.",
+    "to_shop": "To shop"
+  },
+  "differences": {
+    "why_choose_us": "Why choose us",
+    "quality_products": "Quality products",
+    "we_provide_only_certified_products": "We provide only certified products",
+    "online_order": "Online order",
+    "fast_ordering_and_same_day_shipping": "Fast ordering and same day shipping",
+    "fast_delivery": "Fast delivery",
+    "sending_goods_within_an_hour_after_ordering": "Sending goods within an hour after ordering",
+    "24_7_service": "24/7 Service",
+    "our_service_works_around_the_clock": "Our service works around the clock",
+    "to_shop": "To shop"
+  },
+  "partners": {
+    "our_partners": "Our partners"
+  },
+  "subscribe_Form": {
+    "subscribe_and_get_150_uan_on_purchases": "Subscribe and get 150 uan on purchases",
+    "enter_yours_email": "Enter Yours email",
+    "subscribe": "Subscribe"
+  },
   "Введите Ваш еmail": "Enter Yours email",
   "Главная": "Main Page",
   "Товары": "Goods",

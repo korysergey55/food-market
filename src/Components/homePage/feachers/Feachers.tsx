@@ -1,77 +1,51 @@
 import * as React from 'react'
 import { useHistory } from 'react-router'
 import { pathes } from '../../../utils/pathes'
-import LayerImg from '../../../sourses/images/homePage/feachers/f1.png'
-import LayerImg2 from '../../../sourses/images/homePage/feachers/f2.png'
-import LayerImg3 from '../../../sourses/images/homePage/feachers/f3.png'
+import productImage1 from '../../../sourses/images/homePage/feachers/product-image-1.png'
+import productImage2 from '../../../sourses/images/homePage/feachers/product-image-2.png'
+import productImage3 from '../../../sourses/images/homePage/feachers/product-image-3.png'
 
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next'
 
 import styles from './styles.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
-
 const Feachers = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   const history = useHistory()
   return (
     <div className={styles.container}>
       <ul className={styles.list}>
         <li className={styles.item} onClick={() => history.push(pathes.products)}>
           <div className={styles.wripper}>
-            <h3 className={styles.title}>
-              {t('Европейские бренды и Идеальное Качество')}
-            </h3>
-            <button type="button" className={styles.btn} >
-              {t('Купить')}
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                className={styles.btn_icon}
-              />
+            <h3 className={styles.title}>{t('feachers.european_brands_and_perfect_quality')}</h3>
+            <button type="button" className={styles.btn}>
+              {t('feachers.buy')}
+              <FontAwesomeIcon icon={faArrowRight} className={styles.btn_icon} />
             </button>
           </div>
-          <img
-            className={styles.img}
-            src={LayerImg}
-            alt="Layer"
-          ></img>
+          <img className={styles.img} src={productImage1} alt="product image"></img>
         </li>
         <li className={`${styles.item} ${styles.orange}`} onClick={() => history.push(pathes.products)}>
           <div className={styles.wripper}>
-            <h3 className={styles.title}>
-              {t('Работаем напрямую с поставщиками из Европы')}
-            </h3>
+            <h3 className={styles.title}>{t('feachers.we_work_directly_with_suppliers_from_europe')}</h3>
             <button type="button" className={styles.btn}>
-              {t('Купить')}
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                className={styles.btn_icon}
-              />
+              {t('feachers.buy')}
+              <FontAwesomeIcon icon={faArrowRight} className={styles.btn_icon} />
             </button>
           </div>
-          <img
-            className={styles.img}
-            src={LayerImg2}
-            alt="Layer2"
-          ></img>
+          <img className={styles.img} src={productImage2} alt="product image"></img>
         </li>
         <li className={`${styles.item} ${styles.green}`} onClick={() => history.push(pathes.products)}>
           <div className={styles.wripper}>
             <h3 className={styles.title}>{t('Наивысшее качество поставляемых продуктов!')}</h3>
             <button type="button" className={styles.btn}>
-              {t('Купить')}
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                className={styles.btn_icon}
-              />
+              {t('feachers.buy')}
+              <FontAwesomeIcon icon={faArrowRight} className={styles.btn_icon} />
             </button>
           </div>
-          <img
-            className={styles.img}
-            src={LayerImg3}
-            alt="Layer3"
-          ></img>
+          <img className={styles.img} src={productImage3} alt="product image"></img>
         </li>
       </ul>
     </div>

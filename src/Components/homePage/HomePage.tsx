@@ -8,7 +8,7 @@ import ProductList from '../productsPage/products/productList/ProductList'
 import Baner from './baner/Baner'
 import AboutUs from './aboutUs/AboutUs'
 import Differences from './differences/Differences'
-import SubForm from '../../containers/Reuseble/subForm/SubForm'
+import SubscribeForm from '../../containers/Reuseble/subscribeForm/SubscribeForm'
 import Partners from './partners/Partners'
 import Footer from '../../containers/footer/Footer'
 
@@ -22,20 +22,20 @@ const HomePage = observer(() => {
       <Title dataText={'Good-Food'} />
       <Feachers />
       <div className={styles.container}>
-        <h2 className={styles.title}>{t('Самые популярные товары')}</h2>
-        {/* <h3 className={styles.subtitle}>{t('Покупатели рекомендуют')}</h3> */}
+        <h2 className={styles.title}>{t('home.most_popular_products')}</h2>
+        {/* <h3 className={styles.subtitle}>{t('home.buyers_recommend')}</h3> */}
         <div className={styles.wripper}>
           <ProductList isHomePage={true} />
         </div>
         {/* <Baner /> */}
         <AboutUs />
-        <h2 className={styles.title}>{t('Рекомендуемые товары')}</h2>
+        <h2 className={styles.title}>{t('home.recommended_products')}</h2>
         <div className={styles.wripper}>
           <ProductList isHomePage={true} />
         </div>
         <Differences />
         <Partners />
-        <SubForm />
+        <SubscribeForm />
       </div>
       <Footer />
     </div>
