@@ -5,32 +5,34 @@ import ProductItem from './productItem/productItem'
 import styles from './styles.module.scss'
 
 interface IProps {
-  // category: string
-  // isHomePage: boolean
+  // category?: string
+  // isHomePage?: boolean
 }
 
-const ProductList: React.FC<any> = observer(({ category, isHomePage }) => {
-  const { ProductsStore } = useStore()
-  const { filteredProducts } = ProductsStore
+const ProductList: React.FC<any> = observer(
+  ({ category = '', isHomePage = false }) => {
+    const { ProductsStore } = useStore()
+    const { filteredProducts } = ProductsStore
 
-  return (
-    <div className={styles.productList}>
-      <ul className={styles.list}>
-        {filteredProducts.length > 0 ? (
-          filteredProducts?.map(item => {
-            if (isHomePage || category === 'all') {
-              return <ProductItem product={item} key={item.id} />
-            }
-            if (item.category === category) {
-              return <ProductItem product={item} key={item.id} />
-            }
-          })
-        ) : (
-          <h2 className={styles.title}>Нет товаров по данному поиску!</h2>
-        )}
-      </ul>
-    </div>
-  )
-})
+    return (
+      <div className={styles.productList}>
+        <ul className={styles.list}>
+          {filteredProducts.length > 0 ? (
+            filteredProducts?.map(item => {
+              if (isHomePage || category === 'all') {
+                return <ProductItem product={item} key={item.id} />
+              }
+              if (item.category === category) {
+                return <ProductItem product={item} key={item.id} />
+              }
+            })
+          ) : (
+            <h2 className={styles.title}>Нет товаров по данному поиску!</h2>
+          )}
+        </ul>
+      </div>
+    )
+  }
+)
 
 export default ProductList

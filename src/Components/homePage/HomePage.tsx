@@ -19,19 +19,19 @@ const HomePage = observer(() => {
 
   return (
     <div className={styles.homePage}>
-      <Title />
+      <Title dataText={'Good-Food'} />
       <Feachers />
       <div className={styles.container}>
         <h2 className={styles.title}>{t('Самые популярные товары')}</h2>
-        <h3 className={styles.subtitle}>{t('Покупатели рекомендуют')}</h3>
+        {/* <h3 className={styles.subtitle}>{t('Покупатели рекомендуют')}</h3> */}
         <div className={styles.wripper}>
-          <ProductList isHomePage={true} category={''} />
+          <ProductList isHomePage={true} />
         </div>
         {/* <Baner /> */}
         <AboutUs />
         <h2 className={styles.title}>{t('Рекомендуемые товары')}</h2>
         <div className={styles.wripper}>
-          <ProductList isHomePage={true} category={''} />
+          <ProductList isHomePage={true} />
         </div>
         <Differences />
         <Partners />

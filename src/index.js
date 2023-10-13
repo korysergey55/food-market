@@ -1,4 +1,3 @@
-import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import App from './Components/App/App'
@@ -9,11 +8,9 @@ import 'normalize.css'
 import './index.css'
 import './sourses/styles/styles.scss'
 
-import 'video-react/dist/video-react.css'
 import 'react-toastify/dist/ReactToastify.css'
 
 // import 'antd/dist/antd.css'
-
 
 ReactDOM.render(
   <BrowserRouter>
