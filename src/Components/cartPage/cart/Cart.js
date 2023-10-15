@@ -53,26 +53,26 @@ const Cart = observer(() => {
     <div className={styles.container}>
       {cartProducts.length ? (
         <div className={styles.cart}>
-          <h2 className={styles.title}>{t('Корзина')}</h2>
+          <h2 className={styles.title}>{t('cart.cart')}</h2>
           <ul className={styles.list}>
             {cartProducts.map(product => (
               <CartItem key={product.id} product={product} />
             ))}
           </ul>
           <div className={styles.totalContainer}>
-            <h2 className={styles.totalPrice}>{totalPrice} {t('грн')}</h2>
+            <h2 className={styles.totalPrice}>{totalPrice} {t('cart.uan')}</h2>
             <button
               className={styles.orderButton}
               type="button"
               onClick={() => history.push(pathes.order)}
             >
-              {t('Оформить заказ')}
+              {t('cart.make_order')}
             </button>
           </div>
         </div>
       ) : (
         <>
-          <h2 className={styles.titleEmpty}>{t('Корзина пуста')}!</h2>
+          <h2 className={styles.titleEmpty}>{t('cart.cart_is_empty')}!</h2>
           <Empty description={false} />
         </>
       )}

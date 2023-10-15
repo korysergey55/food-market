@@ -62,7 +62,6 @@ button {
 
   &:hover {
     cursor: pointer;
-    // background-color: #32c220;
     opacity: 0.7;
   }
 }
@@ -114,4 +113,12 @@ button {
 .ant-form .ant-form-item .ant-form-item-control {
   max-width: 300px !important;
   flex: auto !important;
+}
+// Login form
+.ant-form-item .ant-form-item-label {
+  text-align: start;
+}
+
+.ant-col-offset-8 {
+  margin-inline-start: 0;
 }

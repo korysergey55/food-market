@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
-import { useParams } from 'react-router'
 import { useStore } from '../../../../../storeMobx'
 import { observer } from 'mobx-react'
-import { pathes } from '../../../../../utils/pathes'
+import { useHistory, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
+import { pathes } from '../../../../../utils/pathes'
 
 import StarList from '../../../../../containers/Reuseble/starList/StarList'
 import defaultPhoto from '../../../../../sourses/images/defaultPhoto.png'
@@ -14,7 +13,6 @@ import classnames from 'classnames'
 import { Button } from 'antd'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faCartPlus } from '@fortawesome/free-solid-svg-icons'
-// import { faHeart } from '@fortawesome/free-regular-svg-icons'
 
 const ProductItem = observer(({ product }) => {
   const { ProductsStore } = useStore()
@@ -85,7 +83,7 @@ const ProductItem = observer(({ product }) => {
           <h3 className={styles.title}>{product.name}</h3>
           <StarList />
           <div className={styles.priceWripper}>
-            <p className={styles.price}>{product.price} грн</p>
+            <p className={styles.price}>{product.price} {t('productsPage.productItem.uan')}</p>
             <FontAwesomeIcon
               className={styles.cartIcon}
               icon={faCartPlus}
@@ -99,7 +97,7 @@ const ProductItem = observer(({ product }) => {
             size="middle"
             onClick={() => bayNow(product)}
           >
-            {t('Купить')}
+            {t('productsPage.productItem.buy')}
           </Button>
         </div>
       )}

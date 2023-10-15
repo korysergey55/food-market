@@ -13,23 +13,25 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons'
 
-const validateMessages = {
-  required: '${label} is required!',
-  types: {
-    email: '${label} is not a valid email!',
-    number: '${label} is not a valid number!',
-  },
-}
+
 const OrderForm = observer(() => {
   const { ProductsStore, AuthStore } = useStore()
   const { cart, cartProducts, totalPrice } = ProductsStore
   const { t } = useTranslation();
   const [form] = Form.useForm()
 
+  const validateMessages = {
+    required: '${label} is required!',
+    types: {
+      email: '${label} is not a valid email!',
+      phone: '${label} is not a valid phone number!',
+    },
+  }
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    tel: '',
+    phone: '',
     message: '',
     city: '',
     dilivery: '',
@@ -84,7 +86,7 @@ const OrderForm = observer(() => {
           color="black"
           size="1x"
         />{' '}
-        - {t('Контактная информация')}
+        {t('orderPage.orderForm.contact_information')}
       </h2>
       <Form
         form={form}
@@ -96,10 +98,13 @@ const OrderForm = observer(() => {
       >
         <Row gutter={18}>
           <Col span={12}>
-            <Form.Item name={['name']} rules={[{ required: true }]}>
+            <Form.Item
+              name={['name']}
+              rules={[{ message: t('orderPage.orderForm.enter_yours_name_please'), required: true }]}
+            >
               <Input
                 className={styles.input}
-                placeholder={t("Имя")}
+                placeholder={t("orderPage.orderForm.name")}
                 minLength={3}
                 name="name"
                 value={formData.name}
@@ -110,11 +115,15 @@ const OrderForm = observer(() => {
           <Col span={12}>
             <Form.Item
               name={['email']}
-              rules={[{ type: 'email', required: true }]}
+              rules={[{
+                message: t('orderPage.orderForm.enter_valid_email_please'),
+                required: true,
+                type: "email",
+              }]}
             >
               <Input
                 className={styles.input}
-                placeholder="Email"
+                placeholder={t("orderPage.orderForm.email")}
                 name="email"
                 value={formData.email}
                 onChange={inputChange}
@@ -125,14 +134,14 @@ const OrderForm = observer(() => {
         <Row gutter={18}>
           <Col span={12}>
             <Form.Item
-              name={['tel']}
-              rules={[{ message: 'Пожалуйста введите номер телефона!', required: true }]}
+              name={['phone']}
+              rules={[{ message: t('orderPage.orderForm.enter_yours_phone_number_please'), required: true }]}
             >
               <Input
                 className={styles.input}
-                placeholder={t("Телефон")}
-                name="tel"
-                value={formData.tel}
+                placeholder={t("orderPage.orderForm.phone")}
+                name="phone"
+                value={formData.phone}
                 onChange={inputChange}
                 onKeyPress={(event) => {
                   if (!/[0-9]/.test(event.key)) {
@@ -147,7 +156,7 @@ const OrderForm = observer(() => {
           <Input.TextArea
             className={styles.textarea}
             style={{ height: 181 }}
-            placeholder={t("Коментарии")}
+            placeholder={t("orderPage.orderForm.comments")}
             name="message"
             value={formData.message}
             onChange={inputChange}
@@ -162,13 +171,16 @@ const OrderForm = observer(() => {
             color="black"
             size="1x"
           />{' '}
-          - {t('Доставка')}
+          {t('orderPage.orderForm.delivery')}
         </h2>
         <Col span={12}>
-          <Form.Item name={['city']} rules={[{ required: true }]}>
+          <Form.Item
+            name={['city']}
+            rules={[{ message: t('orderPage.orderForm.enter_yours_city_please'), required: true }]}
+          >
             <Input
               className={styles.input}
-              placeholder={t("Город")}
+              placeholder={t("orderPage.orderForm.city")}
               minLength={3}
               name="city"
               value={formData.city}
@@ -182,9 +194,9 @@ const OrderForm = observer(() => {
           value={formData.dilivery}
         >
           <Space direction="vertical">
-            <Radio value={'Курьерская доставка'}>{t('Курьерская доставка')}</Radio>
-            <Radio value={'Новая почта'}>{t('Новая почта')}</Radio>
-            <Radio value={'Самовывоз из магазина'}>{t('Самовывоз из магазина')}</Radio>
+            <Radio value={'express delivery'}>{t('orderPage.orderForm.express_delivery')}</Radio>
+            <Radio value={'new mail'}>{t('orderPage.orderForm.new_mail')}</Radio>
+            <Radio value={'pickup from the store'}>{t('orderPage.orderForm.pickup_from_the_store')}</Radio>
           </Space>
         </Radio.Group>
 
@@ -196,7 +208,7 @@ const OrderForm = observer(() => {
             color="black"
             size="1x"
           />{' '}
-          - {t('Оплата')}
+          {t('orderPage.orderForm.paymant')}
         </h2>
         <Radio.Group
           className={styles.radio}
@@ -204,9 +216,9 @@ const OrderForm = observer(() => {
           value={formData.payment}
         >
           <Space direction="vertical">
-            <Radio value={'Оплата при получении'}>{t('Оплата при получении')}</Radio>
-            <Radio value={'Оплата на карту'}>{t('Оплата на карту')}</Radio>
-            <Radio value={'Оплатить сейчас'}>{t('Оплатить сейчас')}</Radio>
+            <Radio value={'payment upon receipt'}>{t('orderPage.orderForm.payment_upon_receipt')}</Radio>
+            <Radio value={'card payment'}>{t('orderPage.orderForm.card_payment')}</Radio>
+            <Radio value={'pay now'}>{t('orderPage.orderForm.pay_now')}</Radio>
           </Space>
         </Radio.Group>
         <Form.Item>

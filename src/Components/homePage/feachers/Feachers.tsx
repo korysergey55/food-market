@@ -39,7 +39,7 @@ const Feachers = () => {
         </li>
         <li className={`${styles.item} ${styles.green}`} onClick={() => history.push(pathes.products)}>
           <div className={styles.wripper}>
-            <h3 className={styles.title}>{t('Наивысшее качество поставляемых продуктов!')}</h3>
+            <h3 className={styles.title}>{t('feachers.the_highest_quality_of_delivered_products')}</h3>
             <button type="button" className={styles.btn}>
               {t('feachers.buy')}
               <FontAwesomeIcon icon={faArrowRight} className={styles.btn_icon} />

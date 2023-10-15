@@ -23,7 +23,7 @@ const OrderPage = observer(() => {
 
   return (
     <section className={styles.orderPage}>
-      <h2 className={styles.title}>{t('Оформление заказа')}</h2>
+      <h2 className={styles.title}>{t('orderPage.making_order')}</h2>
       <div className={styles.container}>
         <div className={styles.wripper}>
           <div className={styles.orderForm}>
@@ -37,7 +37,7 @@ const OrderPage = observer(() => {
           htmlType="submit"
           form="order-form"
         >
-          {t('Оформить заказ')}
+          {t('orderPage.create_order')}
         </Button>
       </div>
     </section>

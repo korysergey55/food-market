@@ -3,6 +3,8 @@ import { useHistory } from "react-router";
 import { useStore } from '../../../../storeMobx'
 import { observer } from 'mobx-react'
 
+import { useTranslation } from 'react-i18next';
+
 import styles from "./styles.module.scss";
 import sprite from '../../../../sourses/icons/productsSprite.svg'
 
@@ -10,6 +12,7 @@ const OrderItem = observer(({ product }) => {
   const history = useHistory()
   const { ProductsStore } = useStore()
   const { name, price, category, id, image, qantity } = product;
+  const { t } = useTranslation();
 
   const openDetails = (product) => {
     history.push(`/products/${category}/${id}`)
@@ -32,8 +35,8 @@ const OrderItem = observer(({ product }) => {
           onClick={() => openDetails(product)}>
           {name}
         </h2>
-        <p className={styles.qantity}>{qantity} шт</p>
-        <span className={styles.price}> {price} грн</span>
+        <p className={styles.qantity}>{qantity} {t('orderPage.orderItem.pcs')}</p>
+        <span className={styles.price}> {price} {t('orderPage.orderItem.uan')}</span>
       </div>
       <div
         className={styles.iconBinContainer}

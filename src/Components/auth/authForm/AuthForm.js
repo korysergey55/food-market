@@ -85,7 +85,7 @@ const AuthForm = observer(() => {
             type="primary"
             onClick={() => setLogin(true)}
           >
-            {t('Вход')}
+            {t('loginPage.sign_in')}
           </Button>
 
           <Button
@@ -93,15 +93,15 @@ const AuthForm = observer(() => {
             type="primary"
             onClick={() => setLogin(false)}
           >
-            {t('Регистрация')}
+            {t('loginPage.registration')}
           </Button>
         </div>
 
         {!login && (
           <Form.Item
-            label="Name"
+            label={t('loginPage.name')}
             name="name"
-            rules={[{ required: true, message: 'Введите Ваше Имя!' }]}
+            rules={[{ required: true, message: t('loginPage.enter_your_name_please') }]}
           >
             <Input
               name="name"
@@ -113,14 +113,14 @@ const AuthForm = observer(() => {
         <Form.Item
           label="Email"
           name="email"
-          rules={[{ required: true, message: 'Введите email!' }]}
+          rules={[{ required: true, message: t('loginPage.enter_your_email_please') }]}
         >
           <Input name="email" value={formData.email} onChange={onChange} />
         </Form.Item>
         <Form.Item
           label="Password"
           name="password"
-          rules={[{ required: true, message: 'Введите password!' }]}
+          rules={[{ required: true, message: t('loginPage.enter_your_password_please') }]}
         >
           <Input.Password
             name="password"
@@ -136,7 +136,7 @@ const AuthForm = observer(() => {
               AuthStore.setForgotPasswordAction()
             }}
           >
-            {t('Забыли пароль?')}
+            {t('loginPage.forgot_password')} ?
           </p>
         )}
         <Form.Item
@@ -145,11 +145,11 @@ const AuthForm = observer(() => {
           valuePropName="checked"
           wrapperCol={{ offset: 8, span: 16 }}
         >
-          <Checkbox>{t('Запомнить меня')}</Checkbox>
+          <Checkbox>{t('loginPage.remember_me')}</Checkbox>
         </Form.Item>
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
           <Button type="primary" htmlType="submit">
-            {t('Подтвердить')}
+            {t('loginPage.confirm')}
           </Button>
         </Form.Item>
       </Form>

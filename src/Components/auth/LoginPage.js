@@ -6,7 +6,7 @@ import ModalAnt from '../../containers/modalAnt/ModalAnt'
 import Header from '../../containers/header/Header'
 import LoginForm from './loginForm/LoginForm'
 import AuthForm from './authForm/AuthForm'
-import ResetPassword from './resetForm/ResetForm'
+import ResetPasswordPage from './resetPasswordForm/ResetForm'
 
 import styles from './styles.module.scss'
 
@@ -31,7 +31,7 @@ const LoginPage = observer(() => {
                   <LoginForm />
                 </div>
               ) : (
-                <ResetPassword />
+                <ResetPasswordPage />
               )}
             </div>
           </ModalAnt>

@@ -18,7 +18,7 @@ const ReachUs = () => {
   return (
     <div className={styles.wripper}>
       <div className={styles.reachUs}>
-        <h3 className={styles.title}>{t('Контакты')}</h3>
+        <h3 className={styles.title}>{t('contactPage.reach_us')}</h3>
         <ul className={styles.list}>
           <li className={styles.item}>
             <a className={styles.link}>

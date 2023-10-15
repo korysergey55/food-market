@@ -49,59 +49,14 @@
     "enter_yours_email": "Enter Yours email",
     "subscribe": "Subscribe"
   },
-  "Tелефоны": "Phones",
-  "Позвонить": "Call",
-  "График роботи": "Schedule",
-  "Пн-пт": "Mon-Fri",
-  "Сб": "Sat",
-  "Вс": "Sun",
-  "Показать адрес": "Show address",
-  "Назад": "Go beck",
-  "Код продукта": "Code of product",
-  "Рейтинг": "Rating scale",
-  "Производитель": "Manufacturer",
-  "Вес": "Weight",
-  "В корзину": "Add to cart",
-  "Просмотренные товары": "Products viewed",
-  "Описание": "Description",
-  "Дополнительная информация": "Additional Information",
-  "Отзывы": "Reviews",
-  "Купить": "Buy",
-  "Корзина": "Cart",
-  "Оформить заказ": "Make order",
-  "Корзина пуста": "Cart is empty",
-  "Ваш заказ": "Your order",
-  "Общая стоимость": "Total price",
-  "Оформление заказа": "Making order",
-  "Контактная информация": "Contact Information",
-  "Имя": "Name",
-  "Телефон": "Phone",
-  "Коментарии": "Comments",
-  "Доставка": "Delivery",
-  "Город": "City",
-  "Курьерская доставка": "Express delivery",
-  "Новая почта": "New mail",
-  "Самовывоз из магазина": "Pickup from the store",
-  "Оплата": "Paymant",
-  "Оплата при получении": "Payment upon receipt",
-  "Оплата на карту": "Card payment",
-  "Оплатить сейчас": "Pay now",
   "Вход": "Sign in",
   "Регистрация": "Registration",
   "Забыли пароль?": "Forgot your password?",
   "Запомнить меня": "Remember me",
   "Подтвердить": "Confirm",
   "Вход c помощью": "Sign in with",
-  "Мои любимые продукты": "Yours favorite products",
-  "гр.": "gr.",
-  "Построить маршрут": "Build Route",
-  "Магазин": "Shop",
-  "Ваше местоположение": "Yours geolocation",
-  "Нет добавленних продуктов": "No added products",
-  "грн": "uan",
   "Панель Администратора": "Administrator Panel",
-  "Популярные продукты": "Popular products",
-  "products_page": {
+  "productsPage": {
     "category_of_goods": "Category of goods",
     "search_product": "Search product",
     "search": "Search",
@@ -118,7 +73,109 @@
       "country_of_manufacture": "Country of manufacture",
       "packaging": "Packaging",
       "apply": "Apply"
+    },
+    "productList": {
+      "there_are_no_products_for_this_search": "There are no products for this search"
+    },
+    "productItem": {
+      "uan": "uan",
+      "buy": "Buy"
     }
+  },
+  "productDatailsPage": {
+    "go_beck": "Go beck",
+    "code_of_product": "Code of product",
+    "rating_scale": "Rating scale",
+    "manufacturer": "Manufacturer",
+    "weight": "Weight",
+    "uan": "uan",
+    "add_to_cart": "Add to cart",
+    "description": "Description",
+    "additional_information": "Additional information",
+    "reviews": "Reviews",
+    "viewed_products": "Viewed products "
+  },
+  "contactPage": {
+    "directionServiseForm": {
+      "build_route": "Build route",
+      "enter_location": "enter location"
+    },
+    "reach_us": "Reach us",
+    "contactInfo": {
+      "schedule": "Schedule",
+      "phones": "Phones",
+      "email": "Email",
+      "call": "Call",
+      "mon_fri": "Mon-Fri",
+      "sat": "Sat",
+      "sun": "Sun",
+      "day_off": "day off"
+    }
+  },
+  "cart": {
+    "cart": "Cart",
+    "uan": "uan",
+    "make_order": "Make order",
+    "cart_is_empty": "Cart is empty"
+  },
+  "orderPage": {
+    "making_order": "Making order",
+    "create_order": "Create order",
+    "orderForm": {
+      "your_order": "Your order",
+      "total_price": "Total price",
+      "create_order": "Create order",
+      "contact_information": "Contact information",
+      "name": "Name",
+      "phone": "Phone",
+      "comments": "Comments",
+      "email": "Email",
+      "delivery": "Delivery",
+      "city": "City",
+      "express_delivery": "Express delivery",
+      "new_mail": "New mail",
+      "pickup_from_the_store": "Pickup from the store",
+      "paymant": "Paymant",
+      "payment_upon_receipt": "Payment upon receipt",
+      "card_payment": "Card payment",
+      "pay_now": "Pay now",
+      "is_required": "is required",
+      "enter_yours_name_please": "Enter yours name please",
+      "enter_yours_phone_number_please": "Enter yours phone number please",
+      "enter_yours_city_please": "Enter yours city please",
+      "enter_yours_email_please": "Enter yours email please",
+      "enter_valid_email_please": "Enter valid email please"
+    },
+    "orderList": {
+      "yours_order": "Yours order",
+      "total_price": "Total price",
+      "uan": "uan"
+    },
+    "orderItem": {
+      "pcs": "pcs",
+      "uan": "uan"
+    }
+  },
+  "favoritePage": {
+    "my_favorite_products": "My favorite products",
+    "no_added_products": "No added products"
+  },
+  "loginPage": {
+    "name": "Name",
+    "sign_in": "Sign in",
+    "registration": "Registration",
+    "enter_your_name_please": "Enter your name please",
+    "enter_your_email_please": "Enter your email please",
+    "enter_your_password_please": "Enter your password please",
+    "forgot_password": "Forgot password",
+    "remember_me": "Remember me",
+    "confirm": "Confirm"
+  },
+  "resetPasswordPage": {
+    "reset_password_form": "Reset password form",
+    "enter_your_email_please": "Enter your email please",
+    "enter_valid_email_please": "Enter valid email please",
+    "reset_password": "Reset password"
   },
   "footer": {
     "contacts": "Contacts",

@@ -24,22 +24,19 @@ const DirectionServiseForm = ({ onSubmitBuildRoute }) => {
 
   return (
     <div className={styles.container}>
+      <h3 className={styles.title}> {t('contactPage.directionServiseForm.build_route')}</h3>
       <div className={styles.inputContainer}>
         <div className={styles.inputWripper}>
-          <label className={styles.label} htmlFor="ORIGIN">
-            {t('Построить маршрут')}
-          </label>
-          <br />
           <input
             className={styles.input}
             name="ORIGIN"
             value={origin}
             type="text"
-            placeholder={t('Ваше местоположение')}
+            placeholder={t('contactPage.directionServiseForm.enter_location')}
             onChange={onChangeInput}
           />
         </div>
-        <div className={styles.inputWripper}>
+        {/* <div className={styles.inputWripper}>
           <label className={styles.label} htmlFor="DESTINATION">
           </label>
           <br />
@@ -53,13 +50,13 @@ const DirectionServiseForm = ({ onSubmitBuildRoute }) => {
             disabled
 
           />
-        </div>
+        </div> */}
         <button
           className={styles.button}
           type="button"
           onClick={() => onSubmitBuildRoute(travelMode, origin, destination)}
         >
-          {t('Построить маршрут')}
+          {t('contactPage.directionServiseForm.build_route')}
         </button>
       </div>
 

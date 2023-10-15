@@ -35,7 +35,7 @@ const OrderList = observer(() => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>{t('Ваш заказ')}:</h2>
+      <h2 className={styles.title}>{t('orderPage.orderList.yours_order')} </h2>
       <ul className={styles.orderList}>
         {cartProducts?.map(product => (
           <OrderItem key={product.id} product={product} />
@@ -43,7 +43,9 @@ const OrderList = observer(() => {
       </ul>
       {cartProducts.length > 0 && (
         <div className={styles.wripper}>
-          <p className={styles.total}>{t('Общая стоимость')} - {totalPrice} {t('грн')} </p>
+          <p className={styles.total}>
+            {t('orderPage.orderList.total_price')} - {totalPrice} {t('orderPage.orderList.uan')}
+          </p>
         </div>
       )}
     </div>

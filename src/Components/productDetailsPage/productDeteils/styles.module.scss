@@ -2,12 +2,10 @@
 
 .container {
   width: 100%;
-  padding: 20px;
 
   .goBack {
     width: 100px;
     height: 40px;
-    margin-bottom: 20px;
     color: white;
     border-radius: 7px;
   }
@@ -21,6 +19,7 @@
     .imageWrapper {
       display: flex;
       justify-content: center;
+      align-items: center;
       padding: 0px;
 
       .sliderContainer {
@@ -54,13 +53,13 @@
       padding: 20px;
 
       .title {
+        margin-bottom: 20px;
         font-size: 25px;
-        font-weight: 650;
+        font-weight: 700;
       }
       .raitWripper {
         display: flex;
         justify-content: left;
-        align-items: center;
 
         .rating {
           margin-right: 10px;
@@ -92,18 +91,23 @@
       }
       .description {
         margin-bottom: 20px;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 500;
+
+        .text {
+          font-size: 18px;
+          font-weight: 400;
+        }
       }
       .price {
         margin-bottom: 20px;
-        font-size: 20px;
-        font-weight: 500;
+        font-size: 22px;
+        font-weight: 700;
         color: $brandBgColor;
 
         .sale {
           margin-left: 10px;
-          font-size: 22px;
+          font-size: 20px;
           text-decoration: line-through 2px solid #dc143c;
           color: grey;
         }
@@ -195,7 +199,6 @@
       font-size: 25px;
       font-weight: 700;
       text-align: center;
-      text-decoration: underline;
     }
     .list {
       display: flex;

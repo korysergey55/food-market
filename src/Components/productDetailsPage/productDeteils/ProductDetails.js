@@ -12,10 +12,10 @@ import { settings } from '../../../utils/sliderSettings'
 import PhotoList from './photoList/PhotoList'
 import ProductItem from '../../productsPage/products/productList/productItem/productItem'
 import StarList from '../../../containers/Reuseble/starList/StarList'
-import defaultPhoto from '../../../sourses/images/defaultPhoto.png'
 
 import styles from './styles.module.scss'
 import classnames from 'classnames'
+import defaultPhoto from '../../../sourses/images/defaultPhoto.png'
 import { Button } from 'antd'
 
 const ProductItemDetails = observer(() => {
@@ -45,7 +45,7 @@ const ProductItemDetails = observer(() => {
   useEffect(() => {
     productById && setDiscriptionText(productById.fullDescription)
     setActiveItem('fullDescription')
-  }, [])
+  }, [productById])
 
   const onChangeDiscription = text => {
     setDiscriptionText(text)
@@ -84,45 +84,53 @@ const ProductItemDetails = observer(() => {
   return productById ? (
     <div className={styles.container}>
       <Button className={styles.goBack} type="primary" onClick={goBack}>
-        {t('Назад')}
+        {t('productDatailsPage.go_beck')}
       </Button>
       <div className={styles.content}>
         <div className={styles.imageWrapper}>
           {productById.images && (
             <ul className={styles.sliderContainer}>
               {/* <Slider {...settings} className={styles.sliderList}> */}
-              {productById.images?.map(item => (
-                <PhotoList item={item} changePhoto={changePhoto} key={item} />
+              {productById.images?.map((item, index) => (
+                <PhotoList item={item} changePhoto={changePhoto} key={index} />
               ))}
               {/* </Slider> */}
             </ul>
           )}
           <img
             src={photo ? photo : (productById?.image ? productById.image : defaultPhoto)}
-            alt="productImg"
+            alt="product imgage"
             className={styles.img}
           />
         </div>
 
         <div className={styles.wripper}>
           <h3 className={styles.title}>{productById.name}</h3>
-          <p className={styles.code}>{t('Код продукта')}: {productById.code}</p>
+          <p className={styles.description}>{t('productDatailsPage.code_of_product')}:
+            <span className={styles.text}> {productById.id}</span>
+          </p>
           <div className={styles.raitWripper}>
-            <p className={styles.rating}>{t('Рейтинг')}:</p>
+            <p className={styles.description}>{t('productDatailsPage.rating_scale')}:</p>
             <StarList />
           </div>
-          <p className={styles.description}>{productById.description}</p>
-          <p className={styles.description}>
-            {t('Производитель')}: {productById.manufactur} {productById.brand}
+          <p className={styles.description}>{t('productDatailsPage.description')}:
+            <span className={styles.text}> {productById.description}</span>
           </p>
           <p className={styles.description}>
-            {t('Вес')}: {productById.weight} {t('гр.')}
+            {t('productDatailsPage.manufacturer')}:
+            <span className={styles.text}> {productById.manufactur} {productById.brand}</span>
+          </p>
+          <p className={styles.description}>
+            {t('productDatailsPage.weight')}:
+            <span className={styles.text}> {productById.weight}</span>
           </p>
           <p className={styles.price}>
-            {productById.price}грн
+            {productById.price} {t('productDatailsPage.uan')}
             {productById.discount ?
               <span className={styles.sale}>
-                {productById.price + productById.price * Number(productById.discount / 100)}грн</span>
+                {productById.price + productById.price * Number(productById.discount / 100)}
+                {t('productDatailsPage.uan')}
+              </span>
               : null}
           </p>
           <div className={styles.btnContainer}>
@@ -149,7 +157,7 @@ const ProductItemDetails = observer(() => {
             onClick={() => addProductToCart(productById.id)}
             className={styles.addToCart}
           >
-            {t('В корзину')}
+            {t('productDatailsPage.add_to_cart')}
           </button>
         </div>
 
@@ -165,7 +173,7 @@ const ProductItemDetails = observer(() => {
                 setActiveItem('fullDescription')
               }}
             >
-              {t('Описание')}
+              {t('productDatailsPage.description')}
             </li>
             <li
               className={classnames({
@@ -179,7 +187,7 @@ const ProductItemDetails = observer(() => {
                 setActiveItem('AdditionalInformation')
               }}
             >
-              {t('Дополнительная информация')}
+              {t('productDatailsPage.additional_information')}
             </li>
             <li
               className={classnames({
@@ -191,7 +199,7 @@ const ProductItemDetails = observer(() => {
                 setActiveItem('Reviews')
               }}
             >
-              {t('Отзывы')}
+              {t('productDatailsPage.reviews')}
             </li>
           </ul>
           {discriptionText && <p className={styles.text}>{discriptionText}</p>}
@@ -200,7 +208,7 @@ const ProductItemDetails = observer(() => {
 
       {viewedProducts.length > 0 ? (
         <div className={styles.viewedContainer}>
-          <h2 className={styles.title}>{t('Просмотренные товары')}</h2>
+          <h2 className={styles.title}>{t('productDatailsPage.viewed_products')}</h2>
           <ul className={styles.list}>
             {viewedProducts.map((item, index) => (
               <ProductItem product={item} key={index} />

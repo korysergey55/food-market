@@ -48,7 +48,7 @@
     "enter_yours_email": "Enter Yours email",
     "subscribe": "Підписатися"
   },
-  "products_page": {
+  "productsPage": {
     "category_of_goods": "Категорії товарів",
     "search_product": "Пошук товару",
     "search": "Пошук",
@@ -65,7 +65,109 @@
       "country_of_manufacture": "Країна виробник",
       "packaging": "Упаковка",
       "apply": "Застосувати"
+    },
+    "productList": {
+      "there_are_no_products_for_this_search": "Немає продуктів по цього пошуку"
+    },
+    "productItem": {
+      "uan": "грн",
+      "buy": "Купити"
     }
+  },
+  "productDatailsPage": {
+    "go_beck": "Назад",
+    "code_of_product": "Код продукта",
+    "rating_scale": "Рейтинг",
+    "manufacturer": "Виробник",
+    "weight": "Вага",
+    "uan": "грн",
+    "add_to_cart": "В корзину",
+    "description": "Опис",
+    "additional_information": "Додаткова інформація",
+    "reviews": "Відгуки",
+    "viewed_products": "Переглянуті товари"
+  },
+  "contactPage": {
+    "directionServiseForm": {
+      "build_route": "Побудувати маршрут",
+      "enter_location": "введіть локацію"
+    },
+    "reach_us": "Контакти",
+    "contactInfo": {
+      "schedule": "Розклад",
+      "phones": "Телефони",
+      "email": "Почта",
+      "call": "Позвонити",
+      "mon_fri": "пн-пт",
+      "sat": "сб",
+      "sun": "нд",
+      "day_off": "вихідний"
+    }
+  },
+  "cart": {
+    "cart": "Корзина",
+    "uan": "грн",
+    "make_order": "Зробити замовлення",
+    "cart_is_empty": "Корзина пуста"
+  },
+  "orderPage": {
+    "making_order": "Оформлення замовлення",
+    "create_order": "Оформити замовлення",
+    "orderForm": {
+      "your_order": "Ваше замовлення",
+      "total_price": "Загальна вартість",
+      "create_order": "Оформити замовлення",
+      "contact_information": "Контактна інформація",
+      "name": "Ім´я",
+      "phone": "Телефон",
+      "comments": "Коментар",
+      "email": "Почта",
+      "delivery": "Доставка",
+      "city": "Місто",
+      "express_delivery": "Курьєрська доставка",
+      "new_mail": "Нова пошта",
+      "pickup_from_the_store": "Забрати з магазину",
+      "paymant": "Оплата",
+      "payment_upon_receipt": "Оплата при отриманні",
+      "card_payment": "Оплата на катру",
+      "pay_now": "Оплатити зараз",
+      "is_required": "Обовязкове поле",
+      "enter_yours_name_please": "Введіть ваше ім'я будь ласка",
+      "enter_yours_phone_number_please": "Введіть ваш номер телефона будь ласка",
+      "enter_yours_city_please": "Введіть ваше місто будь ласка",
+      "enter_yours_email_please": "Введіть ваш email будь ласка",
+      "enter_valid_email_please": "Введіть валідний email будь ласка"
+    },
+    "orderList": {
+      "yours_order": "Ваше замовлення",
+      "total_price": "Загальна вартість",
+      "uan": "грн"
+    },
+    "orderItem": {
+      "pcs": "шт",
+      "uan": "грн"
+    }
+  },
+  "favoritePage": {
+    "my_favorite_products": "Мої улюбленні товари",
+    "no_added_products": "Немає доданих товарів"
+  },
+  "loginPage": {
+    "name": "Ім'я",
+    "sign_in": "Вхід",
+    "registration": "Регістрація",
+    "enter_your_name_please": "Введіть Ваше ім'я будь ласка",
+    "enter_your_email_please": "Введіть Ваш email будь ласка",
+    "enter_your_password_please": "Введіть пароль будь ласка",
+    "forgot_password": "Забули пароль",
+    "remember_me": "Запам'ятати мене",
+    "confirm": "Підтвердити"
+  },
+  "resetPasswordPage": {
+    "reset_password_form": "Форма для сбросу пароля",
+    "enter_your_email_please": "Введіть ваш email будь ласка",
+    "enter_valid_email_please": "Введіть валідний email будь ласка",
+    "reset_password": "Скинути пароль"
   },
   "footer": {
     "contacts": "Контакти",

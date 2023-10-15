@@ -40,6 +40,10 @@ const ProductsPage = observer(() => {
     ProductsStore.filterProducts('')
   }, [location.pathname])
 
+  useEffect(() => {
+    setShowFilters(false)
+  }, [location.pathname])
+
   const onChangeSearch = evt => {
     const { value } = evt.target
     setSearchValue(value)
@@ -62,12 +66,14 @@ const ProductsPage = observer(() => {
   return (
     <div className={styles.productPage}>
       <div className={styles.container}>
-        <h2
-          className={styles.title}
-          onClick={() => history.push(match.path + '/all')}
-        >
-          {t('products_page.category_of_goods')}
-        </h2 >
+        {location.pathname === '/products/all' ?
+          <h2
+            className={styles.title}
+            onClick={() => history.push(match.path + '/all')}
+          >
+            {t('productsPage.category_of_goods')}
+          </h2 >
+          : null}
         {location.pathname !== '/products/all' ?
           <div className={styles.filterWripper}>
             <FontAwesomeIcon
@@ -79,12 +85,12 @@ const ProductsPage = observer(() => {
             />
             <Search
               className={styles.search}
-              placeholder={t("products_page.search_product")}
+              placeholder={t("productsPage.search_product")}
               value={search}
               onChange={evt => onChangeSearch(evt)}
               onSearch={onSearch}
               size="large"
-              enterButton={t("products_page.search")}
+              enterButton={t("productsPage.search")}
             />
           </div> : null}
         <div className={styles.wripper}>

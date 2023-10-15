@@ -11,7 +11,7 @@
 
     .btnContainer {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       margin-bottom: 20px;
 
@@ -34,7 +34,7 @@
       margin: 0 auto;
       margin-bottom: 10px;
       font-weight: 600;
-      text-align: center;
+      // text-align: center;
       color: #1890ff;
 
       &:hover {

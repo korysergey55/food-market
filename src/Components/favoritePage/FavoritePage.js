@@ -30,11 +30,11 @@ const FavoritePage = observer(() => {
 
 
   return (<div className={styles.likesPage}>
-    <h2 className={styles.title}>{t('Мои любимые продукты')}</h2>
+    <h2 className={styles.title}>{t('favoritePage.my_favorite_products')}</h2>
     <ul className={styles.list}>
       {favoriteProducts.length ? (favoriteProducts?.map(product => (
         <ProductItem key={product.id} product={product} />
-      ))) : (<Empty description={t('Нет добавленних продуктов')} />)}
+      ))) : (<Empty description={t('favoritePage.no_added_products')} />)}
     </ul>
   </div>
   );
