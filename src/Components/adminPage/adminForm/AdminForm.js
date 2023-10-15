@@ -151,7 +151,7 @@ const AdminForm = observer(() => {
 
   return (
     <div className={styles.formWripper}>
-      <h2 className={styles.title}>{t('Панель Администратора')}</h2>
+      <h2 className={styles.title}>{t('administrator_panel')}</h2>
 
       <Form
         name="basic"

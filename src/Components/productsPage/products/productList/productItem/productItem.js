@@ -56,9 +56,7 @@ const ProductItem = observer(({ product }) => {
     <li className={styles.item}>
       {product && (
         <div className={styles.content}>
-          {product.discount ? (
-            <p className={styles.discount}> - {product.discount} %</p>
-          ) : null}
+          {product.discount ? (<p className={styles.discount}> - {product.discount} %</p>) : null}
           <a
             className={classnames({
               [styles.like]: true,
@@ -75,9 +73,9 @@ const ProductItem = observer(({ product }) => {
           </a>
           <div className={styles.imgWrapper} onClick={openDetails}>
             <img
+              className={styles.img}
               src={product.image ? product.image : defaultPhoto}
               alt={product.name}
-              className={styles.img}
             />
           </div>
           <h3 className={styles.title}>{product.name}</h3>

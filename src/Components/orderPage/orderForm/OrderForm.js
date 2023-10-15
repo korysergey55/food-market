@@ -5,7 +5,7 @@ import { observer } from 'mobx-react'
 import { useTranslation } from 'react-i18next';
 
 import styles from './styles.module.scss'
-import { Form, Input, Button, Row, Col, Radio, Space, } from 'antd'
+import { Form, Input, Row, Col, Radio, Space, } from 'antd'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faTruck,
@@ -16,7 +16,7 @@ import {
 
 const OrderForm = observer(() => {
   const { ProductsStore, AuthStore } = useStore()
-  const { cart, cartProducts, totalPrice } = ProductsStore
+  const { cartProducts, totalPrice } = ProductsStore
   const { t } = useTranslation();
   const [form] = Form.useForm()
 
@@ -223,14 +223,6 @@ const OrderForm = observer(() => {
         </Radio.Group>
         <Form.Item>
         </Form.Item>
-        {/* <Button
-          className={styles.button}
-          type="primary"
-          htmlType="submit"
-          form="order-form"
-        >
-          {t('Оформить заказ')}
-        </Button> */}
       </Form>
     </div>
   )

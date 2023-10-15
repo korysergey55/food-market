@@ -178,5 +178,6 @@
     "send_email": "Відправити лист",
     "popular_products": "Популярні товари",
     "goods": "Товари"
-  }
+  },
+  "administrator_panel": "Панель адміністратора"
 }

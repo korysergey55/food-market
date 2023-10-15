@@ -49,13 +49,6 @@
     "enter_yours_email": "Enter Yours email",
     "subscribe": "Subscribe"
   },
-  "Вход": "Sign in",
-  "Регистрация": "Registration",
-  "Забыли пароль?": "Forgot your password?",
-  "Запомнить меня": "Remember me",
-  "Подтвердить": "Confirm",
-  "Вход c помощью": "Sign in with",
-  "Панель Администратора": "Administrator Panel",
   "productsPage": {
     "category_of_goods": "Category of goods",
     "search_product": "Search product",
@@ -186,5 +179,6 @@
     "send_email": "Send email",
     "popular_products": "Popular products",
     "goods": "Goods"
-  }
+  },
+  "administrator_panel": "Administrator Panel"
 }
