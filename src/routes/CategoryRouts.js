@@ -8,13 +8,13 @@ const CategoryRouts = () => {
 
   return (
     <Switch>
-      {categoryRoutesArr.map(({ name, category, path, exact, component: MyComponent }) => (
+      {categoryRoutesArr.map(({ name, category, path, exact, component: MyComponent }, index) => (
         <Route
           name={name}
-          key={uuidv4()}
+          key={index}
           path={match.path + path}
           exact={exact}
-          render={() => <MyComponent category={category} />}
+          render={() => <MyComponent category={category} key={index} />}
         />
       ))}
     </Switch>

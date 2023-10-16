@@ -1,13 +1,4 @@
-import {
-  makeAutoObservable,
-  observable,
-  action,
-  reaction,
-  toJS,
-  configure,
-  computed,
-  runInAction,
-} from 'mobx'
+import { makeAutoObservable, observable, action, reaction, toJS, configure, computed, runInAction } from 'mobx'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
@@ -34,16 +25,12 @@ class ProductsStore {
   @observable manufactur: string[] = [...manufacturJSON]
   @observable packing: string[] = [...packingJSON]
 
-  @observable cart: any = localStorage.getItem('cart')
-    ? JSON.parse(localStorage.getItem('cart'))
-    : []
+  @observable cart: any = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
   @observable cartProducts: any = []
   @observable totalPrice: number = 0
   @observable orderData: any = {}
 
-  @observable favoriteItems: any = localStorage.getItem('favorite')
-    ? JSON.parse(localStorage.getItem('favorite'))
-    : []
+  @observable favoriteItems: any = localStorage.getItem('favorite') ? JSON.parse(localStorage.getItem('favorite')) : []
   @observable favoriteProducts: any = []
   @observable viewedProducts: any = []
 
@@ -95,22 +82,22 @@ class ProductsStore {
 
   @action filterProducts(data: any) {
     const dataProducts = data.toLowerCase().trim()
-    const filtered = this.products.filter((item: any) =>
-      item.name.toLowerCase().trim().includes(dataProducts)
-    )
+    const filtered = this.products.filter((item: any) => item.name.toLowerCase().trim().includes(dataProducts))
     this.filteredProducts = filtered
   }
 
   @action setViewedProducts(id: string) {
     const newProduct = this.products.find((item: any) => item.id === id)
-    const undublicate = this.viewedProducts?.filter(
-      (item: any) => item?.id !== newProduct?.id
-    )
+    const undublicate = this.viewedProducts?.filter((item: any) => item?.id !== newProduct?.id)
     this.viewedProducts = [...undublicate, newProduct]
   }
 
   @action setEditedProduct(id: any) {
     this.editedProduct = this.products.find((item: any) => item.id === id)
+  }
+
+  @action resetEditedProduct() {
+    this.editedProduct = null
   }
 
   //Filters
@@ -125,30 +112,22 @@ class ProductsStore {
   }
 
   @action filterByPrice(data: any) {
-    const sortedProducts = this.products.filter(
-      (item: any) => item.price >= data[0] && item.price <= data[1]
-    )
+    const sortedProducts = this.products.filter((item: any) => item.price >= data[0] && item.price <= data[1])
     this.filteredProducts = sortedProducts
   }
 
   @action filterByBrand(data: any) {
-    const sortedProducts = this.products.filter((item: any) =>
-      item.brand.includes(data)
-    )
+    const sortedProducts = this.products.filter((item: any) => item.brand.includes(data))
     this.filteredProducts = sortedProducts
   }
 
   @action filterByManufactur(data: any) {
-    const sortedProducts = this.products.filter((item: any) =>
-      item.manufactur.includes(data)
-    )
+    const sortedProducts = this.products.filter((item: any) => item.manufactur.includes(data))
     this.filteredProducts = sortedProducts
   }
 
   @action filterByPacking(data: any) {
-    const sortedProducts = this.products.filter((item: any) =>
-      item.weight.includes(data)
-    )
+    const sortedProducts = this.products.filter((item: any) => item.weight.includes(data))
     this.filteredProducts = sortedProducts
   }
 
@@ -162,7 +141,7 @@ class ProductsStore {
     localStorage.setItem('cart', JSON.stringify(this.cart))
 
     notification &&
-      toast.success('Товар добавлен в Корзину!', {
+      toast.success('Product was added to cart', {
         theme: 'colored',
       })
   }
@@ -171,7 +150,7 @@ class ProductsStore {
     this.cart = this.cart.filter((cartItem: any) => cartItem !== id)
     localStorage.setItem('cart', JSON.stringify(this.cart))
 
-    toast.info('Товар удален из Корзины!', {
+    toast.info('The product has been removed from the cart', {
       theme: 'colored',
     })
   }
@@ -244,7 +223,7 @@ class ProductsStore {
     }
   }
 
-  @action createProductAPI = async (category: any, newProduct: any) => {
+  @action createProductAPI = async (newProduct: any) => {
     try {
       const response = await axios.post(baseURL + `products/.json`, newProduct)
       if (response && response.status === 200) {
@@ -255,6 +234,22 @@ class ProductsStore {
       // if (response && response.status === 200) {
       //   this.addProductImageAPI(response.data.name)
       // }
+      return response
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  @action editProductAPI = async (product: any, id: string) => {
+    // console.log(product)
+    // console.log(id)
+    try {
+      const response = await axios.patch(baseURL + `products/${id}.json`, product)
+      if (response && response.status === 200) {
+        toast.success('Product was edited in the Database!', {
+          theme: 'colored',
+        })
+      }
       return response
     } catch (error) {
       console.log(error)
@@ -296,7 +291,7 @@ class ProductsStore {
       if (response && response.status === 200) {
         this.resetCartProducts()
         localStorage.setItem('cart', JSON.stringify(''))
-        toast.success('Ваш заказ оформлен!', {
+        toast.success('Your order has been placed!', {
           theme: 'colored',
         })
       }

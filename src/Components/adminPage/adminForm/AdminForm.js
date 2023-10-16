@@ -55,8 +55,13 @@ const AdminForm = observer(() => {
 
   useEffect(() => {
     if (editedProduct) setState(toJS(editedProduct))
+
+    form.setFieldsValue({
+      ...editedProduct
+    });
   }, [editedProduct])
-  console.log("🚀 ~ file: AdminForm.js:60 ~ AdminForm ~ state:", state)
+
+  console.log(toJS(editedProduct))
 
   // useEffect(() => {
   //   setState((prev) => ({ ...prev, images: [...state.images, state.image] }))
@@ -128,7 +133,6 @@ const AdminForm = observer(() => {
       return
     }
     setState((prev) => ({ ...prev, [name]: value }))
-    // console.log("🚀 ~ file: AdminForm.js:132 ~ onChange ~ state:", state)
   }
 
   const onChangeCategory = (value) => {
@@ -137,12 +141,16 @@ const AdminForm = observer(() => {
 
   const onFinish = async (values) => {
     // evt.preventDefault();
-    ProductsStore.setNewProductAction(state)
-    await ProductsStore.createProductAPI(state.category, state)
+    if (!editedProduct) {
+      ProductsStore.setNewProductAction(state)
+      await ProductsStore.createProductAPI(state)
+    }
+    ProductsStore.editProductAPI(state, editedProduct.id)
     setState({ ...initialState });
     setFileList([])
     setFileListArr([])
     form.resetFields()
+    ProductsStore.resetEditedProduct()
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -154,7 +162,9 @@ const AdminForm = observer(() => {
       <h2 className={styles.title}>{t('administrator_panel')}</h2>
 
       <Form
+        form={form}
         name="basic"
+        className={styles.form}
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
         style={{ maxWidth: 600 }}
@@ -162,8 +172,6 @@ const AdminForm = observer(() => {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
-        className={styles.form}
-        form={form}
       >
         <Form.Item
           label="name"
@@ -236,7 +244,7 @@ const AdminForm = observer(() => {
           rules={[{ required: true, message: 'Please input your Product weight!' }]}
         >
           <Input placeholder="Please input your Product weight"
-            type='number'
+            // type='number'
             name="weight"
             value={state.weight}
             onChange={onChange}
@@ -373,7 +381,7 @@ const AdminForm = observer(() => {
           <Button
             type="primary"
             htmlType="submit">
-            Create product
+            {editedProduct ? 'Edit product' : 'Create product'}
           </Button>
         </Form.Item>
       </Form >
