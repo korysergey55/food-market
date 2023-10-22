@@ -8,7 +8,7 @@ const CategoryRouts = () => {
 
   return (
     <Switch>
-      {categoryRoutesArr.map(({ name, category, path, exact, component: MyComponent }, index) => (
+      {categoryRoutesArr?.map(({ name, category, path, exact, component: MyComponent }, index) => (
         <Route
           name={name}
           key={index}

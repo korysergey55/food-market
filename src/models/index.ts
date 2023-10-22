@@ -1,4 +1,4 @@
-export interface IсategoryJSON {
+export interface IcategoryJSON {
   name: string
   img: string
   route: string

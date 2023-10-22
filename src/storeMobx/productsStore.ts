@@ -8,10 +8,10 @@ import { brandsJSON } from '../sourses/dataProduct/brands'
 import { manufacturJSON } from '../sourses/dataProduct/country'
 import { packingJSON } from '../sourses/dataProduct/packing'
 
-import { IсategoryJSON } from '../models/index'
+import { IcategoryJSON } from '../models/index'
 import { IProduct } from '../models/index'
 
-const baseURL = 'https://online-market-8bacd-default-rtdb.firebaseio.com/'
+const baseURL = 'https://online-store-7d637-default-rtdb.firebaseio.com/'
 
 class ProductsStore {
   @observable products: IProduct[] = []
@@ -20,7 +20,7 @@ class ProductsStore {
   @observable productImage: any = {}
   @observable editedProduct: IProduct | null | undefined = null
 
-  @observable сategory: IсategoryJSON[] = [...categoriesJSON]
+  @observable category: IcategoryJSON[] = [...categoriesJSON]
   @observable brands: string[] = [...brandsJSON]
   @observable manufactur: string[] = [...manufacturJSON]
   @observable packing: string[] = [...packingJSON]
@@ -241,8 +241,6 @@ class ProductsStore {
   }
 
   @action editProductAPI = async (product: any, id: string) => {
-    // console.log(product)
-    // console.log(id)
     try {
       const response = await axios.patch(baseURL + `products/${id}.json`, product)
       if (response && response.status === 200) {

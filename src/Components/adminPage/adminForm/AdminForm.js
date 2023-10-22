@@ -54,14 +54,21 @@ const AdminForm = observer(() => {
   const [fileListArr, setFileListArr] = useState([]);
 
   useEffect(() => {
-    if (editedProduct) setState(toJS(editedProduct))
+    if (editedProduct) {
 
-    form.setFieldsValue({
-      ...editedProduct
-    });
+      setState(toJS(editedProduct))
+
+      form.setFieldsValue({
+        ...editedProduct
+      });
+      // setFileList(editedProduct.image)
+      // setFileListArr(...editedProduct.images)
+    }
+
   }, [editedProduct])
 
   console.log(toJS(editedProduct))
+  console.log('state', state)
 
   // useEffect(() => {
   //   setState((prev) => ({ ...prev, images: [...state.images, state.image] }))
@@ -154,7 +161,7 @@ const AdminForm = observer(() => {
   };
 
   const onFinishFailed = (errorInfo) => {
-    // console.log("🚀 ~ file: AdminForm.js:149 ~ onFinishFailed ~ errorInfo:", errorInfo)
+
   };
 
   return (
@@ -359,7 +366,7 @@ const AdminForm = observer(() => {
               // action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
               listType="picture-card"
               fileList={fileListArr}
-              value={[...state.images]}
+              value={fileListArr}
               onChange={onChangeUploadArr}
               onPreview={onPreview}
             >

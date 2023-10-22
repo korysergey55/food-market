@@ -14,7 +14,7 @@ const CategoryList = observer(() => {
   return (
     <div className={styles.containerCategory}>
       <ul className={styles.list}>
-        {ProductsStore.сategory.map((item, index) => (
+        {ProductsStore.category?.map((item, index) => (
           <Card
             className={styles.item}
             hoverable

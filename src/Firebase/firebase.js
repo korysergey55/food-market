@@ -2,18 +2,18 @@ import firebase from 'firebase'
 import { toast } from 'react-toastify'
 import { pathes } from '../utils/pathes'
 
-let configKorySergey = {
+let firebaseConfig = {
   apiKey: process.env.REACT_APP_WEB_API_KEY,
-  authDomain: "online-market-8bacd.firebaseapp.com",
-  databaseURL: "https://online-market-8bacd-default-rtdb.firebaseio.com",
-  projectId: "online-market-8bacd",
-  storageBucket: "online-market-8bacd.appspot.com",
-  messagingSenderId: "207751928645",
-  appId: "1:207751928645:web:96aa8b2226e314976e7c2c",
-  measurementId: "G-M46CWDZ01V"
+  authDomain: "online-store-7d637.firebaseapp.com",
+  databaseURL: "https://online-store-7d637-default-rtdb.firebaseio.com",
+  projectId: "online-store-7d637",
+  storageBucket: "online-store-7d637.appspot.com",
+  messagingSenderId: "317757908043",
+  appId: "1:317757908043:web:6265633d88fafa3ae459ce",
+  measurementId: "G-Q6WYJX89H9"
 }
 
-const app = firebase.initializeApp(configKorySergey)
+const app = firebase.initializeApp(firebaseConfig)
 const auth = app.auth()
 const db = app.firestore()
 auth.languageCode = 'en'
