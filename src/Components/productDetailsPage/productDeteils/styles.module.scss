@@ -22,7 +22,7 @@
       align-items: center;
       padding: 0px;
 
-      .sliderContainer {
+      .gallery {
         display: none;
 
         .scrollBtn {
@@ -157,6 +157,7 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      gap: 10px;
 
       max-width: 850px;
       margin: 0 auto;
@@ -212,20 +213,23 @@
     .content {
       .imageWrapper {
         padding: 20px;
-        .sliderContainer {
+        .gallery {
           display: flex;
           flex-direction: column;
           justify-content: column;
           align-items: center;
+          gap: 10px;
 
-          width: 95px;
+          max-width: 470px;
+          overflow: hidden;
+
           .scrollBtn {
           }
         }
 
         .img {
-          max-width: 500px;
-          min-width: 350px;
+          width: 500px;
+          object-fit: contain;
         }
       }
       .wripper {

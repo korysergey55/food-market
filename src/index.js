@@ -10,6 +10,9 @@ import './sourses/styles/styles.scss'
 
 import 'react-toastify/dist/ReactToastify.css'
 
+import "yet-another-react-lightbox/dist/styles.css";
+
+
 // import 'antd/dist/antd.css'
 
 ReactDOM.render(

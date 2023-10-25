@@ -16,6 +16,15 @@ import StarList from '../../../containers/Reuseble/starList/StarList'
 import styles from './styles.module.scss'
 import classnames from 'classnames'
 import defaultPhoto from '../../../sourses/images/defaultPhoto.png'
+
+import Lightbox from "yet-another-react-lightbox";
+import Captions from "yet-another-react-lightbox/dist/plugins/captions";
+import Fullscreen from "yet-another-react-lightbox/dist/plugins/fullscreen";
+import Slideshow from "yet-another-react-lightbox/dist/plugins/slideshow";
+import Thumbnails from "yet-another-react-lightbox/dist/plugins/thumbnails";
+import Video from "yet-another-react-lightbox/dist/plugins/video";
+import Zoom from "yet-another-react-lightbox/dist/plugins/zoom";
+
 import { Button } from 'antd'
 
 const ProductItemDetails = observer(() => {
@@ -34,6 +43,8 @@ const ProductItemDetails = observer(() => {
   const [activeItem, setActiveItem] = useState('')
   const [discriptionText, setDiscriptionText] = useState('')
   const [counter, setCounter] = useState(1)
+
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     if (productID) {
@@ -89,7 +100,7 @@ const ProductItemDetails = observer(() => {
       <div className={styles.content}>
         <div className={styles.imageWrapper}>
           {productById.images && (
-            <ul className={styles.sliderContainer}>
+            <ul className={styles.gallery}>
               {/* <Slider {...settings} className={styles.sliderList}> */}
               {productById.images?.map((item, index) => (
                 <PhotoList item={item} changePhoto={changePhoto} key={index} />
@@ -97,10 +108,21 @@ const ProductItemDetails = observer(() => {
               {/* </Slider> */}
             </ul>
           )}
+          <Lightbox
+            open={open}
+            close={() => setOpen(false)}
+            plugins={[Captions, Fullscreen, Slideshow, Video, Zoom]}
+            slides={
+              productById?.images?.map((item, index) => (
+                { src: item }
+              ))
+            }>
+          </Lightbox>
           <img
-            src={photo ? photo : (productById?.image ? productById.image : defaultPhoto)}
-            alt="product imgage"
             className={styles.img}
+            src={photo ? photo : (productById?.image ? productById.image : defaultPhoto)}
+            alt={productById.description}
+            onClick={() => setOpen(true)}
           />
         </div>
 

@@ -40,10 +40,10 @@ class ProductsStore {
     //   () => this.products,
     //   _ => console.log('this.products', toJS(this.products))
     // )
-    // reaction(
-    //   () => this.filteredProducts,
-    //   _ => console.log('this.filteredProducts', toJS(this.filteredProducts))
-    // )
+    reaction(
+      () => this.productById,
+      _ => console.log('this.productById', toJS(this.productById))
+    )
     reaction(
       () => this.editedProduct,
       _ => console.log('editedProduct', toJS(this.editedProduct))
