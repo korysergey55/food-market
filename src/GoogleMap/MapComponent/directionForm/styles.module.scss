@@ -25,9 +25,9 @@
       .input {
         width: 200px;
         height: 40px;
+        padding-left: 20px;
         border-radius: 7px;
         border: 2px solid grey;
-        text-align: center;
 
         &:focus {
           border: 2px solid transparent;

@@ -73,7 +73,7 @@ const Cart = observer(() => {
       ) : (
         <>
           <h2 className={styles.titleEmpty}>{t('cart.cart_is_empty')}!</h2>
-          <Empty description={false} />
+          <Empty description={'Time to start shopping!'} />
         </>
       )}
     </div>

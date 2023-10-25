@@ -109,7 +109,7 @@
     "cart": "Cart",
     "uan": "uan",
     "make_order": "Make order",
-    "cart_is_empty": "Cart is empty"
+    "cart_is_empty": "Your cart is empty"
   },
   "orderPage": {
     "making_order": "Making order",
