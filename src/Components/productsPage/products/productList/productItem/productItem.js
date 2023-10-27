@@ -23,15 +23,15 @@ const ProductItem = observer(({ product }) => {
 
   const findFavorite = () => {
     return favoriteItems.find((item) => {
-      if (item === product.id) return true
+      if (item === product?.id) return true
       return false
     })
   }
-  const [activeClass, setActive] = useState(findFavorite())
+  const [activeItem, setActiveItem] = useState(findFavorite())
 
 
   useEffect(() => {
-    if (location.pathname === '/favorite') setActive(true)
+    if (location.pathname === '/favorite') setActiveItem(true)
   }, [])
 
   const bayNow = () => {
@@ -47,9 +47,13 @@ const ProductItem = observer(({ product }) => {
   }
 
   const setLike = () => {
-    setActive(!activeClass)
-    if (!activeClass) { ProductsStore.setFavoriteItemIdAction(product.id) }
-    else { ProductsStore.remuveFavoriteItemAction(product.id) }
+    setActiveItem(!activeItem)
+    if (!activeItem) {
+      ProductsStore.setFavoriteItemIdAction(product.id)
+    }
+    else {
+      ProductsStore.remuveFavoriteItemAction(product.id)
+    }
   }
 
   return (
@@ -60,7 +64,7 @@ const ProductItem = observer(({ product }) => {
           <a
             className={classnames({
               [styles.like]: true,
-              [styles.likeActive]: activeClass,
+              [styles.likeActive]: activeItem,
             })}
             onClick={e => {
               e.preventDefault()

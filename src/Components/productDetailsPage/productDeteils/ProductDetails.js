@@ -13,10 +13,6 @@ import PhotoList from './photoList/PhotoList'
 import ProductItem from '../../productsPage/products/productList/productItem/productItem'
 import StarList from '../../../containers/Reuseble/starList/StarList'
 
-import styles from './styles.module.scss'
-import classnames from 'classnames'
-import defaultPhoto from '../../../sourses/images/defaultPhoto.png'
-
 import Lightbox from "yet-another-react-lightbox";
 import Captions from "yet-another-react-lightbox/dist/plugins/captions";
 import Fullscreen from "yet-another-react-lightbox/dist/plugins/fullscreen";
@@ -25,11 +21,17 @@ import Thumbnails from "yet-another-react-lightbox/dist/plugins/thumbnails";
 import Video from "yet-another-react-lightbox/dist/plugins/video";
 import Zoom from "yet-another-react-lightbox/dist/plugins/zoom";
 
+import styles from './styles.module.scss'
+import classnames from 'classnames'
+import defaultPhoto from '../../../sourses/images/defaultPhoto.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+
 import { Button } from 'antd'
 
 const ProductItemDetails = observer(() => {
   const { ProductsStore } = useStore()
-  const { productById, viewedProducts } = ProductsStore
+  const { productById, viewedProducts, favoriteItems } = ProductsStore
   const { t } = useTranslation();
 
   const history = useHistory()
@@ -44,7 +46,25 @@ const ProductItemDetails = observer(() => {
   const [discriptionText, setDiscriptionText] = useState('')
   const [counter, setCounter] = useState(1)
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpenLightbox] = useState(false);
+
+  const findFavorite = () => {
+    return favoriteItems.find((item) => {
+      if (item === productID) return true
+      return false
+    })
+  }
+  const [activeFavoriteItem, setFavoriteActiveItem] = useState(findFavorite())
+
+  const setFavorite = () => {
+    setFavoriteActiveItem(!activeFavoriteItem)
+    if (!activeFavoriteItem) {
+      ProductsStore.setFavoriteItemIdAction(productID)
+    }
+    else {
+      ProductsStore.remuveFavoriteItemAction(productID)
+    }
+  }
 
   useEffect(() => {
     if (productID) {
@@ -99,6 +119,20 @@ const ProductItemDetails = observer(() => {
       </Button>
       <div className={styles.content}>
         <div className={styles.imageWrapper}>
+          <a
+            className={classnames({
+              [styles.favorite]: true,
+              [styles.favoriteActive]: activeFavoriteItem,
+            })}
+            onClick={e => {
+              e.preventDefault()
+              e.stopPropagation()
+              setFavorite()
+            }}
+            href=""
+          >
+            <FontAwesomeIcon className={styles.icon} icon={faHeart} size="lg" />
+          </a>
           {productById.images && (
             <ul className={styles.gallery}>
               {/* <Slider {...settings} className={styles.sliderList}> */}
@@ -110,10 +144,10 @@ const ProductItemDetails = observer(() => {
           )}
           <Lightbox
             open={open}
-            close={() => setOpen(false)}
+            close={() => setOpenLightbox(false)}
             plugins={[Captions, Fullscreen, Slideshow, Video, Zoom]}
             slides={
-              productById?.images?.map((item, index) => (
+              productById?.images?.map((item) => (
                 { src: item }
               ))
             }>
@@ -122,7 +156,7 @@ const ProductItemDetails = observer(() => {
             className={styles.img}
             src={photo ? photo : (productById?.image ? productById.image : defaultPhoto)}
             alt={productById.description}
-            onClick={() => setOpen(true)}
+            onClick={() => setOpenLightbox(true)}
           />
         </div>
 
