@@ -4,13 +4,13 @@ import { pathes } from '../utils/pathes'
 
 let firebaseConfig = {
   apiKey: process.env.REACT_APP_WEB_API_KEY,
-  authDomain: "online-store-7d637.firebaseapp.com",
-  databaseURL: "https://online-store-7d637-default-rtdb.firebaseio.com",
-  projectId: "online-store-7d637",
-  storageBucket: "online-store-7d637.appspot.com",
-  messagingSenderId: "317757908043",
-  appId: "1:317757908043:web:6265633d88fafa3ae459ce",
-  measurementId: "G-Q6WYJX89H9"
+  authDomain: "food-store-95e48.firebaseapp.com",
+  databaseURL: "https://food-store-95e48-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "food-store-95e48",
+  storageBucket: "food-store-95e48.appspot.com",
+  messagingSenderId: "206942906813",
+  appId: "1:206942906813:web:aee358dcb3f5c767c40ad4",
+  measurementId: "G-VEH0QEZSBJ"
 }
 
 const app = firebase.initializeApp(firebaseConfig)

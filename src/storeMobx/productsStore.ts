@@ -11,7 +11,7 @@ import { packingJSON } from '../sourses/dataProduct/packing'
 import { IcategoryJSON } from '../models/index'
 import { IProduct } from '../models/index'
 
-const baseURL = 'https://online-store-7d637-default-rtdb.firebaseio.com/'
+const baseURL = 'https://food-store-95e48-default-rtdb.europe-west1.firebasedatabase.app/'
 
 class ProductsStore {
   @observable products: IProduct[] = []
@@ -198,6 +198,9 @@ class ProductsStore {
   @action getAllProductsAPI = async () => {
     try {
       const response = await axios.get(baseURL + `products/.json`)
+      if (!response || response.statusText !== 'OK') {
+        throw new Error()
+      }
       let newProducts = []
       for (const [key, value] of Object.entries(response.data)) {
         let ubdetedProduct: any = value
