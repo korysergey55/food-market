@@ -1,0 +1,56 @@
+.customersSaying {
+  padding: 40px 0px;
+}
+.customersSaying .container {
+  display: block;
+  width: 100%;
+  max-width: 1112px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.customersSaying .container .title {
+  margin-bottom: 48px;
+  font-size: 45px;
+  font-weight: 500;
+  text-align: center;
+  color: #252932;
+}
+.customersSaying .container .wripper {
+  margin-bottom: 20px;
+}
+.customersSaying .container .wripper .list {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+.customersSaying .container .wripper .list .item {
+  max-width: 500px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  padding: 40px;
+  border-top: 3px solid #1890ff;
+  background-color: #f6fafb;
+}
+.customersSaying .container .wripper .list .item .text {
+  margin-bottom: 20px;
+  font-family: Barlow;
+  font-size: 23px;
+  font-style: italic;
+  text-align: left;
+  color: #6c6c6c;
+}
+.customersSaying .container .wripper .list .item .userName {
+  display: inline-block;
+  margin-right: 12px;
+  font-size: 22px;
+  font-weight: 500;
+}
+.customersSaying .container .wripper .list .item .userCompany {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1890ff;
+}/*# sourceMappingURL=styles.module.css.map */

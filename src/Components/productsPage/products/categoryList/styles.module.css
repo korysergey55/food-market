@@ -1,0 +1,32 @@
+.containerCategory {
+  width: 100%;
+  padding: 10px;
+}
+.containerCategory .title {
+  display: block;
+  margin: 0 auto;
+  font-size: 25px;
+  font-weight: 500;
+  align-items: center;
+}
+.containerCategory .list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.containerCategory .list .item {
+  width: 250px;
+  height: 320px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.containerCategory .list .item .img {
+  width: 250px;
+  height: 250px;
+}
+.containerCategory .list .item .titleCard {
+  text-align: center;
+  font-weight: 600;
+  font-size: 25px;
+}/*# sourceMappingURL=styles.module.css.map */

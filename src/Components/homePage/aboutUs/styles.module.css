@@ -1,0 +1,89 @@
+.aboutUs {
+  position: relative;
+  width: 100%;
+  background-image: url(../../../sourses/images/homePage/aboutUs/baner.jpeg);
+  background-repeat: no-repeat;
+  background-color: #f6fafb;
+  overflow: hidden;
+}
+.aboutUs .container {
+  display: block;
+  width: 100%;
+  max-width: 767px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.aboutUs .container .wripper {
+  margin-right: 0;
+  margin-left: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-top: 3px solid #9fcb22;
+}
+.aboutUs .container .wripper .subtitle {
+  font-size: 25px;
+  font-weight: 700;
+  text-align: left;
+  color: #9fcb22;
+  text-align: center;
+}
+.aboutUs .container .wripper .title {
+  margin-bottom: 20px;
+  font-size: 23px;
+  font-weight: 600;
+  color: #252932;
+  text-align: center;
+}
+.aboutUs .container .wripper .text {
+  margin-bottom: 15px;
+  font-family: Barlow;
+  font-size: 20px;
+  font-weight: 300px;
+  line-height: 32px;
+  text-align: left;
+  color: #6c6c6c;
+}
+.aboutUs .container .wripper .button {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  font-family: Barlow;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 768px) {
+  .aboutUs {
+    margin-right: 0;
+  }
+  .aboutUs .container {
+    max-width: 1280px;
+  }
+  .aboutUs .container .wripper {
+    width: 610px;
+    margin-top: 120px;
+    margin-bottom: 20px;
+    padding: 65px 40px 40px 65px;
+  }
+  .aboutUs .container .wripper .subtitle {
+    text-align: left;
+  }
+  .aboutUs .container .wripper .title {
+    width: 411px;
+    font-size: 45px;
+    line-height: 51px;
+    text-align: left;
+  }
+  .aboutUs .container .wripper .text {
+    margin-bottom: 35px;
+  }
+  .aboutUs .container .wripper .button {
+    width: 175px;
+    height: 53px;
+    margin-left: 0;
+  }
+}/*# sourceMappingURL=styles.module.css.map */

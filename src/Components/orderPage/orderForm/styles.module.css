@@ -1,0 +1,62 @@
+.orderForm {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  border-radius: 7px;
+  background-color: #f6fafb;
+}
+.orderForm .form {
+  display: flex;
+  flex-direction: column;
+}
+.orderForm .title {
+  margin-bottom: 25px;
+  font-size: 20px;
+  font-weight: 550;
+  color: #252932;
+}
+
+.input {
+  max-width: 316px;
+  height: 40px;
+  font-family: Barlow;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.radio {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.textarea {
+  width: 100%;
+  max-height: 120px;
+  margin-bottom: 20px;
+  font-family: Barlow;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 28px;
+  resize: none;
+  color: #6c6c6c;
+}
+
+.button {
+  width: 175px;
+  height: 40px;
+  margin: 20px auto;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: none;
+}
+
+.inputWripper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}/*# sourceMappingURL=styles.module.css.map */

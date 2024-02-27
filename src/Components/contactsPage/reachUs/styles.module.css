@@ -1,0 +1,77 @@
+.wripper {
+  width: 100%;
+}
+.wripper .reachUs {
+  margin-bottom: 10px;
+  padding: 15px 10px;
+  font-family: Barlow;
+  background-color: #1890ff;
+}
+.wripper .reachUs .title {
+  margin-bottom: 0;
+  font-size: 45px;
+  font-weight: 500;
+  text-align: center;
+  color: #f6fafb;
+}
+.wripper .reachUs .list {
+  margin: 20px 0;
+}
+.wripper .reachUs .list .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.wripper .reachUs .list .item .link {
+  display: block;
+  min-width: 50px;
+}
+.wripper .reachUs .list .item .link .icon {
+  display: block;
+  margin: 0 auto;
+}
+.wripper .reachUs .list .item .liContainer {
+  width: 190px;
+  margin-left: 20px;
+}
+.wripper .reachUs .list .item .liContainer .subtitle {
+  margin-bottom: 10px;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 32px;
+  text-align: left;
+  color: #f6fafb;
+}
+.wripper .reachUs .list .item .liContainer .text {
+  display: block;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: left;
+  color: #f6fafb;
+}
+
+@media screen and (min-width: 768px) {
+  .wripper .reachUs .list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .wripper {
+    max-width: 400px;
+  }
+  .wripper .reachUs {
+    min-height: 530px;
+    margin-bottom: 0;
+    padding: 25px 25px;
+  }
+  .wripper .reachUs .title {
+    margin-bottom: 40px;
+  }
+  .wripper .reachUs .list {
+    margin: 40px 0;
+  }
+}/*# sourceMappingURL=styles.module.css.map */

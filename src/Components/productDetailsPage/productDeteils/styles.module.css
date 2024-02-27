@@ -1,0 +1,238 @@
+.container {
+  width: 100%;
+}
+.container .goBack {
+  width: 100px;
+  height: 40px;
+  color: white;
+  border-radius: 7px;
+}
+.container .content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 0 40px 0;
+}
+.container .content .imageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0px;
+}
+.container .content .imageWrapper .gallery {
+  display: none;
+}
+.container .content .imageWrapper .gallery .scrollBtn {
+  width: 95px;
+  height: 30px;
+  margin-bottom: 17px;
+}
+.container .content .imageWrapper .gallery .scrollBtn .icon {
+  color: #ffffff;
+}
+.container .content .imageWrapper .gallery .scrollBtn:hover {
+  cursor: pointer;
+}
+.container .content .imageWrapper .img {
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  max-height: 450px;
+}
+.container .content .imageWrapper .favorite {
+  position: absolute;
+  top: 1%;
+  left: 87%;
+  z-index: 5;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: background-color 450ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 450ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.container .content .imageWrapper .favorite:hover .icon {
+  color: rgb(255, 217, 4);
+}
+.container .content .imageWrapper .favorite .icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 5px;
+  color: rgb(192, 192, 192);
+}
+.container .content .imageWrapper .favoriteActive .icon {
+  color: rgb(255, 217, 4);
+}
+.container .content .wripper {
+  max-width: 500px;
+  height: 100%;
+  margin-top: 20px;
+  padding: 20px;
+}
+.container .content .wripper .title {
+  margin-bottom: 20px;
+  font-size: 25px;
+  font-weight: 700;
+}
+.container .content .wripper .raitWripper {
+  display: flex;
+  justify-content: left;
+}
+.container .content .wripper .raitWripper .rating {
+  margin-right: 10px;
+}
+.container .content .wripper .colorsWripper {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.container .content .wripper .colorsWripper .colors {
+  margin-right: 10px;
+}
+.container .content .wripper .colorsWripper .colorList {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-bottom: 10px;
+}
+.container .content .wripper .colorsWripper .colorList .colorItem {
+  display: block;
+  min-width: 15px;
+  min-height: 15px;
+  margin-right: 10px;
+  background-color: #1677ff;
+}
+.container .content .wripper .description {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.container .content .wripper .description .text {
+  font-size: 18px;
+  font-weight: 400;
+}
+.container .content .wripper .price {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1890ff;
+}
+.container .content .wripper .price .sale {
+  margin-left: 10px;
+  font-size: 20px;
+  -webkit-text-decoration: line-through 2px solid #dc143c;
+          text-decoration: line-through 2px solid #dc143c;
+  color: grey;
+}
+.container .content .addToCart {
+  width: 150px;
+  margin-right: 10px;
+  border-radius: 7px;
+  color: white;
+  background-color: #32c220;
+  border: none;
+}
+.container .content .btnContainer {
+  display: block;
+  margin-left: 0;
+  margin-bottom: 20px;
+}
+.container .content .btnContainer .btn {
+  width: 43px;
+  height: 43px;
+  margin: 0 5px;
+  border: 1px solid #deecf0;
+  background-color: #f6fafb;
+  color: black;
+}
+.container .content .btnContainer .btn:hover {
+  cursor: pointer;
+}
+.container .content .btnContainer .value {
+  display: inline-block;
+  width: 70px;
+  height: 43px;
+  margin-bottom: 0;
+  border: 1px solid #deecf0;
+  background-color: #f6fafb;
+  color: black;
+}
+.container .aboutProduct {
+  margin-top: 40px;
+}
+.container .aboutProduct .list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 850px;
+  margin: 0 auto;
+}
+.container .aboutProduct .list .item {
+  padding-bottom: 22px;
+  font-size: 22px;
+  font-weight: 500;
+  color: #252932;
+}
+.container .aboutProduct .list .item:hover {
+  cursor: pointer;
+}
+.container .aboutProduct .list .active {
+  padding-bottom: 20px;
+  font-size: 22px;
+  font-weight: 500;
+  color: #252932;
+  border-bottom: 3px solid #1890ff;
+}
+.container .aboutProduct .text {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 0;
+  font-size: 25px;
+  font-weight: 300;
+  color: #6c6c6c;
+}
+.container .viewedContainer .title {
+  margin-bottom: 40px;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+}
+.container .viewedContainer .list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .container .content .imageWrapper {
+    padding: 20px;
+  }
+  .container .content .imageWrapper .gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: column;
+    align-items: center;
+    gap: 10px;
+    max-width: 470px;
+    overflow: hidden;
+  }
+  .container .content .imageWrapper .img {
+    width: 500px;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .container .content .btnContainer .btn:hover {
+    cursor: pointer;
+  }
+  .container .aboutProduct .list .item {
+    margin-right: 20px;
+  }
+}/*# sourceMappingURL=styles.module.css.map */

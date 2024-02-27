@@ -1,0 +1,91 @@
+.orderItem {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 7px;
+}
+.orderItem:hover {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+.orderItem .imgWripper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.orderItem .imgWripper .img {
+  max-width: 280px;
+  max-height: 150px;
+}
+.orderItem .imgWripper .img:hover {
+  cursor: pointer;
+}
+.orderItem .wripper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
+}
+.orderItem .wripper .title {
+  max-width: 480px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+.orderItem .wripper .title:hover {
+  cursor: pointer;
+}
+.orderItem .wripper .qantity {
+  margin-bottom: 0;
+  font-weight: 500;
+}
+.orderItem .wripper .description {
+  max-width: 200px;
+}
+.orderItem .wripper .price {
+  margin-right: 10px;
+  margin-left: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1677ff;
+}
+.orderItem .iconBinContainer {
+  position: absolute;
+  top: 0px;
+  right: -5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  fill: #1677ff;
+}
+.orderItem .iconBinContainer:hover {
+  cursor: pointer;
+  fill: #dd1818;
+}
+.orderItem .iconBinContainer .iconBin {
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .orderItem {
+    max-width: 610px;
+  }
+  .orderItem .title {
+    min-width: 280px;
+  }
+}/*# sourceMappingURL=styles.module.css.map */

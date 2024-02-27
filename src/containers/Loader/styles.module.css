@@ -1,0 +1,10 @@
+.loader {
+  display: block;
+  margin-left: 50%;
+  margin-top: 20%;
+}
+
+.loadingText {
+  display: inline-block;
+  color: #1677ff;
+}/*# sourceMappingURL=styles.module.css.map */

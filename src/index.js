@@ -9,7 +9,6 @@ import './index.css'
 import './sourses/styles/styles.scss'
 
 import 'react-toastify/dist/ReactToastify.css'
-
 import "yet-another-react-lightbox/dist/styles.css";
 
 

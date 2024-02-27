@@ -1,0 +1,17 @@
+.li {
+  display: block;
+  max-width: 100px;
+  height: 100px;
+}
+.li .img {
+  align-self: center;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+.li .img:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=styles.module.css.map */

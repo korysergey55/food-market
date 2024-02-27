@@ -1,0 +1,13 @@
+.container .showButton {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 10px 40px 10px;
+  gap: 20px;
+}/*# sourceMappingURL=styles.module.css.map */

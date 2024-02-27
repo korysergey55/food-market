@@ -1,0 +1,47 @@
+.contactForm {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 7px;
+  border: 1px solid #f0f0f0;
+}
+.contactForm .title {
+  font-size: 35px;
+  font-weight: 550;
+  line-height: 75px;
+  text-align: center;
+  color: #252932;
+}
+
+.input {
+  max-width: 316px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.textarea {
+  width: 800px;
+  height: 181px;
+  margin-bottom: 40px;
+  font-size: 18px;
+  line-height: 28px;
+  resize: none;
+  color: #6c6c6c;
+}
+
+.button {
+  width: 175px;
+  height: 40px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.inputWripper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}/*# sourceMappingURL=styles.module.css.map */

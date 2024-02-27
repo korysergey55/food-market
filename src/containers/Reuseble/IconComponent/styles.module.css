@@ -1,0 +1,16 @@
+.icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+.icon:hover {
+  fill: rgb(239, 239, 239);
+}
+
+.cart {
+  display: block;
+  margin: 0;
+  width: 30px;
+  height: 30px;
+  fill: rgb(252, 246, 246);
+}/*# sourceMappingURL=styles.module.css.map */

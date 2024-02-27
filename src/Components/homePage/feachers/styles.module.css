@@ -1,0 +1,106 @@
+.container {
+  display: block;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.container .list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container .list .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 300px;
+  height: 284px;
+  margin-right: 0;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #000000;
+  background-image: linear-gradient(10deg, #a0ded4 0%, #90ddd8 100%);
+}
+.container .list .item.orange {
+  background-image: linear-gradient(-84deg, #f48214 0%, #fb9723 100%);
+}
+.container .list .item.green {
+  background-image: linear-gradient(-84deg, #9fcb22 0%, #b0e223 100%);
+}
+.container .list .item:hover {
+  cursor: pointer;
+}
+.container .list .item .title {
+  margin-bottom: 0;
+  font-family: Jost;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 37px;
+  text-align: left;
+  color: #ffffff;
+}
+.container .list .item .btn {
+  margin-top: 42px;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: none;
+  background-color: transparent;
+  color: #ffffff;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.container .list .item .btn:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+.container .list .item .btn:hover .btn_icon {
+  opacity: 0.7;
+}
+.container .list .item .btn_icon {
+  display: inline-block;
+  margin-left: 10px;
+  color: white;
+  padding-top: 3px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.container .list .item .img {
+  align-self: flex-end;
+  width: 150px;
+}
+
+@media screen and (min-width: 768px) {
+  .container .list .item .title {
+    font-size: 28px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1600px;
+  }
+  .container .list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+  }
+  .container .list .item {
+    width: 350px;
+    margin-bottom: 0;
+    margin-right: 30px;
+    padding: 20px 10px;
+    border-radius: 7px;
+  }
+  .container .list .item .title {
+    max-width: 200px;
+    margin-left: 20px;
+  }
+  .container .list .item .btn {
+    margin-left: 20px;
+  }
+  .container .list .item .img {
+    align-self: flex-end;
+    margin-bottom: 10px;
+  }
+}/*# sourceMappingURL=styles.module.css.map */

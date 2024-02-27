@@ -1,0 +1,75 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.container .title {
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+  color: #1677ff;
+}
+.container .list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  padding: 20px 0;
+  border-bottom: 2px solid #1677ff;
+}
+.container .totalContainer {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 30px 0;
+}
+.container .totalContainer .title {
+  margin-bottom: 0;
+  margin-right: 10px;
+  font-size: 25px;
+  font-weight: 700;
+  color: #1677ff;
+}
+.container .totalContainer .totalPrice {
+  min-width: 105px;
+  height: 40px;
+  margin-bottom: 0;
+  margin-right: 5px;
+  padding: 5px 15px;
+  font-weight: 500;
+  color: white;
+  border-radius: 7px 0 0 7px;
+  background-color: #ff843d;
+}
+.container .totalContainer .orderButton {
+  min-width: 170px;
+  height: 40px;
+  padding: 5px 15px;
+  margin-right: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 0 7px 7px 0;
+  background-color: #32c220;
+  color: white;
+}
+.container .totalContainer .orderButton:hover {
+  opacity: 0.75;
+}
+.container .totalContainer .remuveButton {
+  min-width: 130px;
+  margin-top: 0;
+  background-color: rgb(248, 57, 57);
+  color: white;
+}
+.container .titleEmpty {
+  margin-bottom: 50px;
+  margin-right: 10px;
+  font-size: 25px;
+  font-weight: 700;
+  color: #1677ff;
+}/*# sourceMappingURL=styles.module.css.map */

@@ -1,0 +1,63 @@
+.contactPage {
+  padding-top: 10px;
+  background-color: #e7e7e7;
+}
+.contactPage .container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  padding-bottom: 0;
+  border-radius: 7px;
+}
+.contactPage .container .title {
+  margin-bottom: 0;
+  font-size: 35px;
+  text-align: center;
+  font-weight: 650;
+  text-shadow: transperent;
+  color: #1677ff;
+  color: #191a1b;
+}
+.contactPage .container .wripper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  margin: 15px 0;
+}
+.contactPage .container .wripper .map {
+  width: 100%;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  border-radius: 7px;
+  background-color: #f6fafb;
+  background-image: url(../../sourses/images/contactPage/Map.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media screen and (min-width: 768px) {
+  .contactPage {
+    padding-top: 10px;
+  }
+  .contactPage .container .title {
+    font-size: 35px;
+    text-align: center;
+    font-weight: 650;
+    text-shadow: transperent;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .contactPage {
+    padding-top: 20px;
+  }
+  .contactPage .container {
+    max-width: 1600px;
+  }
+  .contactPage .container .wripper {
+    flex-direction: row;
+  }
+  .contactPage .container .wripper .map {
+    max-width: 700px;
+  }
+}/*# sourceMappingURL=styles.module.css.map */
