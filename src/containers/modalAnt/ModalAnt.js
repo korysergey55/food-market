@@ -15,7 +15,7 @@ const ModalAnt = observer(({ title, visible, children, width }) => {
   }
   const handleCancel = () => {
     AuthStore.toggleAntModalAction()
-    history.push('/')
+    history.push('/home')
     AuthStore.resetForgotPasswordAction()
   }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch, useRouteMatch } from "react-router-dom";
 import { categoryRoutesArr } from "./categoryRoutesArr";
-import { v4 as uuidv4 } from 'uuid';
+
 
 const CategoryRouts = () => {
   const match = useRouteMatch();

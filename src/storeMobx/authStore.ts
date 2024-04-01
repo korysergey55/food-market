@@ -1,22 +1,9 @@
-import {
-  makeAutoObservable,
-  observable,
-  action,
-  reaction,
-  toJS,
-  configure,
-  computed,
-  runInAction,
-} from 'mobx'
+import { makeAutoObservable, observable, action, reaction, toJS } from 'mobx'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
-const baseURL = 'https://online-market-8bacd-default-rtdb.firebaseio.com/'
-
 class AuthStore {
-  @observable token: any = localStorage.getItem('token')
-    ? localStorage.getItem('token')
-    : null
+  @observable token: any = localStorage.getItem('token') ? localStorage.getItem('token') : null
   @observable user: any = null
   @observable registUser: any = null
   @observable modal: boolean = false
@@ -68,10 +55,7 @@ class AuthStore {
   // API
   @action setSubscribeOperationAPI = async (email: string) => {
     try {
-      const response = await axios.post(
-        baseURL + `subscribe/.json`,
-        JSON.stringify(email)
-      )
+      const response = await axios.post(process.env.REACT_APP_BASE_URL + `subscribe/.json`, JSON.stringify(email))
       if (response && response.status === 200) {
         toast.success('Form was successfuly sent!', {
           theme: 'colored',

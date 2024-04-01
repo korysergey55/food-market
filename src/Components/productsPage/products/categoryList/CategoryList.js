@@ -17,6 +17,7 @@ const CategoryList = observer(() => {
         {ProductsStore.category?.map((item, index) => (
           <Card
             className={styles.item}
+            key={index}
             hoverable
             // style={{ width: 300, height: 360 }}
             onClick={() => history.push(item.route)}
@@ -24,11 +25,7 @@ const CategoryList = observer(() => {
               <img
                 className={styles.img}
                 alt="product category"
-                src={
-                  item.img
-                    ? item.img
-                    : 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
-                }
+                src={item.img ? item.img : 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'}
               />
             }
           >

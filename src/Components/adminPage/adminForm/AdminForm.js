@@ -83,7 +83,7 @@ const AdminForm = observer(() => {
         reader.readAsDataURL(newFileList?.[0]?.originFileObj);
         reader.onload = () => resolve(reader.result);
       });
-
+      console.log(src)
       setState((prev) => ({
         ...prev, image: src
       }))

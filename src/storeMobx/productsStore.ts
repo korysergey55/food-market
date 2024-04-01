@@ -11,7 +11,6 @@ import { packingJSON } from '../sourses/dataProduct/packing'
 import { IcategoryJSON } from '../models/index'
 import { IProduct } from '../models/index'
 
-const baseURL = 'https://food-store-95e48-default-rtdb.europe-west1.firebasedatabase.app/'
 
 class ProductsStore {
   @observable products: IProduct[] = []
@@ -197,7 +196,7 @@ class ProductsStore {
   //API
   @action getAllProductsAPI = async () => {
     try {
-      const response = await axios.get(baseURL + `products/.json`)
+      const response = await axios.get(process.env.REACT_APP_BASE_URL + `products/.json`)
       if (!response || response.statusText !== 'OK') {
         throw new Error()
       }
@@ -218,7 +217,7 @@ class ProductsStore {
   @action setAllProductsAPI = async (products: any) => {
     try {
       await products.forEach((product: any) => {
-        const response = axios.post(baseURL + `products/.json`, product)
+        const response = axios.post(process.env.REACT_APP_BASE_URL + `products/.json`, product)
         return response
       })
     } catch (error) {
@@ -228,7 +227,7 @@ class ProductsStore {
 
   @action createProductAPI = async (newProduct: any) => {
     try {
-      const response = await axios.post(baseURL + `products/.json`, newProduct)
+      const response = await axios.post(process.env.REACT_APP_BASE_URL + `products/.json`, newProduct)
       if (response && response.status === 200) {
         toast.success('New product was added in the Database!', {
           theme: 'colored',
@@ -245,7 +244,7 @@ class ProductsStore {
 
   @action editProductAPI = async (product: any, id: string) => {
     try {
-      const response = await axios.patch(baseURL + `products/${id}.json`, product)
+      const response = await axios.patch(process.env.REACT_APP_BASE_URL + `products/${id}.json`, product)
       if (response && response.status === 200) {
         toast.success('Product was edited in the Database!', {
           theme: 'colored',
@@ -260,7 +259,7 @@ class ProductsStore {
   @action addProductImageAPI = async (id: any) => {
     try {
       const response = await axios.patch(
-        baseURL + `products/${id}.json`,
+        process.env.REACT_APP_BASE_URL + `products/${id}.json`,
         { image: this.productImage },
         {
           headers: { 'Content-Type': 'multipart/form-data' },
@@ -274,7 +273,7 @@ class ProductsStore {
 
   @action deleteProductAPI = async (id: string) => {
     try {
-      const response = await axios.delete(baseURL + `products/${id}.json`)
+      const response = await axios.delete(process.env.REACT_APP_BASE_URL + `products/${id}.json`)
       if (response && response.status === 200) {
         toast.success('Product was successfully delated from Database!', {
           theme: 'colored',
@@ -288,7 +287,7 @@ class ProductsStore {
   //API-Order
   @action setOrderDataAPI = async (newOrder: any) => {
     try {
-      const response = await axios.post(baseURL + `order/.json`, newOrder)
+      const response = await axios.post(process.env.REACT_APP_BASE_URL + `order/.json`, newOrder)
       if (response && response.status === 200) {
         this.resetCartProducts()
         localStorage.setItem('cart', JSON.stringify(''))
